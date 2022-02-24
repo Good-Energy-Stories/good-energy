@@ -10,7 +10,7 @@ import { AnimatePresence } from 'framer-motion';
 import { isBrowser } from '../utils/isBrowser';
 import { useRouter } from 'next/router';
 import { signature } from '../utils/signature';
-import { withPasswordProtect } from './withPasswordProtect';
+import { withPasswordProtect } from '../lib/withPasswordProtect';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
 
