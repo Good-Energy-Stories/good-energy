@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 :root {
   /* Brand colors */
@@ -23,13 +23,13 @@
 
   --theme-pageBG: #f4f4f0;
   --theme-pageText: #000000;
-  --font-family-sans-serif: "Helvetica Neue";
+  --font-family-sans-serif: 'Helvetica Neue';
   --font-size-base: 18px;
 }
 
 /* correctly style active state on dark navbars */
 
-[data-tone="navbar"][class*="selected"] > span {
+[data-tone='navbar'][class*='selected'] > span {
   background: var(--brand-secondary--inverted) !important;
   color: var(--brand-secondary) !important;
 }
@@ -46,12 +46,12 @@ button:not([disabled]) {
   cursor: e-resize !important;
 }
 
-[class*="drag"] button {
+[class*='drag'] button {
   cursor: grab !important;
 }
 
-li[class*="moving"],
-li[class*="moving"] * {
+li[class*='moving'],
+li[class*='moving'] * {
   pointer-events: all !important;
   cursor: grabbing !important;
 }
@@ -63,7 +63,7 @@ li[class*="moving"] * {
 }
 
 .pt-editable * {
-  font-family: "Inter", "Helvetica Neue", sans-serif !important;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif !important;
 }
 
 .btn {

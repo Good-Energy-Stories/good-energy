@@ -1,10 +1,10 @@
 @font-face {
-	font-family: "Pressura";
-	src: url("/fonts/GT_Pressura/GT_Pressura-Mono-Regular.woff");
-	font-style: normal;
-	font-weight: 400;
+  font-family: 'Pressura';
+  src: url('/fonts/GT_Pressura/GT_Pressura-Mono-Regular.woff');
+  font-style: normal;
+  font-weight: 400;
 }
 @font-face {
-	font-family: "FlexaVar";
-	src: url("/fonts/GT_Flexa/GT Flexa Mono VAR.woff2");
+  font-family: 'FlexaVar';
+  src: url('/fonts/GT_Flexa/GT Flexa Mono VAR.woff2');
 }

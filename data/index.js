@@ -1,6 +1,6 @@
 export {
-	episodePageQuery,
-	tagQuery,
-	guestQuery,
-	pageInfoQuery,
-} from "./queries";
+  episodePageQuery,
+  tagQuery,
+  guestQuery,
+  pageInfoQuery,
+} from './queries';

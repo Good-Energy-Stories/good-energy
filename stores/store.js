@@ -1,37 +1,46 @@
-import { isServer } from "../utils/isServer";
-import UIStore from "./UIStore";
-import DataStore from "./DataStore";
-import React from "react";
+import { isServer } from '../utils/isServer';
+import UIStore from './UIStore';
+import DataStore from './DataStore';
+import React from 'react';
+import { enableStaticRendering } from 'mobx-react';
+import { useMemo } from 'react';
+import {
+  action,
+  observable,
+  computed,
+  runInAction,
+  makeObservable,
+} from 'mobx';
 
-let clientSideStores;
+// eslint-disable-next-line react-hooks/rules-of-hooks
+enableStaticRendering(typeof window === 'undefined');
 
-export function getStores(root) {
-  if (isServer) {
-    return {
-      uiStore: new UIStore(),
-      dataStore: new DataStore(),
-    };
+let store;
+
+class Store {
+  constructor() {
+    this.uiStore = new UIStore(this);
+    this.dataStore = new DataStore(this);
   }
-  if (!clientSideStores) {
-    clientSideStores = {
-      uiStore: new UIStore(root.uiStore),
-      dataStore: new DataStore(root.dataStore),
-    };
-  }
-
-  return clientSideStores;
 }
 
-const StoreContext = React.createContext();
+function initializeStore(initialData = null) {
+  const _store = store ?? new Store();
 
-export function StoreProvider(props) {
-  return (
-    <StoreContext.Provider value={props.value}>
-      {props.children}
-    </StoreContext.Provider>
-  );
+  // If your page has Next.js data fetching methods that use a Mobx store, it will
+  // get hydrated here, check `pages/ssg.js` and `pages/ssr.js` for more details
+  if (initialData) {
+    _store.hydrate(initialData);
+  }
+  // For SSG and SSR always create a new store
+  if (typeof window === 'undefined') return _store;
+  // Create the store once in the client
+  if (!store) store = _store;
+
+  return _store;
 }
 
-export function useMobxStores() {
-  return React.useContext(StoreContext);
+export function useStore(initialState) {
+  const store = useMemo(() => initializeStore(initialState), [initialState]);
+  return store;
 }
