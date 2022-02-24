@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typescript": "npx tsc",
     "prepare": "husky install"
   },
   "lint-staged": {

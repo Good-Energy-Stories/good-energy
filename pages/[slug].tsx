@@ -6,7 +6,6 @@ const Project = ({}) => {
   return (
     <>
       <Meta />
-      <Layout>{}</Layout>
     </>
   );
 };

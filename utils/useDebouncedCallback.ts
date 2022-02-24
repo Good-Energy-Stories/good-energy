@@ -9,7 +9,7 @@ import { useRef, useCallback } from 'react';
 const useDebouncedCallback = (func, wait) => {
   // Use a ref to store the timeout between renders
   // and prevent changes to it from causing re-renders
-  const timeout = useRef();
+  const timeout = useRef(null);
 
   return useCallback(
     (...args) => {
