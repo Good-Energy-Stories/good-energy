@@ -16,6 +16,12 @@
     "experimentalDecorators": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.js",
+    "pages/api/logoutts"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,17 @@
 :root {
+  --white: #fff;
   --black: #131314;
-  --navy: #187bad;
+  --blueThree: #187bad;
   --pink: #f47cf7;
   --greyBlue: #b9d3de;
   --blueFive: #eaf2f5;
   --blueFour: #2fbdf4;
+
+  --flexa: FlexaVar, Pressura, Helvetica Neue, sans-serif;
+  --flex-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
+  --pressura: Pressura, Helvetica Neue, sans-serif;
+
+  --grid-col: repeat(4, minmax(0, 1fr));
 }
 
 html,
@@ -17,11 +24,9 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fff;
+  color: var(--black);
   font-size: 20px;
   line-height: 24px;
-  text-align: justify;
-  text-justify: inter-word;
   hyphens: auto;
   font-family: Pressura, Helvetica Neue, sans-serif;
   background-color: var(--blueFive);
@@ -70,4 +75,9 @@ input:focus {
 }
 *:focus {
   outline: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--grid-col);
 }

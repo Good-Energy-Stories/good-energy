@@ -5,7 +5,16 @@ import Link from 'next/link';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import { Masthead, StickyNavBar, Meta } from '../components';
+import {
+  Layout,
+  Masthead,
+  StickyNavBar,
+  Meta,
+  Quote,
+  MegaQuote,
+  Tag,
+  ArticleLinkSmall,
+} from '../components';
 
 const Root = (props) => {
   const store = useStore();
@@ -34,6 +43,29 @@ const Root = (props) => {
       <Meta />
       <Masthead />
       <StickyNavBar />
+      <Layout key="home">
+        <Quote
+          quote={'This is a big quote it goes something like this'}
+          attribution={'This is the attribution'}
+        />
+        <MegaQuote
+          quote={
+            "Hope locates itself in the premises that we don't know what will happen and that in the spaciousness of uncertainty is room to act."
+          }
+          attribution={'Rebecca Solnit'}
+        />
+        <div>
+          <Tag tag={'tips and tricks'} />
+          <Tag tag={'tips and tricks'} />
+        </div>
+        <ArticleLinkSmall
+          imageSrc={'/smokestacks.png'}
+          title="Our possible futures: Two worlds"
+          lede="The climate crisis directly taps into people's suffering and joy--all the things a good story is made of."
+          href="/here"
+          tags={['tips and tricks', 'tips and tricks', 'tips and tricks']}
+        />
+      </Layout>
       <button onClick={clearCookie}>Logout</button>
     </>
   );

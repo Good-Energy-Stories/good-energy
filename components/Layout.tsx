@@ -12,6 +12,8 @@ const { className, styles } = css.resolve`
   div {
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: var(--grid-col);
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -33,7 +35,7 @@ const variants = {
 };
 
 const Layout = observer(
-  ({ children, key }: { children: ReactChild; key: Key }) => {
+  ({ children, key }: { children: ReactChild[]; key: Key }) => {
     return (
       <motion.div
         key={key}

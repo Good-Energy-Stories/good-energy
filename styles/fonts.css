@@ -6,5 +6,88 @@
 }
 @font-face {
   font-family: 'FlexaVar';
+  src: url('/fonts/GT_Flexa/GT Flexa VAR.woff2');
+}
+
+@font-face {
+  font-family: 'FlexaVarMono';
   src: url('/fonts/GT_Flexa/GT Flexa Mono VAR.woff2');
+}
+
+.tease-quote-big {
+  font-size: 64px;
+  line-height: 62px;
+  font-family: var(--flexa);
+  font-variation-settings: 'wght' 800, 'wdth' 40;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.quote-attribution {
+  font-family: var(--flexa-mono);
+  font-variation-settings: 'wght' 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: var(--blueThree);
+}
+
+.mega-quote {
+  font-family: var(--flexa);
+  font-size: 96px;
+  font-style: normal;
+  font-variation-settings: 'wght' 800, 'wdth' 40;
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.mega-quote-attribution {
+  font-family: var(--flexa-mono);
+  font-variation-settings: 'wght' 400;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--blueFour);
+  text-transform: uppercase;
+}
+
+.tag {
+  font-family: var(--flexa-mono);
+  font-variation-settings: 'wght' 500;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--blueThree);
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--flexa);
+  font-size: 36px;
+  font-style: normal;
+  font-variation-settings: 'wght' 800;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.tease-lede-small {
+  font-family: var(--flexa);
+  font-size: 18px;
+  font-style: normal;
+  font-variation-settings: 'wght' 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
 }

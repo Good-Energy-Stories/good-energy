@@ -45,6 +45,7 @@ const NavButtons = () => {
       <style jsx>{`
         div {
           display: flex;
+          grid-column: span 3;
         }
 
         @media only screen and (max-width: 768px) {
@@ -68,6 +69,7 @@ const SearchBar = () => {
             padding: 0.625rem 1.25rem;
             display: flex;
             align-items: center;
+            grid-column: span 1;
           }
           input {
             margin-left: 0.625rem;
@@ -94,10 +96,12 @@ const StickyNavBar = (props) => {
           div {
             border-top: 5px solid var(--black);
             border-bottom: 5px solid var(--black);
-            display: flex;
+            display: grid;
+            grid-template-columns: var(--grid-col);
             justify-content: space-between;
             position: sticky;
             top: 0;
+            z-index: 100;
           }
 
           @media only screen and (max-width: 768px) {
