@@ -38,7 +38,6 @@ button {
   padding: 0.625rem;
   margin: 0;
   text-decoration: none;
-  background: none;
   color: var(--black);
   font-family: FlexaVar, Pressura, Helvetica Neue, sans-serif;
   font-variation-settings: 'wght' 604;

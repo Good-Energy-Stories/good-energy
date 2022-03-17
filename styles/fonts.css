@@ -81,6 +81,18 @@ h3 {
   text-transform: uppercase;
 }
 
+h4 {
+  font-family: var(--flexa);
+  font-size: 36px;
+  font-style: normal;
+  font-variation-settings: 'wght' 800, 'wdth' 50;
+  line-height: 34px;
+  letter-spacing: 0em;
+
+  text-align: left;
+  text-transform: uppercase;
+}
+
 .tease-lede-small {
   font-family: var(--flexa);
   font-size: 18px;
