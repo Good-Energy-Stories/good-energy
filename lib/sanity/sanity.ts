@@ -1,6 +1,6 @@
 import sanityClient from '@sanity/client';
 export default sanityClient({
-  projectId: process.env.SANITY_PROJECT_ID,
+  projectId: 'jkhcjumj',
   dataset: process.env.SANITY_PROJECT_DATASET,
   useCdn: true,
   apiVersion: '2021-08-31',
