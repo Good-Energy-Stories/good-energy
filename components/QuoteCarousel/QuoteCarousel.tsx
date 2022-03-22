@@ -34,9 +34,23 @@ const variants = {
   },
 };
 
-const QuoteCarousel = ({ quotes }: { quotes: QuoteType[] }) => {
+interface QuoteCollectionData {
+  quotes: QuoteType[];
+}
+const QuoteCarousel = ({
+  data,
+  index,
+}: {
+  data: QuoteCollectionData;
+  index: number;
+}) => {
+  const { quotes } = data;
+
+  console.log('QuoteCarousel: ', data);
+
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
 
+  if (!quotes) return null;
   const { quote, attribution } = quotes[activeQuoteIndex];
 
   return (

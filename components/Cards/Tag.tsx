@@ -7,19 +7,12 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import Link from 'next/link';
-import { Search, FooterLink, Links, Copyright, ContactForm } from './';
 
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
 
-    width: 100%;
-    background-color: var(--black);
-    color: var(--white);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    padding: 1.25rem 2.5rem;
+    max-width: 765px;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -40,40 +33,7 @@ const variants = {
   },
 };
 
-const Left = () => {
-  return (
-    <div>
-      <Links />
-      <Search />
-      <style jsx>{`
-        div {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
-      `}</style>
-    </div>
-  );
-};
-
-const Right = () => {
-  return (
-    <div>
-      <ContactForm />
-      <Copyright />
-      <style jsx>{`
-        div {
-          grid-column-start: 3;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-      `}</style>
-    </div>
-  );
-};
-
-const Footer = () => {
+const Tag = ({ tag }: { tag: String }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -83,11 +43,28 @@ const Footer = () => {
       variants={variants}
       className={className}
     >
-      <Left />
-      <Right />
+      <div className="layout tag">{tag}</div>
+
+      <style jsx>{`
+        .tag {
+          border: 1px solid var(--blueThree);
+          margin-right: 0.3125rem;
+          margin-bottom: 0.3125rem;
+        }
+        .layout {
+          padding: 0.3125rem 0.625rem;
+        }
+        .quote {
+          margin-bottom: 0.625rem;
+          position: relative;
+        }
+        .attribution {
+          display: block;
+        }
+      `}</style>
       {styles}
     </motion.div>
   );
 };
 
-export default Footer;
+export default Tag;

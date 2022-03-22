@@ -13,7 +13,6 @@ import {
   QuoteCarousel,
   ActionMegaQuote,
   Tag,
-  ArticleLinkSmall,
 } from '../components';
 import { queries } from '../data';
 import { PageContent } from '../components/PlaybookHome';
@@ -51,42 +50,6 @@ const Root = (props) => {
         {props.pageData.content.map((c, i) => (
           <PageContent key={i} index={i} content={c} />
         ))}
-
-        <QuoteCarousel
-          quotes={[
-            {
-              quote: 'This is a big quote it goes something like this',
-              attribution: 'This is the attribution',
-            },
-            {
-              quote: 'This is a big quote it goes something like this',
-              attribution: 'This is the attribution',
-            },
-            {
-              quote: 'This is a big quote it goes something like this',
-              attribution: 'This is the attribution',
-            },
-            {
-              quote: 'This is a big quote it goes something like this',
-              attribution: 'This is the attribution',
-            },
-          ]}
-        />
-
-        <ArticleLinkSmall
-          imageSrc={'/smokestacks.png'}
-          title="Our possible futures: Two worlds"
-          lede="The climate crisis directly taps into people's suffering and joy--all the things a good story is made of."
-          href="/here"
-          tags={['tips and tricks', 'tips and tricks', 'tips and tricks']}
-        />
-        <ArticleLinkSmall
-          imageSrc={'/smokestacks.png'}
-          title="Our possible futures: Two worlds"
-          lede="The climate crisis directly taps into people's suffering and joy--all the things a good story is made of."
-          href="/here"
-          tags={['tips and tricks', 'tips and tricks', 'tips and tricks']}
-        />
       </Layout>
       <Footer />
       <button onClick={clearCookie}>Logout</button>

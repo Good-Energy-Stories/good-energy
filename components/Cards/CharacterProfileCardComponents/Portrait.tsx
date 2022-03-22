@@ -7,6 +7,10 @@ import { ReactChild, Key } from 'react';
 
 const { className, styles } = css.resolve`
   div {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    overflow: hidden;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -23,7 +27,7 @@ const variants = {
   },
 };
 
-const Banner = ({ imageSrc }: { imageSrc: string }) => {
+const Portrait = ({ src }: { src: string }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -33,11 +37,12 @@ const Banner = ({ imageSrc }: { imageSrc: string }) => {
       variants={variants}
       className={className}
     >
-      <img src={imageSrc} />
+      <img src={src} />
 
       <style jsx>{`
         img {
           max-width: 100%;
+          transform: translateY(-10%);
         }
       `}</style>
       {styles}
@@ -45,4 +50,4 @@ const Banner = ({ imageSrc }: { imageSrc: string }) => {
   );
 };
 
-export default Banner;
+export default Portrait;

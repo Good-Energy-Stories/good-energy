@@ -7,9 +7,9 @@ const MegaQuote = dynamic(() => import('./MegaQuote'));
 
 export const PageContent = ({ index, content }) => {
   const type = content._type;
-  console.log('yooo:', content);
+
   switch (type) {
-    case 'threeColumnLayout':
+    case 'playbookThreeColumn':
       return <ThreeColumnLayout index={index} data={content} />;
     case 'emailCapture':
       return <EmailCapture index={index} data={content} />;

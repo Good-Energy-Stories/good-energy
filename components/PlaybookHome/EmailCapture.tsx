@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Banner, Title, Lede, Tags } from '../ArticleLink';
 import Link from 'next/link';
 function getStyles(color) {
   return css.resolve`
@@ -15,7 +14,7 @@ function getStyles(color) {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      margin-top: 1.25rem;
+
       grid-column: span 4;
       background-color: var(--${color});
       position: relative;

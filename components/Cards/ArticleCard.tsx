@@ -1,19 +1,21 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { sanity } from '../lib/sanity';
+import { sanity } from '../../lib/sanity';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../stores/store';
+import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
+import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Banner, Title, Lede, Tags } from './ArticleLink';
+import { Banner, Title, Lede, Tags } from './ArticleCardComponents';
 import Link from 'next/link';
-
+import imageUrlFor from '../../utils/imageUrlFor';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
-    margin-top: 1.25rem;
+
+    width: 100%;
+    margin-bottom: 1.25rem;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -34,20 +36,24 @@ const variants = {
   },
 };
 
-const ArticleLinkSmall = ({
-  imageSrc,
-  title,
-  lede,
-  tags,
-  href,
-}: {
-  imageSrc?: string;
+interface ImageAsset {}
+
+interface ArticleCardData {
   title: string;
-  lede?: string;
-  tags?: string[];
-  href: string;
+  lede: string;
+  tags: string[];
+  slug: string;
+  heroImageUrl: string;
+}
+const ArticleCard = ({
+  data,
+  index,
+}: {
+  data: ArticleCardData;
+  index: number;
 }) => {
-  if (!title || !href) return null;
+  const { title, lede, tags, slug, heroImageUrl } = data;
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -57,14 +63,16 @@ const ArticleLinkSmall = ({
       variants={variants}
       className={className}
     >
-      <Link href={href}>
-        <div className="article-link">
-          {imageSrc && <Banner imageSrc={imageSrc} />}
-          {!imageSrc && <div className="line" />}
-          <Title title={title} />
-          {lede && <Lede lede={lede} />}
-          {tags && <Tags tags={tags} />}
-        </div>
+      <Link href={`/${slug}`}>
+        <a>
+          <div className="article-link">
+            {heroImageUrl && <Banner src={heroImageUrl} />}
+            {!heroImageUrl && <div className="line" />}
+            <Title title={title} />
+            {lede && <Lede lede={lede} />}
+            {tags && <Tags tags={tags} />}
+          </div>
+        </a>
       </Link>
 
       <style jsx>{`
@@ -81,4 +89,4 @@ const ArticleLinkSmall = ({
   );
 };
 
-export default ArticleLinkSmall;
+export default ArticleCard;

@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Tag } from '../';
 
 const { className, styles } = css.resolve`
   div {
@@ -24,7 +23,7 @@ const variants = {
   },
 };
 
-const Tags = ({ tags }: { tags: string[] }) => {
+const Banner = ({ src }: { src: string }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -34,12 +33,11 @@ const Tags = ({ tags }: { tags: string[] }) => {
       variants={variants}
       className={className}
     >
-      {tags.map((t, i) => (
-        <Tag key={`${t}${i}`} tag={t} />
-      ))}
+      <img src={src} />
 
       <style jsx>{`
-        .open-quote {
+        img {
+          max-width: 100%;
         }
       `}</style>
       {styles}
@@ -47,4 +45,4 @@ const Tags = ({ tags }: { tags: string[] }) => {
   );
 };
 
-export default Tags;
+export default Banner;
