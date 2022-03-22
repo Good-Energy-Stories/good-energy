@@ -9,9 +9,9 @@ import css from 'styled-jsx/css';
 
 const { className, styles } = css.resolve`
   div {
-    height: 10px;
-    width: 10px;
-    border-radius: 5px;
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
     border: 1px solid var(--blueThree);
     margin: 0 3px;
   }
@@ -22,9 +22,11 @@ const { className, styles } = css.resolve`
 const variants = {
   active: {
     backgroundColor: 'var(--blueThree)',
+    transition: { duration: 1 },
   },
-  out: {
+  inactive: {
     backgroundColor: 'transparent',
+    transition: { duration: 1 },
   },
 };
 
@@ -37,6 +39,7 @@ const IndicatorDot = ({
 }) => {
   return (
     <motion.div
+      whileHover={{ opacity: 0.8 }}
       className={className}
       animate={active ? 'active' : 'inactive'}
       variants={variants}

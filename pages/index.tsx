@@ -12,11 +12,13 @@ import {
   Meta,
   QuoteCarousel,
   MegaQuote,
+  ActionMegaQuote,
   Tag,
   ArticleLinkSmall,
   EmailCapture,
-  Footer,
 } from '../components';
+
+import { Footer } from '../components/Footer';
 
 const Root = (props) => {
   const store = useStore();
@@ -72,10 +74,7 @@ const Root = (props) => {
           }
           attribution={'Rebecca Solnit'}
         />
-        <div>
-          <Tag tag={'tips and tricks'} />
-          <Tag tag={'tips and tricks'} />
-        </div>
+
         <ArticleLinkSmall
           imageSrc={'/smokestacks.png'}
           title="Our possible futures: Two worlds"
@@ -91,6 +90,13 @@ const Root = (props) => {
           tags={['tips and tricks', 'tips and tricks', 'tips and tricks']}
         />
         <EmailCapture />
+        <ActionMegaQuote
+          quote={
+            "Hope locates itself in the premises that we don't know what will happen and that in the spaciousness of uncertainty is room to act."
+          }
+          actionLabel={'About Good Energy'}
+          href={'/'}
+        />
       </Layout>
       <Footer />
       <button onClick={clearCookie}>Logout</button>
