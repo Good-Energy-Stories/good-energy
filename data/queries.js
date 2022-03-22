@@ -7,8 +7,15 @@ export const playbookSections = `
   },
   _type == 'emailCapture' => {
     _type,
+    title,
+    subtitle,
+    backgroundColor
   },
   _type == 'playbookQuote' => {
     _type,
+    quote,
+    attribution,
+    backgroundColor,
+    shouldLinkToAboutPage
   }
 `;

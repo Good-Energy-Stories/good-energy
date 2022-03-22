@@ -1,36 +1,37 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { sanity } from '../lib/sanity';
+import { sanity } from '../../lib/sanity';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../stores/store';
+import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
+import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Banner, Title, Lede, Tags } from './ArticleLink';
+import { Banner, Title, Lede, Tags } from '../ArticleLink';
 import Link from 'next/link';
-
-const { className, styles } = css.resolve`
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 1.25rem;
-    grid-column: span 4;
-    background-color: var(--black);
-    position: relative;
-    padding: 5rem 2.5rem;
-    border-top: 4px solid var(--blueFour);
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(color) {
+  return css.resolve`
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 1.25rem;
+      grid-column: span 4;
+      background-color: var(--${color});
+      position: relative;
+      padding: 5rem 2.5rem;
+      border-top: 4px solid var(--blueFour);
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -41,7 +42,22 @@ const variants = {
   },
 };
 
-const EmailCapture = () => {
+interface EmailCaptureData {
+  title?: string;
+  subtitle?: string;
+  backgroundColor?: string;
+}
+const EmailCapture = ({
+  data,
+  index,
+}: {
+  data: EmailCaptureData;
+  index: number;
+}) => {
+  const { title, subtitle, backgroundColor: color } = data;
+  const backgroundColor = color ?? 'black';
+  const { className, styles } = getStyles(backgroundColor);
+  const inverseColor = backgroundColor === 'black' ? 'white' : 'black';
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -52,11 +68,8 @@ const EmailCapture = () => {
       className={className}
     >
       <div className="layout">
-        <div className="title">Some kind of catchy cta</div>
-        <div className="subtitle">
-          Stay in the loop by giving us your email address, you know you want
-          to.
-        </div>
+        {title && <div className="title">{title}</div>}
+        {subtitle && <div className="subtitle">{subtitle}</div>}
         <div className="input-row">
           <input placeholder="NAME@EXAMPLE.COM" type="text" />
           <button type="button">→</button>
@@ -73,7 +86,7 @@ const EmailCapture = () => {
           line-height: 62px;
           letter-spacing: -0.02em;
           text-align: left;
-          color: var(--white);
+          color: var(--${inverseColor});
           text-transform: uppercase;
           font-variation-settings: 'wght' 700, 'wdth' 40;
 
@@ -87,7 +100,7 @@ const EmailCapture = () => {
           line-height: 27px;
           letter-spacing: 0em;
           text-align: left;
-          color: var(--white);
+          color: var(--${inverseColor});
           margin-bottom: 1.25rem;
         }
         .layout {
@@ -131,6 +144,9 @@ const EmailCapture = () => {
           font-family: var(--flexa-mono);
           font-weight: 500;
           min-width: 400px;
+          background-color: var(
+            --${backgroundColor === 'white' ? 'greyBlue' : 'white'}
+          );
         }
       `}</style>
       {styles}

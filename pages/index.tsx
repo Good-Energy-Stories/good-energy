@@ -11,14 +11,12 @@ import {
   StickyNavBar,
   Meta,
   QuoteCarousel,
-  MegaQuote,
   ActionMegaQuote,
   Tag,
   ArticleLinkSmall,
-  EmailCapture,
 } from '../components';
 import { queries } from '../data';
-
+import { PageContent } from '../components/PlaybookHome';
 import { Footer } from '../components/Footer';
 
 const Root = (props) => {
@@ -50,6 +48,10 @@ const Root = (props) => {
       <Masthead />
       <StickyNavBar />
       <Layout key="home">
+        {props.pageData.content.map((c, i) => (
+          <PageContent key={i} index={i} content={c} />
+        ))}
+
         <QuoteCarousel
           quotes={[
             {
@@ -70,12 +72,6 @@ const Root = (props) => {
             },
           ]}
         />
-        <MegaQuote
-          quote={
-            "Hope locates itself in the premises that we don't know what will happen and that in the spaciousness of uncertainty is room to act."
-          }
-          attribution={'Rebecca Solnit'}
-        />
 
         <ArticleLinkSmall
           imageSrc={'/smokestacks.png'}
@@ -90,14 +86,6 @@ const Root = (props) => {
           lede="The climate crisis directly taps into people's suffering and joy--all the things a good story is made of."
           href="/here"
           tags={['tips and tricks', 'tips and tricks', 'tips and tricks']}
-        />
-        <EmailCapture />
-        <ActionMegaQuote
-          quote={
-            "Hope locates itself in the premises that we don't know what will happen and that in the spaciousness of uncertainty is room to act."
-          }
-          actionLabel={'About Good Energy'}
-          href={'/'}
         />
       </Layout>
       <Footer />
