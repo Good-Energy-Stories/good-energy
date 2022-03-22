@@ -44,7 +44,8 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'characterProfileRelated',
+          type: 'reference',
+          to: [{ type: 'article' }, { type: 'characterProfile' }],
         },
       ],
     },

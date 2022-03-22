@@ -9,8 +9,7 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { Banner, Title, Lede, Tags } from '../ArticleLink';
 import Link from 'next/link';
-import { Search, FooterLink, Links } from './';
-import ContactForm from './ContactForm';
+import { Search, FooterLink, Links, Copyright, ContactForm } from './';
 
 const { className, styles } = css.resolve`
   div {
@@ -61,10 +60,14 @@ const Right = () => {
   return (
     <div>
       <ContactForm />
-
+      <Copyright />
       <style jsx>{`
         div {
           grid-column-start: 3;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
       `}</style>
     </div>

@@ -37,7 +37,8 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'playlistItem',
+          type: 'reference',
+          to: [{ type: 'article' }, { type: 'characterProfile' }],
         },
       ],
     },

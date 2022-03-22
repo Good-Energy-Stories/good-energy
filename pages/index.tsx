@@ -17,10 +17,12 @@ import {
   ArticleLinkSmall,
   EmailCapture,
 } from '../components';
+import { queries } from '../data';
 
 import { Footer } from '../components/Footer';
 
 const Root = (props) => {
+  console.log(props);
   const store = useStore();
   const {
     uiStore: { updateScrollPosition },
@@ -104,10 +106,20 @@ const Root = (props) => {
   );
 };
 
-export const getStaticProps = async () => {
-  return {
-    props: {},
-  };
-};
+export async function getStaticProps({ preview, previewData }) {
+  const pageData = await sanity.fetch(
+    `
+    *[_type == "playbookHome" ] {
+      "id": _id,
+      masthead,
+      content[]{
+          ${queries.playbookSections}
+      },
+    }[0]
+  `,
+  );
+  console.log(pageData);
+  return { props: { pageData } };
+}
 
 export default Root;

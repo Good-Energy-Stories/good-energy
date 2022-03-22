@@ -1,6 +1,2 @@
-export {
-  episodePageQuery,
-  tagQuery,
-  guestQuery,
-  pageInfoQuery,
-} from './queries';
+import * as queries from './queries';
+export { queries };

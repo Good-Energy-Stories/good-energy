@@ -9,16 +9,16 @@ import quote from './quote';
 import quoteCollection from './quoteCollection';
 
 import article from './article';
-import articleRelated from './articleRelated';
 
-import characterProfile from './characterProfile';
-import characterProfileRelated from './characterProfileRelated';
+import characterProfile from './character-profile';
 
 import playlist from './playlist';
-import playlistItem from './playlistItem';
 
-import playbookHome from './playbookHome';
-import playbookCard from './playbookCard';
+import playbookHome from './playbook-home';
+import playbookThreeColumn from './playbook-three-column';
+import playbookQuote from './playbook-quote';
+
+import emailCapture from './email-capture';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,14 +31,15 @@ export default createSchema({
     /* Your types here! */
     blockContent,
     article,
-    articleRelated,
+
     characterProfile,
-    characterProfileRelated,
+
     playlist,
-    playlistItem,
     playbookHome,
-    playbookCard,
+    playbookQuote,
+    playbookThreeColumn,
     quoteCollection,
     quote,
+    emailCapture,
   ]),
 });
