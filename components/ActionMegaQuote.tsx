@@ -9,6 +9,8 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import AnimatedUnderline from './AnimatedUnderline';
 import Link from 'next/link';
+import Url from 'next/link';
+
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
@@ -44,9 +46,9 @@ const Quote = ({
   actionLabel,
   href,
 }: {
-  quote: String;
-  actionLabel: String;
-  href: URL;
+  quote: string;
+  actionLabel: string;
+  href: string;
 }) => {
   return (
     <motion.div
