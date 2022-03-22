@@ -6,12 +6,12 @@
 }
 @font-face {
   font-family: 'FlexaVar';
-  src: url('/fonts/GT_Flexa/GT Flexa VAR.woff2');
+  src: url('/fonts/GT_Flexa/GT_Flexa_VAR.woff2');
 }
 
 @font-face {
   font-family: 'FlexaVarMono';
-  src: url('/fonts/GT_Flexa/GT Flexa Mono VAR.woff2');
+  src: url('/fonts/GT_Flexa/GT_Flexa_Mono_VAR.woff2');
 }
 
 .tease-quote-big {
