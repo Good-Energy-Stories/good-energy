@@ -22,6 +22,10 @@ if (isBrowser) {
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialState);
 
+  const {
+    uiStore: { updateScrollPosition },
+  } = store;
+
   const router = useRouter();
 
   useEffect(() => {
@@ -38,6 +42,13 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', updateScrollPosition);
+    return () => {
+      window.removeEventListener('scroll', updateScrollPosition);
+    };
+  }, [updateScrollPosition]);
 
   return (
     <Provider store={store}>

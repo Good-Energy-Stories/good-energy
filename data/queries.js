@@ -44,9 +44,8 @@ _type == 'quoteCollection' => {
 }
 `;
 
-export const playbookSections = `
-  _type == 'playbookThreeColumn' => {
-    _type,
+export const threeColumnLayout = `
+
     leftColumn[]->{
       ${contentReferences}
     },
@@ -55,7 +54,14 @@ export const playbookSections = `
     },
     rightColumn[]->{
       ${contentReferences}
-    },
+    }
+  
+`;
+
+export const playbookSections = `
+  _type == 'playbookThreeColumn' => {
+    _type,
+   ${threeColumnLayout}
   },
   _type == 'emailCapture' => {
     _type,

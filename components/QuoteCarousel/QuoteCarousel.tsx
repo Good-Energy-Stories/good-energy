@@ -14,6 +14,8 @@ const { className, styles } = css.resolve`
 
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.25rem;
+    width: 100%;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -45,8 +47,6 @@ const QuoteCarousel = ({
   index: number;
 }) => {
   const { quotes } = data;
-
-  console.log('QuoteCarousel: ', data);
 
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
 

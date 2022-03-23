@@ -15,16 +15,16 @@ import {
   Tag,
 } from '../components';
 import { queries } from '../data';
-import { PageContent } from '../components/PlaybookHome';
+import {
+  PageContent,
+  ThreeColumnLayout,
+  ThreeColumnLayoutStyle,
+} from '../components/PlaybookHome';
 import { Footer } from '../components/Footer';
 
-const Root = (props) => {
-  console.log(props);
-  const store = useStore();
-  const {
-    uiStore: { updateScrollPosition },
-  } = store;
-
+const Root = ({ pageData }) => {
+  const { masthead, content } = pageData;
+  console.log(pageData);
   const clearCookie = async () => {
     await fetch('/api/logout', {
       method: 'post',
@@ -34,20 +34,18 @@ const Root = (props) => {
     window.location.reload();
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', updateScrollPosition);
-    return () => {
-      window.removeEventListener('scroll', updateScrollPosition);
-    };
-  }, [updateScrollPosition]);
-
   return (
     <>
       <Meta />
       <Masthead />
       <StickyNavBar />
+
       <Layout key="home">
-        {props.pageData.content.map((c, i) => (
+        <ThreeColumnLayout
+          data={masthead}
+          style={ThreeColumnLayoutStyle.primary}
+        />
+        {content.map((c, i) => (
           <PageContent key={i} index={i} content={c} />
         ))}
       </Layout>
@@ -62,7 +60,9 @@ export async function getStaticProps({ preview, previewData }) {
     `
     *[_type == "playbookHome" ] {
       "id": _id,
-      masthead,
+      masthead{
+        ${queries.threeColumnLayout}
+      },
       content[]{
           ${queries.playbookSections}
       },

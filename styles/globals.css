@@ -8,7 +8,7 @@
   --blueFour: #2fbdf4;
 
   --flexa: FlexaVar, Pressura, Helvetica Neue, sans-serif;
-  --flex-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
+  --flexa-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
   --pressura: Pressura, Helvetica Neue, sans-serif;
 
   --grid-col: repeat(4, minmax(0, 1fr));
