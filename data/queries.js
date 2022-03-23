@@ -14,6 +14,42 @@ tags[],
 "heroImageUrl": heroImage.asset->url
 `;
 
+export const articleSection = `
+title,
+body,
+includeSpotIllustration,
+"spotIllustrationImageUrl": spotIllustrationImage.asset->url
+`;
+
+export const articleQuote = `
+quote,
+includeAttribution,
+attribution,
+`;
+
+export const articleBody = `
+_type == 'articleSection' => {
+  _type,
+  ${articleSection}
+},
+_type == 'articleQuote' => {
+  _type,
+  ${articleQuote}
+},
+`;
+
+export const article = `
+title,
+lede,
+byline,
+tags[],
+"slug": slug.current,
+"heroImageUrl": heroImage.asset->url,
+body[] {
+ ${articleBody}
+}
+`;
+
 export const characterProfilePreview = `
 name,
 shortBio,
@@ -77,3 +113,9 @@ export const playbookSections = `
     shouldLinkToAboutPage
   }
 `;
+
+export const articlePathsQuery = `*[_type == "article"] { slug }`;
+
+export const articleQuery = `*[_type == "article" && slug.current == $slug] {
+  ${article}
+}[0]`;

@@ -6,9 +6,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import blockContent from './blockContent';
 
 import quote from './quote';
-import quoteCollection from './quoteCollection';
+import quoteCollection from './quote-collection';
 
 import article from './article';
+import articleSection from './article-section';
+import articleQuote from './article-quote';
 
 import characterProfile from './character-profile';
 
@@ -31,7 +33,8 @@ export default createSchema({
     /* Your types here! */
     blockContent,
     article,
-
+    articleSection,
+    articleQuote,
     characterProfile,
 
     playlist,

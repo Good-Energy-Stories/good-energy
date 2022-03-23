@@ -42,6 +42,14 @@ export default {
       },
     },
     {
+      title: 'Body',
+      name: 'body',
+      description:
+        'This is the contents of the article itself. You can lay it out here in sections.',
+      type: 'array',
+      of: [{ type: 'articleSection' }, { type: 'articleQuote' }],
+    },
+    {
       title: 'Tags',
       name: 'tags',
       type: 'array',

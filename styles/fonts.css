@@ -71,6 +71,18 @@
   text-transform: uppercase;
 }
 
+h1 {
+  font-family: var(--flexa);
+  font-size: 96px;
+  font-variation-settings: 'wght' 800, 'wdth' 35;
+  font-style: normal;
+
+  line-height: 80px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 h3 {
   font-family: var(--flexa);
   font-size: 30px;

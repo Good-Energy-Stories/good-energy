@@ -11,7 +11,6 @@ import {
   StickyNavBar,
   Meta,
   QuoteCarousel,
-  ActionMegaQuote,
   Tag,
 } from '../components';
 import { queries } from '../data';
