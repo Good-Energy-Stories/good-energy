@@ -12,6 +12,7 @@ export interface ArticleCardData {
   byline: string;
   tags: string[];
   slug: string;
+  heroImage: any;
   heroImageUrl: string;
 }
 
@@ -39,8 +40,6 @@ const ArticleCard = ({
     case ArticleCardStyle.featured:
       return <Featured data={data} />;
     case ArticleCardStyle.featuredSecondary:
-      console.log('index: ', index);
-      console.log('index: ', index === 0);
       if (index === 0) {
         return <FeaturedSecondaryWide data={data} />;
       }

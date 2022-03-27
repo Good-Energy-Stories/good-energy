@@ -40,6 +40,22 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
       title: 'Body',
@@ -47,7 +63,11 @@ export default {
       description:
         'This is the contents of the article itself. You can lay it out here in sections.',
       type: 'array',
-      of: [{ type: 'articleSection' }, { type: 'articleQuote' }],
+      of: [
+        { type: 'articleSection' },
+        { type: 'articleQuote' },
+        { type: 'articleStoryPossibility' },
+      ],
     },
     {
       title: 'Tags',

@@ -33,8 +33,7 @@ const variants = {
 };
 
 const Standard = ({ data }: { data: ArticleCardData }) => {
-  const { title, lede, tags, slug, heroImageUrl } = data;
-
+  const { title, lede, tags, slug, heroImage } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -47,8 +46,8 @@ const Standard = ({ data }: { data: ArticleCardData }) => {
       <Link href={`/${slug}`}>
         <a>
           <div className="article-link">
-            {heroImageUrl && <Banner src={heroImageUrl} />}
-            {!heroImageUrl && <div className="line" />}
+            {heroImage && <Banner image={heroImage} />}
+            {!heroImage && <div className="line" />}
             <Title title={title} />
             {lede && <Lede lede={lede} />}
             {tags && <Tags tags={tags} />}

@@ -1,8 +1,9 @@
-import { sanity } from '../lib/sanity';
+import React from 'react';
+import { sanity as client } from '../lib/sanity';
 import imageUrlBuilder from '@sanity/image-url';
 
-const imageBuilder = imageUrlBuilder(sanity);
+const builder = imageUrlBuilder(client);
 
-const imageUrlFor = (source) => imageBuilder.image(source);
-
-export default imageUrlFor;
+export function imageUrlFor(source) {
+  return builder.image(source);
+}

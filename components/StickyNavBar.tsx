@@ -87,7 +87,7 @@ const NavButtons = () => {
       <button>
         <HamburgerIcon />
       </button>
-      <NavDropdownButton />
+
       <NavLinks />
       <style jsx>{`
         div {
@@ -99,6 +99,7 @@ const NavButtons = () => {
           background-color: var(--blueFive);
           display: flex;
           align-items: center;
+          border-right: 4px solid var(--black);
         }
 
         @media only screen and (max-width: 768px) {

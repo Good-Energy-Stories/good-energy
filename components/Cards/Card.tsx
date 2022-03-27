@@ -1,6 +1,5 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import imageUrlFor from '../../utils/imageUrlFor';
 import { ArticleCardStyle } from './';
 const ArticleCard = dynamic(() => import('./ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));

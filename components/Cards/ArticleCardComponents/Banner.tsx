@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
+import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 const { className, styles } = css.resolve`
   div {
@@ -23,7 +24,8 @@ const variants = {
   },
 };
 
-const Banner = ({ src }: { src: string }) => {
+const Banner = ({ image }: { image: any }) => {
+  if (!image) return null;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -33,7 +35,7 @@ const Banner = ({ src }: { src: string }) => {
       variants={variants}
       className={className}
     >
-      <img src={src} />
+      <img alt={image?.caption} src={imageUrlFor(image).url()} />
 
       <style jsx>{`
         img {

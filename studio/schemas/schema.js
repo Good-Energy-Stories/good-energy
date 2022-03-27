@@ -11,6 +11,7 @@ import quoteCollection from './quote-collection';
 import article from './article';
 import articleSection from './article-section';
 import articleQuote from './article-quote';
+import articleStoryPossibility from './article-story-possibility';
 
 import characterProfile from './character-profile';
 
@@ -35,6 +36,7 @@ export default createSchema({
     article,
     articleSection,
     articleQuote,
+    articleStoryPossibility,
     characterProfile,
 
     playlist,

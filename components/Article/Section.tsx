@@ -1,6 +1,5 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import imageUrlFor from '../../utils/imageUrlFor';
 const ArticleSection = dynamic(() => import('./ArticleSection/ArticleSection'));
 const ArticleQuote = dynamic(() => import('./ArticleQuote/ArticleQuote'));
 

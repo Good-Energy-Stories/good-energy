@@ -32,7 +32,7 @@ const variants = {
 };
 
 const Featured = ({ data }: { data: ArticleCardData }) => {
-  const { title, lede, tags, slug, heroImageUrl } = data;
+  const { title, lede, tags, slug, heroImage } = data;
 
   return (
     <motion.div
@@ -53,7 +53,7 @@ const Featured = ({ data }: { data: ArticleCardData }) => {
               {tags && <Tags tags={tags} />}
             </div>
             <div className="right">
-              {heroImageUrl && <Banner src={heroImageUrl} />}
+              {heroImage && <Banner image={heroImage} />}
             </div>
           </div>
         </a>

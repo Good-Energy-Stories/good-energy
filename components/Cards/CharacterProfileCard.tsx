@@ -9,7 +9,6 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
-import imageUrlFor from '../../utils/imageUrlFor';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
@@ -39,7 +38,7 @@ interface CharacterProfileData {
   name: string;
   shortBio: string;
   slug: string;
-  portraitImageUrl: string;
+  portraitImage: any;
 }
 const CharacterProfileCard = ({
   data,
@@ -48,7 +47,7 @@ const CharacterProfileCard = ({
   data: CharacterProfileData;
   index: number;
 }) => {
-  const { name, shortBio, slug, portraitImageUrl } = data;
+  const { name, shortBio, slug, portraitImage } = data;
 
   return (
     <motion.div
@@ -62,8 +61,8 @@ const CharacterProfileCard = ({
       <Link href={`/${slug}`}>
         <a>
           <div className="article-link">
-            {portraitImageUrl && <Portrait src={portraitImageUrl} />}
-            {!portraitImageUrl && <div className="line" />}
+            {portraitImage && <Portrait image={portraitImage} />}
+            {!portraitImage && <div className="line" />}
             <Name name={name} />
             {shortBio && <Bio bio={shortBio} />}
           </div>

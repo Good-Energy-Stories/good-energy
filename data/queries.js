@@ -1,5 +1,7 @@
 export const imageMeta = `
 asset,
+caption,
+attribution,
 "blurHash":asset->.metadata.blurHash,
 "lqip":asset->.metadata.lqip,
 "imageAspect":asset->.metadata.dimensions.aspectRatio,
@@ -11,6 +13,9 @@ lede,
 byline,
 tags[],
 "slug": slug.current,
+heroImage{
+  ${imageMeta}
+},
 "heroImageUrl": heroImage.asset->url
 `;
 
@@ -18,6 +23,9 @@ export const articleSection = `
 title,
 body,
 includeSpotIllustration,
+spotIllustration{
+    ${imageMeta}
+},
 "spotIllustrationImageUrl": spotIllustrationImage.asset->url
 `;
 
@@ -25,6 +33,10 @@ export const articleQuote = `
 quote,
 includeAttribution,
 attribution,
+`;
+
+export const articleStoryPossibility = `
+body
 `;
 
 export const articleBody = `
@@ -36,6 +48,10 @@ _type == 'articleQuote' => {
   _type,
   ${articleQuote}
 },
+_type == 'articleStoryPossibility' => {
+  _type,
+  ${articleStoryPossibility}
+},
 `;
 
 export const article = `
@@ -44,6 +60,9 @@ lede,
 byline,
 tags[],
 "slug": slug.current,
+heroImage{
+  ${imageMeta}
+},
 "heroImageUrl": heroImage.asset->url,
 body[] {
  ${articleBody}
@@ -54,6 +73,9 @@ export const characterProfilePreview = `
 name,
 shortBio,
 "slug": slug.current,
+portraitImage{
+  ${imageMeta}
+},
 "portraitImageUrl": portraitImage.asset->url
 `;
 

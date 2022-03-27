@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
+import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 const { className, styles } = css.resolve`
   div {
@@ -27,7 +28,7 @@ const variants = {
   },
 };
 
-const Portrait = ({ src }: { src: string }) => {
+const Portrait = ({ image }: { image: any }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -37,7 +38,7 @@ const Portrait = ({ src }: { src: string }) => {
       variants={variants}
       className={className}
     >
-      <img src={src} />
+      <img alt={image?.caption} src={imageUrlFor(image).url()} />
 
       <style jsx>{`
         img {
