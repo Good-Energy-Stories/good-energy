@@ -1,21 +1,38 @@
 import { sanity } from '../lib/sanity';
 import { queries } from '../data';
 import { Layout, Meta } from '../components';
-import { Title, Divider, Section } from '../components/Article';
+import {
+  Header,
+  Divider,
+  Section,
+  TOC,
+  SectionRefLookup,
+  SectionTOC,
+  SectionsTOC,
+  Body,
+  Banner,
+} from '../components/Article';
 import { Footer } from '../components/Footer';
+import { useRef, useEffect, RefObject } from 'react';
 
 const Project = ({ article }) => {
-  console.log('Article: ', article);
-  const { title, body } = article;
+  const { title, byline, body, heroImage } = article;
+
+  const sectionsRef = useRef<SectionRefLookup>({});
+
+  const sectionsTOC = body
+    .filter((e) => e._type === 'articleSection')
+    .map((e) => ({ key: e._key, title: e.title }));
+
   return (
     <>
       <Meta />
       <Layout key={article.slug}>
-        <Title title={title} />
+        <Banner image={heroImage} />
+        <Header title={title} byline={byline} />
         <Divider />
-        {body.map((c, i) => (
-          <Section key={i} index={i} content={c} />
-        ))}
+        <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
+        <Body body={body} sectionsRef={sectionsRef} />
       </Layout>
       <Footer />
     </>

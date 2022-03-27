@@ -63,6 +63,7 @@ const StoryPossibility = ({
         }
         h4 {
           margin: 0;
+          text-transform: uppercase;
         }
       `}</style>
     </>

@@ -3,11 +3,13 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
+import BlockContent from '@sanity/block-content-to-react';
+import { SectionTOC } from './TOC';
 
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/4;
-    margin-left: 2.5rem;
+    cursor: pointer;
+    margin-bottom: 0.65rem;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -24,7 +26,13 @@ const variants = {
   },
 };
 
-const Title = ({ title }: { title: String }) => {
+const Section = ({
+  title,
+  scrollIntoView,
+}: {
+  title: string;
+  scrollIntoView: () => void;
+}) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -33,19 +41,13 @@ const Title = ({ title }: { title: String }) => {
       exit={'out'}
       variants={variants}
       className={className}
+      onClick={scrollIntoView}
     >
-      <h1>{title}</h1>
+      <span className="nav-link-medium">{title}</span>
 
-      <style jsx>{`
-        .open-quote {
-        }
-        h3 {
-          margin: 0.625rem auto;
-        }
-      `}</style>
       {styles}
     </motion.div>
   );
 };
 
-export default Title;
+export default Section;

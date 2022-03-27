@@ -1,10 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import ArrowIcon from '../../../public/arrow.svg';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { CollapsibleBody, Header } from '.';
 import { useState } from 'react';
 

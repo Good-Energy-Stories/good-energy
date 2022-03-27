@@ -4,15 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const { className, styles } = css.resolve`
   div {
-    grid-column: 3/4;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 1.25rem;
+    grid-column: 1/5;
+    max-height: 62vh;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -29,7 +26,7 @@ const variants = {
   },
 };
 
-const SpotIllustration = ({ image }: { image: any }) => {
+const Banner = ({ image }: { image: any }) => {
   if (!image) return null;
   return (
     <motion.div
@@ -40,11 +37,11 @@ const SpotIllustration = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).url()} />
+      <img alt={image?.caption} src={imageUrlFor(image).width(1080).url()} />
 
       <style jsx>{`
         img {
-          max-width: 100%;
+          min-width: 100%;
         }
       `}</style>
       {styles}
@@ -52,4 +49,4 @@ const SpotIllustration = ({ image }: { image: any }) => {
   );
 };
 
-export default SpotIllustration;
+export default Banner;

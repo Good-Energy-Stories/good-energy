@@ -6,13 +6,14 @@ import css from 'styled-jsx/css';
 import BlockContent from '@sanity/block-content-to-react';
 import { Content } from './';
 import SpotIllustration from './SpotIllustration';
+import { RefObject } from 'react';
+import { SectionRefLookup } from '../';
 const { className, styles } = css.resolve`
   div {
-    margin-left: 1.25rem;
-    grid-column: 1/5;
+    grid-column: 2/5;
     margin-bottom: 2.5rem;
     display: grid;
-    grid-template-columns: var(--grid-col);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -29,10 +30,19 @@ const variants = {
   },
 };
 
-const ArticleSection = ({ data, index }: { data: any; index: number }) => {
-  const { includeSpotIllustration } = data;
+const ArticleSection = ({
+  data,
+  index,
+  sectionsRef,
+}: {
+  data: any;
+  index: number;
+  sectionsRef: RefObject<SectionRefLookup>;
+}) => {
+  const { includeSpotIllustration, _key } = data;
   return (
     <motion.div
+      ref={(el) => (sectionsRef.current[_key] = el)}
       transition={{ duration: 2 }}
       initial={'out'}
       animate={'in'}

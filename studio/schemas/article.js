@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsCircleFill as icon } from 'react-icons/bs';
-
+import { FaQuoteLeft } from 'react-icons/fa';
+import { BiLink } from 'react-icons/bi';
 export default {
   name: 'article',
   title: 'Article',
@@ -54,6 +55,51 @@ export default {
           name: 'attribution',
           type: 'string',
           title: 'Attribution',
+        },
+      ],
+    },
+
+    {
+      name: 'introduction',
+      title: 'Introduction',
+      description:
+        "These are the introductory paragraphs of the article that aren't contained in a section.",
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [],
+          lists: [],
+          marks: {
+            annotations: [
+              {
+                title: 'Quote',
+                name: 'quote',
+                type: 'object',
+                icon: FaQuoteLeft,
+                fields: [
+                  {
+                    title: 'Attribution',
+                    name: 'attribution',
+                    type: 'string',
+                  },
+                ],
+              },
+              {
+                title: 'Link',
+                name: 'link',
+                type: 'object',
+                icon: BiLink,
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'url',
+                    type: 'url',
+                  },
+                ],
+              },
+            ],
+          },
         },
       ],
     },

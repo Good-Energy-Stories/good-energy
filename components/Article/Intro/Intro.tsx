@@ -3,16 +3,14 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
+import BlockContent from '@sanity/block-content-to-react';
 
 const { className, styles } = css.resolve`
   div {
-    grid-column: 3/4;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 1.25rem;
+    margin-left: 1.25rem;
+    padding-right: 1.25rem;
+    grid-column: 2/4;
+    margin-bottom: 2.5rem;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -29,8 +27,9 @@ const variants = {
   },
 };
 
-const SpotIllustration = ({ image }: { image: any }) => {
-  if (!image) return null;
+const Intro = ({ data }: { data: any }) => {
+  const { title, body } = data;
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -40,16 +39,12 @@ const SpotIllustration = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).url()} />
+      <h3>{title}</h3>
+      <BlockContent blocks={body} />
 
-      <style jsx>{`
-        img {
-          max-width: 100%;
-        }
-      `}</style>
       {styles}
     </motion.div>
   );
 };
 
-export default SpotIllustration;
+export default Intro;

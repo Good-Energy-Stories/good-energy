@@ -43,14 +43,17 @@ initialState
 export const articleBody = `
 _type == 'articleSection' => {
   _type,
+  _key,
   ${articleSection}
 },
 _type == 'articleQuote' => {
   _type,
+  _key,
   ${articleQuote}
 },
 _type == 'articleStoryPossibility' => {
   _type,
+  _key,
   ${articleStoryPossibility}
 },
 `;
@@ -65,6 +68,7 @@ heroImage{
   ${imageMeta}
 },
 "heroImageUrl": heroImage.asset->url,
+introduction,
 body[] {
  ${articleBody}
 }
