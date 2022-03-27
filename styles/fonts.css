@@ -125,3 +125,52 @@ h4 {
   letter-spacing: 0em;
   text-align: left;
 }
+
+/** EJ LIST BEGIN */
+
+.body {
+  font-family: var(--flexa);
+  font-size: 20px;
+  line-height: 27px;
+  font-variation-settings: 'wght' 321, 'wdth' 95;
+}
+.body-italic {
+  font-family: var(--flexa);
+  font-size: 20px;
+  line-height: 27px;
+  font-variation-settings: 'wght' 321, 'wdth' 95, 'ital' 100;
+}
+.body-body {
+  font-family: var(--flexa);
+  font-size: 20px;
+  line-height: 27px;
+  font-variation-settings: 'wght' 604, 'wdth' 95;
+}
+.body-link {
+  font-family: var(--flexa);
+  font-size: 20px;
+  line-height: 27px;
+  font-variation-settings: 'wght' 321, 'wdth' 95;
+  text-decoration-line: underline;
+  color: var(--blueThree);
+}
+.intro-graf {
+  font-family: var(--flexa);
+  font-size: 24px;
+  line-height: 31px;
+  font-variation-settings: 'wght' 470, 'wdth' 95;
+}
+.drop-cap {
+  font-family: var(--flexa);
+  font-size: 113px;
+  line-height: 153px;
+  font-variation-settings: 'wght' 800, 'wdth' 0;
+}
+.pull-quote {
+  font-family: var(--flexa);
+  font-size: 48px;
+  line-height: 46px;
+  letter-spacing: -1px;
+  font-variation-settings: 'wght' 800, 'wdth' 42;
+  text-transform: uppercase;
+}

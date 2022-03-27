@@ -3,16 +3,16 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import BlockContent from '@sanity/block-content-to-react';
-import { Content } from './';
-import SpotIllustration from './SpotIllustration';
+import { ReactChild, Key } from 'react';
+import { imageUrlFor } from '../../../utils/imageUrlFor';
+
 const { className, styles } = css.resolve`
   div {
-    margin-left: 1.25rem;
-    grid-column: 1/5;
-    margin-bottom: 2.5rem;
-    display: grid;
-    grid-template-columns: var(--grid-col);
+    grid-column: 4/5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 1.25rem;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -29,8 +29,8 @@ const variants = {
   },
 };
 
-const ArticleSection = ({ data, index }: { data: any; index: number }) => {
-  const { includeSpotIllustration } = data;
+const SpotIllustration = ({ image }: { image: any }) => {
+  if (!image) return null;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -40,12 +40,11 @@ const ArticleSection = ({ data, index }: { data: any; index: number }) => {
       variants={variants}
       className={className}
     >
-      <Content data={data} />
-      {includeSpotIllustration && (
-        <SpotIllustration image={data?.spotIllustration} />
-      )}
+      <img alt={image?.caption} src={imageUrlFor(image).url()} />
+
       <style jsx>{`
-        .open-quote {
+        img {
+          max-width: 100%;
         }
       `}</style>
       {styles}
@@ -53,4 +52,4 @@ const ArticleSection = ({ data, index }: { data: any; index: number }) => {
   );
 };
 
-export default ArticleSection;
+export default SpotIllustration;

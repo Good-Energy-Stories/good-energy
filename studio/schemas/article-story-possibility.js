@@ -11,7 +11,24 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [
+        {
+          type: 'block',
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [],
+            annotations: [],
+          },
+        },
+      ],
+    },
+    {
+      name: 'initialState',
+      title: 'Should be expanded by default?',
+      description:
+        'Story possibilities are collapsible. This toggle will determine if the story possibility is expanded or collapsed in its default state. Defaults to collapsed.',
+      type: 'boolean',
     },
   ],
 };

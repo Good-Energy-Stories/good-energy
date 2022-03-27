@@ -36,7 +36,8 @@ attribution,
 `;
 
 export const articleStoryPossibility = `
-body
+body,
+initialState
 `;
 
 export const articleBody = `
