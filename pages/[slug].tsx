@@ -1,6 +1,6 @@
 import { sanity } from '../lib/sanity';
 import { queries } from '../data';
-import { Layout, Meta } from '../components';
+import { Layout, Meta, Breadcrumbs } from '../components';
 import {
   Header,
   Divider,
@@ -14,6 +14,7 @@ import {
 } from '../components/Article';
 import { Footer } from '../components/Footer';
 import { useRef, useEffect, RefObject } from 'react';
+import { PlaybookStickyNavBar } from '../components/Playbook';
 
 const Project = ({ article }) => {
   const { title, byline, body, heroImage } = article;
@@ -27,6 +28,7 @@ const Project = ({ article }) => {
   return (
     <>
       <Meta />
+      <PlaybookStickyNavBar />
       <Layout key={article.slug}>
         <Banner image={heroImage} />
         <Header title={title} byline={byline} />

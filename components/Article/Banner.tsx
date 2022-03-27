@@ -5,11 +5,13 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-
+import { PLAYBOOK_NAV_HEIGHT } from '../Playbook';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
+    grid-row-start: 1;
     max-height: 62vh;
+    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
   }
   @media only screen and (max-width: 768px) {
     div {
