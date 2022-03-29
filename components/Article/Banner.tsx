@@ -10,7 +10,7 @@ const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
     grid-row-start: 1;
-    max-height: 62vh;
+    max-height: 100vh;
     margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
   }
   @media only screen and (max-width: 768px) {

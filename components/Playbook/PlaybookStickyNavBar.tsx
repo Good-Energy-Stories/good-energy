@@ -2,13 +2,22 @@ import HamburgerIcon from '../../public/hamburger-playbook.svg';
 import SearchIcon from '../../public/search-playbook.svg';
 import LogoLightIcon from '../../public/logo-light.svg';
 import Link from 'next/link';
-const NavButtons = () => {
+import Logo from '../Logo';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../stores/store';
+
+const NavButtons = observer(() => {
+  const store = useStore();
+  const {
+    uiStore: { scrollPosition },
+  } = store;
+  const color = scrollPosition > 0.05 ? 'var(--black)' : 'var(--white)';
   return (
     <div>
       <button>
-        <HamburgerIcon fill={'var(--white)'} />
+        <HamburgerIcon fill={color} />
         <div className="spacer" />
-        <SearchIcon fill={'var(--white)'} />
+        <SearchIcon fill={color} />
       </button>
       <NavTitle />
 
@@ -18,15 +27,16 @@ const NavButtons = () => {
         }
         div {
           display: flex;
-          grid-column: span 3;
+          grid-column: span 1;
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
         }
         button {
           line-height: 28px;
 
           display: flex;
           align-items: center;
-          border-right: 4px solid var(--white);
-          border-bottom: 4px solid var(--white);
+          border-right: 4px solid ${color};
+          border-bottom: 4px solid ${color};
           background-color: transparent;
         }
 
@@ -37,9 +47,15 @@ const NavButtons = () => {
       `}</style>
     </div>
   );
-};
+});
 
-const NavTitle = () => {
+const NavTitle = observer(() => {
+  const store = useStore();
+  const {
+    uiStore: { scrollPosition },
+  } = store;
+
+  const color = scrollPosition > 0.05 ? 'var(--black)' : 'var(--white)';
   return (
     <div className="nav-link-xl-bold">
       Playbook Contents
@@ -49,10 +65,12 @@ const NavTitle = () => {
           align-items: center;
           justify-content: center;
           padding: 0 1.25rem;
-
-          border-right: 4px solid var(--white);
-          border-bottom: 4px solid var(--white);
-          color: var(--white);
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
+          text-align: center;
+          line-height: 24px;
+          border-right: 4px solid ${color};
+          border-bottom: 4px solid ${color};
+          color: ${color};
           text-transform: uppercase;
         }
 
@@ -63,14 +81,28 @@ const NavTitle = () => {
       `}</style>
     </div>
   );
-};
+});
 
-const NavLogo = () => {
+const NavLogo = observer(() => {
+  const store = useStore();
+  const {
+    uiStore: { scrollPosition },
+  } = store;
+
+  const light = {
+    backgroundColor: 'var(--white)',
+    textColor: 'var(--black)',
+  };
+  const dark = {
+    backgroundColor: 'var(--black)',
+    textColor: 'var(--white)',
+  };
+
   return (
     <div>
       <Link href="/">
         <a>
-          <LogoLightIcon />
+          <Logo {...(scrollPosition > 0.05 ? dark : light)} />
         </a>
       </Link>
 
@@ -79,6 +111,7 @@ const NavLogo = () => {
           display: flex;
           width: 100%;
           justify-content: flex-end;
+          grid-column-start: 4;
         }
 
         @media only screen and (max-width: 768px) {
@@ -88,7 +121,7 @@ const NavLogo = () => {
       `}</style>
     </div>
   );
-};
+});
 
 export const PLAYBOOK_NAV_HEIGHT = 100;
 

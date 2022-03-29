@@ -8,6 +8,7 @@ export const Body = ({
   body: any;
   sectionsRef: RefObject<SectionRefLookup>;
 }) => {
+  if (!body) return null;
   return (
     <>
       {body.map((c, i) => (

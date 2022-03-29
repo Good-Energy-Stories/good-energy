@@ -9,9 +9,10 @@ const { className, styles } = css.resolve`
   div {
     grid-column: 1/4;
     margin-left: 0rem;
-    padding-left: 2.5rem;
-    margin-bottom: 2rem;
+    padding: 0 2.5rem;
+    padding-bottom: 2rem;
     background-color: var(--blueFive);
+    margin-top: -30vh;
   }
   @media only screen and (max-width: 768px) {
     div {

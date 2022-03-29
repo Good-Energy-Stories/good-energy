@@ -7,6 +7,8 @@ import css from 'styled-jsx/css';
 const { className, styles } = css.resolve`
   div {
     margin-left: 1.25rem;
+    grid-column: 2/4;
+    margin-bottom: 2.5rem;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -24,6 +26,7 @@ const variants = {
 };
 
 const ArticleQuote = ({ data, index }: { data: any; index: number }) => {
+  const { quote } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -33,6 +36,7 @@ const ArticleQuote = ({ data, index }: { data: any; index: number }) => {
       variants={variants}
       className={className}
     >
+      <div className="pull-quote">{quote}</div>
       <style jsx>{`
         .open-quote {
         }

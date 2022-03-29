@@ -2,6 +2,7 @@ import React from 'react';
 import { Section } from './';
 import { SectionRefLookup } from '../';
 import { RefObject } from 'react';
+import { PLAYBOOK_NAV_HEIGHT } from '../../Playbook';
 export interface SectionTOC {
   title: string;
   key: string;
@@ -16,6 +17,7 @@ export const TOC = ({
   sections: SectionsTOC;
   sectionsRef: RefObject<SectionRefLookup>;
 }) => {
+  if (!sections) return null;
   const scrollIntoView = (section: HTMLDivElement) => {
     section.scrollIntoView({ behavior: 'smooth' });
   };
@@ -37,7 +39,7 @@ export const TOC = ({
           grid-row-start: 4;
           margin-left: 2.5rem;
           position: sticky;
-          top: 0;
+          top: ${PLAYBOOK_NAV_HEIGHT}px;
         }
       `}</style>
     </div>

@@ -22,7 +22,7 @@ const Project = ({ article }) => {
   const sectionsRef = useRef<SectionRefLookup>({});
 
   const sectionsTOC = body
-    .filter((e) => e._type === 'articleSection')
+    ?.filter((e) => e._type === 'articleSection')
     .map((e) => ({ key: e._key, title: e.title }));
 
   return (

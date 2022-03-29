@@ -194,6 +194,14 @@ h4 {
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: uppercase;
 }
+.pull-quote::before {
+  content: '“';
+  position: absolute;
+  margin-left: -22px;
+}
+.pull-quote::after {
+  content: '”';
+}
 .nav-link-xl-bold {
   font-family: var(--flexa);
   font-size: 24px;

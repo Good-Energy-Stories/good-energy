@@ -85,7 +85,7 @@ const NavButtons = () => {
   return (
     <div>
       <button>
-        <HamburgerIcon />
+        <HamburgerIcon fill="var(--black)" />
       </button>
 
       <NavLinks />
