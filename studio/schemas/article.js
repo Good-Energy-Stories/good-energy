@@ -2,6 +2,8 @@ import React from 'react';
 import { BsCircleFill as icon } from 'react-icons/bs';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { BiLink } from 'react-icons/bi';
+import { GiFootprint } from 'react-icons/gi';
+
 export default {
   name: 'article',
   title: 'Article',
@@ -58,60 +60,28 @@ export default {
         },
       ],
     },
-
     {
-      name: 'introduction',
       title: 'Introduction',
+      name: 'introduction',
       description:
-        "These are the introductory paragraphs of the article that aren't contained in a section.",
+        'This is the introductory of the article. Remember that you can put multiple paragraphs inside of one section. Leaving this section blank will mean the article will begin with the first item in the article body section below.',
+
       type: 'array',
       of: [
-        {
-          type: 'block',
-          styles: [],
-          lists: [],
-          marks: {
-            annotations: [
-              {
-                title: 'Quote',
-                name: 'quote',
-                type: 'object',
-                icon: FaQuoteLeft,
-                fields: [
-                  {
-                    title: 'Attribution',
-                    name: 'attribution',
-                    type: 'string',
-                  },
-                ],
-              },
-              {
-                title: 'Link',
-                name: 'link',
-                type: 'object',
-                icon: BiLink,
-                fields: [
-                  {
-                    title: 'URL',
-                    name: 'url',
-                    type: 'url',
-                  },
-                ],
-              },
-            ],
-          },
-        },
+        { type: 'articleIntroductionSection' },
+        { type: 'articleQuote' },
+        { type: 'articleBlockQuote' },
       ],
     },
     {
       title: 'Body',
       name: 'body',
-      description:
-        'This is the contents of the article itself. You can lay it out here in sections.',
+      description: 'This is the contents of the article itself.',
       type: 'array',
       of: [
         { type: 'articleSection' },
         { type: 'articleQuote' },
+        { type: 'articleBlockQuote' },
         { type: 'articleStoryPossibility' },
       ],
     },

@@ -6,12 +6,12 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
+const DIAMETER = 150;
 const { className, styles } = css.resolve`
   div {
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -38,9 +38,16 @@ const Portrait = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).url()} />
-
+      <div className="frame">
+        <img alt={image?.caption} src={imageUrlFor(image).url()} />
+      </div>
       <style jsx>{`
+        .frame {
+          height: ${DIAMETER}px;
+          width: ${DIAMETER}px;
+          border-radius: 50%;
+          overflow: hidden;
+        }
         img {
           max-width: 100%;
           transform: translateY(-10%);

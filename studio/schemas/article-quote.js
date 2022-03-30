@@ -2,7 +2,7 @@ import { FaQuoteLeft as icon } from 'react-icons/fa';
 
 export default {
   name: 'articleQuote',
-  title: 'Quote',
+  title: 'Pull Quote',
   type: 'object',
   icon,
   fields: [

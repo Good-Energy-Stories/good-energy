@@ -17,14 +17,14 @@ import { useRef, useEffect, RefObject } from 'react';
 import { PlaybookStickyNavBar } from '../components/Playbook';
 
 const Project = ({ article }) => {
-  const { title, byline, body, heroImage } = article;
+  const { title, byline, introduction, body, heroImage } = article;
 
   const sectionsRef = useRef<SectionRefLookup>({});
 
   const sectionsTOC = body
     ?.filter((e) => e._type === 'articleSection')
     .map((e) => ({ key: e._key, title: e.title }));
-
+  console.log(article);
   return (
     <>
       <Meta />
@@ -34,7 +34,7 @@ const Project = ({ article }) => {
         <Header title={title} byline={byline} />
         <Divider />
         <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
-        <Body body={body} sectionsRef={sectionsRef} />
+        <Body body={[...introduction, ...body]} sectionsRef={sectionsRef} />
       </Layout>
       <Footer />
     </>

@@ -51,11 +51,34 @@ _type == 'articleQuote' => {
   _key,
   ${articleQuote}
 },
+_type == 'articleBlockQuote' => {
+  _type,
+  _key,
+  ${articleQuote}
+},
 _type == 'articleStoryPossibility' => {
   _type,
   _key,
   ${articleStoryPossibility}
 },
+`;
+
+export const articleIntroduction = `
+_type == 'articleIntroductionSection' => {
+  _type,
+  _key,
+  body
+},
+_type == 'articleQuote' => {
+  _type,
+  _key,
+  ${articleQuote}
+},
+_type == 'articleBlockQuote' => {
+  _type,
+  _key,
+  ${articleQuote}
+}
 `;
 
 export const article = `
@@ -68,7 +91,9 @@ heroImage{
   ${imageMeta}
 },
 "heroImageUrl": heroImage.asset->url,
-introduction,
+introduction[] {
+  ${articleIntroduction}
+},
 body[] {
  ${articleBody}
 }
@@ -93,22 +118,30 @@ quotes[] {
 `;
 
 export const contentReferences = `
-_type == 'article' => {
-  _type,
-  ${articlePreview}
-},
-_type == 'characterProfile' => {
-  _type,
-  ${characterProfilePreview}
-},
-_type == 'quoteCollection' => {
-  _type,
-  ${quoteCollection}
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+  _type == 'characterProfile' => {
+    _type,
+    ${characterProfilePreview}
+  },
+  _type == 'quoteCollection' => {
+    _type,
+    ${quoteCollection}
+  }
+`;
+
+export const playlist = `
+title,
+byline,
+description,
+playlist[]->{
+  ${contentReferences}
 }
 `;
 
 export const threeColumnLayout = `
-
     leftColumn[]->{
       ${contentReferences}
     },
@@ -122,23 +155,32 @@ export const threeColumnLayout = `
 `;
 
 export const playbookSections = `
-  _type == 'playbookThreeColumn' => {
-    _type,
-   ${threeColumnLayout}
+  _type == 'reference' => @->{
+    _type == 'playlist' => {
+      _type,
+      ${playlist}
+    }
   },
-  _type == 'emailCapture' => {
-    _type,
-    title,
-    subtitle,
-    backgroundColor
+  _type != 'reference' => {
+    _type == 'playbookThreeColumn' => {
+      _type,
+     ${threeColumnLayout}
+    },
+    _type == 'emailCapture' => {
+      _type,
+      title,
+      subtitle,
+      backgroundColor
+    },
+    _type == 'playbookQuote' => {
+      _type,
+      quote,
+      attribution,
+      backgroundColor,
+      shouldLinkToAboutPage
+    }
   },
-  _type == 'playbookQuote' => {
-    _type,
-    quote,
-    attribution,
-    backgroundColor,
-    shouldLinkToAboutPage
-  }
+  
 `;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;

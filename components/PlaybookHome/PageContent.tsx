@@ -4,6 +4,7 @@ import { ThreeColumnLayoutStyle } from './';
 const ThreeColumnLayout = dynamic(() => import('./ThreeColumnLayout'));
 const EmailCapture = dynamic(() => import('./EmailCapture'));
 const MegaQuote = dynamic(() => import('./MegaQuote'));
+const Playlist = dynamic(() => import('./Playlist'));
 
 export const PageContent = ({ index, content }) => {
   const type = content._type;
@@ -20,6 +21,8 @@ export const PageContent = ({ index, content }) => {
       return <EmailCapture index={index} data={content} />;
     case 'playbookQuote':
       return <MegaQuote index={index} data={content} />;
+    case 'playlist':
+      return <Playlist data={content} />;
 
     default:
       return null;

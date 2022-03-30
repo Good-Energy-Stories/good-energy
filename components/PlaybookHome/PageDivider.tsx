@@ -17,7 +17,7 @@ export const PageDivider = ({ style }: { style: ThreeColumnLayoutStyle }) => {
         }
         div {
           border-bottom: 1px solid var(--blueThree);
-          width: 100%;
+          width: calc(100% - 2.5rem);
           margin: 0 1.25rem;
           margin-bottom: 2.5rem;
           grid-column: 1/-1;

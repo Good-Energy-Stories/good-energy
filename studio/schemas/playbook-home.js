@@ -36,6 +36,10 @@ export default {
         {
           type: 'playbookQuote',
         },
+        {
+          type: 'reference',
+          to: [{ type: 'playlist' }],
+        },
       ],
     },
   ],

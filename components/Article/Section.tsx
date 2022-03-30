@@ -1,7 +1,15 @@
 import React, { RefObject } from 'react';
 import dynamic from 'next/dynamic';
 const ArticleSection = dynamic(() => import('./ArticleSection/ArticleSection'));
+const ArticleIntroductionSection = dynamic(
+  () => import('./ArticleIntroductionSection/ArticleIntroductionSection'),
+);
+
 const ArticleQuote = dynamic(() => import('./ArticleQuote/ArticleQuote'));
+const ArticleBlockQuote = dynamic(
+  () => import('./ArticleBlockQuote/ArticleBlockQuote'),
+);
+
 const ArticleStoryPossibility = dynamic(
   () => import('./ArticleStoryPossibility/ArticleStoryPossibility'),
 );
@@ -30,8 +38,12 @@ export const Section = ({
           sectionsRef={sectionsRef}
         />
       );
+    case 'articleIntroductionSection':
+      return <ArticleIntroductionSection index={index} data={content} />;
     case 'articleQuote':
       return <ArticleQuote index={index} data={content} />;
+    case 'articleBlockQuote':
+      return <ArticleBlockQuote index={index} data={content} />;
     case 'articleStoryPossibility':
       return <ArticleStoryPossibility index={index} data={content} />;
     default:

@@ -1,11 +1,15 @@
 import dynamic from 'next/dynamic';
 
-const Standard = dynamic(() => import('./Standard'));
-const Small = dynamic(() => import('./Small'));
-const Featured = dynamic(() => import('./Featured'));
-const FeaturedSecondary = dynamic(() => import('./FeaturedSecondary'));
-const FeaturedSecondaryWide = dynamic(() => import('./FeaturedSecondaryWide'));
-
+const ArticleStandard = dynamic(() => import('./ArticleStandard'));
+const ArticleSmall = dynamic(() => import('./ArticleSmall'));
+const ArticleFeatured = dynamic(() => import('./ArticleFeatured'));
+const ArticleFeaturedSecondary = dynamic(
+  () => import('./ArticleFeaturedSecondary'),
+);
+const ArticleFeaturedSecondaryWide = dynamic(
+  () => import('./ArticleFeaturedSecondaryWide'),
+);
+const ArticleReadMore = dynamic(() => import('./ArticleReadMore'));
 export interface ArticleCardData {
   title: string;
   lede: string;
@@ -19,6 +23,7 @@ export interface ArticleCardData {
 export enum ArticleCardStyle {
   standard = 'standard',
   small = 'small',
+  readMore = 'readMore',
   featured = 'featured',
   featuredSecondary = 'featuredSecondary',
   featuredSecondaryWide = 'featuredSecondaryWide',
@@ -34,18 +39,20 @@ const ArticleCard = ({
 }) => {
   switch (style) {
     case ArticleCardStyle.standard:
-      return <Standard data={data} />;
+      return <ArticleStandard data={data} />;
     case ArticleCardStyle.small:
-      return <Small data={data} />;
+      return <ArticleSmall data={data} />;
+    case ArticleCardStyle.readMore:
+      return <ArticleReadMore data={data} />;
     case ArticleCardStyle.featured:
-      return <Featured data={data} />;
+      return <ArticleFeatured data={data} />;
     case ArticleCardStyle.featuredSecondary:
       if (index === 0) {
-        return <FeaturedSecondaryWide data={data} />;
+        return <ArticleFeaturedSecondaryWide data={data} />;
       }
-      return <FeaturedSecondary data={data} />;
+      return <ArticleFeaturedSecondary data={data} />;
     default:
-      return <Standard data={data} />;
+      return <ArticleStandard data={data} />;
   }
 };
 

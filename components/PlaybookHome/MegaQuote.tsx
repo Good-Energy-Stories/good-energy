@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { AnimatedUnderline } from '../';
+import { AnimatedUnderline, CTAButton } from '../';
 import Link from 'next/link';
 function getStyles(color) {
   return css.resolve`
@@ -39,25 +39,6 @@ const variants = {
   out: {
     opacity: 0,
   },
-};
-
-const AboutPageLink = ({ color }: { color: string }) => {
-  return (
-    <>
-      <Link href={'/'}>
-        <a className="capture-the-action">
-          About Good Energy
-          <span className="arrow">→</span>
-          <AnimatedUnderline active />
-        </a>
-      </Link>
-      <style jsx>{`
-        a {
-          color: var(--${color}) !important;
-        }
-      `}</style>
-    </>
-  );
 };
 
 interface PlaybookQuoteData {
@@ -102,7 +83,11 @@ const MegaQuote = ({
           </div>
           <div className="attribution mega-quote-attribution">
             {shouldLinkToAboutPage ? (
-              <AboutPageLink color={inverseColor} />
+              <CTAButton
+                label="About Good Energy"
+                href="/"
+                color={inverseColor}
+              />
             ) : (
               attribution
             )}

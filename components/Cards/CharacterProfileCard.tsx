@@ -6,81 +6,46 @@ import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
-import Link from 'next/link';
-const { className, styles } = css.resolve`
-  div {
-    display: inline-block;
+import dynamic from 'next/dynamic';
 
-    width: 100%;
-  }
-  @media only screen and (max-width: 768px) {
-    div {
-      padding: 0px;
-      display: grid;
+const CharacterProfileStandard = dynamic(
+  () => import('./CharacterProfileStandard'),
+);
+const CharacterProfileReadMore = dynamic(
+  () => import('./CharacterProfileReadMore'),
+);
 
-      grid-column-gap: 0;
-    }
-  }
-`;
+export enum CharacterProfileCardStyle {
+  standard = 'standard',
 
-const variants = {
-  in: {
-    opacity: 1,
-  },
-  out: {
-    opacity: 0,
-  },
-};
+  readMore = 'readMore',
+}
 
-interface CharacterProfileData {
+export interface CharacterProfileData {
   name: string;
   shortBio: string;
   slug: string;
   portraitImage: any;
 }
+
 const CharacterProfileCard = ({
   data,
   index,
+  style,
 }: {
   data: CharacterProfileData;
   index: number;
+  style: CharacterProfileCardStyle;
 }) => {
-  const { name, shortBio, slug, portraitImage } = data;
+  switch (style) {
+    case CharacterProfileCardStyle.standard:
+      return <CharacterProfileStandard data={data} index={index} />;
 
-  return (
-    <motion.div
-      transition={{ duration: 2 }}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
-      variants={variants}
-      className={className}
-    >
-      <Link href={`/${slug}`}>
-        <a>
-          <div className="article-link">
-            {portraitImage && <Portrait image={portraitImage} />}
-            {!portraitImage && <div className="line" />}
-            <Name name={name} />
-            {shortBio && <Bio bio={shortBio} />}
-          </div>
-        </a>
-      </Link>
-
-      <style jsx>{`
-        .article-link {
-        }
-
-        .line {
-          width: 100%;
-          border-top: 4px solid var(--black);
-        }
-      `}</style>
-      {styles}
-    </motion.div>
-  );
+    case CharacterProfileCardStyle.readMore:
+      return <CharacterProfileReadMore data={data} index={index} />;
+    default:
+      return <CharacterProfileStandard data={data} index={index} />;
+  }
 };
 
 export default CharacterProfileCard;

@@ -52,7 +52,7 @@ const variants = {
 };
 
 const Content = ({ data }: { data: any }) => {
-  const { title, body } = data;
+  const { body } = data;
   console.log(body);
   return (
     <motion.div
@@ -63,7 +63,6 @@ const Content = ({ data }: { data: any }) => {
       variants={variants}
       className={className}
     >
-      {title && <h3>{title}</h3>}
       <PortableText value={body} components={components} />
 
       {styles}

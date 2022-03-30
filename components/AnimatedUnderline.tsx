@@ -15,7 +15,6 @@ const AnimatedUnderline = ({ active }) => {
       style={{
         position: 'absolute',
         bottom: -strokeWidth,
-
         left: '0',
         height: strokeWidth,
         background: 'var(--blueFour)',
