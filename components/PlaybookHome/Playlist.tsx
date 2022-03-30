@@ -101,7 +101,9 @@ const PlaylistInformation = ({
       <div className="container">
         <h2>{`Playlist: ${title}`}</h2>
         <div className="label-medium">{byline}</div>
-        <PortableText value={description} />
+        <div className="tease-lede">
+          <PortableText value={description} />
+        </div>
         <div className="label-medium story-count">{`${length} stories`}</div>
         <CTAButton label="Read More" href="/" />
       </div>

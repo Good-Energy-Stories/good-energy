@@ -173,7 +173,7 @@ export const ThreeColumnLayout = ({
 
   return (
     <>
-      <PageDivider style={style} />
+      <PageDivider style={style} label={'More Stories'} />
       <LeftColumn data={leftColumn} style={style} />
       <MainColumn
         data={mainColumn}

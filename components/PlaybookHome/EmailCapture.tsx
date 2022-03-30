@@ -67,8 +67,8 @@ const EmailCapture = ({
       className={className}
     >
       <div className="layout">
-        {title && <div className="title">{title}</div>}
-        {subtitle && <div className="subtitle">{subtitle}</div>}
+        {title && <h2 className="title">{title}</h2>}
+        {subtitle && <div className="subtitle tease-lede">{subtitle}</div>}
         <div className="input-row">
           <input placeholder="NAME@EXAMPLE.COM" type="text" />
           <button type="button">→</button>
@@ -78,18 +78,15 @@ const EmailCapture = ({
 
       <style jsx>{`
         .title {
-          font-family: var(--flexa);
-          font-size: 64px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 62px;
-          letter-spacing: -0.02em;
           text-align: left;
           color: var(--${inverseColor});
           text-transform: uppercase;
           font-variation-settings: 'wght' 700, 'wdth' 40;
 
           margin-bottom: 0.625rem;
+        }
+        h2 {
+          margin: 0;
         }
         .subtitle {
           font-family: var(--flexa);
