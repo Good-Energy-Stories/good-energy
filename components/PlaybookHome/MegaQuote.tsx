@@ -1,25 +1,25 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../../lib/sanity';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { AnimatedUnderline, CTAButton } from '../';
-import Link from 'next/link';
+import { CTAButton } from '../';
+import {
+  Quote,
+  Attribution,
+  SpotIllustration,
+  QuoteIllustration,
+} from './MegaQuoteComponents';
+
 function getStyles(color) {
   return css.resolve`
     div {
       display: inline-block;
       background-color: var(--${color});
-
       min-width: 100%;
       position: relative;
       overflow: hidden;
       border-top: 4px solid var(--blueFour);
       grid-column: 1/-1;
+      padding: 0 2.5rem;
+      padding-bottom: 2.5rem;
     }
     @media only screen and (max-width: 768px) {
       div {
@@ -48,6 +48,11 @@ interface PlaybookQuoteData {
   shouldLinkToAboutPage: boolean;
 }
 
+export enum MegaQuoteColor {
+  black = 'black',
+  white = 'white',
+}
+
 const MegaQuote = ({
   data,
   index,
@@ -62,9 +67,13 @@ const MegaQuote = ({
     backgroundColor: color,
   } = data;
 
-  const backgroundColor = color ?? 'black';
+  const backgroundColor = color ?? MegaQuoteColor.black;
   const { className, styles } = getStyles(backgroundColor);
-  const inverseColor = backgroundColor === 'black' ? 'white' : 'black';
+  const inverseColor =
+    backgroundColor === MegaQuoteColor.black
+      ? MegaQuoteColor.white
+      : MegaQuoteColor.black;
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -74,57 +83,25 @@ const MegaQuote = ({
       variants={variants}
       className={className}
     >
-      <div className="layout mega-quote">
-        <span className="open-quote">{`“`}</span>
-        <span>
-          <div className="quote">
-            <span className="quote-body">{`${quote}`}</span>
-            <span className="close-quote">{`”`}</span>
-          </div>
-          <div className="attribution mega-quote-attribution">
-            {shouldLinkToAboutPage ? (
-              <CTAButton
-                label="About Good Energy"
-                href="/"
-                color={inverseColor}
-              />
-            ) : (
-              attribution
-            )}
-          </div>
-        </span>
+      <div className="layout">
+        <Quote quote={quote} color={inverseColor} />
+        <Attribution
+          attribution={attribution}
+          shouldLinkToAboutPage={shouldLinkToAboutPage}
+          color={inverseColor}
+        />
       </div>
-      <div className="spot-illustration">
-        <img src="/flowers-one.png" />
-      </div>
+      <SpotIllustration
+        illustration={
+          backgroundColor === MegaQuoteColor.black
+            ? QuoteIllustration.flowers
+            : QuoteIllustration.fern
+        }
+      />
+
       <style jsx>{`
-        .spot-illustration {
-          max-width: 30vw;
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          top: 0;
-          display: flex;
-          align-items: flex-end;
-        }
-        img {
-          max-width: 100%;
-        }
-        .open-quote {
-          display: inline-block;
-        }
         .layout {
-          display: flex;
           padding: 2.5rem;
-        }
-        .quote {
-          margin-bottom: 1.5rem;
-          margin-right: 22vw;
-          color: var(--${inverseColor});
-        }
-        .attribution {
-          display: inline-block;
-          position: relative;
         }
       `}</style>
       {styles}
