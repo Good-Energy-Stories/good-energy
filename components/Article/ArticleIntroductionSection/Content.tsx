@@ -53,7 +53,6 @@ const variants = {
 
 const Content = ({ data }: { data: any }) => {
   const { body } = data;
-  console.log(body);
   return (
     <motion.div
       transition={{ duration: 2 }}

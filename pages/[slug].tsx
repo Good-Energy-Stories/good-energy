@@ -24,7 +24,6 @@ const Project = ({ article }) => {
   const sectionsTOC = body
     ?.filter((e) => e._type === 'articleSection')
     .map((e) => ({ key: e._key, title: e.title }));
-  console.log(article);
   return (
     <>
       <Meta />

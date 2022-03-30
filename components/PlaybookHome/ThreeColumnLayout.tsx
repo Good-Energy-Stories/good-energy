@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Card } from '../Cards';
-import { ArticleCardStyle } from '../Cards';
+import { ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
 import { FEATURED_TAG_LINE_HEIGHT } from '../Cards/FeaturedTag';
 import PageDivider from './PageDivider';
 
@@ -17,7 +17,7 @@ export enum ThreeColumnLayoutStyle {
   secondary = 'secondary',
 }
 
-const getPrimaryColumnCardStyle = (
+const getPrimaryColumnArticleCardStyle = (
   style: ThreeColumnLayoutStyle,
 ): ArticleCardStyle => {
   switch (style) {
@@ -25,6 +25,16 @@ const getPrimaryColumnCardStyle = (
       return ArticleCardStyle.featured;
     case ThreeColumnLayoutStyle.secondary:
       return ArticleCardStyle.featuredSecondary;
+  }
+};
+
+const getPrimaryColumnCharacterProfileCardStyle = (
+  style: ThreeColumnLayoutStyle,
+): CharacterProfileCardStyle => {
+  switch (style) {
+    case ThreeColumnLayoutStyle.primary:
+    case ThreeColumnLayoutStyle.secondary:
+      return CharacterProfileCardStyle.featuredSecondary;
   }
 };
 
@@ -78,11 +88,16 @@ const LeftColumn = ({
 const MainColumn = ({
   data,
   style,
+  secondaryColumnsEmpty,
 }: {
   data: any;
   style: ThreeColumnLayoutStyle;
+  secondaryColumnsEmpty: boolean;
 }) => {
-  const mainColumnCardStyle = getPrimaryColumnCardStyle(style);
+  const mainColumnArticleCardStyle = getPrimaryColumnArticleCardStyle(style);
+  const mainColumnCharacterProfileCardStyle =
+    getPrimaryColumnCharacterProfileCardStyle(style);
+
   if (!data) return null;
   return (
     <div>
@@ -90,8 +105,10 @@ const MainColumn = ({
         <Card
           key={i}
           index={i}
+          shouldUseExpandedStyles={secondaryColumnsEmpty}
           content={c}
-          articleCardStyle={mainColumnCardStyle}
+          articleCardStyle={mainColumnArticleCardStyle}
+          characterProfileCardStyle={mainColumnCharacterProfileCardStyle}
         />
       ))}
       <style jsx>{`
@@ -152,13 +169,17 @@ export const ThreeColumnLayout = ({
   data: ThreeColumnLayoutData;
   style: ThreeColumnLayoutStyle;
 }) => {
-  console.log('style: ', style);
   const { leftColumn, mainColumn, rightColumn } = data;
+
   return (
     <>
       <PageDivider style={style} />
       <LeftColumn data={leftColumn} style={style} />
-      <MainColumn data={mainColumn} style={style} />
+      <MainColumn
+        data={mainColumn}
+        style={style}
+        secondaryColumnsEmpty={leftColumn === null && rightColumn === null}
+      />
       <RightColumn data={rightColumn} style={style} />
     </>
   );

@@ -31,9 +31,11 @@ export enum ArticleCardStyle {
 const ArticleCard = ({
   data,
   index,
+  shouldUseExpandedStyles = true,
   style,
 }: {
   data: ArticleCardData;
+  shouldUseExpandedStyles?: boolean;
   index: number;
   style: ArticleCardStyle;
 }) => {
@@ -47,7 +49,7 @@ const ArticleCard = ({
     case ArticleCardStyle.featured:
       return <ArticleFeatured data={data} />;
     case ArticleCardStyle.featuredSecondary:
-      if (index === 0) {
+      if (shouldUseExpandedStyles && index === 0) {
         return <ArticleFeaturedSecondaryWide data={data} />;
       }
       return <ArticleFeaturedSecondary data={data} />;

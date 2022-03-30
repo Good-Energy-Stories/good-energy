@@ -14,11 +14,19 @@ const CharacterProfileStandard = dynamic(
 const CharacterProfileReadMore = dynamic(
   () => import('./CharacterProfileReadMore'),
 );
+const CharacterProfileFeaturedSecondary = dynamic(
+  () => import('./CharacterProfileFeaturedSecondary'),
+);
+const CharacterProfileFeaturedSecondaryWide = dynamic(
+  () => import('./CharacterProfileFeaturedSecondaryWide'),
+);
 
 export enum CharacterProfileCardStyle {
   standard = 'standard',
 
   readMore = 'readMore',
+  featuredSecondary = 'featuredSecondary',
+  featuredSecondaryWide = 'featuredSecondaryWide',
 }
 
 export interface CharacterProfileData {
@@ -32,10 +40,12 @@ export interface CharacterProfileData {
 const CharacterProfileCard = ({
   data,
   index,
+  shouldUseExpandedStyles = true,
   style,
 }: {
   data: CharacterProfileData;
   index: number;
+  shouldUseExpandedStyles?: boolean;
   style: CharacterProfileCardStyle;
 }) => {
   switch (style) {
@@ -44,6 +54,14 @@ const CharacterProfileCard = ({
 
     case CharacterProfileCardStyle.readMore:
       return <CharacterProfileReadMore data={data} index={index} />;
+    case CharacterProfileCardStyle.featuredSecondary:
+      if (shouldUseExpandedStyles && index === 0) {
+        return (
+          <CharacterProfileFeaturedSecondaryWide data={data} index={index} />
+        );
+      }
+      return <CharacterProfileFeaturedSecondary data={data} index={index} />;
+
     default:
       return <CharacterProfileStandard data={data} index={index} />;
   }

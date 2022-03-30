@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
+import { Name, Bio, RoundPortrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
 import { PortraitSizes } from './CharacterProfileCardComponents';
 import { SmallBorderCTAButton } from '../';
@@ -65,7 +65,7 @@ const CharacterProfileReadMore = ({
     >
       <div>
         {portraitImage && (
-          <Portrait image={portraitImage} size={PortraitSizes.medium} />
+          <RoundPortrait image={portraitImage} size={PortraitSizes.medium} />
         )}
         {!portraitImage && <div className="line" />}
         <div className="label-medium">Character Profile</div>

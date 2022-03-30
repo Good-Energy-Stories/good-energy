@@ -3,7 +3,6 @@ import { ThreeColumnLayoutStyle } from './';
 import ThreeColumnLayout from './ThreeColumnLayout';
 
 export const PageDivider = ({ style }: { style: ThreeColumnLayoutStyle }) => {
-  console.log('PAGEDIIFER: ', style);
   if (style === ThreeColumnLayoutStyle.primary) {
     return null;
   }

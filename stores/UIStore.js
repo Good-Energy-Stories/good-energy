@@ -118,11 +118,6 @@ class UIStore {
     typeof window !== `undefined` ? window.innerWidth : undefined;
   @observable windowHeight =
     typeof window !== `undefined` ? window.innerHeight : undefined;
-
-  // @computed get playerColor() {
-  // 	console.log(this.cotrolColor);
-  // 	return this.cotrolColor;
-  // }
 }
 
 export default UIStore;

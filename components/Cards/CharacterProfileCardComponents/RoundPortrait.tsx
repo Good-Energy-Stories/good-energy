@@ -3,11 +3,14 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
+import { imageUrlFor } from '../../../utils/imageUrlFor';
+import { PortraitSizes } from './Portrait';
 
 const { className, styles } = css.resolve`
   div {
-    margin-top: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -24,7 +27,13 @@ const variants = {
   },
 };
 
-const Name = ({ name }: { name: String }) => {
+const RoundPortrait = ({
+  image,
+  size = PortraitSizes.medium,
+}: {
+  image: any;
+  size?: PortraitSizes;
+}) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -34,13 +43,19 @@ const Name = ({ name }: { name: String }) => {
       variants={variants}
       className={className}
     >
-      <h3>{name}</h3>
-
+      <div className="frame">
+        <img alt={image?.caption} src={imageUrlFor(image).url()} />
+      </div>
       <style jsx>{`
-        .open-quote {
+        .frame {
+          height: ${size}px;
+          width: ${size}px;
+          border-radius: 50%;
+          overflow: hidden;
         }
-        h3 {
-          margin: 0.625rem auto;
+        img {
+          max-width: 100%;
+          transform: translateY(-10%);
         }
       `}</style>
       {styles}
@@ -48,4 +63,4 @@ const Name = ({ name }: { name: String }) => {
   );
 };
 
-export default Name;
+export default RoundPortrait;

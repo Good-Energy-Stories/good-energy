@@ -38,16 +38,12 @@ export const LoginComponent = ({
 
       const formData = new FormData(form);
 
-      console.log('PASSWORD: ', formData.get('password'));
-
       const res = await fetch(apiUrl || `/api/login`, {
         method: 'post',
         credentials: 'include',
         body: JSON.stringify({ password: formData.get('password') }),
         headers: { 'Content-Type': 'application/json' },
       });
-
-      console.log('res: ', res);
 
       const { message } = await res.json();
 

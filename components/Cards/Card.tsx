@@ -8,11 +8,13 @@ const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
 export const Card = ({
   index,
   content,
+  shouldUseExpandedStyles = true,
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
 }: {
   index: number;
   content: any;
+  shouldUseExpandedStyles?: boolean;
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
 }) => {
@@ -21,7 +23,12 @@ export const Card = ({
   switch (type) {
     case 'article':
       return (
-        <ArticleCard index={index} data={content} style={articleCardStyle} />
+        <ArticleCard
+          index={index}
+          data={content}
+          style={articleCardStyle}
+          shouldUseExpandedStyles={shouldUseExpandedStyles}
+        />
       );
     case 'quoteCollection':
       return <QuoteCarousel index={index} data={content} />;
@@ -31,6 +38,7 @@ export const Card = ({
           index={index}
           data={content}
           style={characterProfileCardStyle}
+          shouldUseExpandedStyles={shouldUseExpandedStyles}
         />
       );
     default:

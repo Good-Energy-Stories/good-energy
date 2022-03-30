@@ -7,20 +7,19 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Name, Bio, RoundPortrait } from './CharacterProfileCardComponents';
+import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
 import { CharacterProfileData } from './CharacterProfileCard';
 import { PortraitSizes } from './CharacterProfileCardComponents';
-import { Tags } from './';
+import { Tags, FeaturedTag } from '.';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
 
-    width: 100%;
-
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--blueThree);
+    width: calc(100% + 10rem);
+    margin: 0 -5rem;
+    margin-bottom: 2.5rem;
+    border-top: 4px solid var(--black);
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -41,7 +40,7 @@ const variants = {
   },
 };
 
-const CharacterProfileStandard = ({
+const CharacterProfileFeaturedSecondaryWide = ({
   data,
   index,
 }: {
@@ -49,6 +48,7 @@ const CharacterProfileStandard = ({
   index: number;
 }) => {
   const { name, shortBio, slug, portraitImage, tags } = data;
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -60,14 +60,21 @@ const CharacterProfileStandard = ({
     >
       <Link href={`/${slug}`}>
         <a>
-          <div className="article-link">
-            {portraitImage && (
-              <RoundPortrait image={portraitImage} size={PortraitSizes.large} />
-            )}
-            {!portraitImage && <div className="line" />}
-            <Name name={name} />
-            {shortBio && <Bio bio={shortBio} />}
-            {tags && <Tags tags={tags} />}
+          <div className="layout">
+            <div className="left">
+              {portraitImage && (
+                <Portrait
+                  image={portraitImage}
+                  size={PortraitSizes.extraLarge}
+                />
+              )}
+            </div>
+            <div className="right">
+              <FeaturedTag suffix={'Character Profile'} />
+              <Name name={name} />
+              {shortBio && <Bio bio={shortBio} />}
+              {tags && <Tags tags={tags} />}
+            </div>
           </div>
         </a>
       </Link>
@@ -80,10 +87,25 @@ const CharacterProfileStandard = ({
           width: 100%;
           border-top: 4px solid var(--black);
         }
+        .layout {
+          margin-top: 1.25rem;
+
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 1.25rem;
+        }
+        .left {
+          grid-column: 1/2;
+          display: flex;
+          justify-content: flex-start;
+        }
+        .right {
+          grid-column: 2/3;
+        }
       `}</style>
       {styles}
     </motion.div>
   );
 };
 
-export default CharacterProfileStandard;
+export default CharacterProfileFeaturedSecondaryWide;

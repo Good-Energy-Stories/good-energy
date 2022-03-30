@@ -6,18 +6,17 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
-const DIAMETER = 150;
-const LARGE_DIAMETER = 180;
-
 export enum PortraitSizes {
-  medium = DIAMETER,
-  large = LARGE_DIAMETER,
+  medium = '150',
+  large = '180',
+  extraLarge = '250',
+  fill = '100%',
 }
 
 const { className, styles } = css.resolve`
   div {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
   @media only screen and (max-width: 768px) {
@@ -56,9 +55,7 @@ const Portrait = ({
       </div>
       <style jsx>{`
         .frame {
-          height: ${size}px;
           width: ${size}px;
-          border-radius: 50%;
           overflow: hidden;
         }
         img {

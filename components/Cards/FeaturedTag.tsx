@@ -1,9 +1,9 @@
 export const FEATURED_TAG_LINE_HEIGHT = 22;
 
-const FeaturedTag = () => {
+const FeaturedTag = ({ suffix }: { suffix?: string }) => {
   return (
     <div>
-      Featured
+      {suffix ? `Featured ${suffix}` : `Featured`}
       <style jsx>{`
         div {
           font-family: var(--flexa-mono);

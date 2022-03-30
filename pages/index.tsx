@@ -23,7 +23,7 @@ import { Footer } from '../components/Footer';
 
 const Root = ({ pageData }) => {
   const { masthead, content } = pageData;
-  console.log(pageData);
+
   const clearCookie = async () => {
     await fetch('/api/logout', {
       method: 'post',
@@ -67,7 +67,6 @@ export async function getStaticProps({ preview, previewData }) {
     }[0]
   `,
   );
-  console.log(pageData);
   return { props: { pageData } };
 }
 

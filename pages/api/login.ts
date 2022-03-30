@@ -18,7 +18,6 @@ const loginHandler =
   (password: string, options?: PasswordProtectHandlerOptions) =>
   async (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'application/json');
-    console.log('hwat');
     try {
       if (req.method !== 'POST') {
         throw new Error('Invalid method.');

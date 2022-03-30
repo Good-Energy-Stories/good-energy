@@ -60,7 +60,9 @@ const NavLinks = () => {
       </button>
       <style jsx>{`
         div {
+          width: 100%;
           display: flex;
+          justify-content: space-around;
         }
         .border {
           border-left: 4px solid var(--black);
@@ -185,7 +187,7 @@ const StickyNavBar = (props) => {
             position: sticky;
             top: 0;
             font-size: 20px;
-
+            min-height: 100px;
             z-index: 100;
             background-color: var(--blueFive);
           }

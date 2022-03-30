@@ -11,6 +11,8 @@ export { default as ArticleFeaturedSecondary } from './ArticleFeaturedSecondary'
 export { default as ArticleFeaturedSecondaryWide } from './ArticleFeaturedSecondaryWide';
 export { default as FeaturedTag } from './FeaturedTag';
 export { default as ArticleReadMore } from './ArticleReadMore';
+export { default as CharacterProfileFeaturedSecondary } from './CharacterProfileFeaturedSecondary';
+export { default as CharacterProfileFeaturedSecondaryWide } from './CharacterProfileFeaturedSecondaryWide';
 export { default as CharacterProfileReadMore } from './CharacterProfileReadMore';
 export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';
