@@ -135,7 +135,9 @@ const RightColumn = ({
           margin-bottom: 1.25rem;
           align-content: flex-end;
           display: flex;
-          flex-wrap: wrap;
+          display: flex;
+          align-items: flex-end;
+
           flex-direction: column;
         }
       `}</style>

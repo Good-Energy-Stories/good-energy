@@ -14,6 +14,7 @@ const { className, styles } = css.resolve`
     display: flex;
     justify-content: center;
     padding: 0.3125rem 0;
+    margin-top: 0.3125rem;
   }
   @media only screen and (max-width: 768px) {
     div {

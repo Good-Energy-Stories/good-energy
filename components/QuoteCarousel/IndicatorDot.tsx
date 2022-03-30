@@ -14,6 +14,7 @@ const { className, styles } = css.resolve`
     border-radius: 6px;
     border: 1px solid var(--blueThree);
     margin: 0 3px;
+    cursor: pointer;
   }
   @media only screen and (max-width: 768px) {
   }

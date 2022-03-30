@@ -10,6 +10,8 @@ import { ReactChild, Key } from 'react';
 import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
 import { CharacterProfileData } from './CharacterProfileCard';
+import { PortraitSizes } from './CharacterProfileCardComponents';
+
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
@@ -56,7 +58,9 @@ const CharacterProfileCardStandard = ({
       <Link href={`/${slug}`}>
         <a>
           <div className="article-link">
-            {portraitImage && <Portrait image={portraitImage} />}
+            {portraitImage && (
+              <Portrait image={portraitImage} size={PortraitSizes.large} />
+            )}
             {!portraitImage && <div className="line" />}
             <Name name={name} />
             {shortBio && <Bio bio={shortBio} />}

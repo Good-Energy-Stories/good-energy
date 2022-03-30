@@ -9,6 +9,7 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
+import { PortraitSizes } from './CharacterProfileCardComponents';
 import { SmallBorderCTAButton } from '../';
 const { className, styles } = css.resolve`
   div {
@@ -63,7 +64,9 @@ const CharacterProfileReadMore = ({
       className={className}
     >
       <div>
-        {portraitImage && <Portrait image={portraitImage} />}
+        {portraitImage && (
+          <Portrait image={portraitImage} size={PortraitSizes.medium} />
+        )}
         {!portraitImage && <div className="line" />}
         <div className="label-medium">Character Profile</div>
         <Name name={name} />

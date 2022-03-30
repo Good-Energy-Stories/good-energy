@@ -7,6 +7,13 @@ import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 const DIAMETER = 150;
+const LARGE_DIAMETER = 180;
+
+export enum PortraitSizes {
+  medium = DIAMETER,
+  large = LARGE_DIAMETER,
+}
+
 const { className, styles } = css.resolve`
   div {
     display: flex;
@@ -28,7 +35,13 @@ const variants = {
   },
 };
 
-const Portrait = ({ image }: { image: any }) => {
+const Portrait = ({
+  image,
+  size = PortraitSizes.medium,
+}: {
+  image: any;
+  size?: PortraitSizes;
+}) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -43,8 +56,8 @@ const Portrait = ({ image }: { image: any }) => {
       </div>
       <style jsx>{`
         .frame {
-          height: ${DIAMETER}px;
-          width: ${DIAMETER}px;
+          height: ${size}px;
+          width: ${size}px;
           border-radius: 50%;
           overflow: hidden;
         }
