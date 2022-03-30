@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'Pressura';
-  src: url('/fonts/Pressura/Pressura_Mono_Regular.woff');
+  src: url('/fonts/Pressura/PressuraMonoRegular.woff');
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: 'FlexaVar';
-  src: url('/fonts/Flexa/Flexa_VAR.woff2');
+  src: url('/fonts/Flexa/FlexaVAR.woff2');
 }
 @font-face {
   font-family: 'FlexaVarMono';
-  src: url('/fonts/Flexa/Flexa_Mono_VAR.woff2');
+  src: url('/fonts/Flexa/FlexaMonoVAR.woff2');
 }
 
 .tease-quote-big {
