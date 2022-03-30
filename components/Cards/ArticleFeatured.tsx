@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Banner, Title, Lede, Tags } from './ArticleCardComponents';
+import { Banner, Title, Lede } from './ArticleCardComponents';
 import Link from 'next/link';
-import { ArticleCardData } from './';
+import { ArticleCardData } from '.';
 import FeaturedTag from './FeaturedTag';
+import { Tags } from './';
 
 const { className, styles } = css.resolve`
   div {

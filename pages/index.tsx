@@ -49,7 +49,6 @@ const Root = ({ pageData }) => {
         ))}
       </Layout>
       <Footer />
-      <button onClick={clearCookie}>Logout</button>
     </>
   );
 };

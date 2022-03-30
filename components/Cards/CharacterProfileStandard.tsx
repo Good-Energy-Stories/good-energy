@@ -11,12 +11,16 @@ import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
 import Link from 'next/link';
 import { CharacterProfileData } from './CharacterProfileCard';
 import { PortraitSizes } from './CharacterProfileCardComponents';
-
+import { Tags } from './';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
 
     width: 100%;
+
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--blueThree);
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -44,8 +48,8 @@ const CharacterProfileCardStandard = ({
   data: CharacterProfileData;
   index: number;
 }) => {
-  const { name, shortBio, slug, portraitImage } = data;
-
+  const { name, shortBio, slug, portraitImage, tags } = data;
+  console.log(data);
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -64,6 +68,7 @@ const CharacterProfileCardStandard = ({
             {!portraitImage && <div className="line" />}
             <Name name={name} />
             {shortBio && <Bio bio={shortBio} />}
+            {tags && <Tags tags={tags} />}
           </div>
         </a>
       </Link>

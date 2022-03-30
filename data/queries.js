@@ -102,6 +102,18 @@ body[] {
 export const characterProfilePreview = `
 name,
 shortBio,
+tags[],
+"slug": slug.current,
+portraitImage{
+  ${imageMeta}
+},
+"portraitImageUrl": portraitImage.asset->url
+`;
+
+export const expertProfilePreview = `
+name,
+shortBio,
+tags[],
 "slug": slug.current,
 portraitImage{
   ${imageMeta}
@@ -125,6 +137,10 @@ export const contentReferences = `
   _type == 'characterProfile' => {
     _type,
     ${characterProfilePreview}
+  },
+  _type == 'expertProfile' => {
+    _type,
+    ${expertProfilePreview}
   },
   _type == 'quoteCollection' => {
     _type,

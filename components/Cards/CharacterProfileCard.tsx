@@ -26,6 +26,7 @@ export interface CharacterProfileData {
   shortBio: string;
   slug: string;
   portraitImage: any;
+  tags: string[];
 }
 
 const CharacterProfileCard = ({

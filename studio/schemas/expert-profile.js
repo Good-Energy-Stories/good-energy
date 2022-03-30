@@ -1,10 +1,9 @@
 import React from 'react';
 import { CharacterProfilePreview } from '../components';
-import { BsPersonFill as icon } from 'react-icons/bs';
-
+import { GiBookshelf as icon } from 'react-icons/gi';
 export default {
-  name: 'characterProfile',
-  title: 'Character Profile',
+  name: 'expertProfile',
+  title: 'Expert Profile',
   type: 'document',
   icon,
   fields: [

@@ -16,6 +16,7 @@ import articleBlockQuote from './article-block-quote';
 import articleStoryPossibility from './article-story-possibility';
 
 import characterProfile from './character-profile';
+import expertProfile from './expert-profile';
 
 import playlist from './playlist';
 
@@ -42,7 +43,7 @@ export default createSchema({
     articleBlockQuote,
     articleStoryPossibility,
     characterProfile,
-
+    expertProfile,
     playlist,
     playbookHome,
     playbookQuote,
