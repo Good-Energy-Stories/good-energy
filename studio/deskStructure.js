@@ -1,21 +1,26 @@
 import S from '@sanity/desk-tool/structure-builder';
-import { BsGrid3X2GapFill } from 'react-icons/bs';
-
+import { pagesMenu } from './desk/pages';
+import { playbookMenu } from './desk/playbook';
 export default () =>
   S.list()
     .title('Base')
     .items([
-      S.listItem()
-        .title('Playbook Home')
-        .child(
-          S.document()
-            .title('Playbook Home')
-            .schemaType('playbookHome')
-            .documentId('playbookHome'),
-        )
-        .icon(BsGrid3X2GapFill),
-
+      pagesMenu,
+      S.divider(),
+      playbookMenu,
+      S.divider(),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['playbookHome'].includes(listItem.getId()),
+        (listItem) =>
+          ![
+            'playbookHome',
+            'landingPage',
+            'partnersPage',
+            'characterProfilesPage',
+            'article',
+            'characterProfile',
+            'expertProfile',
+            'quoteCollection',
+            'playlist',
+          ].includes(listItem.getId()),
       ),
     ]);

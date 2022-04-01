@@ -1,0 +1,65 @@
+import React from 'react';
+import { BsFillLightbulbFill as icon } from 'react-icons/bs';
+
+export default {
+  name: 'resource',
+  title: 'Resource',
+  type: 'document',
+  icon,
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'string',
+      description: "What page should this resource's 'Read More' button go to?",
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Playbook', value: '/playbook' },
+          { title: 'Library of Experts', value: '/library-of-experts' },
+          { title: 'Consulting Practice', value: '/about' },
+        ],
+      },
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+    {
+      title: 'Resource Hero Image',
+      name: 'heroImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+  ],
+};

@@ -74,7 +74,7 @@ const EmailCapture = ({
           <button type="button">→</button>
         </div>
       </div>
-      <img src="/fern-small.png" />
+      <img src="/fern-small.png" alt="Fern" />
 
       <style jsx>{`
         .title {

@@ -1,55 +1,55 @@
-// First, we must import the schema creator
 import createSchema from 'part:@sanity/base/schema-creator';
-
-// Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import blockContent from './blockContent';
 
-import quote from './quote';
-import quoteCollection from './quote-collection';
-
 import article from './article';
-import articleSection from './article-section';
+import articleBlockQuote from './article-block-quote';
 import articleIntroductionSection from './article-introduction-section';
 import articleQuote from './article-quote';
-import articleBlockQuote from './article-block-quote';
+import articleSection from './article-section';
 import articleStoryPossibility from './article-story-possibility';
-
 import characterProfile from './character-profile';
-import expertProfile from './expert-profile';
-
-import playlist from './playlist';
-
-import playbookHome from './playbook-home';
-import playbookThreeColumn from './playbook-three-column';
-import playbookQuote from './playbook-quote';
-
+import characterProfilesPage from './character-profiles-page';
 import emailCapture from './email-capture';
+import expertProfile from './expert-profile';
+import landingPage from './landing-page';
+import partner from './partner';
+import partnerPage from './partners-page';
+import partnerSection from './partner-section';
+import playbookHome from './playbook-home';
+import playbookQuote from './playbook-quote';
+import playbookThreeColumn from './playbook-three-column';
+import playlist from './playlist';
+import quote from './quote';
+import quoteCollection from './quote-collection';
+import resource from './resource';
+import resourceSection from './resource-section';
 
-// Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
   name: 'default',
-
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    /* Your types here! */
     blockContent,
     article,
-    articleSection,
+    articleBlockQuote,
     articleIntroductionSection,
     articleQuote,
-    articleBlockQuote,
+    articleSection,
     articleStoryPossibility,
     characterProfile,
+    characterProfilesPage,
+    emailCapture,
     expertProfile,
-    playlist,
+    landingPage,
+    partner,
+    partnerPage,
+    partnerSection,
     playbookHome,
     playbookQuote,
     playbookThreeColumn,
-    quoteCollection,
+    playlist,
     quote,
-    emailCapture,
+    quoteCollection,
+    resource,
+    resourceSection,
   ]),
 });

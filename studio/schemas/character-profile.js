@@ -70,7 +70,11 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'article' }, { type: 'characterProfile' }],
+          to: [
+            { type: 'article' },
+            { type: 'characterProfile' },
+            { type: 'expertProfile' },
+          ],
         },
       ],
     },
