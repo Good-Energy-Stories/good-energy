@@ -5,45 +5,23 @@ import Link from 'next/link';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import {
-  Layout,
-  Masthead,
-  StickyNavBar,
-  Meta,
-  QuoteCarousel,
-  Tag,
-} from '../components';
+import { Layout, Masthead, Meta, QuoteCarousel, Tag } from '../components';
+import { PageContent, StickyNavBar, Header } from '../components/Landing';
 import { queries } from '../data';
-import {
-  PageContent,
-  ThreeColumnLayout,
-  ThreeColumnLayoutStyle,
-} from '../components/PlaybookHome';
 import { Footer } from '../components/Footer';
 
 const Root = ({ pageData }) => {
-  const { masthead, content } = pageData;
-
-  const clearCookie = async () => {
-    await fetch('/api/logout', {
-      method: 'post',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    window.location.reload();
-  };
+  const { title, subtitle, content, bannerImage } = pageData;
+  console.log(pageData);
 
   return (
     <>
       <Meta />
-      <Masthead />
+
       <StickyNavBar />
 
       <Layout key="home">
-        <ThreeColumnLayout
-          data={masthead}
-          style={ThreeColumnLayoutStyle.primary}
-        />
+        <Header title={title} subtitle={subtitle} image={bannerImage} />
         {content.map((c, i) => (
           <PageContent key={i} index={i} content={c} />
         ))}
@@ -56,12 +34,16 @@ const Root = ({ pageData }) => {
 export async function getStaticProps({ preview, previewData }) {
   const pageData = await sanity.fetch(
     `
-    *[_type == "playbookHome" ] {
+    *[_type == "landingPage" ] {
       "id": _id,
-      masthead{
-        ${queries.threeColumnLayout}
+      title,
+      subtitle,
+      bannerImage{
+        ${queries.imageMeta}
       },
       content[]{
+        
+
           ${queries.playbookSections}
       },
     }[0]

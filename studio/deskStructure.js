@@ -16,6 +16,7 @@ export default () =>
             'landingPage',
             'partnersPage',
             'characterProfilesPage',
+            'playbookStructure',
             'article',
             'characterProfile',
             'expertProfile',

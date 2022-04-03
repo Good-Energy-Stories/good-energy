@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { Card } from '../Cards';
 import { ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
 import { FEATURED_TAG_LINE_HEIGHT } from '../Cards/FeaturedTag';
-import PageDivider from './PageDivider';
+import PageDivider from '../PageDivider';
 
 const SHIFTED_TOP_SECONDARY = `calc(${FEATURED_TAG_LINE_HEIGHT}px + 1.875rem)`;
 interface ThreeColumnLayoutData {
@@ -173,7 +173,9 @@ export const ThreeColumnLayout = ({
 
   return (
     <>
-      <PageDivider style={style} label={'More Stories'} />
+      {style !== ThreeColumnLayoutStyle.primary && (
+        <PageDivider label={'More Stories'} />
+      )}
       <LeftColumn data={leftColumn} style={style} />
       <MainColumn
         data={mainColumn}

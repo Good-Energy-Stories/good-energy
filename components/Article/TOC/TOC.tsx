@@ -2,7 +2,7 @@ import React from 'react';
 import { Section } from './';
 import { SectionRefLookup } from '../';
 import { RefObject } from 'react';
-import { PLAYBOOK_NAV_HEIGHT } from '../../Playbook';
+import { PLAYBOOK_NAV_HEIGHT } from '../../';
 export interface SectionTOC {
   title: string;
   key: string;

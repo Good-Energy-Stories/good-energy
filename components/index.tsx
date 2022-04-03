@@ -1,6 +1,12 @@
 export { default as Masthead } from './Masthead';
-export { default as StickyNavBar } from './StickyNavBar';
+export {
+  default as StickyNavBar,
+  NavBarStyles,
+  PLAYBOOK_NAV_HEIGHT,
+} from './StickyNavBar';
 export { default as Meta } from './Meta';
+export { default as PortableTextSerializer } from './PortableTextSerializer';
+export { default as PageDivider } from './PageDivider';
 
 export { default as Tag } from './Cards/Tag';
 export { default as Layout } from './Layout';
@@ -11,3 +17,7 @@ export { default as BorderCTAButton } from './BorderCTAButton';
 
 export { default as QuoteCarousel } from './QuoteCarousel/QuoteCarousel';
 export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as NavOverlay } from './NavOverlay';
+export { default as PlaybookNavOverlay } from './PlaybookNavOverlay';
+
+export { default as Search } from './Search';

@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import { PortableTextSerializer } from '../../';
+import { PortableText } from '@portabletext/react';
 
 const { className, styles } = css.resolve`
   div {
@@ -17,30 +18,6 @@ const { className, styles } = css.resolve`
     }
   }
 `;
-
-const components: Partial<PortableTextReactComponents> = {
-  block: {
-    normal: ({ children }) => <p className="body">{children}</p>,
-  },
-  marks: {
-    strong: ({ children }) => <span className="body-bold">{children}</span>,
-    link: ({ value, children }) => {
-      const target = (value?.href || '').startsWith('http')
-        ? '_blank'
-        : undefined;
-      return (
-        <a
-          className="body-link"
-          href={value?.href}
-          target={target}
-          rel={target === '_blank' && 'noindex nofollow'}
-        >
-          {children}
-        </a>
-      );
-    },
-  },
-};
 
 const variants = {
   in: {
@@ -63,7 +40,7 @@ const Content = ({ data }: { data: any }) => {
       className={className}
     >
       {title && <h3>{title}</h3>}
-      <PortableText value={body} components={components} />
+      <PortableText value={body} components={PortableTextSerializer} />
 
       {styles}
     </motion.div>

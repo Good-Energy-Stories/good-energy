@@ -1,6 +1,12 @@
 import { sanity } from '../lib/sanity';
 import { queries } from '../data';
-import { Layout, Meta, Breadcrumbs } from '../components';
+import {
+  Layout,
+  StickyNavBar,
+  NavBarStyles,
+  Meta,
+  Breadcrumbs,
+} from '../components';
 import {
   Header,
   Divider,
@@ -14,9 +20,10 @@ import {
 } from '../components/Article';
 import { Footer } from '../components/Footer';
 import { useRef, useEffect, RefObject } from 'react';
-import { PlaybookStickyNavBar } from '../components/Playbook';
+import { useStore } from '../stores/store';
+import { observer } from 'mobx-react-lite';
 
-const Project = ({ article }) => {
+const Project = observer(({ article }: { article: any }) => {
   const { title, byline, introduction, body, heroImage } = article;
 
   const sectionsRef = useRef<SectionRefLookup>({});
@@ -24,10 +31,17 @@ const Project = ({ article }) => {
   const sectionsTOC = body
     ?.filter((e) => e._type === 'articleSection')
     .map((e) => ({ key: e._key, title: e.title }));
+
+  const store = useStore();
+  const {
+    uiStore: { scrollPosition },
+  } = store;
+  const navMode =
+    scrollPosition > 0.05 ? NavBarStyles.dark : NavBarStyles.light;
   return (
     <>
       <Meta />
-      <PlaybookStickyNavBar />
+      <StickyNavBar label="Playbook Contents" mode={navMode} />
       <Layout key={article.slug}>
         <Banner image={heroImage} />
         <Header title={title} byline={byline} />
@@ -38,7 +52,7 @@ const Project = ({ article }) => {
       <Footer />
     </>
   );
-};
+});
 
 export const getStaticPaths = async () => {
   const episodes = await sanity.fetch(queries.articlePathsQuery);

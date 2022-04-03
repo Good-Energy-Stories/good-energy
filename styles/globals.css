@@ -3,6 +3,7 @@
   --black: #131314;
   --blueThree: #187bad;
   --pink: #f47cf7;
+  --yellow: #ecb547;
   --greyBlue: #b9d3de;
   --blueFive: #eaf2f5;
   --blueFour: #2fbdf4;
@@ -26,7 +27,9 @@ body {
   hyphens: auto;
   font-family: Pressura, Helvetica Neue, sans-serif;
   background-color: var(--blueFive);
-  border: 6px solid var(--pink);
+}
+body {
+  border: 12px solid var(--pink);
 }
 button {
   display: inline-block;

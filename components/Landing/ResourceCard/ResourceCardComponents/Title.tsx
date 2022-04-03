@@ -4,14 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { PLAYBOOK_NAV_HEIGHT } from '../';
+
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
-    grid-row-start: 1;
-    max-height: 100vh;
-    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -28,8 +23,7 @@ const variants = {
   },
 };
 
-const Banner = ({ image }: { image: any }) => {
-  if (!image) return null;
+const Title = ({ title }: { title: string }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -39,11 +33,15 @@ const Banner = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).width(1080).url()} />
+      <h3>{title}</h3>
 
       <style jsx>{`
-        img {
-          min-width: 100%;
+        .open-quote {
+        }
+        h3 {
+          margin: 0;
+          margin-bottom: 0;
+          margin-right: 0.625rem;
         }
       `}</style>
       {styles}
@@ -51,4 +49,4 @@ const Banner = ({ image }: { image: any }) => {
   );
 };
 
-export default Banner;
+export default Title;

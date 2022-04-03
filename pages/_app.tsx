@@ -13,6 +13,7 @@ import { signature } from '../utils/signature';
 import { withPasswordProtect } from '../lib/withPasswordProtect';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
+import { NavOverlay, PlaybookNavOverlay } from '../components';
 
 // Console Credits
 if (isBrowser) {
@@ -53,7 +54,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <DefaultSeo {...defaultSEO} />
-
+      <NavOverlay />
+      <PlaybookNavOverlay />
       <Component {...pageProps} />
     </Provider>
   );

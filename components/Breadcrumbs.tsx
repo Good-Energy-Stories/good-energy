@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css';
+import { useRouter } from 'next/router';
 
 import { motion } from 'framer-motion';
 import ChevronRight from '../public/chevron-right.svg';
@@ -49,14 +50,26 @@ const PathLabel = ({ label, href, last }) => {
   );
 };
 
-const Breadcrumbs = ({ path }: { path: Breadcrumbs }) => {
+const Breadcrumbs = ({ path }: { path?: Breadcrumbs }) => {
+  const router = useRouter();
+  console.log('router:', router);
+  const { pathname } = router;
+  const routerPath = pathname
+    .substring(1)
+    .split('/')
+    .map((c) => ({ label: c, href: `/${c}` }));
+  const crumbs = path ?? routerPath;
   return (
     <>
       <div>
-        {path.map(({ label, href }, i) => (
+        {crumbs.map(({ label, href }, i) => (
           <span key={i}>
-            <PathLabel label={label} href={href} last={path.length - 1 === i} />
-            {path.length - 1 !== i && <PathDivider key={i} />}
+            <PathLabel
+              label={label}
+              href={href}
+              last={crumbs.length - 1 === i}
+            />
+            {crumbs.length - 1 !== i && <PathDivider key={i} />}
           </span>
         ))}
       </div>

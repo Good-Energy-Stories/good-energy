@@ -5,22 +5,64 @@ import Link from 'next/link';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import { Masthead, StickyNavBar, Meta } from '../components';
+import { Layout, Masthead, Meta, QuoteCarousel, Tag } from '../components';
+import { StickyNavBar } from '../components/PlaybookHome';
 
-const Playbook = (props) => {
+import { queries } from '../data';
+import {
+  PageContent,
+  ThreeColumnLayout,
+  ThreeColumnLayoutStyle,
+} from '../components/PlaybookHome';
+import { Footer } from '../components/Footer';
+
+const Root = ({ pageData }) => {
+  const { masthead, content } = pageData;
+
+  const clearCookie = async () => {
+    await fetch('/api/logout', {
+      method: 'post',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    window.location.reload();
+  };
+
   return (
     <>
       <Meta />
       <Masthead />
       <StickyNavBar />
+
+      <Layout key="playbookHome">
+        <ThreeColumnLayout
+          data={masthead}
+          style={ThreeColumnLayoutStyle.primary}
+        />
+        {content.map((c, i) => (
+          <PageContent key={i} index={i} content={c} />
+        ))}
+      </Layout>
+      <Footer />
     </>
   );
 };
 
-export const getStaticProps = async () => {
-  return {
-    props: {},
-  };
-};
+export async function getStaticProps({ preview, previewData }) {
+  const pageData = await sanity.fetch(
+    `
+    *[_type == "playbookHome" ] {
+      "id": _id,
+      masthead{
+        ${queries.threeColumnLayout}
+      },
+      content[]{
+          ${queries.playbookSections}
+      },
+    }[0]
+  `,
+  );
+  return { props: { pageData } };
+}
 
-export default Playbook;
+export default Root;

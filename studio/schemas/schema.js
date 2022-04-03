@@ -17,6 +17,8 @@ import partner from './partner';
 import partnerPage from './partners-page';
 import partnerSection from './partner-section';
 import playbookHome from './playbook-home';
+import playbookSection from './playbook-section';
+import playbookStructure from './playbook-structure';
 import playbookQuote from './playbook-quote';
 import playbookThreeColumn from './playbook-three-column';
 import playlist from './playlist';
@@ -43,7 +45,9 @@ export default createSchema({
     partner,
     partnerPage,
     partnerSection,
+    playbookStructure,
     playbookHome,
+    playbookSection,
     playbookQuote,
     playbookThreeColumn,
     playlist,

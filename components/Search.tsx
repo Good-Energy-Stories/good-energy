@@ -1,19 +1,20 @@
-import SearchIcon from '../../public/search.svg';
+import SearchIcon from '../public/search.svg';
 import { motion } from 'framer-motion';
-const Search = () => {
+const Search = ({ expand = false }: { expand?: boolean }) => {
   return (
     <>
       <div className="search-bar">
         <div className="search-icon">
           <SearchIcon fill="var(--white)" />
         </div>
-        <input type="text" placeholder="Search" />
+        <input className="nav-link-xl" type="text" placeholder="Search" />
       </div>
       <style jsx>{`
         .search-bar {
           grid-column-start: 1;
-          grid-column-end: 3;
-
+          grid-column-end: 2;
+          width: ${expand ? '100%' : 'auto'};
+          background-color: var(--black);
           border: 2px solid var(--white);
           margin-top: 1.25rem;
           padding: 0.625rem 1.25rem;
@@ -30,13 +31,6 @@ const Search = () => {
         }
         input[type='text'] {
           text-transform: uppercase;
-          font-family: var(--flexa);
-
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 100;
-          line-height: 18px;
-          letter-spacing: 0em;
 
           text-align: left;
           color: var(--white);

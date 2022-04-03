@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
-
+import { PortableTextSerializer } from '../..';
 const { className, styles } = css.resolve`
   div {
     margin-left: 1.25rem;
@@ -17,30 +17,6 @@ const { className, styles } = css.resolve`
     }
   }
 `;
-
-const components: Partial<PortableTextReactComponents> = {
-  block: {
-    normal: ({ children }) => <p className="body">{children}</p>,
-  },
-  marks: {
-    strong: ({ children }) => <span className="body-bold">{children}</span>,
-    link: ({ value, children }) => {
-      const target = (value?.href || '').startsWith('http')
-        ? '_blank'
-        : undefined;
-      return (
-        <a
-          className="body-link"
-          href={value?.href}
-          target={target}
-          rel={target === '_blank' && 'noindex nofollow'}
-        >
-          {children}
-        </a>
-      );
-    },
-  },
-};
 
 const variants = {
   in: {
@@ -62,7 +38,7 @@ const Content = ({ data }: { data: any }) => {
       variants={variants}
       className={className}
     >
-      <PortableText value={body} components={components} />
+      <PortableText value={body} components={PortableTextSerializer} />
 
       {styles}
     </motion.div>

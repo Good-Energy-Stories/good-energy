@@ -8,8 +8,8 @@ import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import Link from 'next/link';
-import { Search, FooterLink, Links, Copyright, ContactForm } from './';
-
+import { FooterLink, Links, Copyright, ContactForm } from './';
+import { Search } from '../';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;

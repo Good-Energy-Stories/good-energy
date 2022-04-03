@@ -40,6 +40,23 @@ body,
 initialState
 `;
 
+export const resource = `
+title,
+"slug": slug.current,
+description,
+style,
+heroImage{
+  ${imageMeta}
+},
+`;
+
+export const resourceSection = `
+title,
+resources[] -> {
+  ${resource}
+},
+`;
+
 export const articleBody = `
 _type == 'articleSection' => {
   _type,
@@ -110,6 +127,18 @@ portraitImage{
 "portraitImageUrl": portraitImage.asset->url
 `;
 
+export const characterProfile = `
+name,
+shortBio,
+bio,
+tags[],
+"slug": slug.current,
+portraitImage{
+  ${imageMeta}
+},
+"portraitImageUrl": portraitImage.asset->url
+`;
+
 export const expertProfilePreview = `
 name,
 shortBio,
@@ -145,7 +174,7 @@ export const contentReferences = `
   _type == 'quoteCollection' => {
     _type,
     ${quoteCollection}
-  }
+  },
 `;
 
 export const playlist = `
@@ -194,13 +223,21 @@ export const playbookSections = `
       attribution,
       backgroundColor,
       shouldLinkToAboutPage
+    },
+    _type == 'resourceSection' => {
+      _type,
+      ${resourceSection}
     }
   },
   
 `;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
+export const characterProfilePathsQuery = `*[_type == "characterProfile"] { slug }`;
 
 export const articleQuery = `*[_type == "article" && slug.current == $slug] {
   ${article}
+}[0]`;
+export const characterProfileQuery = `*[_type == "characterProfile" && slug.current == $slug] {
+  ${characterProfile}
 }[0]`;

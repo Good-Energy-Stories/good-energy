@@ -1,38 +1,49 @@
-import HamburgerIcon from '../public/hamburger.svg';
-import ArrowIcon from '../public/arrow.svg';
+import HamburgerIcon from '../public/hamburger-playbook.svg';
+import SearchIcon from '../public/search-playbook.svg';
+import LogoLightIcon from '../public/logo-light.svg';
+import Link from 'next/link';
+import Logo from './Logo';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../stores/store';
 
-import SearchIcon from '../public/search.svg';
+const light: NavBarStyle = {
+  backgroundColor: 'var(--white)',
+  textColor: 'var(--black)',
+};
+const dark: NavBarStyle = {
+  backgroundColor: 'var(--black)',
+  textColor: 'var(--white)',
+};
+export interface NavBarStyle {
+  backgroundColor: string;
+  textColor: string;
+}
+export enum NavBarStyles {
+  light = 'light',
+  dark = 'dark',
+}
 
-const NavDropdownButton = () => {
+const Nav = ({
+  label = null,
+  theme,
+}: {
+  label?: string;
+  theme?: NavBarStyle;
+}) => {
   return (
-    <div className="border">
-      <button>
-        Contents
-        <span>
-          <ArrowIcon />
-        </span>
-      </button>
+    <div>
+      <NavButtons border={label === null ? false : true} theme={theme} />
+      {label && <NavTitle label={label} theme={theme} />}
 
       <style jsx>{`
         div {
           display: flex;
-          align-items: center;
+          grid-column: span 1;
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
         }
-        span {
-          margin-left: 10px;
-          padding-bottom: 4px;
-        }
-        .border {
-          border-left: 4px solid var(--black);
-          border-right: 4px solid var(--black);
-        }
-        button {
-          line-height: 28px;
-          background-color: var(--blueFive);
-        }
+
         @media only screen and (max-width: 768px) {
           div {
-            display: none;
           }
         }
       `}</style>
@@ -40,68 +51,92 @@ const NavDropdownButton = () => {
   );
 };
 
-const NavLinks = () => {
+const NavButtons = ({
+  border = false,
+  theme,
+}: {
+  border?: boolean;
+  theme?: NavBarStyle;
+}) => {
+  const store = useStore();
+  const {
+    uiStore: { openNavOverlay },
+  } = store;
   return (
-    <div>
-      <button>
-        <a>Home</a>
+    <div className={border ? 'border' : ''}>
+      <button onClick={() => openNavOverlay()}>
+        <HamburgerIcon fill={theme.backgroundColor} />
       </button>
-      <button>
-        <a>Featured Voices</a>
+      <button onClick={() => {}}>
+        <SearchIcon fill={theme.backgroundColor} />
       </button>
-      <button>
-        <a>About</a>
-      </button>
-      <button>
-        <a>Partners</a>
-      </button>
-      <button>
-        <a>Credits</a>
-      </button>
+
+      <style jsx>{`
+        .border {
+          border-right: 4px solid ${theme.backgroundColor};
+          border-bottom: 4px solid ${theme.backgroundColor};
+        }
+        div {
+          display: flex;
+        }
+        button {
+          line-height: 28px;
+          display: flex;
+          align-items: center;
+          background-color: transparent;
+        }
+        @media only screen and (max-width: 768px) {
+          div {
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
+  return (
+    <div className="nav-link-xl-bold">
+      {label}
       <style jsx>{`
         div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 1.25rem;
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
+          text-align: center;
+          line-height: 24px;
+          border-right: 4px solid ${theme.backgroundColor};
+          border-bottom: 4px solid ${theme.backgroundColor};
+          color: ${theme.backgroundColor};
+          text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 768px) {
+          div {
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
+  return (
+    <div>
+      <Link href="/">
+        <a>
+          <Logo {...theme} />
+        </a>
+      </Link>
+
+      <style jsx>{`
+        div {
+          display: flex;
           width: 100%;
-          display: flex;
-          justify-content: space-around;
-        }
-        .border {
-          border-left: 4px solid var(--black);
-          border-right: 4px solid var(--black);
-        }
-        button {
-          line-height: 28px;
-          background-color: var(--blueFive);
-        }
-
-        @media only screen and (max-width: 768px) {
-          div {
-            display: none;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-const NavButtons = () => {
-  return (
-    <div>
-      <button>
-        <HamburgerIcon fill="var(--black)" />
-      </button>
-
-      <NavLinks />
-      <style jsx>{`
-        div {
-          display: flex;
-          grid-column: span 3;
-        }
-        button {
-          line-height: 28px;
-          background-color: var(--blueFive);
-          display: flex;
-          align-items: center;
-          border-right: 4px solid var(--black);
+          justify-content: flex-end;
+          grid-column-start: 4;
         }
 
         @media only screen and (max-width: 768px) {
@@ -113,83 +148,32 @@ const NavButtons = () => {
   );
 };
 
-const SearchBar = () => {
+export const PLAYBOOK_NAV_HEIGHT = 100;
+
+const PlaybookStickyNavBar = ({
+  label = null,
+  mode = NavBarStyles.dark,
+}: {
+  label?: string;
+  mode?: NavBarStyles;
+}) => {
+  const theme = mode === NavBarStyles.dark ? dark : light;
   return (
     <>
       <div>
-        <span>
-          <SearchIcon fill="var(--black)" />
-        </span>
-        <input type="text" placeholder="Search" />
-        <style jsx>{`
-          span {
-            width: 25px;
-            margin-right: 5px;
-            padding-top: 3px;
-          }
-          div {
-            padding: 0.625rem;
-            border-left: 5px solid var(--black);
-
-            display: flex;
-            align-items: center;
-            grid-column: span 1;
-          }
-          input[type='text'] {
-            text-transform: uppercase;
-            font-family: var(--flexa);
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 100;
-            line-height: 18px;
-            letter-spacing: 0em;
-            text-align: left;
-            color: var(--black);
-            border: 0;
-            background-color: transparent;
-          }
-          ::placeholder {
-            color: var(--black);
-          }
-
-          :-ms-input-placeholder {
-            color: var(--black);
-          }
-
-          ::-ms-input-placeholder {
-            color: var(--black);
-          }
-
-          @media only screen and (max-width: 768px) {
-            div {
-              display: none;
-            }
-          }
-        `}</style>
-      </div>
-    </>
-  );
-};
-
-const StickyNavBar = (props) => {
-  return (
-    <>
-      <div>
-        <NavButtons />
-        <SearchBar />
+        <Nav label={label} theme={theme} />
+        <NavLogo theme={theme} />
         <style jsx>{`
           div {
-            border-top: 5px solid var(--black);
-            border-bottom: 5px solid var(--black);
             display: grid;
             grid-template-columns: var(--grid-col);
             justify-content: space-between;
             position: sticky;
             top: 0;
             font-size: 20px;
-            min-height: 100px;
+            height: ${PLAYBOOK_NAV_HEIGHT}px;
+            width: 100%;
             z-index: 100;
-            background-color: var(--blueFive);
           }
 
           @media only screen and (max-width: 768px) {
@@ -202,4 +186,4 @@ const StickyNavBar = (props) => {
   );
 };
 
-export default StickyNavBar;
+export default PlaybookStickyNavBar;

@@ -14,6 +14,15 @@ export const playbookMenu = S.listItem()
       .title('Playbook')
       .items([
         S.listItem()
+          .title('Playbook Structure')
+          .child(
+            S.document()
+              .title('Playbook Structure')
+              .schemaType('playbookStructure')
+              .documentId('playbookStructure'),
+          )
+          .icon(BsPersonFill),
+        S.listItem()
           .title('Articles')
           .child(S.documentTypeList('article').title('Articles'))
           .icon(BsCircleFill),

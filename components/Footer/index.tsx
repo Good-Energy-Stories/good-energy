@@ -1,5 +1,4 @@
 /* Components */
-export { default as Search } from './Search';
 export { default as Footer } from './Footer';
 export { default as ContactForm } from './ContactForm';
 export { default as Links } from './Links';

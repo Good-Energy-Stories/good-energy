@@ -12,6 +12,9 @@ class UIStore {
   @observable activeFilter = DEFAULT_FILTER;
   lastActiveFilter = DEFAULT_FILTER;
 
+  @observable navOverlayOpen = false;
+  @observable playbookNavOverlayOpen = false;
+
   @observable scrollPosition = 0;
   @observable directory__searchActive = false;
   @observable player__isMinimized = false;
@@ -22,7 +25,18 @@ class UIStore {
   lastScrollPosition = 0;
   @observable scrollPositionTotal = 0;
   @observable pageHeight = 0;
-
+  @action.bound closeNavOverlay() {
+    this.navOverlayOpen = false;
+  }
+  @action.bound openNavOverlay() {
+    this.navOverlayOpen = true;
+  }
+  @action.bound closePlaybookNavOverlay() {
+    this.playbookNavOverlayOpen = false;
+  }
+  @action.bound openPlaybookNavOverlay() {
+    this.playbookNavOverlayOpen = true;
+  }
   @action.bound setPlayerMinimized(minimized) {
     this.player__isMinimized = minimized;
   }

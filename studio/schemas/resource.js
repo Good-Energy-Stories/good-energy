@@ -38,6 +38,20 @@ export default {
       ],
     },
     {
+      title: 'Style',
+      name: 'style',
+      type: 'string',
+      description:
+        'A featured resource will have a more prominent card than one with a standard style.',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Featured', value: 'featured' },
+          { title: 'Standard', value: 'standard' },
+        ],
+      },
+    },
+    {
       title: 'Resource Hero Image',
       name: 'heroImage',
       type: 'image',
