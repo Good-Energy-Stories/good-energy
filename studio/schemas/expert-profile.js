@@ -45,7 +45,7 @@ export default {
       title: 'Prounouns',
       type: 'string',
       description: 'The individuals pronouns',
-      hidden: ({ parent }) => parent?.expertType !== 'organization',
+      hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
     {
       name: 'organization',
@@ -53,7 +53,7 @@ export default {
       type: 'string',
       description:
         'The organization this individual is associated with, if any',
-      hidden: ({ parent }) => parent?.expertType !== 'organization',
+      hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
     {
       name: 'links',
@@ -171,7 +171,7 @@ export default {
     select: {
       name: 'name',
       shortBio: 'shortBio',
-      portraitImageUrl: 'portraitImage.asset.url',
+      portraitImageUrl: 'smallPortraitImage.asset.url',
     },
     prepare(selection) {
       const { name, shortBio, portraitImageUrl } = selection;

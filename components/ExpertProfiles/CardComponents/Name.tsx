@@ -4,20 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
-
-export enum PortraitSizes {
-  medium = '150',
-  large = '180',
-  extraLarge = '250',
-  fill = '100%',
-}
 
 const { className, styles } = css.resolve`
   div {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -34,13 +23,7 @@ const variants = {
   },
 };
 
-const Portrait = ({
-  image,
-  size = PortraitSizes.medium,
-}: {
-  image: any;
-  size?: PortraitSizes;
-}) => {
+const Name = ({ name }: { name: String }) => {
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -50,19 +33,13 @@ const Portrait = ({
       variants={variants}
       className={className}
     >
-      <div className="frame">
-        <img alt={image?.caption} src={imageUrlFor(image).url()} />
-      </div>
-      <style jsx>{`
-        .frame {
-          width: ${size}px;
+      <h2>{name}</h2>
 
-          display: flex;
-          align-items: center;
+      <style jsx>{`
+        .open-quote {
         }
-        img {
-          max-width: 100%;
-          transform: translateY(-10%);
+        h2 {
+          margin: 0.625rem auto;
         }
       `}</style>
       {styles}
@@ -70,4 +47,4 @@ const Portrait = ({
   );
 };
 
-export default Portrait;
+export default Name;

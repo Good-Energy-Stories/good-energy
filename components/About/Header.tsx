@@ -11,7 +11,7 @@ const { className, styles } = css.resolve`
     grid-column: 1/5;
     margin-left: 0rem;
     padding: 0 1.25rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1.25rem;
     display: flex;
   }
   @media only screen and (max-width: 768px) {
@@ -45,16 +45,22 @@ const Header = ({
       variants={variants}
       className={className}
     >
-      <div className="left">
+      <div>
         <div className="breadcrumbs">
           <Breadcrumbs />
         </div>
         <h1>{title}</h1>
-        <PortableText value={description} />
+        <div className="left">
+          <PortableText
+            value={description}
+            components={PortableTextSerializer}
+          />
+        </div>
       </div>
 
       <style jsx>{`
         .left {
+          width: 70%;
         }
         .right {
           width: 66%;

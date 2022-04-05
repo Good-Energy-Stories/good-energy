@@ -14,16 +14,17 @@ export const PageDivider = ({
 }) => {
   return (
     <div>
-      <h4>{label}</h4>
+      {label && <h4>{label}</h4>}
       <style jsx>{`
         h4 {
           margin-bottom: 0.625rem;
+          margin-top: 2.5rem;
         }
         div {
           border-bottom: 1px solid var(--blueThree);
           width: calc(100% - 2.5rem);
           margin: 0 1.25rem;
-          margin-top: 2.5rem;
+
           margin-bottom: 2.5rem;
           grid-column: span ${size};
         }

@@ -158,10 +158,24 @@ portraitImage{
 
 export const expertProfilePreview = `
 name,
+expertType,
+slug,
+pronouns,
+organization,
 shortBio,
 tags[],
 "slug": slug.current,
-portraitImage{
+smallPortraitImage{
+  ${imageMeta}
+},
+`;
+
+export const expertProfile = `
+name,
+shortBio,
+tags[],
+"slug": slug.current,
+smallPortraitImage{
   ${imageMeta}
 },
 "portraitImageUrl": portraitImage.asset->url
