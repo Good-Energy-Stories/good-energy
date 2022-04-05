@@ -25,6 +25,13 @@ export default {
       },
     },
     {
+      name: 'link',
+      title: 'Link',
+      description:
+        'Providing a link to a partners website will make clicking on their logo link there.',
+      type: 'url',
+    },
+    {
       title: 'Logo',
       name: 'logo',
       type: 'image',

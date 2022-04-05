@@ -5,6 +5,7 @@ import { BsCircleFill } from 'react-icons/bs';
 import { GiBookshelf } from 'react-icons/gi';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FaRegListAlt } from 'react-icons/fa';
+import { MdOutlineLineStyle } from 'react-icons/md';
 
 export const playbookMenu = S.listItem()
   .title('Playbook')
@@ -21,7 +22,7 @@ export const playbookMenu = S.listItem()
               .schemaType('playbookStructure')
               .documentId('playbookStructure'),
           )
-          .icon(BsPersonFill),
+          .icon(MdOutlineLineStyle),
         S.listItem()
           .title('Articles')
           .child(S.documentTypeList('article').title('Articles'))

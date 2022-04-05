@@ -1,6 +1,17 @@
 import React from 'react';
 
-export const PageDivider = ({ label }: { label?: string }) => {
+export enum PageDividerSize {
+  half = 2,
+  full = 4,
+}
+
+export const PageDivider = ({
+  label,
+  size = PageDividerSize.full,
+}: {
+  label?: string;
+  size?: PageDividerSize;
+}) => {
   return (
     <div>
       <h4>{label}</h4>
@@ -14,7 +25,7 @@ export const PageDivider = ({ label }: { label?: string }) => {
           margin: 0 1.25rem;
           margin-top: 2.5rem;
           margin-bottom: 2.5rem;
-          grid-column: 1/-1;
+          grid-column: span ${size};
         }
       `}</style>
     </div>

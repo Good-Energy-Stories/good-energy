@@ -19,6 +19,23 @@ heroImage{
 "heroImageUrl": heroImage.asset->url
 `;
 
+export const partner = `
+title,
+size,
+link,
+logo{
+    ${imageMeta}
+},
+`;
+
+export const partnerSection = `
+title,
+size,
+partners[]->{
+    ${partner}
+},
+`;
+
 export const articleSection = `
 title,
 body,
@@ -204,6 +221,10 @@ export const playbookSections = `
     _type == 'playlist' => {
       _type,
       ${playlist}
+    },
+    _type == 'partnerSection' => {
+      _type,
+      ${partnerSection}
     }
   },
   _type != 'reference' => {

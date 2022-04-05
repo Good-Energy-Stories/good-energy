@@ -8,6 +8,7 @@ const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
 const MegaQuote = dynamic(() => import('../PlaybookHome/MegaQuote'));
 const Playlist = dynamic(() => import('../PlaybookHome/Playlist'));
 const ResourceSection = dynamic(() => import('./ResourceSection'));
+const PartnerSection = dynamic(() => import('../Partners/PartnerSection'));
 
 export const PageContent = ({ index, content }) => {
   const type = content._type;
@@ -28,6 +29,8 @@ export const PageContent = ({ index, content }) => {
       return <Playlist data={content} />;
     case 'resourceSection':
       return <ResourceSection data={content} />;
+    case 'partnerSection':
+      return <PartnerSection index={index} data={content} />;
     default:
       return null;
   }

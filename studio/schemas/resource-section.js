@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegListAlt as icon } from 'react-icons/fa';
+import { BsPlusLg as icon } from 'react-icons/bs';
 
 export default {
   name: 'resourceSection',

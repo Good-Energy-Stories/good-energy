@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegListAlt as icon } from 'react-icons/fa';
+import { MdOutlineLineStyle as icon } from 'react-icons/md';
 
 export default {
   name: 'playbookStructure',
