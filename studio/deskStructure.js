@@ -20,6 +20,8 @@ export default () =>
             'landingPage',
             'partnersPage',
             'characterProfilesPage',
+            'featuredVoicesPage',
+            'libraryOfExpertsPage',
             'playbookStructure',
             'article',
             'characterProfile',

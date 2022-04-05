@@ -93,8 +93,33 @@ export default {
       },
     },
     {
-      title: 'Portrait Image',
-      name: 'portraitImage',
+      title: 'Small Portrait Image',
+      name: 'smallPortraitImage',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
+      title: 'Full Size Portrait Image',
+      name: 'fullSizePortraitImage',
       type: 'image',
       validation: (Rule) => Rule.required(),
       options: {
