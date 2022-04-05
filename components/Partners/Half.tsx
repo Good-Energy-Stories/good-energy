@@ -27,10 +27,16 @@ const variants = {
   },
 };
 
-const Half = ({ data }: { data: any }) => {
+const Half = ({
+  data,
+  truncate = false,
+}: {
+  data: any;
+  truncate?: boolean;
+}) => {
   const { title, partners } = data;
   const partnersFormatted =
-    partners.length < 6 ? partners : partners.slice(0, 6);
+    partners.length > 6 && truncate ? partners.slice(0, 6) : partners;
   return (
     <>
       <motion.div

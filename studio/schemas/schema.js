@@ -12,7 +12,10 @@ import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
 import emailCapture from './email-capture';
 import expertProfile from './expert-profile';
+import featuredVoice from './featured-voice';
+import featuredVoicesPage from './featured-voices-page';
 import landingPage from './landing-page';
+import libraryOfExpertsPage from './library-of-experts-page';
 import partner from './partner';
 import partnerPage from './partners-page';
 import partnerSection from './partner-section';
@@ -41,7 +44,10 @@ export default createSchema({
     characterProfilesPage,
     emailCapture,
     expertProfile,
+    featuredVoice,
+    featuredVoicesPage,
     landingPage,
+    libraryOfExpertsPage,
     partner,
     partnerPage,
     partnerSection,

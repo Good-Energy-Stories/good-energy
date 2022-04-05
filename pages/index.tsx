@@ -5,20 +5,21 @@ import Link from 'next/link';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import { Layout, Masthead, Meta, QuoteCarousel, Tag } from '../components';
+import { Layout, Masthead, Meta, PageBanner } from '../components';
 import { PageContent, StickyNavBar, Header } from '../components/Landing';
 import { queries } from '../data';
 import { Footer } from '../components/Footer';
 
 const Root = ({ pageData }) => {
-  const { title, subtitle, content, bannerImage } = pageData;
-  console.log(pageData);
+  const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
+    pageData;
 
   return (
     <>
       <Meta />
 
-      <StickyNavBar />
+      <StickyNavBar showBanner={showBanner} />
+      {showBanner && <PageBanner copy={bannerCopy} />}
 
       <Layout key="home">
         <Header title={title} subtitle={subtitle} image={bannerImage} />
@@ -38,6 +39,8 @@ export async function getStaticProps({ preview, previewData }) {
       "id": _id,
       title,
       subtitle,
+      showBanner,
+      bannerCopy,
       bannerImage{
         ${queries.imageMeta}
       },

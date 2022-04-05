@@ -8,18 +8,73 @@ export default {
   icon,
   fields: [
     {
+      title: 'Expert Type',
+      name: 'expertType',
+      type: 'string',
+      description: 'An expert can be either an individual or an organization',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Individual', value: 'individual' },
+          { title: 'Organization', value: 'organization' },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'string',
+      description: "The individual's name",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 200,
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'pronouns',
+      title: 'Prounouns',
+      type: 'string',
+      description: 'The individuals pronouns',
+      hidden: ({ parent }) => parent?.expertType !== 'organization',
+    },
+    {
+      name: 'organization',
+      title: 'Organization',
+      type: 'string',
+      description:
+        'The organization this individual is associated with, if any',
+      hidden: ({ parent }) => parent?.expertType !== 'organization',
+    },
+    {
+      name: 'links',
+      title: 'Links',
+      type: 'array',
+      of: [{ type: 'string' }],
     },
     {
       name: 'shortBio',
       title: 'Short Bio',
+      validation: (Rule) => Rule.required(),
       type: 'string',
+      description:
+        'A short bio that will be shown on a card prompting a user to read more',
     },
     {
       name: 'bio',
       title: 'Bio',
+      validation: (Rule) => Rule.required(),
+      description:
+        "The actual bio that will appear on the individual's page in the library of experts",
       type: 'array',
       of: [
         {
@@ -27,6 +82,7 @@ export default {
         },
       ],
     },
+
     {
       title: 'Tags',
       name: 'tags',
@@ -40,6 +96,7 @@ export default {
       title: 'Portrait Image',
       name: 'portraitImage',
       type: 'image',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -48,7 +105,7 @@ export default {
           name: 'caption',
           type: 'string',
           title: 'Caption',
-          description: 'This will be used as the alt text for the image.',
+          description: 'This will be used as the alt text for the image',
           options: {
             isHighlighted: true,
           },
@@ -59,6 +116,13 @@ export default {
           title: 'Attribution',
         },
       ],
+    },
+    {
+      title: 'Next Up',
+      name: 'nextUp',
+      type: 'reference',
+      description: 'Suggestion for expert profile to read next after this one',
+      to: [{ type: 'expertProfile' }],
     },
     {
       title: 'Related',

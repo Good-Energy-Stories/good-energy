@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Logo from '../Logo';
 import Link from 'next/link';
+import { BANNER_HEIGHT } from '../PageBanner';
 
 const light: NavBarStyle = {
   backgroundColor: 'var(--white)',
@@ -28,7 +29,9 @@ const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
   return (
     <div>
       <button>
-        <a>Playbook</a>
+        <Link href="/playbook">
+          <a>Playbook</a>
+        </Link>
       </button>
       <button>
         <a>Resources</a>
@@ -184,8 +187,10 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
 
 const StickyNavBar = ({
   mode = NavBarStyles.light,
+  showBanner,
 }: {
   mode?: NavBarStyles;
+  showBanner: boolean;
 }) => {
   const theme = mode === NavBarStyles.dark ? dark : light;
   return (
@@ -203,6 +208,7 @@ const StickyNavBar = ({
             justify-content: space-between;
             position: sticky;
             top: 0;
+            margin-top: ${showBanner ? BANNER_HEIGHT : 0}px;
             font-size: 20px;
 
             z-index: 100;

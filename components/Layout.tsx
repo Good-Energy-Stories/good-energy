@@ -7,23 +7,25 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-
-const { className, styles } = css.resolve`
-  div {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: var(--grid-col);
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(paddingHorizontal) {
+  return css.resolve`
     div {
-      padding: 0px;
+      width: 100%;
+      height: 100%;
       display: grid;
-
-      grid-column-gap: 0;
+      padding: 0 ${paddingHorizontal ?? 0};
+      grid-template-columns: var(--grid-col);
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -35,7 +37,17 @@ const variants = {
 };
 
 const Layout = observer(
-  ({ children, key }: { children: ReactChild[]; key: Key }) => {
+  ({
+    children,
+    key,
+    paddingHorizontal,
+  }: {
+    children: ReactChild[];
+    key: Key;
+    paddingHorizontal?: string;
+  }) => {
+    const { className, styles } = getStyles(paddingHorizontal);
+
     return (
       <motion.div
         key={key}

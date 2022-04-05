@@ -30,7 +30,7 @@ export const PageContent = ({ index, content }) => {
     case 'resourceSection':
       return <ResourceSection data={content} />;
     case 'partnerSection':
-      return <PartnerSection index={index} data={content} />;
+      return <PartnerSection index={index} data={content} truncate />;
     default:
       return null;
   }

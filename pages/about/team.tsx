@@ -1,5 +1,5 @@
-import { sanity } from '../lib/sanity';
-import { Meta, StickyNavBar } from '../components';
+import { sanity } from '../../lib/sanity';
+import { Meta, StickyNavBar } from '../../components';
 
 const Team = (props) => {
   return (

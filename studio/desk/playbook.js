@@ -34,11 +34,6 @@ export const playbookMenu = S.listItem()
           )
           .icon(BsPersonFill),
         S.listItem()
-          .title('Expert Profiles')
-          .child(S.documentTypeList('expertProfile').title('Expert Profiles'))
-          .icon(GiBookshelf),
-        ,
-        S.listItem()
           .title('Quote Collections')
           .child(
             S.documentTypeList('quoteCollection').title('Quote Collections'),

@@ -12,6 +12,7 @@ export default {
       title: 'Title',
       type: 'string',
       description: "Ex. 'Storytelling for Today's Climate'",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'subtitle',
@@ -19,9 +20,26 @@ export default {
       type: 'string',
     },
     {
+      name: 'showBanner',
+      title: 'Show Banner at Top of Page',
+      description:
+        "Ex. 'We are committed to supporting racial equity and celebrating diversity. Black Lives Matter.'",
+      type: 'boolean',
+    },
+    {
+      name: 'bannerCopy',
+      title: 'Banner Copy',
+      description: 'This is what the banner will say',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => parent?.showBanner !== true,
+    },
+    {
       title: 'Banner Image',
       name: 'bannerImage',
       type: 'image',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -45,6 +63,7 @@ export default {
     {
       title: 'Content',
       name: 'content',
+      validation: (Rule) => Rule.required(),
       description:
         'This is where you change the rest of the body content on the landing page.',
       type: 'array',

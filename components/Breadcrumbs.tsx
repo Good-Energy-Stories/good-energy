@@ -33,7 +33,7 @@ const PathLabel = ({ label, href, last }) => {
     <>
       <span>
         <Link href={href}>
-          <a className="label-medium">{label}</a>
+          <a className="label-medium">{label.replaceAll('-', ' ')}</a>
         </Link>
       </span>
 

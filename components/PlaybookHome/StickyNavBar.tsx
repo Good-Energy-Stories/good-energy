@@ -4,7 +4,7 @@ import ArrowIcon from '../../public/arrow.svg';
 import SearchIcon from '../../public/search.svg';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-
+import Link from 'next/link';
 const NavDropdownButton = () => {
   return (
     <div className="border">
@@ -55,8 +55,11 @@ const NavLinks = () => {
         <a>About</a>
       </button>
       <button>
-        <a>Partners</a>
+        <Link href="/about/partners">
+          <a>Partners</a>
+        </Link>
       </button>
+
       <button>
         <a>Credits</a>
       </button>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { CharacterProfilePreview } from '../components';
-import { BsPersonFill as icon } from 'react-icons/bs';
-
+import { GiBookshelf as icon } from 'react-icons/gi';
 export default {
-  name: 'characterProfile',
-  title: 'Character Profile',
+  name: 'featuredVoice',
+  title: 'Featured Voice',
   type: 'document',
   icon,
   fields: [
@@ -12,47 +11,23 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
-    },
-    {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 200,
-        slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-      },
+      description: "The individual's name",
       validation: (Rule) => Rule.required(),
     },
+
     {
       name: 'shortBio',
       title: 'Short Bio',
+      validation: (Rule) => Rule.required(),
       type: 'string',
+      description: "A short bio for this person's",
     },
-    {
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
-    },
-    {
-      title: 'Tags',
-      name: 'tags',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags',
-      },
-    },
+
     {
       title: 'Portrait Image',
       name: 'portraitImage',
       type: 'image',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -61,7 +36,7 @@ export default {
           name: 'caption',
           type: 'string',
           title: 'Caption',
-          description: 'This will be used as the alt text for the image.',
+          description: 'This will be used as the alt text for the image',
           options: {
             isHighlighted: true,
           },
@@ -70,23 +45,6 @@ export default {
           name: 'attribution',
           type: 'string',
           title: 'Attribution',
-        },
-      ],
-    },
-    {
-      title: 'Related',
-      name: 'related',
-      description:
-        'You can add any number of related articles or character profiles here.',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            { type: 'article' },
-            { type: 'characterProfile' },
-            { type: 'expertProfile' },
-          ],
         },
       ],
     },
