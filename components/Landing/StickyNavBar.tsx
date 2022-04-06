@@ -7,23 +7,7 @@ import { useStore } from '../../stores/store';
 import Logo from '../Logo';
 import Link from 'next/link';
 import { BANNER_HEIGHT } from '../PageBanner';
-
-const light: NavBarStyle = {
-  backgroundColor: 'var(--white)',
-  textColor: 'var(--black)',
-};
-const dark: NavBarStyle = {
-  backgroundColor: 'var(--black)',
-  textColor: 'var(--white)',
-};
-export interface NavBarStyle {
-  backgroundColor: string;
-  textColor: string;
-}
-export enum NavBarStyles {
-  light = 'light',
-  dark = 'dark',
-}
+import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
 
 const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
   return (
@@ -48,7 +32,7 @@ const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
         }
 
         button {
-          color: ${theme.backgroundColor};
+          color: ${theme.textColor};
           line-height: 28px;
           background-color: transparent;
           margin: 0 1.25rem;
@@ -72,7 +56,7 @@ const NavButtons = observer(({ theme }: { theme?: NavBarStyle }) => {
   return (
     <div>
       <button onClick={() => openNavOverlay()}>
-        <HamburgerIcon fill={theme.backgroundColor} />
+        <HamburgerIcon fill={theme.textColor} />
       </button>
 
       <NavLinks theme={theme} />
@@ -102,7 +86,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
     <>
       <div>
         <span>
-          <SearchIcon fill={theme.backgroundColor} />
+          <SearchIcon fill={theme.textColor} />
         </span>
         <input type="text" placeholder="Search" />
       </div>
@@ -115,7 +99,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
         }
         div {
           padding-left: 0.625rem;
-          border-left: 5px solid ${theme.backgroundColor};
+          border-left: 5px solid ${theme.textColor};
           max-width: 200px;
           display: flex;
           align-items: center;
@@ -131,20 +115,20 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           line-height: 18px;
           letter-spacing: 0em;
           text-align: left;
-          color: ${theme.backgroundColor};
+          color: ${theme.textColor};
           border: 0;
           background-color: transparent;
         }
         ::placeholder {
-          color: ${theme.backgroundColor};
+          color: ${theme.textColor};
         }
 
         :-ms-input-placeholder {
-          color: ${theme.backgroundColor};
+          color: ${theme.textColor};
         }
 
         ::-ms-input-placeholder {
-          color: ${theme.backgroundColor};
+          color: ${theme.textColor};
         }
 
         @media only screen and (max-width: 768px) {
@@ -162,7 +146,10 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
     <>
       <Link href="/">
         <a>
-          <Logo {...theme} />
+          <Logo
+            textColor={theme.logoTextColor}
+            backgroundColor={theme.logoBackgroundColor}
+          />
         </a>
       </Link>
 
@@ -201,10 +188,10 @@ const StickyNavBar = ({
 
         <style jsx>{`
           div {
-            border-top: 5px solid ${theme.backgroundColor};
-            border-bottom: 5px solid ${theme.backgroundColor};
+            border-top: 5px solid ${theme.textColor};
+            border-bottom: 5px solid ${theme.textColor};
             display: flex;
-
+            background-color: ${theme.backgroundColor};
             justify-content: space-between;
             position: sticky;
             top: 0;

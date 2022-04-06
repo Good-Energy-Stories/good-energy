@@ -61,7 +61,7 @@ const Header = ({
         .right {
           width: 66%;
 
-          padding-left: 5rem;
+          padding-left: 7.5rem;
           padding-top: 4.25rem;
         }
         .breadcrumbs {

@@ -11,6 +11,8 @@ export default {
     {
       name: 'quote',
       title: 'Quote',
+      description:
+        'Note: you do not need to wrap your text in quotes ("_____") as the site will do this for you',
       type: 'array',
       of: [
         {

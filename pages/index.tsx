@@ -5,20 +5,31 @@ import Link from 'next/link';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import { Layout, Masthead, Meta, PageBanner } from '../components';
+import {
+  Layout,
+  Masthead,
+  Meta,
+  PageBanner,
+  NavBarStyles,
+} from '../components';
 import { PageContent, StickyNavBar, Header } from '../components/Landing';
 import { queries } from '../data';
 import { Footer } from '../components/Footer';
+import { observer } from 'mobx-react-lite';
 
-const Root = ({ pageData }) => {
+const Root = observer(({ pageData }: { pageData: any }) => {
   const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
     pageData;
-
+  const store = useStore();
+  const {
+    uiStore: { scrollPosition },
+  } = store;
+  const navMode = scrollPosition > 0.1 ? NavBarStyles.dark : NavBarStyles.light;
   return (
     <>
       <Meta />
 
-      <StickyNavBar showBanner={showBanner} />
+      <StickyNavBar showBanner={showBanner} mode={navMode} />
       {showBanner && <PageBanner copy={bannerCopy} />}
 
       <Layout key="home">
@@ -30,7 +41,7 @@ const Root = ({ pageData }) => {
       <Footer />
     </>
   );
-};
+});
 
 export async function getStaticProps({ preview, previewData }) {
   const pageData = await sanity.fetch(

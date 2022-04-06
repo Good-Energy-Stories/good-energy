@@ -6,17 +6,23 @@ import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 
-const light: NavBarStyle = {
-  backgroundColor: 'var(--white)',
-  textColor: 'var(--black)',
-};
-const dark: NavBarStyle = {
-  backgroundColor: 'var(--black)',
+export const light: NavBarStyle = {
+  backgroundColor: 'transparent',
   textColor: 'var(--white)',
+  logoBackgroundColor: 'var(--white)',
+  logoTextColor: 'var(--black)',
+};
+export const dark: NavBarStyle = {
+  backgroundColor: 'var(--blueFive)',
+  textColor: 'var(--black)',
+  logoBackgroundColor: 'var(--black)',
+  logoTextColor: 'var(--white)',
 };
 export interface NavBarStyle {
   backgroundColor: string;
   textColor: string;
+  logoBackgroundColor: string;
+  logoTextColor: string;
 }
 export enum NavBarStyles {
   light = 'light',
@@ -40,6 +46,7 @@ const Nav = ({
           display: flex;
           grid-column: span 1;
           height: ${PLAYBOOK_NAV_HEIGHT}px;
+          background-color: ${theme.backgroundColor};
         }
 
         @media only screen and (max-width: 768px) {
@@ -65,16 +72,16 @@ const NavButtons = ({
   return (
     <div className={border ? 'border' : ''}>
       <button onClick={() => openNavOverlay()}>
-        <HamburgerIcon fill={theme.backgroundColor} />
+        <HamburgerIcon fill={theme.textColor} />
       </button>
       <button onClick={() => {}}>
-        <SearchIcon fill={theme.backgroundColor} />
+        <SearchIcon fill={theme.textColor} />
       </button>
 
       <style jsx>{`
         .border {
-          border-right: 4px solid ${theme.backgroundColor};
-          border-bottom: 4px solid ${theme.backgroundColor};
+          border-right: 4px solid ${theme.textColor};
+          border-bottom: 4px solid ${theme.textColor};
         }
         div {
           display: flex;
@@ -107,9 +114,9 @@ const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
           height: ${PLAYBOOK_NAV_HEIGHT}px;
           text-align: center;
           line-height: 24px;
-          border-right: 4px solid ${theme.backgroundColor};
-          border-bottom: 4px solid ${theme.backgroundColor};
-          color: ${theme.backgroundColor};
+          border-right: 4px solid ${theme.textColor};
+          border-bottom: 4px solid ${theme.textColor};
+          color: ${theme.textColor};
           text-transform: uppercase;
         }
 
@@ -127,7 +134,10 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
     <div>
       <Link href="/">
         <a>
-          <Logo {...theme} />
+          <Logo
+            textColor={theme.logoTextColor}
+            backgroundColor={theme.logoBackgroundColor}
+          />
         </a>
       </Link>
 

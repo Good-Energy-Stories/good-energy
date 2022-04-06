@@ -20,7 +20,7 @@ const Root = ({ pageData }) => {
 
       <StickyNavBar label="Playbook Contents" />
 
-      <Layout key="characterProfiles">
+      <Layout key="characterProfiles" paddingHorizontal={'7.5rem'}>
         <Header title={title} description={description} />
         <div />
       </Layout>
