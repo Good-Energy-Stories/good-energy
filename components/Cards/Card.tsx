@@ -13,7 +13,7 @@ export const Card = ({
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
 }: {
-  index: number;
+  index?: number;
   last?: boolean;
   content: any;
   shouldUseExpandedStyles?: boolean;
