@@ -52,9 +52,9 @@ const PathLabel = ({ label, href, last }) => {
 
 const Breadcrumbs = ({ path }: { path?: Breadcrumbs }) => {
   const router = useRouter();
-  console.log('router:', router);
-  const { pathname } = router;
-  const routerPath = pathname
+  const { asPath } = router;
+
+  const routerPath = asPath
     .substring(1)
     .split('/')
     .map((c) => ({ label: c, href: `/${c}` }));

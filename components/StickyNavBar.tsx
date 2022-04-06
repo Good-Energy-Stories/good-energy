@@ -46,7 +46,7 @@ const Nav = ({
           display: flex;
           grid-column: span 1;
           height: ${PLAYBOOK_NAV_HEIGHT}px;
-          background-color: ${theme.backgroundColor};
+          background-color: ${label ? theme.backgroundColor : 'transparent'};
         }
 
         @media only screen and (max-width: 768px) {

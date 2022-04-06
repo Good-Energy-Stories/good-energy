@@ -21,7 +21,6 @@ function getStyles(maxWidth, last) {
       width: 100%;
       max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
       margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
       border-bottom: ${last ? '0' : '1px solid var(--blueThree)'};
     }
     @media only screen and (max-width: 768px) {
@@ -75,7 +74,10 @@ const CharacterProfileStandard = ({
         <div className="label-medium">{'Character Profile'}</div>
         <h3>{name}</h3>
         {shortBio && <div className="tease-lede-small">{shortBio}</div>}
-        <SmallBorderCTAButton label="Read More" href={`/${slug}`} />
+        <SmallBorderCTAButton
+          label="Read More"
+          href={`/playbook/characters/character-profiles/${slug}`}
+        />
       </div>
 
       <style jsx>{`

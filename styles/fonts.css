@@ -197,6 +197,12 @@ h4 {
   color: var(--blueThree);
   cursor: pointer;
 }
+.spotlight-intro-graf {
+  font-family: var(--flexa);
+  font-size: 24px;
+  line-height: 31px;
+  font-variation-settings: 'wght' 470, 'wdth' 95;
+}
 .intro-graf {
   font-family: var(--flexa);
   font-size: 24px;

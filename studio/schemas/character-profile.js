@@ -74,6 +74,13 @@ export default {
       ],
     },
     {
+      title: 'Next Up',
+      name: 'nextUp',
+      description: 'Character profile to read after this one',
+      type: 'reference',
+      to: [{ type: 'characterProfile' }],
+    },
+    {
       title: 'Related',
       name: 'related',
       description:
@@ -82,11 +89,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [
-            { type: 'article' },
-            { type: 'characterProfile' },
-            { type: 'expertProfile' },
-          ],
+          to: [{ type: 'article' }, { type: 'characterProfile' }],
         },
       ],
     },

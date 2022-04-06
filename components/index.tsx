@@ -7,7 +7,7 @@ export {
 export { default as Meta } from './Meta';
 export { default as PortableTextSerializer } from './PortableTextSerializer';
 export { default as PageDivider } from './PageDivider';
-
+export { default as SpotlightBody } from './SpotlightBody';
 export { default as Tag } from './Cards/Tag';
 export { default as Layout } from './Layout';
 export { default as AnimatedUnderline } from './AnimatedUnderline';

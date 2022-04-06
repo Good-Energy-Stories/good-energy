@@ -10,12 +10,15 @@ const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
     margin-left: 0rem;
-    padding: 0 2.5rem;
+    padding: 0 7.5rem;
     padding-bottom: 2rem;
     display: flex;
+    flex-direction: row;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1080px) {
     div {
+      padding: 0 2.5rem;
+      flex-direction: column;
     }
   }
 `;
@@ -56,12 +59,9 @@ const Header = ({
       </div>
       <style jsx>{`
         .left {
-          width: 33%;
+          margin-right: 2.5rem;
         }
         .right {
-          width: 66%;
-
-          padding-left: 7.5rem;
           padding-top: 4.25rem;
         }
         .breadcrumbs {
@@ -73,6 +73,11 @@ const Header = ({
         h1 {
           margin-top: 0;
           margin-bottom: 2.5rem;
+        }
+        @media only screen and (max-width: 1080px) {
+          .right {
+            padding-top: 0;
+          }
         }
       `}</style>
       {styles}

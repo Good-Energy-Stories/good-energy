@@ -1,19 +1,21 @@
-import { sanity } from '../../lib/sanity';
-import { queries } from '../../data';
+import { sanity } from '../../../../lib/sanity';
+import { queries } from '../../../../data';
 import {
   Layout,
   StickyNavBar,
   NavBarStyles,
   Meta,
   Breadcrumbs,
-} from '../../components';
+  SpotlightBody,
+} from '../../../../components';
 
-import { Footer } from '../../components/Footer';
-import { useRef, useEffect, RefObject } from 'react';
-import { useStore } from '../../stores/store';
+import { Footer } from '../../../../components/Footer';
+import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
+import Related from '../../../../components/Related';
 
 const Project = observer(({ characterProfile }: { characterProfile: any }) => {
+  const { related } = characterProfile;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -25,8 +27,8 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
       <Meta />
       <StickyNavBar mode={navMode} />
       <Layout key={characterProfile.slug}>
-        <div />
-        <div />
+        <SpotlightBody data={characterProfile} />
+        <Related content={related} />
       </Layout>
       <Footer />
     </>
@@ -37,7 +39,7 @@ export const getStaticPaths = async () => {
   const characterProfiles = await sanity.fetch(
     queries.characterProfilePathsQuery,
   );
-  console;
+
   const paths = characterProfiles.map((characterProfile) => ({
     params: { slug: characterProfile.slug.current },
   }));

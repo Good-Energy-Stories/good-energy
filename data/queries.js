@@ -116,6 +116,7 @@ _type == 'articleBlockQuote' => {
 `;
 
 export const characterProfilePreview = `
+_type,
 name,
 shortBio,
 tags[],
@@ -141,6 +142,17 @@ smallPortraitImage{
 },
 `;
 
+export const related = `
+_type == 'article' => {
+  _type,
+  ${articlePreview}
+},
+_type == 'characterProfile' => {
+  _type,
+  ${characterProfilePreview}
+}
+`;
+
 export const article = `
 title,
 lede,
@@ -158,22 +170,12 @@ body[] {
  ${articleBody}
 },
 related[]-> {
-  _type == 'article' => {
-    _type,
-    ${articlePreview}
-  },
-  _type == 'characterProfile' => {
-    _type,
-    ${characterProfilePreview}
-  },
-  _type == 'expertProfile' => {
-    _type,
-    ${expertProfilePreview}
-  }
+  ${related}
 }
 `;
 
 export const characterProfile = `
+_type,
 name,
 shortBio,
 bio,
@@ -182,7 +184,12 @@ tags[],
 portraitImage{
   ${imageMeta}
 },
-"portraitImageUrl": portraitImage.asset->url
+related[]-> {
+  ${related}
+},
+nextUp->{
+  ${characterProfilePreview}
+}
 `;
 
 export const expertProfile = `

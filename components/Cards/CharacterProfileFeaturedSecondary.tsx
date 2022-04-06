@@ -75,7 +75,10 @@ const CharacterProfileFeaturedSecondary = ({
           <h2>{name}</h2>
           {shortBio && <div className="tease-lede">{shortBio}</div>}
           <div>
-            <CTAButton label="Read More" href={`/${slug}`} />
+            <CTAButton
+              label="Read More"
+              href={`/playbook/characters/character-profiles/${slug}`}
+            />
           </div>
         </div>
       </div>
