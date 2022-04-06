@@ -16,16 +16,18 @@ import {
   SectionTOC,
   SectionsTOC,
   Body,
+  Introduction,
   Banner,
 } from '../components/Article';
 import { Footer } from '../components/Footer';
 import { useRef, useEffect, RefObject } from 'react';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
+import Related from '../components/Related';
 
 const Project = observer(({ article }: { article: any }) => {
-  const { title, byline, introduction, body, heroImage } = article;
-
+  const { title, byline, introduction, body, heroImage, related } = article;
+  console.log('article:', article);
   const sectionsRef = useRef<SectionRefLookup>({});
 
   const sectionsTOC = body
@@ -47,7 +49,9 @@ const Project = observer(({ article }: { article: any }) => {
         <Header title={title} byline={byline} />
         <Divider />
         <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
-        <Body body={[...introduction, ...body]} sectionsRef={sectionsRef} />
+        <Introduction body={introduction} />
+        <Body body={body} sectionsRef={sectionsRef} />
+        <Related content={related} />
       </Layout>
       <Footer />
     </>

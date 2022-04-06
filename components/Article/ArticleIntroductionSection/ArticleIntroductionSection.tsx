@@ -10,7 +10,7 @@ import { SectionRefLookup } from '../';
 const { className, styles } = css.resolve`
   div {
     grid-column: 2/5;
-    margin-bottom: 2.5rem;
+
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -45,7 +45,7 @@ const ArticleIntroductionSection = ({
       variants={variants}
       className={className}
     >
-      <Content data={data} />
+      <Content data={data} index={index} isIntroduction />
       {styles}
     </motion.div>
   );

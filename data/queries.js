@@ -115,39 +115,9 @@ _type == 'articleBlockQuote' => {
 }
 `;
 
-export const article = `
-title,
-lede,
-byline,
-tags[],
-"slug": slug.current,
-heroImage{
-  ${imageMeta}
-},
-"heroImageUrl": heroImage.asset->url,
-introduction[] {
-  ${articleIntroduction}
-},
-body[] {
- ${articleBody}
-}
-`;
-
 export const characterProfilePreview = `
 name,
 shortBio,
-tags[],
-"slug": slug.current,
-portraitImage{
-  ${imageMeta}
-},
-"portraitImageUrl": portraitImage.asset->url
-`;
-
-export const characterProfile = `
-name,
-shortBio,
-bio,
 tags[],
 "slug": slug.current,
 portraitImage{
@@ -169,6 +139,50 @@ tags[],
 smallPortraitImage{
   ${imageMeta}
 },
+`;
+
+export const article = `
+title,
+lede,
+byline,
+tags[],
+"slug": slug.current,
+heroImage{
+  ${imageMeta}
+},
+"heroImageUrl": heroImage.asset->url,
+introduction[] {
+  ${articleIntroduction}
+},
+body[] {
+ ${articleBody}
+},
+related[]-> {
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+  _type == 'characterProfile' => {
+    _type,
+    ${characterProfilePreview}
+  },
+  _type == 'expertProfile' => {
+    _type,
+    ${expertProfilePreview}
+  }
+}
+`;
+
+export const characterProfile = `
+name,
+shortBio,
+bio,
+tags[],
+"slug": slug.current,
+portraitImage{
+  ${imageMeta}
+},
+"portraitImageUrl": portraitImage.asset->url
 `;
 
 export const expertProfile = `

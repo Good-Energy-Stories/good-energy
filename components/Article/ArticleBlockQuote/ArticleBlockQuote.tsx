@@ -28,11 +28,32 @@ const variants = {
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
-    normal: ({ children }) => <p className="block-quote">{children}</p>,
+    normal: ({ children, index }) => {
+      return <p className="block-quote">{children}</p>;
+    },
   },
 };
 
-const ArticleQuote = ({ data, index }: { data: any; index: number }) => {
+const introComponents: Partial<PortableTextReactComponents> = {
+  block: {
+    normal: ({ children, index }) => {
+      if (index === 0) {
+        return <p className="intro-block-quote">{children}</p>;
+      }
+      return <p className="block-quote">{children}</p>;
+    },
+  },
+};
+
+const ArticleQuote = ({
+  data,
+  index,
+  isIntroduction = false,
+}: {
+  data: any;
+  index: number;
+  isIntroduction?: boolean;
+}) => {
   const { quote, attribution } = data;
   return (
     <motion.div
@@ -43,7 +64,13 @@ const ArticleQuote = ({ data, index }: { data: any; index: number }) => {
       variants={variants}
       className={className}
     >
-      <PortableText value={quote} components={components} />
+      <PortableText
+        value={quote}
+        components={
+          isIntroduction && index === 0 ? introComponents : components
+        }
+      />
+
       {attribution && (
         <div className="attribution ">
           <span className="line" />

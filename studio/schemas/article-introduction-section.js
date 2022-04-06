@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGripLines as icon } from 'react-icons/fa';
 import { GiFootprint } from 'react-icons/gi';
 import { BiLink } from 'react-icons/bi';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 export default {
   name: 'articleIntroductionSection',
@@ -16,7 +17,10 @@ export default {
       of: [
         {
           type: 'block',
-          styles: [],
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
           lists: [],
           marks: {
             annotations: [

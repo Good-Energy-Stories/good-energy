@@ -118,6 +118,7 @@ const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
           border-bottom: 4px solid ${theme.textColor};
           color: ${theme.textColor};
           text-transform: uppercase;
+          background-color: ${theme.backgroundColor};
         }
 
         @media only screen and (max-width: 768px) {

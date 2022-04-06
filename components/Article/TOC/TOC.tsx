@@ -33,11 +33,15 @@ export const TOC = ({
       ))}
       <style jsx>{`
         h3 {
+          margin-top: 1.25rem;
           margin-bottom: 1.5rem;
         }
         div {
+          height: 0;
           grid-row-start: 4;
           margin-left: 2.5rem;
+          margin-right: 1.25rem;
+          max-width: 228px;
           position: sticky;
           top: ${PLAYBOOK_NAV_HEIGHT}px;
         }
