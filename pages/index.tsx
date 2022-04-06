@@ -24,7 +24,8 @@ const Root = observer(({ pageData }: { pageData: any }) => {
   const {
     uiStore: { scrollPosition },
   } = store;
-  const navMode = scrollPosition > 0.1 ? NavBarStyles.dark : NavBarStyles.light;
+  const navMode =
+    scrollPosition > 0.03 ? NavBarStyles.dark : NavBarStyles.light;
   return (
     <>
       <Meta />
