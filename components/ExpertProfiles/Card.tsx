@@ -10,7 +10,10 @@ import { ReactChild, Key } from 'react';
 import { Name, Bio, Portrait, PronounsAndOrganization } from './CardComponents';
 import Link from 'next/link';
 import { CharacterProfileData } from '../Cards/CharacterProfileCard';
-import { PortraitSizes } from '../Cards/CharacterProfileCardComponents';
+import {
+  PortraitSizes,
+  RoundPortrait,
+} from '../Cards/CharacterProfileCardComponents';
 import { Tags } from '../Cards';
 import CTAButton from '../CTAButton';
 
@@ -68,10 +71,12 @@ const Card = ({ data, index }: { data: any; index: number }) => {
           <div className="layout">
             <div className="left">
               {smallPortraitImage && (
-                <Portrait
-                  image={smallPortraitImage}
-                  size={PortraitSizes.extraLarge}
-                />
+                <div>
+                  <Portrait
+                    image={smallPortraitImage}
+                    size={PortraitSizes.medium}
+                  />
+                </div>
               )}
             </div>
             <div className="right">
@@ -107,8 +112,7 @@ const Card = ({ data, index }: { data: any; index: number }) => {
         }
         .left {
           grid-column: 1/2;
-          display: flex;
-          align-items: center;
+          margin-right: 1.25rem;
         }
         .right {
           grid-column: 2/3;

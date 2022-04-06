@@ -59,7 +59,7 @@ initialState
 
 export const resource = `
 title,
-"slug": slug.current,
+slug,
 description,
 style,
 heroImage{
@@ -159,6 +159,7 @@ portraitImage{
 export const expertProfilePreview = `
 name,
 expertType,
+includeSpotlightPage,
 slug,
 pronouns,
 organization,

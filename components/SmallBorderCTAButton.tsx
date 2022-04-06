@@ -48,10 +48,10 @@ const SmallBorderCTAButton = ({
   color?: string;
 }) => {
   return (
-    <div>
+    <div className="container">
       <Link href={href}>
         <a>
-          <div className="button-text">
+          <div className="button-text-small">
             {label}
             <span className="arrow">→</span>
           </div>
@@ -61,14 +61,14 @@ const SmallBorderCTAButton = ({
         a {
           color: ${color} !important;
         }
-        .button-text {
+        .button-text-small {
           margin: 0;
-          padding: 10px;
+          padding: 6px;
         }
-        div {
+        .container {
           display: inline-block;
           position: relative;
-          border: 2px solid var(--black);
+          border: 4px solid var(--black);
         }
         .arrow {
           margin-left: 6px;

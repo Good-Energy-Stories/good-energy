@@ -36,10 +36,9 @@ const Name = ({ name }: { name: String }) => {
       <h2>{name}</h2>
 
       <style jsx>{`
-        .open-quote {
-        }
         h2 {
-          margin: 0.625rem auto;
+          margin: 0;
+          margin-bottom: 0.625rem;
         }
       `}</style>
       {styles}

@@ -252,6 +252,13 @@ h4 {
   font-variation-settings: 'wght' 800, 'wdth' 69;
   text-transform: uppercase;
 }
+.button-text-small {
+  font-family: var(--flexa);
+  font-size: 12px;
+  line-height: 15px;
+  font-variation-settings: 'wght' 800, 'wdth' 69;
+  text-transform: uppercase;
+}
 .block-quote {
   font-family: var(--flexa);
   font-size: 24px;

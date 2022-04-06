@@ -17,13 +17,11 @@ const CharacterProfileReadMore = dynamic(
 const CharacterProfileFeaturedSecondary = dynamic(
   () => import('./CharacterProfileFeaturedSecondary'),
 );
-const CharacterProfileFeaturedSecondaryWide = dynamic(
-  () => import('./CharacterProfileFeaturedSecondaryWide'),
-);
 
+const CharacterProfileSmall = dynamic(() => import('./CharacterProfileSmall'));
 export enum CharacterProfileCardStyle {
   standard = 'standard',
-
+  small = 'small',
   readMore = 'readMore',
   featuredSecondary = 'featuredSecondary',
   featuredSecondaryWide = 'featuredSecondaryWide',
@@ -31,36 +29,39 @@ export enum CharacterProfileCardStyle {
 
 export interface CharacterProfileData {
   name: string;
-  shortBio: string;
+  shortBio?: string;
   slug: string;
   portraitImage: any;
-  tags: string[];
 }
 
 const CharacterProfileCard = ({
   data,
   index,
+  last,
   shouldUseExpandedStyles = true,
   style,
 }: {
   data: CharacterProfileData;
   index: number;
+  last?: boolean;
   shouldUseExpandedStyles?: boolean;
   style: CharacterProfileCardStyle;
 }) => {
   switch (style) {
     case CharacterProfileCardStyle.standard:
-      return <CharacterProfileStandard data={data} index={index} />;
-
+      return <CharacterProfileStandard data={data} index={index} last={last} />;
     case CharacterProfileCardStyle.readMore:
       return <CharacterProfileReadMore data={data} index={index} />;
+    case CharacterProfileCardStyle.small:
+      return <CharacterProfileSmall data={data} index={index} last={last} />;
     case CharacterProfileCardStyle.featuredSecondary:
-      if (shouldUseExpandedStyles && index === 0) {
-        return (
-          <CharacterProfileFeaturedSecondaryWide data={data} index={index} />
-        );
-      }
-      return <CharacterProfileFeaturedSecondary data={data} index={index} />;
+      return (
+        <CharacterProfileFeaturedSecondary
+          data={data}
+          index={index}
+          wide={shouldUseExpandedStyles && index === 0}
+        />
+      );
 
     default:
       return <CharacterProfileStandard data={data} index={index} />;

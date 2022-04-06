@@ -7,10 +7,9 @@ import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 export enum PortraitSizes {
-  medium = '150',
-  large = '180',
-  extraLarge = '250',
-  fill = '100%',
+  small = '200',
+  medium = '260',
+  large = '360',
 }
 
 const { className, styles } = css.resolve`
@@ -36,7 +35,7 @@ const variants = {
 
 const Portrait = ({
   image,
-  size = PortraitSizes.medium,
+  size = PortraitSizes.small,
 }: {
   image: any;
   size?: PortraitSizes;
@@ -55,14 +54,16 @@ const Portrait = ({
       </div>
       <style jsx>{`
         .frame {
-          width: ${size}px;
-
-          display: flex;
-          align-items: center;
+          min-width: ${size}px;
+          min-height: ${size}px;
+          max-width: ${size}px;
+          max-height: ${size}px;
+          border-radius: 50%;
+          overflow: hidden;
         }
         img {
           max-width: 100%;
-          transform: translateY(-10%);
+          transform: translateY(-12%);
         }
       `}</style>
       {styles}

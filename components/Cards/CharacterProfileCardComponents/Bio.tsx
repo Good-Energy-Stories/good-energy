@@ -34,7 +34,7 @@ const Bio = ({ bio }: { bio: string }) => {
       variants={variants}
       className={className}
     >
-      <div className="layout tease-lede-small">{bio}</div>
+      <div className="layout tease-lede">{bio}</div>
 
       <style jsx>{`
         .open-quote {

@@ -1,28 +1,28 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Banner, Title, Lede } from './ArticleCardComponents';
-import { Tags } from './';
 import Link from 'next/link';
 import { ArticleCardData } from '.';
-
-const { className, styles } = css.resolve`
-  div {
-    display: inline-block;
-
-    width: 100%;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--blueThree);
-  }
-  @media only screen and (max-width: 768px) {
+import { Tags } from './';
+function getStyles(maxWidth, last) {
+  return css.resolve`
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      display: inline-block;
+      max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: ${last ? '0' : '1px solid var(--blueThree)'};
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -33,8 +33,19 @@ const variants = {
   },
 };
 
-const Standard = ({ data }: { data: ArticleCardData }) => {
+const Small = ({
+  data,
+  last,
+  maxWidth,
+}: {
+  data: ArticleCardData;
+  last?: boolean;
+  maxWidth?: number;
+}) => {
+  const { className, styles } = getStyles(maxWidth, last);
+
   const { title, lede, tags, slug, heroImage } = data;
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -63,7 +74,6 @@ const Standard = ({ data }: { data: ArticleCardData }) => {
         .line {
           width: 100%;
           border-top: 4px solid var(--black);
-          margin-bottom: 1.25rem;
         }
       `}</style>
       {styles}
@@ -71,4 +81,4 @@ const Standard = ({ data }: { data: ArticleCardData }) => {
   );
 };
 
-export default Standard;
+export default Small;

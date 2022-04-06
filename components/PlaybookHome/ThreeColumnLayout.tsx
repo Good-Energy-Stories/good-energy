@@ -49,6 +49,17 @@ const getSecondaryColumnCardStyle = (
   }
 };
 
+const getSecondaryColumnCharacterProfileCardStyle = (
+  style: ThreeColumnLayoutStyle,
+): CharacterProfileCardStyle => {
+  switch (style) {
+    case ThreeColumnLayoutStyle.primary:
+      return CharacterProfileCardStyle.standard;
+    case ThreeColumnLayoutStyle.secondary:
+      return CharacterProfileCardStyle.small;
+  }
+};
+
 const LeftColumn = ({
   data,
   style,
@@ -57,15 +68,20 @@ const LeftColumn = ({
   style: ThreeColumnLayoutStyle;
 }) => {
   const leftColumnCardStyle = getSecondaryColumnCardStyle(style);
+  const leftColumnCharacterProfileCardStyle =
+    getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
+  console.log('data.length', data.length);
   return (
     <div>
       {data.map((c, i) => (
         <Card
           key={i}
           index={i}
+          last={i === data.length - 1}
           content={c}
           articleCardStyle={leftColumnCardStyle}
+          characterProfileCardStyle={leftColumnCharacterProfileCardStyle}
         />
       ))}
       <style jsx>{`
@@ -105,6 +121,7 @@ const MainColumn = ({
         <Card
           key={i}
           index={i}
+          last={i === data.length - 1}
           shouldUseExpandedStyles={secondaryColumnsEmpty}
           content={c}
           articleCardStyle={mainColumnArticleCardStyle}
@@ -131,6 +148,8 @@ const RightColumn = ({
   style: ThreeColumnLayoutStyle;
 }) => {
   const rightColumnCardStyle = getSecondaryColumnCardStyle(style);
+  const rightColumnCharacterProfileCardStyle =
+    getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
   return (
     <div>
@@ -138,8 +157,10 @@ const RightColumn = ({
         <Card
           key={i}
           index={i}
+          last={i === data.length - 1}
           content={c}
           articleCardStyle={rightColumnCardStyle}
+          characterProfileCardStyle={rightColumnCharacterProfileCardStyle}
         />
       ))}
       <style jsx>{`

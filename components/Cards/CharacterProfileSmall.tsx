@@ -1,20 +1,23 @@
 import CharacterProfileStandard from './CharacterProfileStandard';
 import { CharacterProfileData } from './CharacterProfileCard';
 
-const CharacterProfileReadMore = ({
+const CharacterProfileSmall = ({
   data,
   index,
+  last,
 }: {
   data: CharacterProfileData;
   index: number;
+  last?: boolean;
 }) => {
-  const { name, slug, portraitImage } = data;
   return (
     <CharacterProfileStandard
       index={index}
-      data={{ name, slug, portraitImage }}
+      maxWidth={228}
+      data={data}
+      last={last}
     />
   );
 };
 
-export default CharacterProfileReadMore;
+export default CharacterProfileSmall;

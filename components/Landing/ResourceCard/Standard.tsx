@@ -32,7 +32,7 @@ const variants = {
 };
 
 const Standard = ({ data }: { data: any }) => {
-  const { title, description, heroImage } = data;
+  const { title, description, heroImage, slug } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -49,7 +49,7 @@ const Standard = ({ data }: { data: any }) => {
         <div className="right">
           <Title title={title} />
           <Description description={description} />
-          <CTAButton label="Read More" href="/" />
+          <CTAButton label="Read More" href={`/${slug}`} />
         </div>
       </div>
 

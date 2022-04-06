@@ -6,9 +6,7 @@ const ArticleFeatured = dynamic(() => import('./ArticleFeatured'));
 const ArticleFeaturedSecondary = dynamic(
   () => import('./ArticleFeaturedSecondary'),
 );
-const ArticleFeaturedSecondaryWide = dynamic(
-  () => import('./ArticleFeaturedSecondaryWide'),
-);
+
 const ArticleReadMore = dynamic(() => import('./ArticleReadMore'));
 export interface ArticleCardData {
   title: string;
@@ -31,28 +29,32 @@ export enum ArticleCardStyle {
 const ArticleCard = ({
   data,
   index,
+  last,
   shouldUseExpandedStyles = true,
   style,
 }: {
   data: ArticleCardData;
   shouldUseExpandedStyles?: boolean;
+  last?: boolean;
   index: number;
   style: ArticleCardStyle;
 }) => {
   switch (style) {
     case ArticleCardStyle.standard:
-      return <ArticleStandard data={data} />;
+      return <ArticleStandard data={data} last={last} />;
     case ArticleCardStyle.small:
-      return <ArticleSmall data={data} />;
+      return <ArticleSmall data={data} last={last} />;
     case ArticleCardStyle.readMore:
       return <ArticleReadMore data={data} />;
     case ArticleCardStyle.featured:
       return <ArticleFeatured data={data} />;
     case ArticleCardStyle.featuredSecondary:
-      if (shouldUseExpandedStyles && index === 0) {
-        return <ArticleFeaturedSecondaryWide data={data} />;
-      }
-      return <ArticleFeaturedSecondary data={data} />;
+      return (
+        <ArticleFeaturedSecondary
+          data={data}
+          wide={shouldUseExpandedStyles && index === 0}
+        />
+      );
     default:
       return <ArticleStandard data={data} />;
   }

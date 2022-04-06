@@ -37,6 +37,7 @@ export const getStaticPaths = async () => {
   const characterProfiles = await sanity.fetch(
     queries.characterProfilePathsQuery,
   );
+  console;
   const paths = characterProfiles.map((characterProfile) => ({
     params: { slug: characterProfile.slug.current },
   }));

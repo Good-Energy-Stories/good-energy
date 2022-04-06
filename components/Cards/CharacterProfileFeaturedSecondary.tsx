@@ -12,25 +12,27 @@ import Link from 'next/link';
 import { CharacterProfileData } from './CharacterProfileCard';
 import { PortraitSizes } from './CharacterProfileCardComponents';
 import { Tags, FeaturedTag } from '.';
+import CTAButton from '../CTAButton';
 
-const { className, styles } = css.resolve`
-  div {
-    display: inline-block;
-
-    width: 100%;
-    border-top: 4px solid var(--black);
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(wide) {
+  return css.resolve`
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      display: block;
+      width: ${wide ? 'calc(100% + 10 rem)' : '100%'};
+      margin: ${wide ? '0 -5rem' : '0'};
+      margin-bottom: 2.5rem;
+      border-top: 4px solid var(--black);
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -44,11 +46,15 @@ const variants = {
 const CharacterProfileFeaturedSecondary = ({
   data,
   index,
+  wide = false,
 }: {
   data: CharacterProfileData;
   index: number;
+  wide?: boolean;
 }) => {
-  const { name, shortBio, slug, portraitImage, tags } = data;
+  const { className, styles } = getStyles(wide);
+
+  const { name, shortBio, slug, portraitImage } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -58,47 +64,46 @@ const CharacterProfileFeaturedSecondary = ({
       variants={variants}
       className={className}
     >
-      <Link href={`/${slug}`}>
-        <a>
-          <div className="layout">
-            <div className="left">
-              <FeaturedTag suffix={'Character Profile'} />
-              <Name name={name} />
-              {shortBio && <Bio bio={shortBio} />}
-              {tags && <Tags tags={tags} />}
-            </div>
-            <div className="right">
-              {portraitImage && (
-                <Portrait
-                  image={portraitImage}
-                  size={PortraitSizes.extraLarge}
-                />
-              )}
-            </div>
+      <div className="layout">
+        <div className="left">
+          {portraitImage && (
+            <Portrait image={portraitImage} size={PortraitSizes.medium} />
+          )}
+        </div>
+        <div className="right">
+          <FeaturedTag suffix={'Character Profile'} />
+          <h2>{name}</h2>
+          {shortBio && <div className="tease-lede">{shortBio}</div>}
+          <div>
+            <CTAButton label="Read More" href={`/${slug}`} />
           </div>
-        </a>
-      </Link>
+        </div>
+      </div>
 
       <style jsx>{`
-        .article-link {
+        h2 {
+          margin: 0.625rem 0;
+        }
+        .tease-lede {
+          margin-bottom: 1.25rem;
         }
 
-        .line {
-          width: 100%;
-          border-top: 4px solid var(--black);
-        }
         .layout {
           margin-top: 1.25rem;
 
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+
           column-gap: 1.25rem;
         }
         .left {
           grid-column: 1/2;
+          margin-right: 1.25rem;
         }
         .right {
           grid-column: 2/3;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
       `}</style>
       {styles}

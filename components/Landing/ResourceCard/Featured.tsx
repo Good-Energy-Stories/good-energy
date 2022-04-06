@@ -31,7 +31,7 @@ const variants = {
 };
 
 const Featured = ({ data }: { data: any }) => {
-  const { title, description, heroImage } = data;
+  const { title, description, heroImage, slug } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -45,7 +45,7 @@ const Featured = ({ data }: { data: any }) => {
         <div className="left">
           <Title title={title} />
           <Description description={description} />
-          <CTAButton label="Read More" href="/" />
+          <CTAButton label="Read More" href={`/${slug}`} />
         </div>
         <div className="right">
           <Banner image={heroImage} />

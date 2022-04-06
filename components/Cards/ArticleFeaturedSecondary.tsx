@@ -5,23 +5,25 @@ import Link from 'next/link';
 import { ArticleCardData, FeaturedTag } from '.';
 import { Tags } from './';
 
-const { className, styles } = css.resolve`
-  div {
-    display: inline-block;
-
-    width: 100%;
-    margin-bottom: 2.5rem;
-    border-top: 4px solid var(--black);
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(wide) {
+  return css.resolve`
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      display: inline-block;
+      width: ${wide ? 'calc(100% + 10 rem)' : '100%'};
+      margin: ${wide ? '0 -5rem' : '0'};
+      margin-bottom: 2.5rem;
+      border-top: 4px solid var(--black);
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -32,8 +34,15 @@ const variants = {
   },
 };
 
-const Featured = ({ data }: { data: ArticleCardData }) => {
+const Featured = ({
+  data,
+  wide = false,
+}: {
+  data: ArticleCardData;
+  wide?: boolean;
+}) => {
   const { title, lede, tags, slug, heroImage } = data;
+  const { className, styles } = getStyles(wide);
 
   return (
     <motion.div
@@ -63,20 +72,17 @@ const Featured = ({ data }: { data: ArticleCardData }) => {
       <style jsx>{`
         .layout {
           margin-top: 1.25rem;
-
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+
           column-gap: 1.25rem;
         }
         .left {
-          grid-column: 1/2;
+          grid-column: ${wide ? '2/3' : '1/2'};
+          grid-row: 1;
         }
         .right {
-          grid-column: 2/3;
-        }
-
-        .line {
-          width: 100%;
+          grid-column: ${wide ? '1/2' : '2/3'};
+          grid-row: 1;
         }
       `}</style>
       {styles}

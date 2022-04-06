@@ -7,24 +7,26 @@ const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
 
 export const Card = ({
   index,
+  last,
   content,
   shouldUseExpandedStyles = true,
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
 }: {
   index: number;
+  last?: boolean;
   content: any;
   shouldUseExpandedStyles?: boolean;
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
 }) => {
   const type = content._type;
-
   switch (type) {
     case 'article':
       return (
         <ArticleCard
           index={index}
+          last={last}
           data={content}
           style={articleCardStyle}
           shouldUseExpandedStyles={shouldUseExpandedStyles}
@@ -36,6 +38,7 @@ export const Card = ({
       return (
         <CharacterProfileCard
           index={index}
+          last={last}
           data={content}
           style={characterProfileCardStyle}
           shouldUseExpandedStyles={shouldUseExpandedStyles}

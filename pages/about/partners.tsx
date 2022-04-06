@@ -13,7 +13,6 @@ const Partners = ({ pageData }) => {
       <StickyNavBar />
       <Layout key="partners" paddingHorizontal={'7.5rem'}>
         <Header title={title} description={description} />
-
         {pageData.sections.map((p, i) => (
           <PartnerSection key={i} index={i} data={p} />
         ))}

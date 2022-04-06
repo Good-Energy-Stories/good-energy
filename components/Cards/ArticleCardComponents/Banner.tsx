@@ -39,6 +39,7 @@ const Banner = ({ image }: { image: any }) => {
 
       <style jsx>{`
         img {
+          min-width: 228px;
           max-width: 100%;
         }
       `}</style>

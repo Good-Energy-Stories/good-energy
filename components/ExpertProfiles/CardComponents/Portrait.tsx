@@ -5,13 +5,7 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
-
-export enum PortraitSizes {
-  medium = '150',
-  large = '180',
-  extraLarge = '250',
-  fill = '100%',
-}
+import { PortraitSizes } from '../../Cards/CharacterProfileCardComponents';
 
 const { className, styles } = css.resolve`
   div {
@@ -55,14 +49,12 @@ const Portrait = ({
       </div>
       <style jsx>{`
         .frame {
-          width: ${size}px;
-
-          display: flex;
-          align-items: center;
         }
         img {
-          max-width: 100%;
-          transform: translateY(-10%);
+          min-width: ${size}px;
+          min-height: ${size}px;
+          max-width: ${size}px;
+          max-height: ${size}px;
         }
       `}</style>
       {styles}
