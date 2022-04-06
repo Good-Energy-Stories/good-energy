@@ -22,22 +22,16 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'includeSpotlightPage',
+      title: 'includeSpotlightPage',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'string',
       description: "The individual's name",
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 200,
-        slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-      },
       validation: (Rule) => Rule.required(),
     },
     {
@@ -55,19 +49,26 @@ export default {
         'The organization this individual is associated with, if any',
       hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
+
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 200,
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
+    },
+
     {
       name: 'links',
       title: 'Links',
       type: 'array',
       of: [{ type: 'string' }],
-    },
-    {
-      name: 'shortBio',
-      title: 'Short Bio',
-      validation: (Rule) => Rule.required(),
-      type: 'string',
-      description:
-        'A short bio that will be shown on a card prompting a user to read more',
     },
     {
       name: 'bio',
@@ -82,7 +83,15 @@ export default {
         },
       ],
     },
-
+    {
+      name: 'shortBio',
+      title: 'Short Bio',
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
+      type: 'string',
+      description:
+        'A short bio that will be shown on a card prompting a user to read more',
+    },
     {
       title: 'Tags',
       name: 'tags',
