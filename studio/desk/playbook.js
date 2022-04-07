@@ -2,7 +2,7 @@ import S from '@sanity/desk-tool/structure-builder';
 import { GiBookCover } from 'react-icons/gi';
 import { BsPersonFill } from 'react-icons/bs';
 import { BsCircleFill } from 'react-icons/bs';
-import { GiBookshelf } from 'react-icons/gi';
+import { GiQuillInk } from 'react-icons/gi';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FaRegListAlt } from 'react-icons/fa';
 import { MdOutlineLineStyle } from 'react-icons/md';
@@ -33,6 +33,10 @@ export const playbookMenu = S.listItem()
             S.documentTypeList('characterProfile').title('Character Profiles'),
           )
           .icon(BsPersonFill),
+        S.listItem()
+          .title('Authors')
+          .child(S.documentTypeList('author').title('Authors'))
+          .icon(GiQuillInk),
         S.listItem()
           .title('Quote Collections')
           .child(

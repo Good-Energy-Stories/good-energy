@@ -53,7 +53,7 @@ const Featured = ({
       variants={variants}
       className={className}
     >
-      <Link href={`/${slug}`}>
+      <Link href={`/playbook/${slug}`}>
         <a>
           <div className="layout">
             <div className="left">

@@ -162,7 +162,7 @@ tags[],
 heroImage{
   ${imageMeta}
 },
-"heroImageUrl": heroImage.asset->url,
+includeDropCap,
 introduction[] {
   ${articleIntroduction}
 },

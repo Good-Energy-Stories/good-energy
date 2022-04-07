@@ -55,7 +55,7 @@ const Small = ({
       variants={variants}
       className={className}
     >
-      <Link href={`/${slug}`}>
+      <Link href={`/playbook/${slug}`}>
         <a>
           <div className="article-link">
             {heroImage && <Banner image={heroImage} />}

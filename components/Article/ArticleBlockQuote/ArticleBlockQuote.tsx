@@ -48,11 +48,11 @@ const introComponents: Partial<PortableTextReactComponents> = {
 const ArticleQuote = ({
   data,
   index,
-  isIntroduction = false,
+  includeDropCap = false,
 }: {
   data: any;
   index: number;
-  isIntroduction?: boolean;
+  includeDropCap?: boolean;
 }) => {
   const { quote, attribution } = data;
   return (
@@ -67,7 +67,7 @@ const ArticleQuote = ({
       <PortableText
         value={quote}
         components={
-          isIntroduction && index === 0 ? introComponents : components
+          includeDropCap && index === 0 ? introComponents : components
         }
       />
 

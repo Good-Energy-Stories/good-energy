@@ -28,7 +28,18 @@ export default {
     {
       name: 'shortBio',
       title: 'Short Bio',
+      description:
+        'The short bio will be used as a lede for previews of this character profile',
       type: 'string',
+    },
+    {
+      name: 'bioNote',
+      type: 'note',
+      options: {
+        headline: 'Bio Note',
+        message:
+          'This is the text content that will appear on this characters dedicated page. Remember you can add any number of paragraphs to one text block.',
+      },
     },
     {
       name: 'bio',

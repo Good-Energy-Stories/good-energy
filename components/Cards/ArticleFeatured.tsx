@@ -46,7 +46,7 @@ const Featured = ({ data }: { data: ArticleCardData }) => {
       variants={variants}
       className={className}
     >
-      <Link href={`/${slug}`}>
+      <Link href={`/playbook/${slug}`}>
         <a>
           <div className="article-link">
             <div className="featured-tag">

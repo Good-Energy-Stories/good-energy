@@ -32,9 +32,11 @@ const variants = {
 const ArticleIntroductionSection = ({
   data,
   index,
+  includeDropCap = false,
 }: {
   data: any;
   index: number;
+  includeDropCap?: boolean;
 }) => {
   return (
     <motion.div
@@ -45,7 +47,7 @@ const ArticleIntroductionSection = ({
       variants={variants}
       className={className}
     >
-      <Content data={data} index={index} isIntroduction />
+      <Content data={data} index={index} includeDropCap={includeDropCap} />
       {styles}
     </motion.div>
   );

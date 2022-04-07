@@ -1,12 +1,12 @@
-import { sanity } from '../lib/sanity';
-import { queries } from '../data';
+import { sanity } from '../../lib/sanity';
+import { queries } from '../../data';
 import {
   Layout,
   StickyNavBar,
   NavBarStyles,
   Meta,
   Breadcrumbs,
-} from '../components';
+} from '../../components';
 import {
   Header,
   Divider,
@@ -18,12 +18,12 @@ import {
   Body,
   Introduction,
   Banner,
-} from '../components/Article';
-import { Footer } from '../components/Footer';
+} from '../../components/Article';
+import { Footer } from '../../components/Footer';
 import { useRef, useEffect, RefObject } from 'react';
-import { useStore } from '../stores/store';
+import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
-import Related from '../components/Related';
+import Related from '../../components/Related';
 
 const Project = observer(({ article }: { article: any }) => {
   const { title, byline, introduction, body, heroImage, related } = article;

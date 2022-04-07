@@ -17,6 +17,7 @@ export default {
     {
       name: 'description',
       title: 'Description',
+      description: "Information about the character profile's page",
       type: 'array',
       of: [
         {

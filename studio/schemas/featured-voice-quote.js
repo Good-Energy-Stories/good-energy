@@ -1,8 +1,8 @@
 import { FaQuoteLeft as icon } from 'react-icons/fa';
 
 export default {
-  name: 'articleQuote',
-  title: 'Pull Quote',
+  name: 'featuredVoiceQuote',
+  title: 'Featured Voice Quote',
   type: 'object',
   icon,
   fields: [
@@ -24,15 +24,30 @@ export default {
       type: 'string',
     },
     {
-      name: 'includeAttribution',
-      title: 'Include Attribution',
+      name: 'isFromArticle',
+      title: 'Is This Quote From an Article',
+      description:
+        'If this quote comes from an article, you can link the article here and the quote will include a link to that article. If not, you can still optionally include attribution for the quote',
       type: 'boolean',
     },
+
     {
       name: 'attribution',
       title: 'Attribution',
-      hidden: ({ parent }) => parent?.includeAttribution !== true,
+      description:
+        'What this quote is referring to or when this individual said it. This is an optional field',
       type: 'string',
+      hidden: ({ parent }) => {
+        return parent?.isFromArticle === undefined || parent?.isFromArticle;
+      },
+    },
+    {
+      name: 'article',
+      title: 'Article Quote is From (if any)',
+      type: 'reference',
+      to: [{ type: 'article' }],
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => parent?.isFromArticle !== true,
     },
   ],
   preview: {

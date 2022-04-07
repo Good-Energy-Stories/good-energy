@@ -23,7 +23,9 @@ export default {
     },
     {
       name: 'includeSpotlightPage',
-      title: 'includeSpotlightPage',
+      title: 'Expert Has Spotlight Page',
+      description:
+        'Turn this on if this expert should have their own spotlight page with more information.',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
     },
@@ -67,13 +69,29 @@ export default {
     {
       name: 'links',
       title: 'Links',
+      description: 'Any relevant links associated with the individuals',
+
       type: 'array',
       of: [{ type: 'string' }],
+    },
+    {
+      name: 'authorBio',
+      title: 'Author Bio',
+      validation: (Rule) => Rule.required(),
+      description:
+        'This is the bio you will see on the author card if this expert is linked as the author of an article',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
     },
     {
       name: 'bio',
       title: 'Bio',
       validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
       description:
         "The actual bio that will appear on the individual's page in the library of experts",
       type: 'array',

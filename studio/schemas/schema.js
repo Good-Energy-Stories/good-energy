@@ -8,12 +8,14 @@ import articleIntroductionSection from './article-introduction-section';
 import articleQuote from './article-quote';
 import articleSection from './article-section';
 import articleStoryPossibility from './article-story-possibility';
+import author from './author';
 import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
 import emailCapture from './email-capture';
 import expertProfile from './expert-profile';
 import featuredVoice from './featured-voice';
 import featuredVoicesPage from './featured-voices-page';
+import featuredVoiceQuote from './featured-voice-quote';
 import landingPage from './landing-page';
 import libraryOfExpertsPage from './library-of-experts-page';
 import partner from './partner';
@@ -40,12 +42,14 @@ export default createSchema({
     articleQuote,
     articleSection,
     articleStoryPossibility,
+    author,
     characterProfile,
     characterProfilesPage,
     emailCapture,
     expertProfile,
     featuredVoice,
     featuredVoicesPage,
+    featuredVoiceQuote,
     landingPage,
     libraryOfExpertsPage,
     partner,

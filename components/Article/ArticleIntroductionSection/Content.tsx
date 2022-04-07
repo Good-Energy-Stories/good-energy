@@ -6,13 +6,13 @@ import css from 'styled-jsx/css';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { PortableTextSerializer } from '../..';
 import IntrodutionPortableTextSerializer from '../../IntroductionPortableTextSerializer';
-function getStyles(isIntroduction) {
+function getStyles(includeDropCap) {
   return css.resolve`
     div {
       margin-left: 1.25rem;
       margin-right: 1.25rem;
       grid-column: 1/3;
-      margin-bottom: ${isIntroduction ? '0' : '2.5rem'};
+      margin-bottom: ${includeDropCap ? '0' : '2.5rem'};
     }
     @media only screen and (max-width: 768px) {
       div {
@@ -33,13 +33,13 @@ const variants = {
 const Content = ({
   data,
   index,
-  isIntroduction = false,
+  includeDropCap = false,
 }: {
   data: any;
   index: number;
-  isIntroduction?: boolean;
+  includeDropCap?: boolean;
 }) => {
-  const { className, styles } = getStyles(isIntroduction);
+  const { className, styles } = getStyles(includeDropCap);
   const { body } = data;
 
   return (
@@ -54,7 +54,7 @@ const Content = ({
       <PortableText
         value={body}
         components={
-          isIntroduction && index === 0
+          includeDropCap && index === 0
             ? IntrodutionPortableTextSerializer
             : PortableTextSerializer
         }

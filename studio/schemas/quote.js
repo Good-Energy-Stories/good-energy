@@ -7,6 +7,16 @@ export default {
   icon,
   fields: [
     {
+      name: 'quoteCautionNote',
+      type: 'note',
+      options: {
+        headline: 'Note',
+        message:
+          'You do not need to wrap your text in quotes as the site will do this for you',
+        tone: 'caution',
+      },
+    },
+    {
       name: 'quote',
       title: 'Quote',
       type: 'string',

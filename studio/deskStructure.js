@@ -17,6 +17,7 @@ export default () =>
         (listItem) =>
           ![
             'article',
+            'author',
             'characterProfile',
             'characterProfilesPage',
             'expertProfile',

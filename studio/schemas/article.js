@@ -38,6 +38,30 @@ export default {
       type: 'string',
     },
     {
+      name: 'authorNote',
+      type: 'note',
+      options: {
+        headline: 'Author Note',
+        message:
+          'If there is an author, expert profile, or featured voice who should be associated with this article, link them here. A card with their information will show up at the bottom of the article',
+      },
+    },
+    {
+      title: 'Author',
+      name: 'author',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'author' },
+            { type: 'expertProfile' },
+            { type: 'featuredVoice' },
+          ],
+        },
+      ],
+    },
+    {
       title: 'Project Hero Image',
       name: 'heroImage',
       type: 'image',
@@ -62,11 +86,24 @@ export default {
       ],
     },
     {
+      name: 'includeDropCap',
+      title: 'Should Introduction Have a Drop Cap',
+      description:
+        "Including a drop cap means the first letter of the text will be much larger to begin the story. If the text/quote is short (one to two lines), it's usually better to turn this off.",
+      type: 'boolean',
+    },
+    {
+      name: 'introductionNote',
+      type: 'note',
+      options: {
+        headline: 'Introduction Note',
+        message:
+          'This is the introductory of the article. Remember that you can put multiple paragraphs inside of one section. Leaving this section blank will mean the article will begin with the first item in the article body section below.',
+      },
+    },
+    {
       title: 'Introduction',
       name: 'introduction',
-      description:
-        'This is the introductory of the article. Remember that you can put multiple paragraphs inside of one section. Leaving this section blank will mean the article will begin with the first item in the article body section below.',
-
       type: 'array',
       of: [
         { type: 'articleIntroductionSection' },
@@ -75,9 +112,17 @@ export default {
       ],
     },
     {
+      name: 'bodyNote',
+      type: 'note',
+      options: {
+        headline: 'Article Content Note',
+        message:
+          'You can build each article out of text blocks, pull quotes, block quotes, and story possibilities. In the text blocks, you can bold, italic, and underline in addition to adding links and footnotes.',
+      },
+    },
+    {
       title: 'Body',
       name: 'body',
-      description: 'This is the contents of the article itself.',
       type: 'array',
       of: [
         { type: 'articleSection' },

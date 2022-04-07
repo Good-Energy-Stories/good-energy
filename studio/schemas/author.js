@@ -2,8 +2,8 @@ import React from 'react';
 import { CharacterProfilePreview } from '../components';
 import { GiBookshelf as icon } from 'react-icons/gi';
 export default {
-  name: 'featuredVoice',
-  title: 'Featured Voice',
+  name: 'author',
+  title: 'Author',
   type: 'document',
   icon,
   fields: [
@@ -15,18 +15,10 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'credentials',
-      title: 'Credentials',
+      name: 'authorBio',
+      title: 'Author Bio',
       description:
-        "What this person does. Ex. 'Senior director, brand marketing & partnerships, sierra club'",
-      validation: (Rule) => Rule.required(),
-      type: 'string',
-    },
-    {
-      name: 'shortBio',
-      title: 'Short Bio',
-      description:
-        'This will be used as an author bio on any associated articles',
+        'The author bio that will show up with their name at the bottom of any associated articles',
       type: 'array',
       of: [
         {
@@ -59,19 +51,10 @@ export default {
         },
       ],
     },
-    {
-      name: 'quotes',
-      title: 'Quotes',
-      description:
-        'All of the quotes from this individual that will show up when their profile is selected on the featured voices page',
-      type: 'array',
-      of: [{ type: 'featuredVoiceQuote' }],
-    },
   ],
   preview: {
     select: {
       name: 'name',
-      credentials: 'credentials',
       portraitImageUrl: 'portraitImage.asset.url',
     },
     prepare(selection) {
@@ -79,7 +62,6 @@ export default {
 
       return {
         title: name,
-        subtitle: credentials,
         media: <CharacterProfilePreview url={portraitImageUrl} />,
       };
     },

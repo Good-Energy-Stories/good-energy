@@ -50,7 +50,7 @@ const Small = ({ data }: { data: ArticleCardData }) => {
         {heroImage && <Banner image={heroImage} />}
         {!heroImage && <div className="line" />}
         <Title title={title} />
-        <SmallBorderCTAButton label="Read More" href={`/${slug}`} />
+        <SmallBorderCTAButton label="Read More" href={`/playbook/${slug}`} />
       </div>
 
       <style jsx>{`
