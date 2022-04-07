@@ -22,3 +22,4 @@ export { default as NavOverlay } from './NavOverlay';
 export { default as PlaybookNavOverlay } from './PlaybookNavOverlay';
 
 export { default as Search } from './Search';
+export { default as ExitPreviewButton } from './ExitPreviewButton';

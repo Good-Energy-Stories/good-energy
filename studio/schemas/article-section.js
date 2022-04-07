@@ -3,6 +3,7 @@ import { FaGripLines as icon } from 'react-icons/fa';
 import { GiFootprint } from 'react-icons/gi';
 import { BiLink } from 'react-icons/bi';
 import { FaQuoteLeft } from 'react-icons/fa';
+import toPlainText from '../utils/toPlainText';
 
 export default {
   name: 'articleSection',
@@ -11,8 +12,18 @@ export default {
   icon,
   fields: [
     {
+      name: 'articleSectionNote',
+      type: 'note',
+      options: {
+        headline: 'Article Section Note',
+        message:
+          'If you give this section a title, this title will appear in the sticky article table of contents on the articles left side.',
+      },
+    },
+    {
       name: 'title',
       title: 'Title',
+      description: 'Section title if applicable',
       type: 'string',
     },
     {
@@ -60,6 +71,7 @@ export default {
     {
       name: 'includeSpotIllustration',
       title: 'Include Spot Illustration',
+      description: 'If this section has a spot illustration or not',
       type: 'boolean',
     },
 
@@ -89,4 +101,18 @@ export default {
       ],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      body: 'body',
+      spotIllustrationUrl: 'spotIllustration.asset.url',
+    },
+    prepare(selection) {
+      const { title, body, spotIllustration } = selection;
+      return {
+        title: title ?? toPlainText(body) ?? 'Article Section',
+        media: spotIllustration ?? icon,
+      };
+    },
+  },
 };

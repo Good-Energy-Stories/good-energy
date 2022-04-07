@@ -14,6 +14,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Slug',
@@ -31,6 +32,7 @@ export default {
       name: 'lede',
       title: 'Lede',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'byline',
@@ -123,6 +125,7 @@ export default {
     {
       title: 'Body',
       name: 'body',
+      validation: (Rule) => Rule.required(),
       type: 'array',
       of: [
         { type: 'articleSection' },

@@ -2,6 +2,9 @@ import { sanity } from '../lib/sanity';
 import styles from '../styles/Home.module.css';
 
 import Link from 'next/link';
+import { getClient } from '../lib/sanity/sanity.server';
+import { groq } from 'next-sanity';
+import { usePreviewSubscription } from '../lib/sanity/sanity';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
@@ -17,7 +20,28 @@ import { queries } from '../data';
 import { Footer } from '../components/Footer';
 import { observer } from 'mobx-react-lite';
 
-const Root = observer(({ pageData }: { pageData: any }) => {
+const landingPageQuery = groq`
+*[_type == "landingPage" ] {
+  "id": _id,
+  title,
+  subtitle,
+  showBanner,
+  bannerCopy,
+  bannerImage{
+    ${queries.imageMeta}
+  },
+  content[]{
+      ${queries.playbookSections}
+  },
+}[0]
+`;
+
+const Root = observer(({ data, preview }: { data: any; preview: boolean }) => {
+  const { data: pageData } = usePreviewSubscription(landingPageQuery, {
+    initialData: data,
+    enabled: preview,
+  });
+
   const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
     pageData;
   const store = useStore();
@@ -44,27 +68,10 @@ const Root = observer(({ pageData }: { pageData: any }) => {
   );
 });
 
-export async function getStaticProps({ preview, previewData }) {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "landingPage" ] {
-      "id": _id,
-      title,
-      subtitle,
-      showBanner,
-      bannerCopy,
-      bannerImage{
-        ${queries.imageMeta}
-      },
-      content[]{
-        
+export async function getStaticProps({ preview = false, previewData }) {
+  const data = await getClient(preview).fetch(landingPageQuery);
 
-          ${queries.playbookSections}
-      },
-    }[0]
-  `,
-  );
-  return { props: { pageData } };
+  return { props: { preview, data } };
 }
 
 export default Root;
