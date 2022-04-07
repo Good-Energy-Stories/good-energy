@@ -63,7 +63,7 @@ const Project = observer(
         <Footer />
         <ExitPreviewButton
           href={{
-            pathname: '/api/exit-articlePreview',
+            pathname: '/api/exitArticlePreview',
             query: { slug: article.slug },
           }}
           preview={preview}
