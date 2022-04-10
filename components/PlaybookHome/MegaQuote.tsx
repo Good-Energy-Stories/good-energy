@@ -25,8 +25,6 @@ function getStyles(color) {
       div {
         padding: 0px;
         display: grid;
-
-        grid-column-gap: 0;
       }
     }
   `;

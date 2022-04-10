@@ -22,9 +22,7 @@ const { className, styles } = css.resolve`
   @media only screen and (max-width: 768px) {
     div {
       padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
 `;
@@ -38,9 +36,33 @@ const variants = {
   },
 };
 
-const Spotlight = ({ data }) => {
-  console.log('HERERE,', data);
-  const { name, shortBio, bio, nextUp, portraitImage } = data;
+const NextUp = ({ nextUp }) => {
+  if (!nextUp) return null;
+  return (
+    <>
+      <div className="divider" />
+      <div className="label-medium">Next Up</div>
+      <Card
+        content={nextUp}
+        characterProfileCardStyle={CharacterProfileCardStyle.featuredSecondary}
+        last
+        marginBottom={'1.25rem'}
+      />
+      <div className="divider" />
+      <style jsx>{`
+        .label-medium {
+          color: var(--blueThree);
+          margin-top: 0.625rem;
+        }
+        .divider {
+          border: 1px solid var(--blueThree);
+        }
+      `}</style>
+    </>
+  );
+};
+
+const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
   return (
     <>
       <motion.div
@@ -53,21 +75,14 @@ const Spotlight = ({ data }) => {
         </div>
         <div className="right">
           <div className="breadcrumbs">
-            <Breadcrumbs />
+            <Breadcrumbs dropCurrent />
           </div>
           <h1>{name}</h1>
           <div className="spotlight-intro-graf">{shortBio}</div>
           <div className="bio">
             <PortableText value={bio} components={PortableTextSerializer} />
           </div>
-          {nextUp && (
-            <Card
-              content={nextUp}
-              characterProfileCardStyle={
-                CharacterProfileCardStyle.featuredSecondary
-              }
-            />
-          )}
+          <NextUp nextUp={nextUp} />
         </div>
         {styles}
         <style jsx>{`
@@ -95,6 +110,15 @@ const Spotlight = ({ data }) => {
             grid-column: 2/3;
             padding: 0 2.5rem;
             padding-top: 2.5rem;
+          }
+          @media only screen and (max-width: 768px) {
+            .breadcrumbs {
+              padding-right: 0;
+            }
+            .right {
+              padding: 0;
+              padding-top: 2.5rem;
+            }
           }
         `}</style>
       </motion.div>

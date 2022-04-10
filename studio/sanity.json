@@ -5,7 +5,7 @@
   },
   "api": {
     "projectId": "jkhcjumj",
-    "dataset": "production"
+    "dataset": "development"
   },
   "plugins": [
     "@sanity/base",
@@ -14,7 +14,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "note-field",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "vercel-deploy"
   ],
   "env": {
     "development": {

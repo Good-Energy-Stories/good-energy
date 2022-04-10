@@ -8,15 +8,6 @@ export default {
   icon,
   fields: [
     {
-      name: 'structureNote',
-      type: 'note',
-      options: {
-        headline: 'Playbook Structure Note',
-        message:
-          "This is where you can set the order of the articles and the sections they should appear in on the webite. This order determines the playbook table of contents on the site. To add a subsection (for example, 'Our Present' is a subsection of 'Story World' which is a subsection of 'Climate Storytelling') you can add sections within sections below. For special cases where we want to link something other than an article (Character Profile page, 'Maria's Two Worlds' and 'Why Climate Stories?'), you will also have the ability to link to their respective pages.",
-      },
-    },
-    {
       title: 'Introduction',
       name: 'introduction',
       description:
@@ -40,6 +31,15 @@ export default {
           to: [{ type: 'article' }],
         },
       ],
+    },
+    {
+      name: 'structureNote',
+      type: 'note',
+      options: {
+        headline: 'Playbook Structure Note',
+        message:
+          "This is where you can set the order of the articles and the sections they should appear in on the webite. This order determines the playbook table of contents on the site. To add a subsection (for example, 'Our Present' is a subsection of 'Story World' which is a subsection of 'Climate Storytelling') you can add sections within sections below. For special cases where we want to link something other than an article (Character Profile page, 'Maria's Two Worlds' and 'Why Climate Stories?'), you will also have the ability to link to their respective pages.",
+      },
     },
     {
       title: 'Climate Storytelling',

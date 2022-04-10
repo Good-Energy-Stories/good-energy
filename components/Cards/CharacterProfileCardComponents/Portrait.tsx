@@ -7,9 +7,9 @@ import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 export enum PortraitSizes {
-  small = '200',
-  medium = '260',
-  large = '360',
+  small = 200,
+  medium = 260,
+  large = 360,
 }
 
 const { className, styles } = css.resolve`

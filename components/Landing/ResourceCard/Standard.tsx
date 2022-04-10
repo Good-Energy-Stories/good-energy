@@ -14,10 +14,6 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
     }
   }
 `;
@@ -43,9 +39,8 @@ const Standard = ({ data }: { data: any }) => {
       className={className}
     >
       <div className="layout">
-        <div className="left">
-          <Banner image={heroImage} />
-        </div>
+        <Banner image={heroImage} />
+
         <div className="right">
           <Title title={title} />
           <Description description={description} />
@@ -79,6 +74,12 @@ const Standard = ({ data }: { data: any }) => {
           width: 100%;
           border-top: 4px solid var(--black);
           margin-bottom: 1.25rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .layout {
+            display: block;
+            padding: 0 1.25rem;
+          }
         }
       `}</style>
       {styles}

@@ -1,6 +1,12 @@
 import SearchIcon from '../public/search.svg';
 import { motion } from 'framer-motion';
-const Search = ({ expand = false }: { expand?: boolean }) => {
+const Search = ({
+  expand = false,
+  width,
+}: {
+  expand?: boolean;
+  width?: string;
+}) => {
   return (
     <>
       <div className="search-bar">
@@ -48,6 +54,11 @@ const Search = ({ expand = false }: { expand?: boolean }) => {
 
         ::-ms-input-placeholder {
           color: var(--white);
+        }
+        @media only screen and (max-width: 768px) {
+          .search-bar {
+            width: ${width ?? 'calc(100vw - 5rem)'};
+          }
         }
       `}</style>
     </>

@@ -16,6 +16,8 @@ function getStyles(wide) {
     }
     @media only screen and (max-width: 768px) {
       div {
+        margin: 0;
+        width: 100%;
         padding: 0px;
         display: grid;
 
@@ -73,7 +75,6 @@ const Featured = ({
         .layout {
           margin-top: 1.25rem;
           display: grid;
-
           column-gap: 1.25rem;
         }
         .left {
@@ -83,6 +84,16 @@ const Featured = ({
         .right {
           grid-column: ${wide ? '1/2' : '2/3'};
           grid-row: 1;
+        }
+        @media only screen and (max-width: 768px) {
+          .right {
+            margin-bottom: 0.625rem;
+          }
+          .layout {
+            display: flex;
+            flex-direction: column-reverse;
+            margin-bottom: 1.25rem;
+          }
         }
       `}</style>
       {styles}

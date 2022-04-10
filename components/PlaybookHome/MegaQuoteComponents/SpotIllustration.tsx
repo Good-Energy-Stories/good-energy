@@ -32,6 +32,12 @@ const SpotIllustration = ({
         img {
           max-width: 100%;
         }
+        @media only screen and (max-width: 768px) {
+          img {
+            max-width: none;
+            max-height: 200px;
+          }
+        }
       `}</style>
     </>
   );

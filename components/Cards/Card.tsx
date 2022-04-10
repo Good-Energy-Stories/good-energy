@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { ArticleCardStyle, CharacterProfileCardStyle } from './';
 const ArticleCard = dynamic(() => import('./ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
+const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
 const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
 
 export const Card = ({
@@ -12,6 +13,7 @@ export const Card = ({
   shouldUseExpandedStyles = true,
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
+  marginBottom,
 }: {
   index?: number;
   last?: boolean;
@@ -19,6 +21,7 @@ export const Card = ({
   shouldUseExpandedStyles?: boolean;
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
+  marginBottom?: string;
 }) => {
   const type = content._type;
   switch (type) {
@@ -42,6 +45,15 @@ export const Card = ({
           data={content}
           style={characterProfileCardStyle}
           shouldUseExpandedStyles={shouldUseExpandedStyles}
+        />
+      );
+    case 'expertProfile':
+      return (
+        <ExpertProfileCard
+          index={index}
+          last={last}
+          data={content}
+          marginBottom={marginBottom}
         />
       );
     default:

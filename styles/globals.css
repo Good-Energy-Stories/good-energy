@@ -14,6 +14,7 @@
   --pressura: Pressura, Helvetica Neue, sans-serif;
 
   --grid-col: repeat(4, minmax(0, 1fr));
+  --grid-col-mobile: repeat(1, minmax(0, 1fr));
 }
 
 html,
@@ -76,4 +77,9 @@ input:focus {
 .grid {
   display: grid;
   grid-template-columns: var(--grid-col);
+}
+@media only screen and (max-width: 768px) {
+  body {
+    border: 0;
+  }
 }

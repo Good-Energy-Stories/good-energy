@@ -23,10 +23,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
 `;
@@ -67,6 +64,11 @@ const Right = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+        }
+        @media only screen and (max-width: 768px) {
+          div {
+            grid-row-start: 2;
+          }
         }
       `}</style>
     </div>

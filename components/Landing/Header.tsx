@@ -8,7 +8,7 @@ import { BANNER_HEIGHT } from '../PageBanner';
 
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     margin-left: 0rem;
 
     padding-bottom: 2rem;
@@ -89,6 +89,14 @@ const Title = ({
           max-width: 50vw;
           text-transform: none;
           color: var(--white);
+        }
+        @media only screen and (max-width: 768px) {
+          .card {
+            padding: 0 1.25rem;
+          }
+          .h3-sentence {
+            max-width: 100%;
+          }
         }
       `}</style>
       {styles}

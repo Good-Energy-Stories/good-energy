@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Logo from '../Logo';
 import Link from 'next/link';
-import { BANNER_HEIGHT } from '../PageBanner';
+import { BANNER_HEIGHT, BANNER_HEIGHT_MOBILE } from '../PageBanner';
 import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
 
 const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
@@ -203,6 +203,7 @@ const StickyNavBar = ({
 
           @media only screen and (max-width: 768px) {
             div {
+              margin-top: ${showBanner ? BANNER_HEIGHT_MOBILE : 0}px;
             }
           }
         `}</style>

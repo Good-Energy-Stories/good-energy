@@ -42,6 +42,12 @@ const Links = () => {
         .links {
           display: flex;
         }
+        @media only screen and (max-width: 768px) {
+          .links {
+            width: calc(100vw - 5rem);
+            flex-wrap: wrap;
+          }
+        }
       `}</style>
     </>
   );

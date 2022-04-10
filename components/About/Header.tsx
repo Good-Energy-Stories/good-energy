@@ -16,6 +16,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      padding: 0;
     }
   }
 `;
@@ -77,6 +78,11 @@ const Header = ({
         h1 {
           margin-top: 0;
           margin-bottom: 2.5rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .left {
+            width: 100%;
+          }
         }
       `}</style>
       {styles}

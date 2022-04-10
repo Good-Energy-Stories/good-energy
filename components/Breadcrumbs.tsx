@@ -31,17 +31,24 @@ const PathDivider = () => {
 const PathLabel = ({ label, href, last }) => {
   return (
     <>
-      <span>
-        <Link href={href}>
-          <a className="label-medium">{label.replaceAll('-', ' ')}</a>
-        </Link>
-      </span>
+      <div>
+        {last ? (
+          <span className="label-medium">{label.replaceAll('-', ' ')}</span>
+        ) : (
+          <Link href={href}>
+            <a className="label-medium">{label.replaceAll('-', ' ')}</a>
+          </Link>
+        )}
+        {!last && <PathDivider />}
+      </div>
 
       <style jsx>{`
-        span {
+        div {
           text-transform: uppercase;
           color: ${last ? 'var(--black)' : 'var(--blueThree)'};
+          display: inline-block;
         }
+
         a {
           text-decoration: none !important;
         }
@@ -50,13 +57,18 @@ const PathLabel = ({ label, href, last }) => {
   );
 };
 
-const Breadcrumbs = ({ path }: { path?: Breadcrumbs }) => {
+const Breadcrumbs = ({
+  path,
+  dropCurrent,
+}: {
+  path?: Breadcrumbs;
+  dropCurrent?: boolean;
+}) => {
   const router = useRouter();
   const { asPath } = router;
-
-  const routerPath = asPath
-    .substring(1)
-    .split('/')
+  const asPathArray = asPath.substring(1).split('/');
+  const routerPath = asPathArray
+    .slice(0, dropCurrent ? asPathArray.length - 1 : asPathArray.length)
     .map((c) => ({ label: c, href: `/${c}` }));
   const crumbs = path ?? routerPath;
   return (
@@ -69,7 +81,6 @@ const Breadcrumbs = ({ path }: { path?: Breadcrumbs }) => {
               href={href}
               last={crumbs.length - 1 === i}
             />
-            {crumbs.length - 1 !== i && <PathDivider key={i} />}
           </span>
         ))}
       </div>

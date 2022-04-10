@@ -57,6 +57,10 @@ export default {
                 icon: GiFootprint,
                 fields: [
                   {
+                    name: 'number',
+                    type: 'string',
+                  },
+                  {
                     name: 'text',
                     type: 'array',
                     of: [{ type: 'block' }],

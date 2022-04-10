@@ -27,23 +27,21 @@ const variants = {
 const Banner = ({ image }: { image: any }) => {
   if (!image) return null;
   return (
-    <motion.div
-      transition={{ duration: 2 }}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
-      variants={variants}
-      className={className}
-    >
+    <>
       <img alt={image?.caption} src={imageUrlFor(image).url()} />
 
       <style jsx>{`
         img {
           max-width: 100%;
         }
+        @media only screen and (max-width: 768px) {
+          img {
+            min-width: 100%;
+          }
+        }
       `}</style>
       {styles}
-    </motion.div>
+    </>
   );
 };
 

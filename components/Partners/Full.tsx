@@ -9,7 +9,7 @@ const { className, styles } = css.resolve`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    grid-column: span 4;
+    grid-column: 1/-1;
 
     margin-bottom: 2.5rem;
     margin-top: -1.25rem;
@@ -17,9 +17,6 @@ const { className, styles } = css.resolve`
   @media only screen and (max-width: 768px) {
     div {
       padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
     }
   }
 `;

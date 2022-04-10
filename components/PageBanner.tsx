@@ -15,6 +15,8 @@ import { Search } from '.';
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 
 export const BANNER_HEIGHT = 50;
+export const BANNER_HEIGHT_MOBILE = 70;
+
 const { className, styles } = css.resolve`
   div {
     width: calc(100% - 24px);
@@ -31,10 +33,10 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
-      display: grid;
-
-      grid-column-gap: 0;
+      width: 100%;
+      top: 0;
+      padding: 1.25rem 2.5rem;
+      height: ${BANNER_HEIGHT_MOBILE}px;
     }
   }
 `;

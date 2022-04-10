@@ -79,6 +79,17 @@ const Featured = ({ data }: { data: any }) => {
           border-top: 4px solid var(--black);
           margin-bottom: 1.25rem;
         }
+        @media only screen and (max-width: 768px) {
+          .layout {
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 0 1.25rem;
+          }
+          .right {
+            margin-left: 0;
+            margin-bottom: 1.25rem;
+          }
+        }
       `}</style>
       {styles}
     </motion.div>

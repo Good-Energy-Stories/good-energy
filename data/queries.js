@@ -128,6 +128,7 @@ portraitImage{
 `;
 
 export const expertProfilePreview = `
+_type,
 name,
 expertType,
 includeSpotlightPage,
@@ -181,6 +182,9 @@ shortBio,
 bio,
 tags[],
 "slug": slug.current,
+fullSizePortraitImage {
+  ${imageMeta}
+},
 portraitImage{
   ${imageMeta}
 },
@@ -193,14 +197,30 @@ nextUp->{
 `;
 
 export const expertProfile = `
+_type,
 name,
+includeSpotlightPage,
+expertType,
+pronouns,
+organization,
+links[],
+bio,
+authorBio,
 shortBio,
 tags[],
 "slug": slug.current,
 smallPortraitImage{
   ${imageMeta}
 },
-"portraitImageUrl": portraitImage.asset->url
+fullSizePortraitImage {
+  ${imageMeta}
+},
+related[]-> {
+  ${related}
+},
+nextUp->{
+  ${expertProfilePreview}
+}
 `;
 
 export const quoteCollection = `
@@ -291,10 +311,14 @@ export const playbookSections = `
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
 export const characterProfilePathsQuery = `*[_type == "characterProfile"] { slug }`;
+export const expertProfilePathsQuery = `*[_type == "expertProfile" && includeSpotlightPage == true] { slug }`;
 
 export const articleQuery = `*[_type == "article" && slug.current == $slug] {
   ${article}
 }[0]`;
 export const characterProfileQuery = `*[_type == "characterProfile" && slug.current == $slug] {
   ${characterProfile}
+}[0]`;
+export const expertProfileQuery = `*[_type == "expertProfile" && slug.current == $slug] {
+  ${expertProfile}
 }[0]`;

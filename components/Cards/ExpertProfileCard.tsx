@@ -7,29 +7,32 @@ import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
-import Link from 'next/link';
-import { CharacterProfileData } from './CharacterProfileCard';
-import { PortraitSizes } from './CharacterProfileCardComponents';
-import { Tags, FeaturedTag } from '.';
+import {
+  Name,
+  Bio,
+  Portrait,
+  PronounsAndOrganization,
+} from './ExpertProfileCardComponents';
+import { PortraitSizes, RoundPortrait } from './CharacterProfileCardComponents';
+import { Tags } from '.';
 import CTAButton from '../CTAButton';
-
-function getStyles(wide) {
+function getStyles(last, marginBottom) {
   return css.resolve`
     div {
-      display: block;
-      width: ${wide ? 'calc(100% + 10 rem)' : '100%'};
-      margin: ${wide ? '0 -5rem' : '0'};
-      margin-bottom: 2.5rem;
-      border-top: 4px solid var(--black);
+      display: inline-block;
+
+      width: 100%;
+
+      margin-bottom: ${marginBottom ?? '3.75rem'};
+
+      max-width: 800px;
+      border-bottom: ${last ? 0 : '1px solid var(--blueThree)'};
     }
     @media only screen and (max-width: 768px) {
       div {
-        width: 100%;
-        margin: 0;
         padding: 0px;
         display: grid;
-
+        margin-bottom: 1.25rem;
         grid-column-gap: 0;
       }
     }
@@ -45,18 +48,28 @@ const variants = {
   },
 };
 
-const CharacterProfileFeaturedSecondary = ({
+const Card = ({
   data,
   index,
-  wide = false,
+  last,
+  marginBottom,
 }: {
-  data: CharacterProfileData;
+  data: any;
   index: number;
-  wide?: boolean;
+  last?: boolean;
+  marginBottom?: string;
 }) => {
-  const { className, styles } = getStyles(wide);
-
-  const { name, shortBio, slug, portraitImage } = data;
+  const {
+    name,
+    includeSpotlightPage,
+    shortBio,
+    slug,
+    smallPortraitImage,
+    tags,
+    pronouns,
+    organization,
+  } = data;
+  const { className, styles } = getStyles(last, marginBottom);
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -68,28 +81,36 @@ const CharacterProfileFeaturedSecondary = ({
     >
       <div className="layout">
         <div className="left">
-          {portraitImage && (
-            <Portrait image={portraitImage} size={PortraitSizes.medium} />
+          {smallPortraitImage && (
+            <div>
+              <Portrait
+                image={smallPortraitImage}
+                size={PortraitSizes.medium}
+              />
+            </div>
           )}
         </div>
         <div className="right">
-          <FeaturedTag suffix={'Character Profile'} />
-          <h2>{name}</h2>
-          {shortBio && <div className="tease-lede">{shortBio}</div>}
-          <div>
-            <CTAButton
-              label="Read More"
-              href={`/playbook/characters/character-profiles/${slug}`}
-            />
-          </div>
+          <Name name={name} />
+          <PronounsAndOrganization
+            pronouns={pronouns}
+            organization={organization}
+          />
+          {shortBio && <Bio bio={shortBio} />}
+          {includeSpotlightPage && (
+            <div className="cta">
+              <CTAButton
+                label="Read More"
+                href={`/about/library-of-experts/spotlight/${slug}`}
+              />
+            </div>
+          )}
+          {tags && <Tags tags={tags} />}
         </div>
       </div>
 
       <style jsx>{`
-        h2 {
-          margin: 0.625rem 0;
-        }
-        .tease-lede {
+        .cta {
           margin-bottom: 1.25rem;
         }
 
@@ -106,18 +127,16 @@ const CharacterProfileFeaturedSecondary = ({
         }
         .right {
           grid-column: 2/3;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
         }
         @media only screen and (max-width: 768px) {
           .left {
             margin-right: 0;
             display: flex;
             justify-content: center;
-            margin-bottom: 1.25rem;
+            margin-bottom: 2.5rem;
           }
           .layout {
+            margin-bottom: 2.5rem;
             display: flex;
             flex-direction: column;
           }
@@ -128,4 +147,4 @@ const CharacterProfileFeaturedSecondary = ({
   );
 };
 
-export default CharacterProfileFeaturedSecondary;
+export default Card;

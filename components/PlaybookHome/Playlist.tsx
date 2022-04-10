@@ -80,6 +80,13 @@ const CardRow = ({ playlist }: { playlist: any }) => {
         .card-wrapper {
           margin: 0 1.25rem;
         }
+        @media only screen and (max-width: 768px) {
+          .right {
+            max-width: 100vw;
+            overflow-x: scroll;
+            grid-column: 1/-1;
+          }
+        }
       `}</style>
     </>
   );
@@ -118,11 +125,19 @@ const PlaylistInformation = ({
         .container {
           grid-column: 1/3;
           padding-top: 1.25rem;
-          padding-right: 1.25rem;s
+          padding-right: 1.25rem;
         }
         .story-count {
           margin-top: 2.5rem;
           margin-bottom: 1.25rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .container {
+            padding: 0 1.25rem;
+            padding-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            grid-column: 1/-1;
+          }
         }
       `}</style>
     </>

@@ -18,10 +18,7 @@ function getStyles(paddingHorizontal) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
-        display: grid;
-
-        grid-column-gap: 0;
+        padding: 0 1.25rem;
       }
     }
   `;

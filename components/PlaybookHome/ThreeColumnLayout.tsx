@@ -96,6 +96,11 @@ const LeftColumn = ({
           flex-direction: column;
           align-items: flex-start;
         }
+        @media only screen and (max-width: 768px) {
+          div {
+            grid-column: 1/-1;
+          }
+        }
       `}</style>
     </div>
   );
@@ -134,6 +139,11 @@ const MainColumn = ({
           padding: 0 1.25rem;
           margin-top: 1.25rem;
           margin-bottom: 1.25rem;
+        }
+        @media only screen and (max-width: 768px) {
+          div {
+            grid-column: 1/-1;
+          }
         }
       `}</style>
     </div>
@@ -175,8 +185,12 @@ const RightColumn = ({
           display: flex;
           display: flex;
           align-items: flex-end;
-
           flex-direction: column;
+        }
+        @media only screen and (max-width: 768px) {
+          div {
+            grid-column: 1/-1;
+          }
         }
       `}</style>
     </div>

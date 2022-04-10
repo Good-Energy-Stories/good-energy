@@ -12,6 +12,7 @@ import CloseButtonIcon from '../public/close-button.svg';
 import ListArrowIcon from '../public/list-arrow.svg';
 import Link from 'next/link';
 import { Search } from './';
+import { isMobile } from 'react-device-detect';
 const { className, styles } = css.resolve`
   div {
     height: 100%;
@@ -30,8 +31,8 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
-      display: grid;
+      width: 100%;
+      padding: 1.25rem 1.25rem;
 
       grid-column-gap: 0;
     }
@@ -41,6 +42,15 @@ const { className, styles } = css.resolve`
 const variants = {
   in: {
     x: '-12px',
+  },
+  out: {
+    x: 'calc(-100% - 10rem)',
+  },
+};
+
+const mobileVariants = {
+  in: {
+    x: '0px',
   },
   out: {
     x: 'calc(-100% - 10rem)',
@@ -67,6 +77,7 @@ const CloseNavButton = observer(() => {
 
         @media only screen and (max-width: 768px) {
           div {
+            right: 1.25rem;
           }
           img {
           }
@@ -148,13 +159,14 @@ const NavOverlay = observer(() => {
   const {
     uiStore: { navOverlayOpen, openPlaybookNavOverlay },
   } = store;
+
   return (
     <>
       <motion.div
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={navOverlayOpen ? 'in' : 'out'}
-        variants={variants}
+        variants={isMobile ? mobileVariants : variants}
         className={className}
       >
         <div>
@@ -184,7 +196,9 @@ const NavOverlay = observer(() => {
             <ListItemLink label="Contact" href="/" />
           </div>
         </div>
-        <Search expand />
+        <div className="search">
+          <Search expand width={'100%'} />
+        </div>
         <img src="/fern-small.png" alt="Fern" />
         {styles}
         <style jsx>{`
@@ -207,6 +221,8 @@ const NavOverlay = observer(() => {
           }
 
           @media only screen and (max-width: 768px) {
+            .search {
+            }
           }
         `}</style>
         <CloseNavButton />

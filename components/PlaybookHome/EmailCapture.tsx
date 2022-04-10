@@ -23,10 +23,7 @@ function getStyles(color) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
-        display: grid;
-
-        grid-column-gap: 0;
+        padding: 2.5rem 1.25rem;
       }
     }
   `;
@@ -82,7 +79,6 @@ const EmailCapture = ({
           color: var(--${inverseColor});
           text-transform: uppercase;
           font-variation-settings: 'wght' 700, 'wdth' 40;
-
           margin-bottom: 0.625rem;
         }
         h2 {
@@ -143,6 +139,18 @@ const EmailCapture = ({
           background-color: var(
             --${backgroundColor === 'white' ? 'greyBlue' : 'white'}
           );
+        }
+        @media only screen and (max-width: 768px) {
+          .layout {
+            max-width: 100%;
+          }
+          img {
+            display: none;
+          }
+
+          input[type='text'] {
+            min-width: 0;
+          }
         }
       `}</style>
       {styles}

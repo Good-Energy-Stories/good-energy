@@ -56,6 +56,10 @@ const Portrait = ({
           max-width: ${size}px;
           max-height: ${size}px;
         }
+        @media only screen and (max-width: 768px) {
+          img {
+          }
+        }
       `}</style>
       {styles}
     </motion.div>

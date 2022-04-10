@@ -64,6 +64,13 @@ export const PageDivider = ({
           margin-bottom: ${marginBottom ?? '2.5rem'};
           grid-column: span ${size};
         }
+        @media only screen and (max-width: 768px) {
+          div {
+            width: 100%;
+            margin: 0;
+            margin-bottom: 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );

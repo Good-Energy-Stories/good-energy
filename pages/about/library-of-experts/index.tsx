@@ -1,12 +1,11 @@
-import { sanity } from '../../lib/sanity';
-import { Layout, Meta, PageDivider, StickyNavBar } from '../../components';
-import { queries } from '../../data';
-import { Header } from '../../components/About';
-import { PartnerSection } from '../../components/Partners';
-import { Footer } from '../../components/Footer';
-import { Card } from '../../components/ExpertProfiles';
+import { sanity } from '../../../lib/sanity';
+import { Layout, Meta, PageDivider, StickyNavBar } from '../../../components';
+import { queries } from '../../../data';
+import { Header } from '../../../components/About';
+import { PartnerSection } from '../../../components/Partners';
+import { Footer } from '../../../components/Footer';
+import { Card } from '../../../components/Cards';
 const LibraryOfExperts = ({ pageData, expertProfiles }) => {
-  console.log(expertProfiles);
   const { title, description } = pageData;
 
   return (
@@ -18,7 +17,14 @@ const LibraryOfExperts = ({ pageData, expertProfiles }) => {
         <PageDivider />
         <div className="results">
           {expertProfiles.map((e, i) => {
-            return <Card key={i} index={i} data={e} />;
+            return (
+              <Card
+                key={i}
+                index={i}
+                content={e}
+                last={i === expertProfiles.length - 1}
+              />
+            );
           })}
           <style jsx>{`
             .results {

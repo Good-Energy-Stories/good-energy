@@ -22,7 +22,7 @@ export default {
         layout: 'radio',
         list: [
           { title: 'Playbook', value: '/playbook' },
-          { title: 'Library of Experts', value: '/library-of-experts' },
+          { title: 'Library of Experts', value: '/about/library-of-experts' },
           { title: 'Consulting Practice', value: '/about' },
         ],
       },

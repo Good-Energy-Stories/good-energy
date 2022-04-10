@@ -14,8 +14,8 @@ import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../../../components/Related';
 
-const Project = observer(({ characterProfile }: { characterProfile: any }) => {
-  const { related } = characterProfile;
+const Project = observer(({ expertProfile }: { expertProfile: any }) => {
+  console.log(expertProfile);
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -26,15 +26,15 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
     <>
       <Meta />
       <StickyNavBar mode={navMode} />
-      <Layout key={characterProfile.slug}>
+      <Layout key={expertProfile.slug}>
         <SpotlightBody
-          name={characterProfile?.name}
-          shortBio={characterProfile?.shortBio}
-          bio={characterProfile?.bio}
-          nextUp={characterProfile?.nextUp}
-          portraitImage={characterProfile?.fullSizePortraitImage}
+          name={expertProfile?.name}
+          shortBio={expertProfile?.shortBio}
+          bio={expertProfile?.bio}
+          nextUp={expertProfile?.nextUp}
+          portraitImage={expertProfile?.fullSizePortraitImage}
         />
-        <Related content={related} />
+        <Related content={expertProfile?.related} />
       </Layout>
       <Footer />
     </>
@@ -42,13 +42,13 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
 });
 
 export const getStaticPaths = async () => {
-  const characterProfiles = await sanity.fetch(
-    queries.characterProfilePathsQuery,
-  );
+  const expertProfiles = await sanity.fetch(queries.expertProfilePathsQuery);
 
-  const paths = characterProfiles.map((characterProfile) => ({
-    params: { slug: characterProfile.slug.current },
+  const paths = expertProfiles.map((expertProfile) => ({
+    params: { slug: expertProfile.slug.current },
   }));
+
+  console.log(paths);
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
@@ -56,10 +56,12 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const characterProfile = await sanity.fetch(queries.characterProfileQuery, {
+  console.log(params);
+  const expertProfile = await sanity.fetch(queries.expertProfileQuery, {
     slug: params.slug,
   });
-  return { props: { characterProfile } };
+  console.log(expertProfile);
+  return { props: { expertProfile } };
 };
 
 export default Project;
