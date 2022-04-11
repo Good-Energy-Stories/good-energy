@@ -41,13 +41,16 @@ const Root = observer(({ data, preview }: { data: any; preview: boolean }) => {
     initialData: data,
     enabled: preview,
   });
-
-  const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
-    pageData;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
   } = store;
+
+  if (!pageData) return null;
+
+  const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
+    pageData;
+
   const navMode =
     scrollPosition > 0.03 ? NavBarStyles.dark : NavBarStyles.light;
   return (
