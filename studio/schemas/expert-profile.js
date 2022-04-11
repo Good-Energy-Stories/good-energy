@@ -62,7 +62,19 @@ export default {
         slugify: (input) =>
           input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((slug, context) => {
+          if (
+            context.document.expertType === 'individual' &&
+            context.document.includeSpotlightPage
+          ) {
+            if (slug) {
+              return true;
+            }
+            return 'Slug is required';
+          }
+          return true;
+        }),
       hidden: ({ parent }) => !parent?.includeSpotlightPage,
     },
 
@@ -77,7 +89,20 @@ export default {
     {
       name: 'authorBio',
       title: 'Author Bio',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((authorBio, context) => {
+          if (
+            context.document.expertType === 'individual' &&
+            context.document.includeSpotlightPage
+          ) {
+            if (authorBio) {
+              return true;
+            }
+            return 'Author Bio is required';
+          }
+          return true;
+        }),
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
       description:
         'This is the bio you will see on the author card if this expert is linked as the author of an article',
       type: 'array',
@@ -90,7 +115,19 @@ export default {
     {
       name: 'bio',
       title: 'Bio',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((bio, context) => {
+          if (
+            context.document.expertType === 'individual' &&
+            context.document.includeSpotlightPage
+          ) {
+            if (bio) {
+              return true;
+            }
+            return 'Bio is required';
+          }
+          return true;
+        }),
       hidden: ({ parent }) => !parent?.includeSpotlightPage,
       description:
         "The actual bio that will appear on the individual's page in the library of experts",
@@ -104,8 +141,19 @@ export default {
     {
       name: 'shortBio',
       title: 'Short Bio',
-      validation: (Rule) => Rule.required(),
-      hidden: ({ parent }) => !parent?.includeSpotlightPage,
+      validation: (Rule) =>
+        Rule.custom((shortBio, context) => {
+          if (
+            context.document.expertType === 'individual' &&
+            context.document.includeSpotlightPage
+          ) {
+            if (shortBio) {
+              return true;
+            }
+            return 'Shot Bio is required';
+          }
+          return true;
+        }),
       type: 'string',
       description:
         'A short bio that will be shown on a card prompting a user to read more',
@@ -123,6 +171,8 @@ export default {
       title: 'Small Portrait Image',
       name: 'smallPortraitImage',
       type: 'image',
+      description:
+        'You can use this for a company logo too if this is an organization document',
       validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
@@ -148,7 +198,21 @@ export default {
       title: 'Full Size Portrait Image',
       name: 'fullSizePortraitImage',
       type: 'image',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((fullSizePortraitImage, context) => {
+          if (
+            context.document.expertType === 'individual' &&
+            context.document.includeSpotlightPage
+          ) {
+            if (fullSizePortraitImage) {
+              return true;
+            }
+            return 'Full Size Portrait Image is required';
+          }
+          return true;
+        }),
+      hidden: ({ parent }) =>
+        !parent?.includeSpotlightPage || parent?.expertType !== 'individual',
       options: {
         hotspot: true,
       },
@@ -175,12 +239,14 @@ export default {
       type: 'reference',
       description: 'Suggestion for expert profile to read next after this one',
       to: [{ type: 'expertProfile' }],
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
     },
     {
       title: 'Related',
       name: 'related',
       description:
         'You can add any number of related articles or character profiles here.',
+      hidden: ({ parent }) => !parent?.includeSpotlightPage,
       type: 'array',
       of: [
         {

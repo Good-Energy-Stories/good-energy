@@ -59,9 +59,8 @@ const Root = observer(({ data, preview }: { data: any; preview: boolean }) => {
 
       <StickyNavBar showBanner={showBanner} mode={navMode} />
       {showBanner && <PageBanner copy={bannerCopy} />}
-
+      <Header title={title} subtitle={subtitle} image={bannerImage} />
       <Layout key="home">
-        <Header title={title} subtitle={subtitle} image={bannerImage} />
         {content.map((c, i) => (
           <PageContent key={i} index={i} content={c} />
         ))}
