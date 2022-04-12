@@ -35,6 +35,7 @@ const Portrait = ({
   image: any;
   size?: PortraitSizes;
 }) => {
+  console.log(image);
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -45,7 +46,10 @@ const Portrait = ({
       className={className}
     >
       <div className="frame">
-        <img alt={image?.caption} src={imageUrlFor(image).url()} />
+        <img
+          alt={image?.caption}
+          src={imageUrlFor(image).height(size).width(size).url()}
+        />
       </div>
       <style jsx>{`
         .frame {
@@ -55,6 +59,8 @@ const Portrait = ({
           min-height: ${size}px;
           max-width: ${size}px;
           max-height: ${size}px;
+          border-radius: 50%;
+          overflow: hidden;
         }
         @media only screen and (max-width: 768px) {
           img {

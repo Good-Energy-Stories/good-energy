@@ -120,6 +120,7 @@ const Card = ({
           display: grid;
 
           column-gap: 1.25rem;
+          margin-bottom: 2.5rem;
         }
         .left {
           grid-column: 1/2;
@@ -129,6 +130,9 @@ const Card = ({
           grid-column: 2/3;
         }
         @media only screen and (max-width: 768px) {
+          .layout {
+            margin-bottom: 0;
+          }
           .left {
             margin-right: 0;
             display: flex;
