@@ -99,6 +99,8 @@ const LeftColumn = ({
         @media only screen and (max-width: 768px) {
           div {
             grid-column: 1/-1;
+            padding: 0 1.25rem;
+            margin-top: 1.25rem;
           }
         }
       `}</style>
@@ -143,6 +145,8 @@ const MainColumn = ({
         @media only screen and (max-width: 768px) {
           div {
             grid-column: 1/-1;
+            padding: 0 1.25rem;
+            margin-top: 1.25rem;
           }
         }
       `}</style>
@@ -190,6 +194,8 @@ const RightColumn = ({
         @media only screen and (max-width: 768px) {
           div {
             grid-column: 1/-1;
+            padding: 0 1.25rem;
+            margin-top: 1.25rem;
           }
         }
       `}</style>

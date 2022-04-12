@@ -14,11 +14,11 @@ const { className, styles } = css.resolve`
     margin-bottom: 2.5rem;
     margin-top: -1.25rem;
   }
-  @media only screen and (max-width: 1080px) {
+  @media only screen and (max-width: 768px) {
     div {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       width: 100%;
-      padding: 0px;
+      padding: 0 1.25rem;
       margin-top: 0;
     }
   }

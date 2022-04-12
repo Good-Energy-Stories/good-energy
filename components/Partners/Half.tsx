@@ -12,7 +12,7 @@ const { className, styles } = css.resolve`
     div {
       margin-top: 1.25rem;
       margin-bottom: 1.25rem;
-      padding: 0px;
+      padding: 0 1.25rem;
       display: grid;
 
       grid-column: span 4;
@@ -105,7 +105,8 @@ const Half = ({
           .divider {
             margin: 0;
             grid-column: span 4;
-            width: 100%;
+
+            margin: 0 1.25rem;
           }
         }
       `}</style>

@@ -17,7 +17,8 @@ export const TOC = ({
   sections: SectionsTOC;
   sectionsRef: RefObject<SectionRefLookup>;
 }) => {
-  if (!sections) return null;
+  if (!sections || sections.filter((s) => s.title !== null).length === 0)
+    return null;
   const scrollIntoView = (section: HTMLDivElement) => {
     section.scrollIntoView({ behavior: 'smooth' });
   };

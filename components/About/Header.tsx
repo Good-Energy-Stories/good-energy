@@ -16,7 +16,6 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0;
     }
   }
 `;

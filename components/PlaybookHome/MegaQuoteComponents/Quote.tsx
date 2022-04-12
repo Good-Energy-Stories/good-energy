@@ -23,7 +23,10 @@ const Quote = ({ quote, color }: { quote: string; color: MegaQuoteColor }) => {
         }
         @media only screen and (max-width: 768px) {
           h1::before {
-            margin-left: -30px;
+            margin-left: -25px;
+          }
+          .quote {
+            margin-right: 0;
           }
         }
       `}</style>

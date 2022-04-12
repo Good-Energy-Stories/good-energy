@@ -21,14 +21,13 @@ function getStyles(maxWidth, last) {
       width: 100%;
       max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
       margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
       border-bottom: ${last ? '0' : '1px solid var(--blueThree)'};
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
         display: grid;
-
-        grid-column-gap: 0;
+        max-width: none;
       }
     }
   `;

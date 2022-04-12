@@ -15,9 +15,8 @@ function getStyles(maxWidth, last) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
         display: grid;
-
+        max-width: none;
         grid-column-gap: 0;
       }
     }

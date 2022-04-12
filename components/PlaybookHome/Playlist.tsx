@@ -19,6 +19,7 @@ function getStyles() {
       grid-template-columns: var(--grid-col);
       padding: 1.25rem 2.5rem;
       padding-bottom: 2.5rem;
+      overflow: hidden;
     }
     @media only screen and (max-width: 768px) {
       div {

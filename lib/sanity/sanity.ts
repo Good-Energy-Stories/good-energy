@@ -14,7 +14,7 @@ export const useCurrentUser = createCurrentUserHook(config);
 
 export default sanityClient({
   projectId: 'jkhcjumj',
-  dataset: process.env.SANITY_PROJECT_DATASET,
+  dataset: 'production',
   useCdn: true,
   apiVersion: '2021-08-31',
   token: process.env.SANITY_API_TOKEN,

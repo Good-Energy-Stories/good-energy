@@ -32,8 +32,8 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
-      display: grid;
+      width: 100%;
+      padding: 1.25rem 1.25rem;
 
       grid-column-gap: 0;
     }
@@ -192,7 +192,7 @@ const PlaybookNavOverlay = observer(() => {
             <ListItemLink label="Contact" href="/" />
           </div>
         </div>
-        <Search expand />
+
         <img src="/fern-small.png" alt="Fern" />
         {styles}
         <style jsx>{`
@@ -220,6 +220,10 @@ const PlaybookNavOverlay = observer(() => {
           }
 
           @media only screen and (max-width: 768px) {
+            h2 {
+              margin-right: 5rem;
+              opacity: 0.4;
+            }
           }
         `}</style>
         <CloseNavButton />

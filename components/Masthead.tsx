@@ -4,12 +4,12 @@ const Masthead = (props) => {
       <div>
         <img
           className="header"
-          src="/header.png"
+          src="/good-energy.svg"
           alt="Good Energy Playbook Masthead"
         />
         <img
           className="subheader"
-          src="/subheader.png"
+          src="/about.svg"
           alt="Good Energy Playbook Masthead"
         />
 
