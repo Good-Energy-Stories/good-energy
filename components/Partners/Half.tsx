@@ -10,6 +10,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      margin-top: 1.25rem;
       margin-bottom: 1.25rem;
       padding: 0px;
       display: grid;
@@ -41,47 +42,48 @@ const Half = ({
     partners.length > 6 && truncate ? partners.slice(0, 6) : partners;
   return (
     <>
-      <div className="divider">
-        <h4>{title}</h4>
-      </div>
-      <motion.div
-        transition={{ duration: 2 }}
-        initial={'out'}
-        animate={'in'}
-        exit={'out'}
-        variants={variants}
-        className={className}
-      >
-        <div>
-          <div className="cards">
-            {partnersFormatted.map((p, i) => (
-              <div className="card-wrapper" key={i}>
-                <Card data={p} />
-              </div>
-            ))}
-          </div>
+      <div className="container">
+        <div className="divider">
+          <h4>{title}</h4>
         </div>
-      </motion.div>
+        <motion.div
+          transition={{ duration: 2 }}
+          initial={'out'}
+          animate={'in'}
+          exit={'out'}
+          variants={variants}
+          className={className}
+        >
+          <div>
+            <div className="cards">
+              {partnersFormatted.map((p, i) => (
+                <div className="card-wrapper" key={i}>
+                  <Card data={p} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
       <style jsx>{`
         h4 {
           margin-bottom: 0.625rem;
         }
         .card-wrapper {
-          margin-top: ${title === 'Anchor' ? '1.25rem' : 0};
-          margin-bottom: ${title === 'Anchor' ? '1.25rem' : 0};
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 100px;
+        }
+        .container {
+          grid-column: span 2;
         }
         .divider {
           grid-column: span 2;
           border-bottom: 1px solid var(--blueThree);
-          width: calc(100%);
-          margin: 0;
+          width: calc(100% - 2.5rem);
+          margin: 0 1.25rem;
 
           margin-bottom: 1.25em;
-          grid-column: span 4;
           display: block;
         }
         .cards {
@@ -95,6 +97,16 @@ const Half = ({
           );
           justify-content: space-evenly;
           justify-items: center;
+        }
+        @media only screen and (max-width: 1080px) {
+          .container {
+            grid-column: span 4;
+          }
+          .divider {
+            margin: 0;
+            grid-column: span 4;
+            width: 100%;
+          }
         }
       `}</style>
       {styles}
