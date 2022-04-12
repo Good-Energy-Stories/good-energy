@@ -24,13 +24,14 @@ function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialState);
 
   const {
-    uiStore: { updateScrollPosition },
+    uiStore: { clearRouteVariables, updateScrollPosition },
   } = store;
 
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url) => {
+      clearRouteVariables();
       ga.pageview(url);
     };
     //When the component is mounted, subscribe to router changes

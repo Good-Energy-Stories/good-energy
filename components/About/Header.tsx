@@ -76,6 +76,7 @@ const Header = ({
         .open-quote {
         }
         h1 {
+          word-break: keep-all;
           margin-top: 0;
           margin-bottom: 2.5rem;
         }

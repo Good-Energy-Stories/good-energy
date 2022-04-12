@@ -12,6 +12,7 @@ import CloseButtonIcon from '../public/close-button.svg';
 import ListArrowIcon from '../public/list-arrow.svg';
 import Link from 'next/link';
 import { Search } from '.';
+import { isMobile } from 'react-device-detect';
 const { className, styles } = css.resolve`
   div {
     height: 100%;
@@ -42,6 +43,15 @@ const { className, styles } = css.resolve`
 const variants = {
   in: {
     x: '-12px',
+  },
+  out: {
+    x: 'calc(-100% - 10rem)',
+  },
+};
+
+const mobileVariants = {
+  in: {
+    x: '0',
   },
   out: {
     x: 'calc(-100% - 10rem)',
@@ -160,7 +170,7 @@ const PlaybookNavOverlay = observer(() => {
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={playbookNavOverlayOpen ? 'in' : 'out'}
-        variants={variants}
+        variants={isMobile ? mobileVariants : variants}
         className={className}
       >
         <div>

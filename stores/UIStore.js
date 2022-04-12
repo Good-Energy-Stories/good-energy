@@ -89,7 +89,10 @@ class UIStore {
 
     this.pageHeight = height;
   }
-
+  @action.bound clearRouteVariables() {
+    this.navOverlayOpen = false;
+    this.playbookNavOverlayOpen = false;
+  }
   requestScrollTick() {
     if (!this.scroll__ticking) {
       requestAnimationFrame(this.setScrollPosition);
