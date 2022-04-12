@@ -5,20 +5,22 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Breadcrumbs } from '..';
 
-const { className, styles } = css.resolve`
-  div {
-    grid-column: 1/4;
-    margin-left: 0rem;
-    padding: 0 2.5rem;
-    padding-bottom: 2rem;
-    background-color: var(--blueFive);
-    margin-top: -30vh;
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(hasBannerImage) {
+  return css.resolve`
     div {
+      grid-column: 1/4;
+      margin-left: 0rem;
+      padding: 0 2.5rem;
+      padding-bottom: 2rem;
+      background-color: var(--blueFive);
+      margin-top: ${hasBannerImage ? '-30vh' : '0'};
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -29,7 +31,16 @@ const variants = {
   },
 };
 
-const Title = ({ title, byline }: { title: string; byline: string }) => {
+const Title = ({
+  title,
+  byline,
+  hasBannerImage,
+}: {
+  title: string;
+  byline: string;
+  hasBannerImage: boolean;
+}) => {
+  const { className, styles } = getStyles(hasBannerImage);
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -40,13 +51,7 @@ const Title = ({ title, byline }: { title: string; byline: string }) => {
       className={className}
     >
       <div className="breadcrumbs">
-        <Breadcrumbs
-          path={[
-            { label: 'playbook', href: '/' },
-            { label: 'playbook', href: '/' },
-            { label: 'playbook', href: '/' },
-          ]}
-        />
+        <Breadcrumbs />
       </div>
       <h1>{title}</h1>
       <div className="subhead">{byline}</div>

@@ -46,14 +46,20 @@ const Project = observer(
       uiStore: { scrollPosition },
     } = store;
     const navMode =
-      scrollPosition > 0.05 ? NavBarStyles.dark : NavBarStyles.light;
+      heroImage && scrollPosition < 0.05
+        ? NavBarStyles.light
+        : NavBarStyles.dark;
     return (
       <>
         <Meta />
         <StickyNavBar label="Playbook Contents" mode={navMode} />
         <Layout key={article.slug}>
           <Banner image={heroImage} />
-          <Header title={title} byline={byline} />
+          <Header
+            title={title}
+            byline={byline}
+            hasBannerImage={heroImage ? true : false}
+          />
           <Divider />
           <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
           <Introduction body={introduction} />

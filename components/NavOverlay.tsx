@@ -189,7 +189,7 @@ const NavOverlay = observer(() => {
             <h3>Resources</h3>
             <ListItemLink
               label="Library of Experts"
-              href="/library-of-experts"
+              href="/about/library-of-experts"
             />
           </div>
           <div className="section">
