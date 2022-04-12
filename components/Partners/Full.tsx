@@ -9,14 +9,17 @@ const { className, styles } = css.resolve`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    grid-column: 1/-1;
+    grid-column: span 4;
 
     margin-bottom: 2.5rem;
     margin-top: -1.25rem;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1080px) {
     div {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
       padding: 0px;
+      margin-top: 0;
     }
   }
 `;
@@ -56,9 +59,11 @@ const Full = ({
         {partnersFormatted.map((p, i) => (
           <Card key={i} data={p} />
         ))}
-        <div className="see-all">
-          <BorderCTAButton label="All Partners" href="/about/partners" />
-        </div>
+        {truncate && (
+          <div className="see-all">
+            <BorderCTAButton label="All Partners" href="/about/partners" />
+          </div>
+        )}
         {styles}
         <style jsx>{`
           .see-all {

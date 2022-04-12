@@ -47,25 +47,35 @@ const Half = ({
         variants={variants}
         className={className}
       >
-        <div className="divider">
-          <h4>{title}</h4>
-        </div>
-        <div className="cards">
-          {partnersFormatted.map((p, i) => (
-            <Card key={i} data={p} />
-          ))}
+        <div>
+          <div className="divider">
+            <h4>{title}</h4>
+          </div>
+          <div className="cards">
+            {partnersFormatted.map((p, i) => (
+              <div className="card-wrapper" key={i}>
+                <Card data={p} />
+              </div>
+            ))}
+          </div>
         </div>
 
         <style jsx>{`
           h4 {
             margin-bottom: 0.625rem;
           }
+          .card-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+          }
           .divider {
             border-bottom: 1px solid var(--blueThree);
             width: calc(100% - 2.5rem);
             margin: 0 1.25rem;
 
-            margin-bottom: 0em;
+            margin-bottom: 1.25em;
             grid-column: span 4;
             display: block;
           }

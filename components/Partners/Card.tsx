@@ -3,21 +3,45 @@ import css from 'styled-jsx/css';
 import PageDivider from '../PageDivider';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import Link from 'next/link';
-const { className, styles } = css.resolve`
-  div {
-    margin: auto;
-    display: block;
-    position: relative;
-    width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+
+function getStyles(size) {
+  var gridColumn, padding, paddingMobile;
+  switch (size) {
+    case 'large':
+      gridColumn = 'span 2';
+      padding = '0 2.5rem';
+      paddingMobile = '0 1.25rem';
+      break;
+    case 'medium':
+      gridColumn = 'span 2';
+      padding = '0 2.5rem';
+      paddingMobile = '0 6rem';
+      break;
+    case 'small':
+      gridColumn = 'span 1';
+      padding = '0';
+      paddingMobile = '0 0';
+      break;
   }
-  @media only screen and (max-width: 768px) {
+  return css.resolve`
     div {
-      grid-column: 1/-1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      padding: ${padding};
     }
-  }
-`;
+    @media only screen and (max-width: 1080px) {
+      div {
+        grid-column: ${gridColumn};
+        padding: ${paddingMobile};
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -68,16 +92,19 @@ const LogoImage = ({
   logo: any;
   size: any;
 }) => {
-  var maxWidth;
+  var maxWidth, gridColumn;
   switch (size) {
     case 'large':
       maxWidth = 300;
+      gridColumn = 'span 2';
       break;
     case 'medium':
       maxWidth = 200;
+      gridColumn = 'span 1';
       break;
     case 'small':
       maxWidth = 100;
+      gridColumn = 'span 1';
       break;
   }
 
@@ -87,11 +114,10 @@ const LogoImage = ({
       {!logo && <LogoPlaceholder title={title} />}
       <style jsx>{`
         img {
-          max-width: ${maxWidth}px;
+          width: 100%;
         }
         @media only screen and (max-width: 1080px) {
           img {
-            max-width: ${maxWidth / 1.5}px;
           }
         }
         @media only screen and (max-width: 768px) {
@@ -124,6 +150,7 @@ const LogoLink = ({
 
 const Card = ({ data }: { data: any }) => {
   const { title, logo, size, link } = data;
+  const { className, styles } = getStyles(size);
 
   return (
     <>

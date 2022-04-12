@@ -179,7 +179,10 @@ const NavOverlay = observer(() => {
                 openPlaybookNavOverlay();
               }}
             />
-            <ListItemLink label="Featured Voices" href="/featured-voices" />
+            <ListItemLink
+              label="Featured Voices"
+              href="/about/featured-voices"
+            />
             <ListItemLink label="Credits" href="/" />
           </div>
           <div className="section">
@@ -192,7 +195,7 @@ const NavOverlay = observer(() => {
           <div className="section">
             <h3>About</h3>
             <ListItemLink label="Team" href="/team" />
-            <ListItemLink label="Partners" href="/partners" />
+            <ListItemLink label="Partners" href="/about/partners" />
             <ListItemLink label="Contact" href="/" />
           </div>
         </div>
