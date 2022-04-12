@@ -86,11 +86,11 @@ const NavButtons = observer(({ theme }: { theme?: NavBarStyle }) => {
 const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
   return (
     <>
-      <div>
+      <div className="">
         <span>
           <SearchIcon fill={theme.textColor} />
         </span>
-        <input type="text" placeholder="Search" />
+        <input type="text" className="nav-link-xl" placeholder="Search" />
       </div>
       <NavLogo theme={theme} />
       <style jsx>{`
