@@ -16,6 +16,12 @@ const Partners = ({ pageData }) => {
         {pageData.sections.map((p, i) => (
           <PartnerSection key={i} index={i} data={p} />
         ))}
+        <div className="spacer" />
+        <style jsx>{`
+          .spacer {
+            height: 2.5rem;
+          }
+        `}</style>
       </Layout>
       <Footer />
     </>

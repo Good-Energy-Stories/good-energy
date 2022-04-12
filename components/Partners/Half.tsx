@@ -10,6 +10,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      margin-bottom: 5rem;
       padding: 0px;
       display: grid;
 
