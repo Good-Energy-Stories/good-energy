@@ -10,7 +10,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      margin-bottom: 5rem;
+      margin-bottom: 1.25rem;
       padding: 0px;
       display: grid;
 
@@ -36,10 +36,14 @@ const Half = ({
   truncate?: boolean;
 }) => {
   const { title, partners } = data;
+
   const partnersFormatted =
     partners.length > 6 && truncate ? partners.slice(0, 6) : partners;
   return (
     <>
+      <div className="divider">
+        <h4>{title}</h4>
+      </div>
       <motion.div
         transition={{ duration: 2 }}
         initial={'out'}
@@ -49,9 +53,6 @@ const Half = ({
         className={className}
       >
         <div>
-          <div className="divider">
-            <h4>{title}</h4>
-          </div>
           <div className="cards">
             {partnersFormatted.map((p, i) => (
               <div className="card-wrapper" key={i}>
@@ -60,41 +61,43 @@ const Half = ({
             ))}
           </div>
         </div>
-
-        <style jsx>{`
-          h4 {
-            margin-bottom: 0.625rem;
-          }
-          .card-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 150px;
-          }
-          .divider {
-            border-bottom: 1px solid var(--blueThree);
-            width: calc(100% - 2.5rem);
-            margin: 0 1.25rem;
-
-            margin-bottom: 1.25em;
-            grid-column: span 4;
-            display: block;
-          }
-          .cards {
-            grid-column: span 4;
-            height: 100%;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(
-              ${partnersFormatted.length === 1 ? '1' : '3'},
-              minmax(0, 1fr)
-            );
-            justify-content: space-evenly;
-            justify-items: center;
-          }
-        `}</style>
-        {styles}
       </motion.div>
+      <style jsx>{`
+        h4 {
+          margin-bottom: 0.625rem;
+        }
+        .card-wrapper {
+          margin-top: ${title === 'Anchor' ? '1.25rem' : 0};
+          margin-bottom: ${title === 'Anchor' ? '1.25rem' : 0};
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100px;
+        }
+        .divider {
+          grid-column: span 2;
+          border-bottom: 1px solid var(--blueThree);
+          width: calc(100%);
+          margin: 0;
+
+          margin-bottom: 1.25em;
+          grid-column: span 4;
+          display: block;
+        }
+        .cards {
+          grid-column: span 4;
+          height: 100%;
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(
+            ${partnersFormatted.length === 1 ? '1' : '3'},
+            minmax(0, 1fr)
+          );
+          justify-content: space-evenly;
+          justify-items: center;
+        }
+      `}</style>
+      {styles}
     </>
   );
 };

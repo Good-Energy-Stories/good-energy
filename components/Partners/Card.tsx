@@ -5,22 +5,28 @@ import { imageUrlFor } from '../../utils/imageUrlFor';
 import Link from 'next/link';
 
 function getStyles(size) {
-  var gridColumn, padding, paddingMobile;
+  var gridColumn, padding, paddingMobile, marginTop, marginBottom;
   switch (size) {
     case 'large':
       gridColumn = 'span 2';
       padding = '0 2.5rem';
       paddingMobile = '0 1.25rem';
+      marginTop = '2.5rem';
+      marginBottom = '2.5rem';
       break;
     case 'medium':
       gridColumn = 'span 2';
       padding = '0 2.5rem';
-      paddingMobile = '0 6rem';
+      paddingMobile = '0 5rem';
+      marginTop = '2.5rem';
+      marginBottom = '2.5rem';
       break;
     case 'small':
       gridColumn = 'span 1';
       padding = '0';
       paddingMobile = '0 0';
+      marginTop = '0';
+      marginBottom = '2.5';
       break;
   }
   return css.resolve`
@@ -30,8 +36,8 @@ function getStyles(size) {
       align-items: center;
       position: relative;
       width: 100%;
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
+      margin-top: ${marginBottom};
+      margin-bottom: ${marginBottom};
       padding: ${padding};
     }
     @media only screen and (max-width: 1080px) {
