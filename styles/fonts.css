@@ -170,6 +170,12 @@ h4 {
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
+.small-bio {
+  font-family: var(--flexa);
+  font-size: 16px;
+  line-height: 21px;
+  font-variation-settings: 'wght' 321, 'wdth' 95;
+}
 .body {
   font-family: var(--flexa);
   font-size: 20px;
@@ -202,6 +208,27 @@ h4 {
   font-size: 24px;
   line-height: 31px;
   font-variation-settings: 'wght' 470, 'wdth' 95;
+}
+.author-bio {
+  font-family: var(--flexa);
+  font-size: 16px;
+  line-height: 22px;
+  font-variation-settings: 'wght' 305, 'wdth' 69, 'ital' 100;
+}
+.author-bio-bold {
+  font-family: var(--flexa);
+  font-size: 16px;
+  line-height: 22px;
+  font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
+}
+.author-bio-link {
+  font-family: var(--flexa);
+  font-size: 16px;
+  line-height: 22px;
+  font-variation-settings: 'wght' 305, 'wdth' 69, 'ital' 100;
+  text-decoration-line: underline;
+  color: var(--blueThree);
+  cursor: pointer;
 }
 .intro-graf {
   font-family: var(--flexa);

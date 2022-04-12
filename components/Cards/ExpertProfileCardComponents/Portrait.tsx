@@ -31,11 +31,16 @@ const variants = {
 const Portrait = ({
   image,
   size = PortraitSizes.medium,
+  inset = false,
+  backgroundColor = 'var(--greyBlue)',
 }: {
   image: any;
   size?: PortraitSizes;
+  inset?: boolean;
+  backgroundColor?: string;
 }) => {
   console.log(image);
+  const insetFactor = inset ? 20 : 0;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -53,13 +58,23 @@ const Portrait = ({
       </div>
       <style jsx>{`
         .frame {
-        }
-        img {
+          background-color: ${backgroundColor};
           min-width: ${size}px;
           min-height: ${size}px;
           max-width: ${size}px;
           max-height: ${size}px;
           border-radius: 50%;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        img {
+          min-width: ${size - insetFactor}px;
+          min-height: ${size - insetFactor}px;
+          max-width: ${size - insetFactor}px;
+          max-height: ${size - insetFactor}px;
+
           overflow: hidden;
         }
         @media only screen and (max-width: 768px) {

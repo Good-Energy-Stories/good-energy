@@ -179,7 +179,7 @@ export const LoginComponent = ({
             marginBottom: '48px',
           }}
         >
-          <h1 style={{ margin: '0 0 24px', color: '#111' }}>Login</h1>
+          <h3 style={{ margin: '0 0 24px', color: '#111' }}>Login</h3>
           <form
             data-testid="form"
             onSubmit={onSubmit}

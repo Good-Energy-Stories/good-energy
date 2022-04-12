@@ -17,8 +17,8 @@ export const TOC = ({
   sections: SectionsTOC;
   sectionsRef: RefObject<SectionRefLookup>;
 }) => {
-  if (!sections || sections.filter((s) => s.title !== null).length === 0)
-    return null;
+  const titledSections = sections.filter((s) => s.title !== null);
+  if (!sections || titledSections.length === 0) return null;
   const scrollIntoView = (section: HTMLDivElement) => {
     section.scrollIntoView({ behavior: 'smooth' });
   };
@@ -39,12 +39,17 @@ export const TOC = ({
         }
         div {
           height: 0;
-          grid-row-start: 4;
+          grid-row-start: 3;
           margin-left: 2.5rem;
           margin-right: 1.25rem;
           max-width: 228px;
-          position: sticky;
-          top: ${PLAYBOOK_NAV_HEIGHT}px;
+          position: ${titledSections.length <= 10 ? 'sticky' : 'relative'};
+          top: ${titledSections.length <= 10 ? PLAYBOOK_NAV_HEIGHT : 0}px;
+        }
+        @media only screen and (max-width: 768px) {
+          div {
+            display: none;
+          }
         }
       `}</style>
     </div>

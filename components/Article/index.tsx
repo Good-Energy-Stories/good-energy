@@ -8,3 +8,4 @@ export { default as IntroductionSection } from './IntroductionSection';
 export type { SectionRefLookup } from './Section';
 export { default as TOC } from './TOC/TOC';
 export type { SectionTOC, SectionsTOC } from './TOC/TOC';
+export { default as AuthorSection } from './AuthorSection';

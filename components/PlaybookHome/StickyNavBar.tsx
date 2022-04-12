@@ -44,30 +44,26 @@ const NavDropdownButton = () => {
 
 const NavLinks = () => {
   return (
-    <div>
-      <button>
-        <a>Home</a>
-      </button>
-      <button>
-        <a>Featured Voices</a>
-      </button>
-      <button>
-        <a>About</a>
-      </button>
-      <button>
-        <Link href="/about/partners">
-          <a>Partners</a>
-        </Link>
-      </button>
+    <div className="nav-link-xl-bold">
+      <a>Home</a>
 
-      <button>
-        <a>Credits</a>
-      </button>
+      <a>Featured Voices</a>
+
+      <a>About</a>
+
+      <Link href="/about/partners">
+        <a>Partners</a>
+      </Link>
+
+      <a>Credits</a>
+
       <style jsx>{`
         div {
           width: 100%;
           display: flex;
+          align-items: center;
           justify-content: space-around;
+          text-transform: uppercase;
         }
         .border {
           border-left: 4px solid var(--black);
@@ -129,7 +125,7 @@ const SearchBar = () => {
         <span>
           <SearchIcon fill="var(--black)" />
         </span>
-        <input type="text" placeholder="Search" />
+        <input className="nav-link-xl" type="text" placeholder="Search" />
         <style jsx>{`
           span {
             width: 25px;
@@ -146,14 +142,6 @@ const SearchBar = () => {
           }
           input[type='text'] {
             text-transform: uppercase;
-            font-family: var(--flexa);
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 100;
-            line-height: 18px;
-            letter-spacing: 0em;
-            text-align: left;
-            color: var(--black);
             border: 0;
             background-color: transparent;
           }

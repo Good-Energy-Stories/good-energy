@@ -14,6 +14,7 @@ import {
   Body,
   Introduction,
   Banner,
+  AuthorSection,
 } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useRef } from 'react';
@@ -23,6 +24,7 @@ import Related from '../../components/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
+import { AuthorCard } from '../../components/Cards';
 
 const Project = observer(
   ({ data, preview }: { data: any; preview: boolean }) => {
@@ -31,6 +33,8 @@ const Project = observer(
       initialData: data?.page,
       enabled: preview,
     });
+
+    console.log(data);
 
     const article = filterDataToSingleItem(previewData, preview);
 
@@ -62,8 +66,10 @@ const Project = observer(
           />
           <Divider />
           <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
-          <Introduction body={introduction} />
-          <Body body={body} sectionsRef={sectionsRef} />
+          <Introduction body={article?.introduction} />
+          <Body body={article?.body} sectionsRef={sectionsRef} />
+          <AuthorSection content={article?.author} />
+
           <Related content={article?.related} />
         </Layout>
         <Footer />

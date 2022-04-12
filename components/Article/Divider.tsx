@@ -11,6 +11,13 @@ export const Divider = () => {
           margin-bottom: 1.25rem;
           grid-column: 1/5;
         }
+        @media only screen and (max-width: 768px) {
+          div {
+            width: calc(100% - 2.5rem);
+            margin: 0 1.25rem;
+            margin-bottom: 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );

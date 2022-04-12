@@ -12,10 +12,12 @@ function getStyles(includeDropCap) {
       margin-left: 1.25rem;
       margin-right: 1.25rem;
       grid-column: 1/3;
-      margin-bottom: ${includeDropCap ? '0' : '2.5rem'};
+      margin-bottom: 0;
     }
     @media only screen and (max-width: 768px) {
       div {
+        grid-column: 1/5;
+        margin-bottom: 0;
       }
     }
   `;

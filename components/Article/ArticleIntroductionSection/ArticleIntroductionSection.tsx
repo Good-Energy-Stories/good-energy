@@ -9,13 +9,11 @@ import { RefObject } from 'react';
 import { SectionRefLookup } from '../';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 2/5;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column: 2/4;
   }
   @media only screen and (max-width: 768px) {
     div {
+      grid-column: 1/5;
     }
   }
 `;

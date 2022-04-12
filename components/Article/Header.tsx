@@ -17,6 +17,8 @@ function getStyles(hasBannerImage) {
     }
     @media only screen and (max-width: 768px) {
       div {
+        grid-column: 1/5;
+        padding: 0 1.25rem;
       }
     }
   `;

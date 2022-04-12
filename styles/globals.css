@@ -26,7 +26,6 @@ body {
   color: var(--black);
   font-size: 20px;
   line-height: 24px;
-  hyphens: auto;
   font-family: Pressura, Helvetica Neue, sans-serif;
   background-color: var(--blueFive);
 }

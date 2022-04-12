@@ -19,12 +19,12 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Name</label>
           <div className="row">
-            <div>
+            <div className="half-row">
               <label className="sublabel">First Name</label>
               <input {...register('firstName')} />
             </div>
             <div className="spacer" />
-            <div>
+            <div className="half-row">
               <label className="sublabel">Last Name</label>
               <input {...register('lastName')} />
             </div>
@@ -42,6 +42,9 @@ const ContactForm = () => {
       <style jsx>{`
         .row {
           display: flex;
+        }
+        .half-row {
+          width: 100%;
         }
         .submit-row {
           justify-content: flex-end;

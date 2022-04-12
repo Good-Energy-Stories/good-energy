@@ -137,6 +137,7 @@ slug,
 pronouns,
 organization,
 shortBio,
+links,
 tags[],
 "slug": slug.current,
 smallPortraitImage{
@@ -155,10 +156,21 @@ _type == 'characterProfile' => {
 }
 `;
 
+export const author = `
+name,
+authorBio,
+portraitImage{
+  ${imageMeta}
+}
+`;
+
 export const article = `
 title,
 lede,
 byline,
+author[]-> {
+  ${author}
+},
 tags[],
 "slug": slug.current,
 heroImage{
@@ -174,6 +186,12 @@ body[] {
 related[]-> {
   ${related}
 }
+`;
+
+export const characterProfilePagePreview = `
+  "id": _id,
+  title,
+  description
 `;
 
 export const characterProfile = `
@@ -249,6 +267,10 @@ export const contentReferences = `
     _type,
     ${quoteCollection}
   },
+  _type == 'characterProfilePage' => {
+    _type,
+    ${characterProfilePagePreview}
+  },
 `;
 
 export const playlist = `
@@ -308,6 +330,55 @@ export const playbookSections = `
     }
   },
   
+`;
+
+export const landingPageQuery = `
+*[_type == "landingPage" ] {
+  "id": _id,
+  title,
+  subtitle,
+  showBanner,
+  bannerCopy,
+  bannerImage{
+    ${imageMeta}
+  },
+  content[]{
+      ${playbookSections}
+  },
+}[0]
+`;
+
+export const playbookSection = `
+title,
+contents[]-> {
+  ${contentReferences}
+}
+`;
+
+export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
+  introduction[]->{
+    ${contentReferences}
+  },
+  why[]->{
+    ${contentReferences}
+  },
+  climateStorytelling[]{
+  
+      ${playbookSection}
+    
+  }
+}[0]`;
+
+export const characterProfilePageQuery = `
+*[_type == "characterProfilesPage" ] {
+  ${characterProfilePagePreview},
+  characterProfiles[]-> {
+    ${characterProfilePreview}
+  },
+  related[]-> {
+    ${related}
+  }
+}[0]
 `;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;

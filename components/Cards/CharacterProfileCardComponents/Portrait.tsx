@@ -7,6 +7,7 @@ import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 export enum PortraitSizes {
+  extraSmall = 120,
   small = 200,
   medium = 260,
   large = 360,
@@ -50,7 +51,10 @@ const Portrait = ({
       className={className}
     >
       <div className="frame">
-        <img alt={image?.caption} src={imageUrlFor(image).url()} />
+        <img
+          alt={image?.caption}
+          src={imageUrlFor(image).height(size).width(size).url()}
+        />
       </div>
       <style jsx>{`
         .frame {
@@ -58,12 +62,11 @@ const Portrait = ({
           min-height: ${size}px;
           max-width: ${size}px;
           max-height: ${size}px;
-          border-radius: 50%;
-          overflow: hidden;
         }
         img {
+          border-radius: 50%;
+          overflow: hidden;
           max-width: 100%;
-          transform: translateY(-12%);
         }
       `}</style>
       {styles}

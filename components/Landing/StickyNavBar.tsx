@@ -18,7 +18,9 @@ const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
         </Link>
       </button>
       <button>
-        <a>Resources</a>
+        <Link href="/about/library-of-experts">
+          <a>Resources</a>
+        </Link>
       </button>
       <button>
         <a>About</a>
@@ -108,13 +110,6 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
         input[type='text'] {
           padding: 0.625rem;
           text-transform: uppercase;
-          font-family: var(--flexa);
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 100;
-          line-height: 18px;
-          letter-spacing: 0em;
-          text-align: left;
           color: ${theme.textColor};
           border: 0;
           background-color: transparent;

@@ -67,6 +67,7 @@ const Right = () => {
         }
         @media only screen and (max-width: 768px) {
           div {
+            grid-column-start: 1;
             grid-row-start: 2;
           }
         }

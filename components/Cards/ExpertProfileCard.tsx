@@ -12,6 +12,7 @@ import {
   Bio,
   Portrait,
   PronounsAndOrganization,
+  Links,
 } from './ExpertProfileCardComponents';
 import { PortraitSizes, RoundPortrait } from './CharacterProfileCardComponents';
 import { Tags } from '.';
@@ -23,7 +24,7 @@ function getStyles(last, marginBottom) {
 
       width: 100%;
 
-      margin-bottom: ${marginBottom ?? '3.75rem'};
+      margin-bottom: ${marginBottom ?? '1.25rem'};
 
       max-width: 800px;
       border-bottom: ${last ? 0 : '1px solid var(--blueThree)'};
@@ -61,12 +62,14 @@ const Card = ({
 }) => {
   const {
     name,
+    expertType,
     includeSpotlightPage,
     shortBio,
     slug,
     smallPortraitImage,
     tags,
     pronouns,
+    links,
     organization,
   } = data;
   const { className, styles } = getStyles(last, marginBottom);
@@ -86,6 +89,7 @@ const Card = ({
               <Portrait
                 image={smallPortraitImage}
                 size={PortraitSizes.medium}
+                inset={expertType === 'organization'}
               />
             </div>
           )}
@@ -105,6 +109,7 @@ const Card = ({
               />
             </div>
           )}
+          {links && <Links links={links} />}
           {tags && <Tags tags={tags} />}
         </div>
       </div>
@@ -117,17 +122,18 @@ const Card = ({
         .layout {
           margin-top: 1.25rem;
 
-          display: grid;
+          display: flex;
+          justify-content: flex-start;
 
-          column-gap: 1.25rem;
           margin-bottom: 2.5rem;
         }
         .left {
           grid-column: 1/2;
-          margin-right: 1.25rem;
+          margin-right: 2.5rem;
         }
         .right {
-          grid-column: 2/3;
+          width: 100%;
+          grid-column: 2/4;
         }
         @media only screen and (max-width: 768px) {
           .layout {

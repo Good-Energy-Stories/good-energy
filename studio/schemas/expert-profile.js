@@ -89,20 +89,6 @@ export default {
     {
       name: 'authorBio',
       title: 'Author Bio',
-      validation: (Rule) =>
-        Rule.custom((authorBio, context) => {
-          if (
-            context.document.expertType === 'individual' &&
-            context.document.includeSpotlightPage
-          ) {
-            if (authorBio) {
-              return true;
-            }
-            return 'Author Bio is required';
-          }
-          return true;
-        }),
-      hidden: ({ parent }) => !parent?.includeSpotlightPage,
       description:
         'This is the bio you will see on the author card if this expert is linked as the author of an article',
       type: 'array',
@@ -156,7 +142,7 @@ export default {
         }),
       type: 'string',
       description:
-        'A short bio that will be shown on a card prompting a user to read more',
+        "A short bio that will be shown on this individual's card in the library of experts",
     },
     {
       title: 'Tags',

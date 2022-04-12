@@ -22,6 +22,7 @@ function getStyles(maxWidth, last) {
       max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
       margin-bottom: 1.25rem;
       padding-bottom: 1.25rem;
+      text-align: center;
       border-bottom: ${last ? '0' : '1px solid var(--blueThree)'};
     }
     @media only screen and (max-width: 768px) {

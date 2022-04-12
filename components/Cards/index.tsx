@@ -15,3 +15,4 @@ export { default as CharacterProfileReadMore } from './CharacterProfileReadMore'
 export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';
 export { default as ExpertProfileCard } from './ExpertProfileCard';
+export { default as AuthorCard } from './AuthorCard';

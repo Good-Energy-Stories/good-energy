@@ -11,10 +11,12 @@ const { className, styles } = css.resolve`
     margin-left: 1.25rem;
     margin-right: 1.25rem;
     grid-column: 1/3;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0rem;
   }
   @media only screen and (max-width: 768px) {
     div {
+      grid-column: 1/5;
+      margin-bottom: 0;
     }
   }
 `;

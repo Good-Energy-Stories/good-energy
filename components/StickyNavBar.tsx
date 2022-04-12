@@ -51,6 +51,7 @@ const Nav = ({
 
         @media only screen and (max-width: 768px) {
           div {
+            background-color: transparent;
           }
         }
       `}</style>
@@ -93,7 +94,8 @@ const NavButtons = ({
           background-color: transparent;
         }
         @media only screen and (max-width: 768px) {
-          div {
+          .border {
+            border: 0;
           }
         }
       `}</style>
@@ -119,10 +121,12 @@ const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
           color: ${theme.textColor};
           text-transform: uppercase;
           background-color: ${theme.backgroundColor};
+          white-space: nowrap;
         }
 
         @media only screen and (max-width: 768px) {
           div {
+            display: none;
           }
         }
       `}</style>
