@@ -184,7 +184,7 @@ const PlaybookNavOverlay = observer(() => {
               <TOCSection content={playbookNavTableOfContents.introduction} />
             </div>
             <div className="resources">
-              <h3>What's Next and Resources</h3>
+              <h3>{"What's Next and Resources"}</h3>
               <TOCSection content={playbookNavTableOfContents.whatsNext} />
               <ListItemLink
                 label="Library of Experts"
