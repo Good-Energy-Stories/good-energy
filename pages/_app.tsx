@@ -14,53 +14,75 @@ import { withPasswordProtect } from '../lib/withPasswordProtect';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
 import { NavOverlay, PlaybookNavOverlay } from '../components';
+import { getClient } from '../lib/sanity/sanity.server';
+import { groq } from 'next-sanity';
+import { queries } from '../data';
+import { observer } from 'mobx-react-lite';
 
 // Console Credits
 if (isBrowser) {
   signature;
 }
 
-function MyApp({ Component, pageProps }) {
-  const store = useStore(pageProps.initialState);
+const MyApp = observer(
+  ({ Component, pageProps }: { Component: any; pageProps: any }) => {
+    const store = useStore(pageProps.initialState);
 
-  const {
-    uiStore: { clearRouteVariables, updateScrollPosition },
-  } = store;
+    const {
+      dataStore: { setPlaybookNavTableOfContents },
+      uiStore: { navOverlayOpen, clearRouteVariables, updateScrollPosition },
+    } = store;
 
-  const router = useRouter();
+    const router = useRouter();
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      clearRouteVariables();
-      ga.pageview(url);
-    };
-    //When the component is mounted, subscribe to router changes
-    //and log those page views
-    router.events.on('routeChangeComplete', handleRouteChange);
+    useEffect(() => {
+      const handleRouteChange = (url) => {
+        clearRouteVariables();
+        ga.pageview(url);
+      };
+      //When the component is mounted, subscribe to router changes
+      //and log those page views
+      router.events.on('routeChangeComplete', handleRouteChange);
 
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+      // If the component is unmounted, unsubscribe
+      // from the event with the `off` method
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange);
+      };
+    }, [router.events]);
 
-  useEffect(() => {
-    window.addEventListener('scroll', updateScrollPosition);
-    return () => {
-      window.removeEventListener('scroll', updateScrollPosition);
-    };
-  }, [updateScrollPosition]);
+    useEffect(() => {
+      const initializePlaybookTOC = async () => {
+        const playbookStructure = await getClient().fetch(
+          groq`${queries.playbookStructureQuery}`,
+        );
+        setPlaybookNavTableOfContents(playbookStructure);
+      };
+      initializePlaybookTOC();
+    }, []);
 
-  return (
-    <Provider store={store}>
-      <DefaultSeo {...defaultSEO} />
-      <NavOverlay />
-      <PlaybookNavOverlay />
-      <Component {...pageProps} />
-    </Provider>
-  );
-}
+    useEffect(() => {
+      window.addEventListener('scroll', updateScrollPosition);
+      return () => {
+        window.removeEventListener('scroll', updateScrollPosition);
+      };
+    }, [updateScrollPosition]);
+
+    return (
+      <Provider store={store}>
+        <DefaultSeo {...defaultSEO} />
+        <NavOverlay />
+        <PlaybookNavOverlay />
+        <Component {...pageProps} />
+        <style jsx global>{`
+          body {
+            overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
+          }
+        `}</style>
+      </Provider>
+    );
+  },
+);
 
 export default process.env.PASSWORD_PROTECT
   ? withPasswordProtect(MyApp, {

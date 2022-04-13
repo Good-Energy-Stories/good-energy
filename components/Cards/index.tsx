@@ -16,3 +16,5 @@ export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';
 export { default as ExpertProfileCard } from './ExpertProfileCard';
 export { default as AuthorCard } from './AuthorCard';
+export { default as TeamMemberCard } from './TeamMemberCard';
+export { default as TeamMemberCardSmall } from './TeamMemberCardSmall';

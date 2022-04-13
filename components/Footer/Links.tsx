@@ -12,15 +12,13 @@ const playbook = [
 ];
 
 const resources = [
-  { label: 'Library of Experts', link: '' },
-  { label: 'Partner Organizations', link: '' },
-  { label: 'Additional Resources', link: '' },
+  { label: 'Library of Experts', link: '/about/library-of-experts' },
+  { label: 'Partner Organizations', link: '/about/partners' },
 ];
 
 const team = [
-  { label: 'Team', link: '' },
-  { label: 'Partners', link: '' },
-  { label: 'Contact', link: '' },
+  { label: 'Team', link: '/about/team' },
+  { label: 'Contact', link: '/about/contact' },
 ];
 
 const links = [

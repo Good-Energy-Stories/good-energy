@@ -37,12 +37,17 @@ const Title = ({
   title,
   byline,
   hasBannerImage,
+  section,
 }: {
   title: string;
   byline: string;
   hasBannerImage: boolean;
+  section?: string;
 }) => {
   const { className, styles } = getStyles(hasBannerImage);
+  const path = section
+    ? [{ label: 'Playbook', href: '/playbook' }, { label: section }]
+    : null;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -53,7 +58,7 @@ const Title = ({
       className={className}
     >
       <div className="breadcrumbs">
-        <Breadcrumbs />
+        <Breadcrumbs path={path} />
       </div>
       <h1>{title}</h1>
       <div className="subhead">{byline}</div>

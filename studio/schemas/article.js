@@ -17,6 +17,23 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: 'Section',
+      name: 'section',
+      type: 'string',
+      description:
+        'This is used for the breadcrumbs that will appear above the article title',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Introduction', value: 'Introduction' },
+          { title: 'The Why', value: 'The Why' },
+          { title: 'Climate Storytelling', value: 'Climate Storytelling' },
+          { title: "What's Next", value: "What's Next" },
+        ],
+      },
+    },
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',

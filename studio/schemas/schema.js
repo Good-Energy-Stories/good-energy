@@ -11,6 +11,7 @@ import articleStoryPossibility from './article-story-possibility';
 import author from './author';
 import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
+import contactPage from './contact-page';
 import emailCapture from './email-capture';
 import expertProfile from './expert-profile';
 import featuredVoice from './featured-voice';
@@ -31,6 +32,8 @@ import quote from './quote';
 import quoteCollection from './quote-collection';
 import resource from './resource';
 import resourceSection from './resource-section';
+import team from './team-member';
+import teamPage from './team-page';
 
 export default createSchema({
   name: 'default',
@@ -45,6 +48,7 @@ export default createSchema({
     author,
     characterProfile,
     characterProfilesPage,
+    contactPage,
     emailCapture,
     expertProfile,
     featuredVoice,
@@ -65,5 +69,7 @@ export default createSchema({
     quoteCollection,
     resource,
     resourceSection,
+    team,
+    teamPage,
   ]),
 });

@@ -6,7 +6,7 @@ import ChevronRight from '../public/chevron-right.svg';
 import Link from 'next/link';
 interface Breadcrumb {
   label: string;
-  href: string;
+  href?: string;
 }
 
 export type Breadcrumbs = Breadcrumb[];

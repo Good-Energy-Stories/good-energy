@@ -14,7 +14,9 @@ const LinkColumn = ({
         <h4>{label}</h4>
         {links.map((l) => (
           <Link key={l.label} href={l.link} passHref>
-            <div className="link">{l.label}</div>
+            <a>
+              <div className="link">{l.label}</div>
+            </a>
           </Link>
         ))}
         <style jsx>{`

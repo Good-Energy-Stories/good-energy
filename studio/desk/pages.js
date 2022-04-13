@@ -3,6 +3,9 @@ import { BsGrid3X2GapFill, BsGlobe, BsPersonFill } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry } from 'react-icons/fa';
 import { MdRecordVoiceOver } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
+import { GiLetterBomb } from 'react-icons/gi';
+import { RiTeamFill } from 'react-icons/ri';
+
 export const pagesMenu = S.listItem()
   .title('Pages')
   .id('pages')
@@ -37,6 +40,24 @@ export const pagesMenu = S.listItem()
               .documentId('partnersPage'),
           )
           .icon(FaPeopleCarry),
+        S.listItem()
+          .title('Contact Page')
+          .child(
+            S.document()
+              .title('Contact Page')
+              .schemaType('contactPage')
+              .documentId('contactPage'),
+          )
+          .icon(GiLetterBomb),
+        S.listItem()
+          .title('Team Page')
+          .child(
+            S.document()
+              .title('Team Page')
+              .schemaType('teamPage')
+              .documentId('teamPage'),
+          )
+          .icon(RiTeamFill),
         S.listItem()
           .title('Character Profiles Page')
           .child(

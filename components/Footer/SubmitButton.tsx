@@ -13,7 +13,7 @@ const SubmitButton = () => {
           letter-spacing: 0em;
           text-align: center;
           color: var(--black);
-          border: 2px solid var(--black);
+          border: 0;
           display: inline-block;
           width: 150px;
           padding: 0.3125rem 1.25rem;

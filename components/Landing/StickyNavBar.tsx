@@ -11,30 +11,30 @@ import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
 
 const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
   return (
-    <div>
-      <button>
-        <Link href="/playbook">
-          <a>Playbook</a>
-        </Link>
-      </button>
-      <button>
-        <Link href="/about/library-of-experts">
-          <a>Resources</a>
-        </Link>
-      </button>
-      <button>
-        <a>About</a>
-      </button>
+    <div className="nav-link-xl-bold">
+      <Link href="/playbook">
+        <a>Playbook</a>
+      </Link>
+
+      <Link href="/about/library-of-experts">
+        <a>Resources</a>
+      </Link>
+
+      <a>About</a>
 
       <style jsx>{`
         div {
           width: 100%;
           display: flex;
+          align-items: center;
           justify-content: space-around;
         }
-
-        button {
+        a {
+          margin: 0 1.25rem;
+          text-transform: uppercase;
           color: ${theme.textColor};
+        }
+        button {
           line-height: 28px;
           background-color: transparent;
           margin: 0 1.25rem;

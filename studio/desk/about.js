@@ -2,6 +2,7 @@ import S from '@sanity/desk-tool/structure-builder';
 
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { FaPeopleCarry } from 'react-icons/fa';
+import { RiTeamFill } from 'react-icons/ri';
 
 import { BsFillGridFill } from 'react-icons/bs';
 import { MdRecordVoiceOver } from 'react-icons/md';
@@ -29,7 +30,10 @@ export const aboutMenu = S.listItem()
           .title('Partner Sections')
           .child(S.documentTypeList('partnerSection').title('Partner Sections'))
           .icon(BsFillGridFill),
-        ,
+        S.listItem()
+          .title('Team Members')
+          .child(S.documentTypeList('teamMember').title('Team Members'))
+          .icon(RiTeamFill),
       ]),
   )
   .icon(BsFillQuestionCircleFill);

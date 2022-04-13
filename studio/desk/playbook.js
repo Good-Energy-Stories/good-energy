@@ -44,6 +44,12 @@ export const playbookMenu = S.listItem()
           )
           .icon(FaQuoteLeft),
         S.listItem()
+          .title('Playbook Sections')
+          .child(
+            S.documentTypeList('playbookSection').title('Playbook Sections'),
+          )
+          .icon(FaRegListAlt),
+        S.listItem()
           .title('Playlists')
           .child(S.documentTypeList('playlist').title('Playlists'))
           .icon(FaRegListAlt),

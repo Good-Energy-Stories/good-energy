@@ -25,6 +25,7 @@ const variants = {
 };
 
 const Bio = ({ bio }: { bio: string }) => {
+  if (!bio) return null;
   return (
     <motion.div
       transition={{ duration: 2 }}

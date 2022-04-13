@@ -39,7 +39,7 @@ const Banner = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).width(500).url()} />
+      <img alt={image?.caption} src={imageUrlFor(image).width(1000).url()} />
 
       <style jsx>{`
         img {

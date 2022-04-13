@@ -4,7 +4,7 @@ import { FaRegListAlt as icon } from 'react-icons/fa';
 export default {
   name: 'playbookSection',
   title: 'Playbook Section',
-  type: 'object',
+  type: 'document',
   icon,
   fields: [
     {

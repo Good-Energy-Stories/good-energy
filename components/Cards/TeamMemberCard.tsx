@@ -17,6 +17,7 @@ import {
 import { PortraitSizes, RoundPortrait } from './CharacterProfileCardComponents';
 import { Tags } from '.';
 import CTAButton from '../CTAButton';
+import { PortableText } from '@portabletext/react';
 function getStyles(last, marginBottom) {
   return css.resolve`
     div {
@@ -60,18 +61,7 @@ const Card = ({
   last?: boolean;
   marginBottom?: string;
 }) => {
-  const {
-    name,
-    expertType,
-    includeSpotlightPage,
-    shortBio,
-    slug,
-    smallPortraitImage,
-    tags,
-    pronouns,
-    links,
-    organization,
-  } = data;
+  const { name, bio, portraitImage, pronouns, links } = data;
   const { className, styles } = getStyles(last, marginBottom);
 
   const getColor = (i) => {
@@ -89,38 +79,24 @@ const Card = ({
     >
       <div className="layout">
         <div className="left">
-          {smallPortraitImage && (
+          {portraitImage && (
             <div>
               <Portrait
-                image={smallPortraitImage}
+                image={portraitImage}
                 size={PortraitSizes.medium}
-                inset={expertType === 'organization'}
-                backgroundColor={
-                  expertType === 'organization'
-                    ? 'var(--greyBlue)'
-                    : getColor(index)
-                }
+                backgroundColor={getColor(index)}
               />
             </div>
           )}
         </div>
         <div className="right">
           <Name name={name} />
-          <PronounsAndOrganization
-            pronouns={pronouns}
-            organization={organization}
-          />
-          {shortBio && <Bio bio={shortBio} />}
-          {includeSpotlightPage && (
-            <div className="cta">
-              <CTAButton
-                label="Read More"
-                href={`/about/library-of-experts/spotlight/${slug}`}
-              />
-            </div>
-          )}
+          <PronounsAndOrganization pronouns={pronouns} />
+          <div className="tease-lede-small">
+            <PortableText value={bio} />
+          </div>
+
           {links && <Links links={links} />}
-          {tags && <Tags tags={tags} />}
         </div>
       </div>
 

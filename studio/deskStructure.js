@@ -20,6 +20,7 @@ export default () =>
             'author',
             'characterProfile',
             'characterProfilesPage',
+            'contactPage',
             'expertProfile',
             'featuredVoice',
             'featuredVoicesPage',
@@ -31,7 +32,10 @@ export default () =>
             'playbookHome',
             'playbookStructure',
             'playlist',
+            'playbookSection',
             'quoteCollection',
+            'teamMember',
+            'teamPage',
           ].includes(listItem.getId()),
       ),
     ]);

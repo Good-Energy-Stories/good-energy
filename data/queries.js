@@ -156,6 +156,18 @@ _type == 'characterProfile' => {
 }
 `;
 
+export const teamMember = `
+_type,
+name,
+pronouns,
+role,
+links,
+bio,
+portraitImage {
+  ${imageMeta}
+}
+`;
+
 export const author = `
 name,
 authorBio,
@@ -172,6 +184,7 @@ author[]-> {
   ${author}
 },
 tags[],
+section,
 "slug": slug.current,
 heroImage{
   ${imageMeta}
@@ -185,7 +198,8 @@ body[] {
 },
 related[]-> {
   ${related}
-}
+},
+"relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0]
 `;
 
 export const characterProfilePagePreview = `
@@ -250,6 +264,34 @@ quotes[] {
 }
 `;
 
+export const playbookSection = `
+title,
+contents[]-> {
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+  _type == 'playbookSection' => {
+    _type,
+    title,
+    contents[]-> {
+      _type == 'article' => {
+        _type,
+        ${articlePreview}
+      },
+      _type == 'characterProfilePage' => {
+        _type,
+        ${characterProfilePagePreview}
+      },
+    }
+  },
+  _type == 'characterProfilePage' => {
+    _type,
+    ${characterProfilePagePreview}
+  },
+}
+`;
+
 export const contentReferences = `
   _type == 'article' => {
     _type,
@@ -271,6 +313,10 @@ export const contentReferences = `
     _type,
     ${characterProfilePagePreview}
   },
+  _type == 'playbookSection' => {
+    _type,
+    ${playbookSection}
+  }
 `;
 
 export const playlist = `
@@ -348,13 +394,6 @@ export const landingPageQuery = `
 }[0]
 `;
 
-export const playbookSection = `
-title,
-contents[]-> {
-  ${contentReferences}
-}
-`;
-
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
   introduction[]->{
     ${contentReferences}
@@ -362,11 +401,12 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
   why[]->{
     ${contentReferences}
   },
-  climateStorytelling[]{
-  
-      ${playbookSection}
-    
-  }
+  climateStorytelling[]->{
+    ${contentReferences}
+  },
+  whatsNext[]->{
+    ${contentReferences}
+  },
 }[0]`;
 
 export const characterProfilePageQuery = `
@@ -380,6 +420,12 @@ export const characterProfilePageQuery = `
   }
 }[0]
 `;
+
+export const searchQuery = `*[_type == "article" && title match $query] {
+  _id,
+  _type,
+  ${articlePreview}
+}`;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
 export const characterProfilePathsQuery = `*[_type == "characterProfile"] { slug }`;

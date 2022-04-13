@@ -97,18 +97,13 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
     <>
       <Link href={href}>
         <a>
-          <div className="nav-link-xl">
-            <span className="arrow">
-              <ListArrowIcon />
-            </span>
-            {label}
-          </div>
+          <div className="nav-link-medium">{label}</div>
         </a>
       </Link>
       <style jsx>{`
         div {
           color: var(--white);
-          margin: 0.625rem 1.25rem;
+          margin: 0.3125rem 0;
         }
         .arrow {
           margin-right: 12px;
@@ -124,46 +119,54 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
   );
 };
 
-const ListItemButton = ({
-  label,
-  onClick,
-}: {
-  label: string;
-  onClick: () => void;
-}) => {
+const TOCSubsection = ({ content }) => {
   return (
-    <>
-      <div className="nav-link-xl" onClick={onClick}>
-        <span className="arrow">
-          <ListArrowIcon />
-        </span>
-        {label}
-      </div>
+    <div>
+      <h4>{content?.title}</h4>
+      <TOCSection content={content?.contents} />
       <style jsx>{`
-        div {
+        h4 {
           color: var(--white);
-          margin: 0.625rem 1.25rem;
-          cursor: pointer;
-        }
-        .arrow {
-          margin-right: 12px;
-        }
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-          img {
-          }
+          margin-bottom: 1.25rem;
         }
       `}</style>
-    </>
+    </div>
   );
+};
+
+const TOCSection = ({ content }) => {
+  if (!content) return null;
+  return content.map((e, i) => <TOCSerializer key={i} content={e} />);
+};
+
+const TOCSerializer = ({ content }) => {
+  const type = content._type;
+
+  switch (type) {
+    case 'article':
+      return (
+        <ListItemLink
+          label={content.title}
+          href={`/playbook/${content.slug}`}
+        />
+      );
+    case 'playbookSection':
+      return <TOCSubsection content={content} />;
+    case 'characterProfilePage':
+      return null;
+    default:
+      return null;
+  }
 };
 
 const PlaybookNavOverlay = observer(() => {
   const store = useStore();
   const {
+    dataStore: { playbookNavTableOfContents },
     uiStore: { playbookNavOverlayOpen },
   } = store;
+  console.log('playbookNavTableOfContents : ', playbookNavTableOfContents);
+  if (!playbookNavTableOfContents) return null;
   return (
     <>
       <motion.div
@@ -173,29 +176,67 @@ const PlaybookNavOverlay = observer(() => {
         variants={isMobile ? mobileVariants : variants}
         className={className}
       >
-        <div>
-          <h2>Playbook Contents</h2>
-          <div className="section">
-            <h3>Playbook</h3>
-            <ListItemButton label="Table of Contents" onClick={() => {}} />
-            <ListItemLink label="Featured Voices" href="/" />
-            <ListItemLink label="Credits" href="/" />
+        <div className="container">
+          <h2 className="title">Playbook Contents</h2>
+          <div className="section introduction">
+            <div>
+              <h3>Introduction</h3>
+              <TOCSection content={playbookNavTableOfContents.introduction} />
+            </div>
+            <div className="resources">
+              <h3>What's Next and Resources</h3>
+              <TOCSection content={playbookNavTableOfContents.whatsNext} />
+              <ListItemLink
+                label="Library of Experts"
+                href="/about/library-of-experts"
+              />
+              <ListItemLink
+                label="Partners and Recommended Organizations"
+                href="/about/partners"
+              />
+            </div>
           </div>
-          <div className="section">
-            <h3>Resources</h3>
-            <ListItemLink label="Library of Experts" href="/" />
+
+          <div className="section why">
+            <h3>The Why</h3>
+            <TOCSection content={playbookNavTableOfContents.why} />
           </div>
-          <div className="section">
-            <h3>About</h3>
-            <ListItemLink label="Team" href="/" />
-            <ListItemLink label="Partners" href="/" />
-            <ListItemLink label="Contact" href="/" />
+          <div className="section climate-storytelling">
+            <h3>Climate Storytelling</h3>
+            <TOCSection
+              content={playbookNavTableOfContents.climateStorytelling}
+            />
           </div>
         </div>
 
         <img src="/fern-small.png" alt="Fern" />
         {styles}
         <style jsx>{`
+          .container {
+            display: grid;
+            grid-template-columns: var(--grid-col);
+          }
+          .introduction {
+            grid-column: 1/2;
+            grid-row-start: 2;
+          }
+          .resources {
+            margin-top: 5rem;
+          }
+          .why {
+            grid-column: 2/3;
+            grid-row-start: 2;
+          }
+          .title {
+            grid-column: 1/4;
+            grid-row-start: 1;
+            margin-bottom: 2.5rem;
+          }
+
+          .climate-storytelling {
+            grid-column: 3/5;
+            grid-row-start: 2;
+          }
           .home {
             opacity: 0.5;
             margin-bottom: 1.5rem;
@@ -208,6 +249,10 @@ const PlaybookNavOverlay = observer(() => {
           h3 {
             margin: 0;
             color: var(--white);
+            padding-bottom: 0.625rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--blueThree);
+            margin-right: 1.25rem;
           }
           img {
             position: absolute;

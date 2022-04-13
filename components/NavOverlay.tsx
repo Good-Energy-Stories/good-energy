@@ -194,9 +194,9 @@ const NavOverlay = observer(() => {
           </div>
           <div className="section">
             <h3>About</h3>
-            <ListItemLink label="Team" href="/team" />
+            <ListItemLink label="Team" href="/about/team" />
             <ListItemLink label="Partners" href="/about/partners" />
-            <ListItemLink label="Contact" href="/" />
+            <ListItemLink label="Contact" href="/about/contact" />
           </div>
         </div>
         <div className="search">

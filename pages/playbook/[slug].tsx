@@ -38,7 +38,15 @@ const Project = observer(
 
     const article = filterDataToSingleItem(previewData, preview);
 
-    const { title, byline, introduction, body, heroImage } = article;
+    const {
+      title,
+      byline,
+      introduction,
+      body,
+      heroImage,
+      section,
+      relatedSubsection,
+    } = article;
     const sectionsRef = useRef<SectionRefLookup>({});
 
     const sectionsTOC = body
@@ -63,13 +71,13 @@ const Project = observer(
             title={title}
             byline={byline}
             hasBannerImage={heroImage ? true : false}
+            section={section}
           />
           <Divider />
           <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
           <Introduction body={article?.introduction} />
           <Body body={article?.body} sectionsRef={sectionsRef} />
           <AuthorSection content={article?.author} />
-
           <Related content={article?.related} />
         </Layout>
         <Footer />

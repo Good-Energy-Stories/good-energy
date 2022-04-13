@@ -9,7 +9,7 @@ function getStyles(wide) {
   return css.resolve`
     div {
       display: inline-block;
-      width: ${wide ? 'calc(100% + 10 rem)' : '100%'};
+      width: ${wide ? 'calc(100% + 10rem)' : '100%'};
       margin: ${wide ? '0 -5rem' : '0'};
       margin-bottom: 2.5rem;
       border-top: 4px solid var(--black);

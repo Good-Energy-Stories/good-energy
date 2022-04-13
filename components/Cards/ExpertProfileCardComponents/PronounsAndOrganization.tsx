@@ -29,7 +29,7 @@ const PronounsAndOrganization = ({
   organization,
 }: {
   pronouns: string;
-  organization: string;
+  organization?: string;
 }) => {
   const formatted = [pronouns, organization].join(
     pronouns && organization ? ' • ' : '',

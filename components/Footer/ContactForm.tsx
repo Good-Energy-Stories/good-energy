@@ -3,7 +3,20 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { SubmitButton } from './';
 
-const ContactForm = () => {
+export const light: ContactFormStyle = {
+  backgroundColor: 'transparent',
+  textColor: 'var(--white)',
+};
+export const dark: ContactFormStyle = {
+  backgroundColor: 'var(--blueFive)',
+  textColor: 'var(--black)',
+};
+export interface ContactFormStyle {
+  backgroundColor: string;
+  textColor: string;
+}
+
+const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
   const {
     register,
     handleSubmit,
@@ -14,8 +27,6 @@ const ContactForm = () => {
   return (
     <>
       <div>
-        <h4 className="title">Stay in Touch</h4>
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Name</label>
           <div className="row">
@@ -91,7 +102,7 @@ const ContactForm = () => {
           border: 0;
           width: 100%;
           background-color: transparent;
-          border: 2px solid var(--white);
+          border: 2px solid ${mode.textColor};
           margin-bottom: 1.25rem;
         }
         ::placeholder {

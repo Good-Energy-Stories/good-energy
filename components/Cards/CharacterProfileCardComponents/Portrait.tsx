@@ -37,9 +37,11 @@ const variants = {
 const Portrait = ({
   image,
   size = PortraitSizes.small,
+  backgroundColor = 'var(--blueFour)',
 }: {
   image: any;
   size?: PortraitSizes;
+  backgroundColor?: string;
 }) => {
   return (
     <motion.div
@@ -58,10 +60,13 @@ const Portrait = ({
       </div>
       <style jsx>{`
         .frame {
+          background-color: ${backgroundColor};
           min-width: ${size}px;
           min-height: ${size}px;
           max-width: ${size}px;
           max-height: ${size}px;
+          border-radius: 50%;
+          overflow: hidden;
         }
         img {
           border-radius: 50%;

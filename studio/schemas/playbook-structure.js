@@ -11,7 +11,7 @@ export default {
       title: 'Introduction',
       name: 'introduction',
       description:
-        "Add the articles here that make up the playbook's introduction.",
+        "Add the articles here that make up the playbook's 'Introduction'.",
       type: 'array',
       of: [
         {
@@ -23,7 +23,7 @@ export default {
     {
       title: 'The Why',
       name: 'why',
-      description: "Add the articles here that make up the playbook's 'why'.",
+      description: "Add the articles here that make up the playbook's 'Why'.",
       type: 'array',
       of: [
         {
@@ -49,7 +49,25 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'playbookSection',
+          type: 'reference',
+          to: [
+            {
+              type: 'playbookSection',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "What's Next",
+      name: 'whatsNext',
+      description:
+        "Add the articles here that make up the playbook's 'What's Next'.",
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'article' }],
         },
       ],
     },
