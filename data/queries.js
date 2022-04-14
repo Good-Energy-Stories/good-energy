@@ -132,6 +132,7 @@ export const expertProfilePreview = `
 _type,
 name,
 expertType,
+authorBio,
 includeSpotlightPage,
 slug,
 pronouns,
@@ -181,7 +182,14 @@ title,
 lede,
 byline,
 author[]-> {
+  _type == 'expertProfile' => {
+    _type,
+    ${expertProfilePreview}
+  },
+  _type == 'author' => {
+    _type,
   ${author}
+  }
 },
 tags[],
 section,

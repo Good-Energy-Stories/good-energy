@@ -95,7 +95,6 @@ const Card = ({
           <div className="tease-lede-small">
             <PortableText value={bio} />
           </div>
-
           {links && <Links links={links} />}
         </div>
       </div>

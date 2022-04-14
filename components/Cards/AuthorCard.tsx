@@ -80,7 +80,16 @@ const AuthorCard = ({
 }) => {
   const { className, styles } = getStyles();
 
-  const { name, authorBio, slug, portraitImage, hasSpotlightPage } = content;
+  const {
+    name,
+    authorBio,
+    slug,
+    portraitImage,
+    smallPortraitImage,
+    hasSpotlightPage,
+  } = content;
+
+  console.log(portraitImage || smallPortraitImage);
 
   return (
     <motion.div
@@ -93,8 +102,11 @@ const AuthorCard = ({
     >
       <div className="layout">
         <div className="left">
-          {portraitImage && (
-            <Portrait image={portraitImage} size={PortraitSizes.extraSmall} />
+          {(portraitImage || smallPortraitImage) && (
+            <Portrait
+              image={portraitImage || smallPortraitImage}
+              size={PortraitSizes.extraSmall}
+            />
           )}
         </div>
         <div className="right">

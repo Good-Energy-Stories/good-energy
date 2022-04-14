@@ -39,21 +39,7 @@ const Root = ({ pageData }) => {
 };
 
 export async function getStaticProps({ preview, previewData }) {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "characterProfilesPage" ] {
-      "id": _id,
-      title,
-      description,
-      characterProfiles[]-> {
-        ${queries.characterProfilePreview}
-      },
-      related[]-> {
-        ${queries.related}
-      }
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.characterProfilePageQuery);
   return { props: { pageData } };
 }
 
