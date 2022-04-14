@@ -34,12 +34,8 @@ const variants = {
 const Quote = ({ quote, attribution }: QuoteType) => {
   return (
     <motion.div className={className} variants={variants}>
-      <span className="open-quote">{`“`}</span>
       <span>
-        <div className="quote">
-          <span className="quote-body">{`${quote}`}</span>
-          <span className="close-quote">{`”`}</span>
-        </div>
+        <div className="pull-quote">{quote}</div>
         <div className="attribution quote-attribution">{attribution}</div>
       </span>
 

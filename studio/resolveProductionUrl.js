@@ -18,7 +18,6 @@ export default function resolveProductionUrl(doc) {
   }
 
   const url = `${baseUrl}/${path}`;
-  console.log(url);
   const previewUrl = new URL(url);
 
   previewUrl.pathname = `/api/articlePreview`;

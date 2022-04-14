@@ -402,6 +402,27 @@ export const landingPageQuery = `
 }[0]
 `;
 
+export const featureVoiceQuote = `
+quote,
+isFromArticle,
+attribution,
+article-> {
+  ${articlePreview}
+}`;
+
+export const featuredVoice = `
+_type,
+name,
+credentials,
+shortBio,
+portraitImage{
+  ${imageMeta}
+},
+quotes[] {
+ ${featureVoiceQuote}
+}
+`;
+
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
   introduction[]->{
     ${contentReferences}

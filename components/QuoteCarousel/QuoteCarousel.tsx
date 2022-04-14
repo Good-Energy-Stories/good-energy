@@ -8,24 +8,26 @@ import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key, useState } from 'react';
 import { Quote, IndicatorDotRow, QuoteType } from './';
-const { className, styles } = css.resolve`
-  div {
-    max-width: 765px;
-
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.25rem;
-    width: 100%;
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(maxWidth) {
+  return css.resolve`
     div {
-      padding: 0px;
-      display: grid;
+      max-width: ${maxWidth ?? 'none'};
 
-      grid-column-gap: 0;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.25rem;
+      width: 100%;
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        padding: 0px;
+        display: grid;
+
+        grid-column-gap: 0;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -39,14 +41,24 @@ const variants = {
 interface QuoteCollectionData {
   quotes: QuoteType[];
 }
+
+export enum QuoteSizes {
+  small = 200,
+
+  large = 360,
+}
 const QuoteCarousel = ({
   data,
   index,
+  maxWidth,
 }: {
   data: QuoteCollectionData;
-  index: number;
+  index?: number;
+  maxWidth?: string;
 }) => {
+  if (!data) return null;
   const { quotes } = data;
+  const { className, styles } = getStyles(maxWidth);
 
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
 
@@ -63,7 +75,7 @@ const QuoteCarousel = ({
         variants={variants}
         className={className}
       >
-        <div className="layout tease-quote-big">
+        <div className="layout ">
           <AnimatePresence exitBeforeEnter>
             <Quote
               key={activeQuoteIndex}
@@ -72,7 +84,6 @@ const QuoteCarousel = ({
             />
           </AnimatePresence>
         </div>
-
         <IndicatorDotRow
           activeQuoteIndex={activeQuoteIndex}
           setActiveQuoteIndex={(i: number) => setActiveQuoteIndex(i)}

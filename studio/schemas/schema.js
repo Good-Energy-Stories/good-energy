@@ -32,6 +32,7 @@ import quote from './quote';
 import quoteCollection from './quote-collection';
 import resource from './resource';
 import resourceSection from './resource-section';
+import seo from './seo';
 import team from './team-member';
 import teamPage from './team-page';
 
@@ -69,6 +70,7 @@ export default createSchema({
     quoteCollection,
     resource,
     resourceSection,
+    seo,
     team,
     teamPage,
   ]),

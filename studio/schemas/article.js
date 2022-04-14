@@ -11,6 +11,11 @@ export default {
   icon,
   fields: [
     {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',

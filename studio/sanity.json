@@ -15,7 +15,9 @@
     "@sanity/desk-tool",
     "note-field",
     "@sanity/production-preview",
-    "vercel-deploy"
+    "vercel-deploy",
+    "seo-pane",
+    "social-preview"
   ],
   "env": {
     "development": {

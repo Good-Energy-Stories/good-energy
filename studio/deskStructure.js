@@ -2,6 +2,33 @@ import S from '@sanity/desk-tool/structure-builder';
 import { pagesMenu } from './desk/pages';
 import { playbookMenu } from './desk/playbook';
 import { aboutMenu } from './desk/about';
+import SeoPane from 'sanity-plugin-seo-pane';
+import resolveProductionUrl from './resolveProductionUrl';
+import SocialPreview from 'part:social-preview/component';
+
+export const getDefaultDocumentNode = ({ schemaType }) => {
+  if (['article'].includes(schemaType)) {
+    return S.document().views([
+      S.view.form(),
+      S.view
+        .component(
+          SocialPreview({
+            prepareFunction: ({ title, slug, heroImage }) => {
+              return {
+                title: title ?? '',
+                description: '',
+                siteUrl: 'https://www.good--energy.com/',
+                ogImage: heroImage ?? '',
+                slug: `playbook/${slug?.current}`,
+              };
+            },
+          }),
+        )
+        .title('SEO'),
+    ]);
+  }
+  return S.document().views([S.view.form()]);
+};
 
 export default () =>
   S.list()

@@ -5,7 +5,7 @@ const ArticleCard = dynamic(() => import('./ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
 const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
 const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
-
+const FeaturedVoiceCard = dynamic(() => import('./FeaturedVoiceCard'));
 export const Card = ({
   index,
   last,
@@ -14,6 +14,8 @@ export const Card = ({
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
   marginBottom,
+  active,
+  onActionButtonClicked,
 }: {
   index?: number;
   last?: boolean;
@@ -22,6 +24,8 @@ export const Card = ({
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
   marginBottom?: string;
+  active?: boolean;
+  onActionButtonClicked?: () => void;
 }) => {
   const type = content._type;
   switch (type) {
@@ -54,6 +58,16 @@ export const Card = ({
           last={last}
           data={content}
           marginBottom={marginBottom}
+        />
+      );
+    case 'featuredVoice':
+      return (
+        <FeaturedVoiceCard
+          index={index}
+          last={last}
+          data={content}
+          active={active}
+          onActionButtonClicked={onActionButtonClicked}
         />
       );
     default:

@@ -46,7 +46,6 @@ export default {
       title: 'Article Quote is From (if any)',
       type: 'reference',
       to: [{ type: 'article' }],
-      validation: (Rule) => Rule.required(),
       hidden: ({ parent }) => parent?.isFromArticle !== true,
     },
   ],

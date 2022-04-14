@@ -1,6 +1,34 @@
 // ./web/pages/api/preview.js
 
-export default function articlePreview(req, res) {
+export default async function articlePreview(req, res) {
+  const corsOrigin =
+    process.env.NODE_ENV === 'development'
+      ? `http://localhost:3333`
+      : `https://good-energy.sanity.studio/`;
+
+  res.setHeader('Access-Control-Allow-Origin', corsOrigin);
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  if (req?.query?.fetch === 'true') {
+    const proto =
+      process.env.NODE_ENV === 'development' ? `http://` : `https://`;
+    const host = req.headers.host;
+    const pathname = req?.query?.slug ?? `/`;
+
+    const absoluteUrl = new URL(
+      `${proto}${host}/playbook/${pathname}`,
+    ).toString();
+    console.log(absoluteUrl);
+    const previewHtml = await fetch(absoluteUrl, {
+      credentials: `include`,
+      headers: { Cookie: req.headers.cookie },
+    })
+      .then((previewRes) => previewRes.text())
+      .catch((err) => console.error(err));
+    console.log(previewHtml);
+    return res.send(previewHtml);
+  }
+
   if (!req?.query?.secret) {
     return res.status(401).json({ message: 'No secret token' });
   }

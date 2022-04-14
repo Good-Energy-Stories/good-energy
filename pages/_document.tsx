@@ -23,7 +23,7 @@ class MyDocument extends Document {
           />
         </Head>
 
-        <body>
+        <body data-content="main">
           <Main />
           <NextScript />
         </body>

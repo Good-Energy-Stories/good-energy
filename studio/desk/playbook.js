@@ -6,6 +6,8 @@ import { GiQuillInk } from 'react-icons/gi';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FaRegListAlt } from 'react-icons/fa';
 import { MdOutlineLineStyle } from 'react-icons/md';
+import resolveProductionUrl from '../resolveProductionUrl';
+import SeoPane from 'sanity-plugin-seo-pane';
 
 export const playbookMenu = S.listItem()
   .title('Playbook')
