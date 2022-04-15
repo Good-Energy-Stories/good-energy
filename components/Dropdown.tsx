@@ -6,7 +6,6 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { AnimatedUnderline } from './';
 import Link from 'next/link';
-import Select from 'react-select';
 
 function getStyles(color) {
   return css.resolve`
@@ -115,14 +114,14 @@ const Dropdown = ({
 }) => {
   return (
     <div>
-      <Select
+      {/*<Select
         styles={customStyles}
         placeholder={placeholder}
         options={options}
         onChange={(value) => {
           console.log(value);
         }}
-      />
+      />*/}
     </div>
   );
 };

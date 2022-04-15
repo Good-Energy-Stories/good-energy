@@ -61,7 +61,6 @@ export const Card = ({
           index={index}
           last={last}
           data={content}
-          marginBottom={marginBottom}
           style={expertProfileCardStyle}
         />
       );
