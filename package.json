@@ -50,6 +50,7 @@
     "react-intersection-observer": "^8.32.3",
     "react-player": "^2.9.0",
     "react-router-dom": "^6.2.1",
+    "react-select": "^5.3.0",
     "rss-feed-emitter": "^3.2.2",
     "safe-compare": "^1.1.4",
     "styled-jsx": "^4.0.1",

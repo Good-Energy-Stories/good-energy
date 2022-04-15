@@ -12,9 +12,13 @@ export { default as FeaturedTag } from './FeaturedTag';
 export { default as ArticleReadMore } from './ArticleReadMore';
 export { default as CharacterProfileFeaturedSecondary } from './CharacterProfileFeaturedSecondary';
 export { default as CharacterProfileReadMore } from './CharacterProfileReadMore';
+export { default as CharacterProfileNextUp } from './CharacterProfileNextUp';
+
 export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';
 export { default as ExpertProfileCard } from './ExpertProfileCard';
+export { default as ExpertProfileSearch } from './ExpertProfileSearch';
+
 export { default as AuthorCard } from './AuthorCard';
 export { default as TeamMemberCard } from './TeamMemberCard';
 export { default as TeamMemberCardSmall } from './TeamMemberCardSmall';

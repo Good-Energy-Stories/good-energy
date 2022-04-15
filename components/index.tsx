@@ -20,6 +20,7 @@ export { default as QuoteCarousel } from './QuoteCarousel/QuoteCarousel';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as NavOverlay } from './NavOverlay';
 export { default as PlaybookNavOverlay } from './PlaybookNavOverlay';
+export { default as Dropdown } from './Dropdown';
 
 export { default as Search } from './Search';
 export { default as ExitPreviewButton } from './ExitPreviewButton';

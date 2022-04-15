@@ -50,7 +50,7 @@ const StoryPossibility = ({
   return (
     <>
       <div onClick={toggleCollapse}>
-        <h4>Story Possibility</h4>
+        <h4>Story Seed</h4>
         <Arrow collapsed={collapsed} />
       </div>
 

@@ -5,6 +5,9 @@ import SearchIcon from '../../public/search.svg';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Link from 'next/link';
+import { SearchButton } from '../Landing';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 const NavDropdownButton = () => {
   return (
     <div className="border">
@@ -119,13 +122,32 @@ const NavButtons = observer(() => {
 });
 
 const SearchBar = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+  const handleClick = () => {
+    router.push({
+      pathname: '/playbook/search',
+      query: { query: searchQuery },
+    });
+  };
   return (
     <>
       <div>
         <span>
           <SearchIcon fill="var(--black)" />
         </span>
-        <input className="nav-link-xl" type="text" placeholder="Search" />
+        <input
+          className="nav-link-xl"
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <SearchButton
+          active={searchQuery.length !== 0}
+          color={'var(--blueFour)'}
+          onClick={() => handleClick()}
+        />
         <style jsx>{`
           span {
             width: 25px;

@@ -7,7 +7,8 @@ import { sanity } from '../../lib/sanity';
 import { queries } from '../../data';
 import { getClient } from '../../lib/sanity/sanity.server';
 import { ThreeColumnLayout } from '../PlaybookHome';
-import { ArticleCardStyle, Card } from '../Cards';
+import { ArticleCardStyle, Card, CharacterProfileCardStyle } from '../Cards';
+import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
 
 const SearchResults = observer(() => {
   const store = useStore();
@@ -25,11 +26,16 @@ const SearchResults = observer(() => {
             last={i === playbookSearchResults.length - 1}
             content={c}
             articleCardStyle={ArticleCardStyle.featuredSecondary}
+            characterProfileCardStyle={
+              CharacterProfileCardStyle.featuredSecondary
+            }
+            expertProfileCardStyle={ExpertProfileCardStyle.search}
           />
         ))}{' '}
       </div>
       <style jsx>{`
         div {
+          margin: 0 -5rem;
           margin-top: 2.5rem;
           grid-column: 2/4;
         }

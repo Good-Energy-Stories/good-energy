@@ -5,7 +5,6 @@ import { Header } from '../../components/About';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { Card } from '../../components/Cards';
-import { ActiveQuoteCard } from '../../components/Cards/FeaturedVoiceCardComponents';
 import { useState } from 'react';
 import { Row } from '../../components/FeaturedVoices';
 function chunks(array: any[], n: number): any[] {
@@ -21,7 +20,6 @@ const FeaturedVoices = ({ pageData }) => {
   const [activeQuotes, setActiveQuotes] = useState(null);
   const { title, description, featuredVoices } = pageData;
   const featuredVoicesRows = [...chunks(featuredVoices, 4)];
-  console.log(featuredVoicesRows);
 
   return (
     <>

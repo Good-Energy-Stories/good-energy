@@ -8,7 +8,9 @@ import Logo from '../Logo';
 import Link from 'next/link';
 import { BANNER_HEIGHT, BANNER_HEIGHT_MOBILE } from '../PageBanner';
 import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
-
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import SearchButton from './SearchButton';
 const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
   return (
     <div className="nav-link-xl-bold">
@@ -84,13 +86,32 @@ const NavButtons = observer(({ theme }: { theme?: NavBarStyle }) => {
 });
 
 const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+  const handleClick = () => {
+    router.push({
+      pathname: '/playbook/search',
+      query: { query: searchQuery },
+    });
+  };
+
   return (
     <>
-      <div className="">
+      <div className="search-container">
         <span>
           <SearchIcon fill={theme.textColor} />
         </span>
-        <input type="text" className="nav-link-xl" placeholder="Search" />
+        <input
+          type="text"
+          className="nav-link-xl"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <SearchButton
+          active={searchQuery.length !== 0}
+          onClick={() => handleClick()}
+        />
       </div>
       <NavLogo theme={theme} />
       <style jsx>{`
@@ -99,13 +120,33 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           margin-right: 5px;
           padding-top: 3px;
         }
-        div {
+        .search-container {
+          width: 100%;
+          position: relative;
           padding-left: 0.625rem;
           border-left: 5px solid ${theme.textColor};
-          max-width: 200px;
+
           display: flex;
           align-items: center;
           grid-column: span 1;
+          margin-left: 8rem;
+        }
+        button {
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          border: none;
+          padding: 15px 24px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 28px;
+
+          cursor: pointer;
+          background-color: var(--pink);
+        }
+        div {
         }
         input[type='text'] {
           padding: 0.625rem;
@@ -155,6 +196,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
           height: 100%;
         }
         a {
+          z-index: 100;
           max-height: 100px;
         }
 

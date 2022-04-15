@@ -17,11 +17,17 @@ import {
 import { Header, Characters } from '../../components/CharacterProfilesHome';
 import { Footer } from '../../components/Footer';
 import Related from '../../components/Related';
-import { SearchBar, SearchResults } from '../../components/SearchPage';
+import {
+  Filters,
+  ResultsFor,
+  SearchBar,
+  SearchResults,
+} from '../../components/SearchPage';
 
 const Root = ({ pageData }) => {
   console.log('pageData:', pageData);
   const { title, description, related, characterProfiles } = pageData;
+
   return (
     <>
       <Meta />
@@ -30,6 +36,7 @@ const Root = ({ pageData }) => {
 
       <Layout key="search" paddingHorizontal={'7.5rem'}>
         <SearchBar />
+        <ResultsFor />
         <SearchResults />
       </Layout>
       <Footer />

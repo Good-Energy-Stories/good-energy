@@ -48,6 +48,7 @@ const ActiveQuoteCard = ({ quotes }) => {
       <QuoteCarousel data={{ quotes: quotesArray }} />
       <style jsx>{`
         .container {
+          margin-top: 2.5rem;
         }
       `}</style>
     </div>

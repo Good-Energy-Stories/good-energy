@@ -17,6 +17,9 @@ const CharacterProfileReadMore = dynamic(
 const CharacterProfileFeaturedSecondary = dynamic(
   () => import('./CharacterProfileFeaturedSecondary'),
 );
+const CharacterProfileNextUp = dynamic(
+  () => import('./CharacterProfileNextUp'),
+);
 
 const CharacterProfileSmall = dynamic(() => import('./CharacterProfileSmall'));
 export enum CharacterProfileCardStyle {
@@ -25,6 +28,7 @@ export enum CharacterProfileCardStyle {
   readMore = 'readMore',
   featuredSecondary = 'featuredSecondary',
   featuredSecondaryWide = 'featuredSecondaryWide',
+  nextUp = 'nextUp',
 }
 
 export interface CharacterProfileData {
@@ -62,7 +66,8 @@ const CharacterProfileCard = ({
           wide={shouldUseExpandedStyles && index === 0}
         />
       );
-
+    case CharacterProfileCardStyle.nextUp:
+      return <CharacterProfileNextUp data={data} index={index} />;
     default:
       return <CharacterProfileStandard data={data} index={index} />;
   }

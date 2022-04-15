@@ -2,13 +2,16 @@ import SearchIcon from '../../public/search.svg';
 import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { sanity } from '../../lib/sanity';
 import { queries } from '../../data';
 import { getClient } from '../../lib/sanity/sanity.server';
+import { useRouter } from 'next/router';
 
 const SearchBar = observer(
   ({ expand = false, width }: { expand?: boolean; width?: string }) => {
+    const router = useRouter();
+    const { query } = router.query;
     const store = useStore();
     const {
       dataStore: {
@@ -20,13 +23,44 @@ const SearchBar = observer(
 
     const search = useCallback(async (query) => {
       const params = { query: `${query}*` };
-      const searchResults = await getClient().fetch(
-        queries.searchQuery,
+      const articleSearchResults = await getClient().fetch(
+        queries.searchArticlesQuery,
         params,
       );
-      console.log(searchResults);
-      setPlaybookSearchResults(searchResults);
+      // console.log(articleSearchResults);
+      const characterProfileSearchResults = await getClient().fetch(
+        queries.searchCharacterProfilesQuery,
+        params,
+      );
+
+      const expertProfileSearchResults = await getClient().fetch(
+        queries.searchExpertProfilesQuery,
+        params,
+      );
+      const featuredVoicesSearchResults = await getClient().fetch(
+        queries.searchFeaturedVoicesQuery,
+        params,
+      );
+      //console.log(expertProfileSearchResults);
+      const results = [
+        ...articleSearchResults,
+        ...characterProfileSearchResults,
+        ...expertProfileSearchResults,
+        ...featuredVoicesSearchResults,
+      ]
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+      setPlaybookSearchResults(results);
     }, []);
+
+    useEffect(() => {
+      if (query) {
+        setPlaybookSearchQuery(query);
+        search(query);
+      }
+    }, [query, search, setPlaybookSearchQuery]);
+
     return (
       <>
         <div className="search-bar">
@@ -50,6 +84,7 @@ const SearchBar = observer(
             </div>
           </div>
         </div>
+
         <style jsx>{`
           .search-bar {
             grid-column-start: 1;

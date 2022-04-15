@@ -32,7 +32,7 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
           shortBio={characterProfile?.shortBio}
           bio={characterProfile?.bio}
           nextUp={characterProfile?.nextUp}
-          portraitImage={characterProfile?.fullSizePortraitImage}
+          portraitImage={characterProfile?.portraitImage}
         />
         <Related content={related} />
       </Layout>

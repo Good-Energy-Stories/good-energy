@@ -450,10 +450,27 @@ export const characterProfilePageQuery = `
 }[0]
 `;
 
-export const searchQuery = `*[_type == "article" && title match $query] {
-  _id,
+export const searchArticlesQuery = `*[_type == "article" && title match $query] {
   _type,
   ${articlePreview}
+}`;
+
+export const searchCharacterProfilesQuery = `*[_type == "characterProfile" && name match $query] {
+  _type,
+  ${characterProfilePreview}
+}`;
+
+export const searchExpertProfilesQuery = `*[_type == "expertProfile" && name match $query] {
+  _type,
+  ${expertProfilePreview}
+}`;
+
+export const searchFeaturedVoicesQuery = `*[_type == "featuredVoice" && quotes[].quote match $query] {
+  "_type": "quoteCarousel",
+  quotes[] {
+    quote,
+    attribution
+  }
 }`;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;

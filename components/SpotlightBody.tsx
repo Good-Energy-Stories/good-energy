@@ -12,6 +12,7 @@ import {
   CharacterProfileCardStyle,
   CharacterProfileFeaturedSecondary,
 } from './Cards';
+import { PLAYBOOK_NAV_HEIGHT } from './StickyNavBar';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;
@@ -21,7 +22,6 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      padding: 0px;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
@@ -44,7 +44,7 @@ const NextUp = ({ nextUp }) => {
       <div className="label-medium">Next Up</div>
       <Card
         content={nextUp}
-        characterProfileCardStyle={CharacterProfileCardStyle.featuredSecondary}
+        characterProfileCardStyle={CharacterProfileCardStyle.nextUp}
         last
         marginBottom={'1.25rem'}
       />
@@ -70,9 +70,11 @@ const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
         variants={variants}
         className={className}
       >
-        <div className="left">
-          <Banner image={portraitImage} />
-        </div>
+        {portraitImage && (
+          <div className="left">
+            <Banner image={portraitImage} />
+          </div>
+        )}
         <div className="right">
           <div className="breadcrumbs">
             <Breadcrumbs dropCurrent />
@@ -115,9 +117,15 @@ const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
             .breadcrumbs {
               padding-right: 0;
             }
+            .left {
+              grid-column: 1/5;
+              grid-row-start: 1;
+
+              height: 75vh;
+            }
             .right {
-              padding: 0;
-              padding-top: 2.5rem;
+              padding: 0 1.25rem;
+              grid-row-start: 2;
             }
           }
         `}</style>

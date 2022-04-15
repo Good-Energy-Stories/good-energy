@@ -31,6 +31,7 @@ const { className, styles } = css.resolve`
     position: absolute;
     top: 12px;
   }
+
   @media only screen and (max-width: 768px) {
     div {
       width: 100%;

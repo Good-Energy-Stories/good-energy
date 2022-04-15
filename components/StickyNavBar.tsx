@@ -75,8 +75,12 @@ const NavButtons = ({
       <button onClick={() => openNavOverlay()}>
         <HamburgerIcon fill={theme.textColor} />
       </button>
-      <button onClick={() => {}}>
-        <SearchIcon fill={theme.textColor} />
+      <button>
+        <Link href={'/playbook/search'}>
+          <a>
+            <SearchIcon fill={theme.textColor} />
+          </a>
+        </Link>
       </button>
 
       <style jsx>{`
@@ -85,6 +89,7 @@ const NavButtons = ({
           border-bottom: 4px solid ${theme.textColor};
         }
         div {
+          pointer-events: auto;
           display: flex;
         }
         button {
@@ -148,6 +153,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
 
       <style jsx>{`
         div {
+          pointer-events: auto;
           display: flex;
           width: 100%;
           justify-content: flex-end;
@@ -180,6 +186,7 @@ const PlaybookStickyNavBar = ({
         <NavLogo theme={theme} />
         <style jsx>{`
           div {
+            pointer-events: none;
             display: grid;
             grid-template-columns: var(--grid-col);
             justify-content: space-between;

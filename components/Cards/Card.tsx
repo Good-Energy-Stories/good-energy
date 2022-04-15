@@ -1,11 +1,13 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { ArticleCardStyle, CharacterProfileCardStyle } from './';
+import { ExpertProfileCardStyle } from './ExpertProfileCard';
 const ArticleCard = dynamic(() => import('./ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
 const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
 const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
 const FeaturedVoiceCard = dynamic(() => import('./FeaturedVoiceCard'));
+
 export const Card = ({
   index,
   last,
@@ -13,6 +15,7 @@ export const Card = ({
   shouldUseExpandedStyles = true,
   articleCardStyle = ArticleCardStyle.standard,
   characterProfileCardStyle = CharacterProfileCardStyle.standard,
+  expertProfileCardStyle = ExpertProfileCardStyle.standard,
   marginBottom,
   active,
   onActionButtonClicked,
@@ -23,6 +26,7 @@ export const Card = ({
   shouldUseExpandedStyles?: boolean;
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
+  expertProfileCardStyle?: ExpertProfileCardStyle;
   marginBottom?: string;
   active?: boolean;
   onActionButtonClicked?: () => void;
@@ -58,6 +62,7 @@ export const Card = ({
           last={last}
           data={content}
           marginBottom={marginBottom}
+          style={expertProfileCardStyle}
         />
       );
     case 'featuredVoice':
@@ -70,6 +75,8 @@ export const Card = ({
           onActionButtonClicked={onActionButtonClicked}
         />
       );
+    case 'quoteCarousel':
+      return <QuoteCarousel data={content} />;
     default:
       return null;
   }

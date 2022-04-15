@@ -56,13 +56,12 @@ const QuoteCarousel = ({
   index?: number;
   maxWidth?: string;
 }) => {
-  if (!data) return null;
   const { quotes } = data;
   const { className, styles } = getStyles(maxWidth);
 
   const [activeQuoteIndex, setActiveQuoteIndex] = useState(0);
 
-  if (!quotes) return null;
+  if (!data || !quotes) return null;
   const { quote, attribution } = quotes[activeQuoteIndex];
 
   return (

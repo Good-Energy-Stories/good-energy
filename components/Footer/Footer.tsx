@@ -24,6 +24,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      padding: 1.25rem 1.25rem;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
