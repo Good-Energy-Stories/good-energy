@@ -22,7 +22,6 @@ const SearchResults = observer(() => {
         {playbookSearchResults.map((c, i) => (
           <Card
             key={i}
-            index={i}
             last={i === playbookSearchResults.length - 1}
             content={c}
             articleCardStyle={ArticleCardStyle.featuredSecondary}
@@ -38,6 +37,13 @@ const SearchResults = observer(() => {
           margin: 0 -5rem;
           margin-top: 2.5rem;
           grid-column: 2/4;
+        }
+
+        @media only screen and (max-width: 768px) {
+          div {
+            grid-column: 1/5;
+            margin: 0 1.25rem;
+          }
         }
       `}</style>
     </>

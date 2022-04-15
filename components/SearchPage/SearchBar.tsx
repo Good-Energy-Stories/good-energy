@@ -147,7 +147,15 @@ const SearchBar = observer(
           }
           @media only screen and (max-width: 768px) {
             .search-bar {
-              width: ${width ?? 'calc(100vw - 5rem)'};
+              margin: 0 1.25rem;
+              margin-top: 2.5rem;
+              width: ${width ?? 'calc(100vw - 2.5rem)'};
+            }
+            .search-icon {
+              margin-right: 0;
+            }
+            .search-button-label {
+              display: none;
             }
           }
         `}</style>

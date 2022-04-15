@@ -29,9 +29,8 @@ function getStyles(last, marginBottom) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
         display: grid;
-        margin-bottom: 1.25rem;
+        margin-bottom: 0;
         grid-column-gap: 0;
       }
     }
@@ -151,9 +150,6 @@ const Card = ({
           grid-column: 2/4;
         }
         @media only screen and (max-width: 768px) {
-          .layout {
-            margin-bottom: 0;
-          }
           .left {
             margin-right: 0;
             display: flex;
@@ -161,7 +157,7 @@ const Card = ({
             margin-bottom: 2.5rem;
           }
           .layout {
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.25rem;
             display: flex;
             flex-direction: column;
           }

@@ -64,9 +64,11 @@ const Featured = ({
               {lede && <Lede lede={lede} />}
               {tags && <Tags tags={tags} />}
             </div>
-            <div className="right">
-              {heroImage && <Banner image={heroImage} />}
-            </div>
+            {heroImage && (
+              <div className="right">
+                <Banner image={heroImage} />
+              </div>
+            )}
           </div>
         </a>
       </Link>

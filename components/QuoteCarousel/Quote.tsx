@@ -32,14 +32,23 @@ const variants = {
 };
 
 const Quote = ({ quote, attribution }: QuoteType) => {
+  const isLongQuote = quote.length >= 200;
   return (
     <motion.div className={className} variants={variants}>
       <span>
-        <div className="pull-quote">{quote}</div>
+        {isLongQuote ? (
+          <h4>{quote}</h4>
+        ) : (
+          <div className="pull-quote">{quote}</div>
+        )}
+
         <div className="attribution quote-attribution">{attribution}</div>
       </span>
 
       <style jsx>{`
+        h4 {
+          text-transform: none;
+        }
         .open-quote {
         }
         .layout {

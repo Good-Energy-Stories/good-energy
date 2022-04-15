@@ -18,6 +18,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      margin: 0 1.25rem;
     }
   }
 `;
@@ -25,11 +26,9 @@ const { className, styles } = css.resolve`
 const variants = {
   in: {
     opacity: 1,
-    height: 'auto',
   },
   out: {
     opacity: 0,
-    height: 0,
   },
 };
 
