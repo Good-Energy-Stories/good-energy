@@ -31,6 +31,14 @@ export const aboutMenu = S.listItem()
           .child(S.documentTypeList('partnerSection').title('Partner Sections'))
           .icon(BsFillGridFill),
         S.listItem()
+          .title('Individual Partner Features')
+          .child(
+            S.documentTypeList('individualPartnerFeature').title(
+              'Individual Partner Features',
+            ),
+          )
+          .icon(BsFillGridFill),
+        S.listItem()
           .title('Team Members')
           .child(S.documentTypeList('teamMember').title('Team Members'))
           .icon(RiTeamFill),

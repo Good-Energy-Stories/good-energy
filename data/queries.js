@@ -325,6 +325,7 @@ export const contentReferences = `
     _type,
     ${playbookSection}
   }
+ 
 `;
 
 export const playlist = `
@@ -358,6 +359,13 @@ export const playbookSections = `
     _type == 'partnerSection' => {
       _type,
       ${partnerSection}
+    },
+    _type == 'individualPartnerFeature' => {
+      _type,
+      description,
+      partner -> {
+        ${partner}
+      }
     }
   },
   _type != 'reference' => {

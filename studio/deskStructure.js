@@ -51,6 +51,7 @@ export default () =>
             'expertProfile',
             'featuredVoice',
             'featuredVoicesPage',
+            'individualPartnerFeature',
             'landingPage',
             'libraryOfExpertsPage',
             'partner',

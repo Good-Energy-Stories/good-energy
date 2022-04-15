@@ -82,7 +82,11 @@ export default {
         },
         {
           type: 'reference',
-          to: [{ type: 'playlist' }, { type: 'partnerSection' }],
+          to: [
+            { type: 'playlist' },
+            { type: 'partnerSection' },
+            { type: 'individualPartnerFeature' },
+          ],
         },
       ],
     },

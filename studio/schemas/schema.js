@@ -17,6 +17,7 @@ import expertProfile from './expert-profile';
 import featuredVoice from './featured-voice';
 import featuredVoicesPage from './featured-voices-page';
 import featuredVoiceQuote from './featured-voice-quote';
+import individualPartnerFeature from './individual-partner-feature';
 import landingPage from './landing-page';
 import libraryOfExpertsPage from './library-of-experts-page';
 import partner from './partner';
@@ -55,6 +56,7 @@ export default createSchema({
     featuredVoice,
     featuredVoicesPage,
     featuredVoiceQuote,
+    individualPartnerFeature,
     landingPage,
     libraryOfExpertsPage,
     partner,
