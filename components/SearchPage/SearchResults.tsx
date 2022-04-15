@@ -13,13 +13,14 @@ import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
 const SearchResults = observer(() => {
   const store = useStore();
   const {
-    dataStore: { playbookSearchResults },
+    dataStore: { playbookSearchResults, filteredSearchResults },
   } = store;
+  console.log('playbookSearchResults: ', playbookSearchResults);
 
   return (
     <>
       <div>
-        {playbookSearchResults.map((c, i) => (
+        {filteredSearchResults.map((c, i) => (
           <Card
             key={i}
             last={i === playbookSearchResults.length - 1}

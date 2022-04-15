@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
@@ -35,26 +35,35 @@ const variants = {
 const ResultsFor = observer(() => {
   const store = useStore();
   const {
-    dataStore: { playbookSearchQuery, playbookSearchResults },
+    dataStore: {
+      playbookSearchQuery,
+      playbookSearchResults,
+      playbookLastSearchedQuery,
+    },
   } = store;
 
   return (
-    <motion.div
-      transition={{ duration: 1 }}
-      initial={'out'}
-      animate={playbookSearchResults.length !== 0 ? 'in' : 'out'}
-      variants={variants}
-      className={className}
-    >
-      <h1>{`Results for “${playbookSearchQuery}”`}</h1>
-      <Filters />
-      <style jsx>{`
-        h1 {
-          margin-bottom: 1.25rem;
-        }
-      `}</style>
-      {styles}
-    </motion.div>
+    <AnimatePresence>
+      {playbookSearchResults.length !== 0 && (
+        <motion.div
+          transition={{ duration: 1 }}
+          initial={'out'}
+          animate={'in'}
+          exit={'out'}
+          variants={variants}
+          className={className}
+        >
+          <h1>{`Results for “${playbookLastSearchedQuery}”`}</h1>
+          <Filters />
+          <style jsx>{`
+            h1 {
+              margin-bottom: 1.25rem;
+            }
+          `}</style>
+          {styles}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 });
 

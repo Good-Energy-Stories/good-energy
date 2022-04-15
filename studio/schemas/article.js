@@ -172,6 +172,14 @@ export default {
       },
     },
     {
+      title: 'Next Up',
+      name: 'nextUp',
+      description:
+        'The next article in the playbook that you want to see appear after this article. This is used for the "Next Up" section on the article page.',
+      type: 'reference',
+      to: [{ type: 'article' }],
+    },
+    {
       title: 'Related',
       name: 'related',
       description:

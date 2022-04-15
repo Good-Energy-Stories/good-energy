@@ -145,6 +145,18 @@ export default {
         "A short bio that will be shown on this individual's card in the library of experts",
     },
     {
+      name: 'Information',
+      title: 'Information',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+      description:
+        "Information that will be shown on this individual/organization's card in the library of experts",
+    },
+    {
       title: 'Tags',
       name: 'tags',
       type: 'array',

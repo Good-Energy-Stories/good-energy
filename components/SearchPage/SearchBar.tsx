@@ -18,10 +18,12 @@ const SearchBar = observer(
         playbookSearchQuery,
         setPlaybookSearchQuery,
         setPlaybookSearchResults,
+        setPlaybookLastSearchedQuery,
       },
     } = store;
 
     const search = useCallback(async (query) => {
+      setPlaybookLastSearchedQuery(query);
       const params = { query: `${query}*` };
       const articleSearchResults = await getClient().fetch(
         queries.searchArticlesQuery,

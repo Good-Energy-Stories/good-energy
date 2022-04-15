@@ -32,26 +32,39 @@ const variants = {
 const Filters = observer(() => {
   const store = useStore();
   const {
-    dataStore: { playbookSearchQuery, playbookSearchResults },
+    dataStore: {
+      setPlaybookSearchContentFilter,
+      playbookSearchContentFilter,
+      setPlaybookSearchTagFilter,
+      playbookSearchTagFilter,
+      searchResultsTags,
+    },
   } = store;
-
+  console.log(searchResultsTags);
   return (
     <div className="container">
       <h4>Filters</h4>
       <div className="filter-row">
         <Dropdown
+          onChange={(e) => setPlaybookSearchContentFilter(e.value)}
+          value={playbookSearchContentFilter}
           placeholder="Type"
           options={[
-            { label: 'test', value: 'test' },
-            { label: 'test2', value: 'test2' },
+            { label: 'None', value: null },
+            { label: 'Articles', value: 'article' },
+            { label: 'Expert Profiles', value: 'expertProfile' },
+            { label: 'Character Profiles', value: 'characterProfile' },
+            { label: 'Featured Voices', value: 'featuredVoice' },
           ]}
         />
         <div className="spacer" />
         <Dropdown
+          onChange={(e) => setPlaybookSearchTagFilter(e.value)}
+          value={playbookSearchTagFilter}
           placeholder="Tags"
           options={[
-            { label: 'test', value: 'test' },
-            { label: 'test2', value: 'test2' },
+            { label: 'None', value: null },
+            ...searchResultsTags.map((tag) => ({ label: tag, value: tag })),
           ]}
         />
       </div>

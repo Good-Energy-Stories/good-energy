@@ -5,9 +5,20 @@ import { Header } from '../../../components/About';
 import { PartnerSection } from '../../../components/Partners';
 import { Footer } from '../../../components/Footer';
 import { Card } from '../../../components/Cards';
+import { Experts, Filters } from '../../../components/LibraryOfExperts';
+import { useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../../stores/store';
 const LibraryOfExperts = ({ pageData, expertProfiles }) => {
   const { title, description } = pageData;
+  const store = useStore();
+  const {
+    dataStore: { setLibraryOfExpertsResults },
+  } = store;
 
+  useEffect(() => {
+    setLibraryOfExpertsResults(expertProfiles);
+  }, [expertProfiles, setLibraryOfExpertsResults]);
   return (
     <>
       <Meta />
@@ -15,32 +26,8 @@ const LibraryOfExperts = ({ pageData, expertProfiles }) => {
       <Layout key="library-of-experts" paddingHorizontal={'7.5rem'}>
         <Header title={title} description={description} />
         <PageDivider />
-        <div className="results">
-          {expertProfiles.map((e, i) => {
-            return (
-              <Card
-                key={i}
-                index={i}
-                content={e}
-                last={i === expertProfiles.length - 1}
-              />
-            );
-          })}
-          <style jsx>{`
-            .results {
-              grid-column: 1/5;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-            }
-            @media only screen and (max-width: 768px) {
-              .results {
-                padding: 0 1.25rem;
-              }
-            }
-          `}</style>
-        </div>
+        <Filters />
+        <Experts />
       </Layout>
       <Footer />
     </>

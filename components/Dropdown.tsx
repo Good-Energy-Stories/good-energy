@@ -6,6 +6,8 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { AnimatedUnderline } from './';
 import Link from 'next/link';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 function getStyles(color) {
   return css.resolve`
@@ -30,6 +32,9 @@ function getStyles(color) {
   `;
 }
 
+const arrowClosed = <span className="arrow-closed" />;
+const arrowOpen = <span className="arrow-open" />;
+
 const variants = {
   in: {
     opacity: 1,
@@ -39,91 +44,62 @@ const variants = {
   },
 };
 
-const customStyles = {
-  container: (styles) => ({
-    ...styles,
-    color: 'var(--black)',
-    borderRadius: '0',
-    borderColor: 'var(--black)',
-    backgroundColor: 'var(--blueFive)',
-  }),
-  control: (styles) => ({
-    ...styles,
-    border: '1px solid var(--black)',
-    boxShadow: 'none',
-    color: 'var(--black)',
-    borderRadius: '0',
-    backgroundColor: 'var(--blueFive)',
-    '&:hover': {
-      border: '1px solid var(--black)',
-    },
-  }),
-  dropdownIndicator: (styles) => ({
-    ...styles,
-    color: 'var(--black)',
-  }),
-  placeholder: (styles) => ({
-    ...styles,
-    color: 'var(--black)',
-    fontFamily: 'var(--flexa-mono)',
-    fontSize: '18px',
-    lineHeight: '22px',
-    fontWeight: '400',
-  }),
-  menu: (styles) => ({
-    ...styles,
-    color: 'var(--black)',
-    borderRadius: '0',
-    borderColor: 'var(--black)',
-    backgroundColor: 'var(--blueFive)',
-  }),
-  menuList: (styles) => ({
-    ...styles,
-    color: 'var(--black)',
-    borderRadius: '0',
-    borderColor: 'var(--black)',
-    backgroundColor: 'var(--blueFive)',
-  }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    return {
-      ...styles,
-      backgroundColor: isDisabled
-        ? 'var(--greyBlue)'
-        : isSelected
-        ? 'var(--pink)'
-        : 'var(--blueFive)',
-      color: 'var(--black)',
-      cursor: isDisabled ? 'not-allowed' : 'default',
-      fontFamily: 'var(--flexa-mono)',
-      fontSize: '18px',
-      lineHeight: '22px',
-      fontWeight: '400',
-      '&:hover': {
-        backgroundColor: 'var(--pink)',
-      },
-    };
-  },
-};
-
-const Dropdown = ({
+const GoodEnergyDropdown = ({
   options,
   placeholder,
+  onChange,
+  value,
 }: {
   options: any[];
   placeholder: string;
+  onChange: (any) => void;
+  value: any;
 }) => {
   return (
     <div>
-      {/*<Select
-        styles={customStyles}
-        placeholder={placeholder}
+      <Dropdown
+        className="good-energy-dropdown"
+        controlClassName="good-energy-control"
+        placeholderClassName="good-energy-placeholder"
+        menuClassName="good-energy-menu"
+        arrowClassName="good-energy-arrow"
         options={options}
-        onChange={(value) => {
-          console.log(value);
-        }}
-      />*/}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
+
+      <style global jsx>{`
+        .good-energy-dropdown {
+          background-color: var(--blueFive);
+          width: 200px;
+        }
+        .good-energy-control {
+          border-radius: 0;
+          border: 1px solid var(--black);
+          background-color: var(--blueFive);
+        }
+        .good-energy-placeholder {
+          background-color: var(--blueFive);
+        }
+        .good-energy-menu {
+          border: 1px solid var(--black);
+          background-color: var(--blueFive);
+        }
+        .good-energy-arrow {
+          border-color: var(--black) transparent transparent;
+        }
+
+        .is-open .Dropdown-arrow {
+          border-color: transparent transparent var(--black) !important;
+        }
+        .Dropdown-option {
+          color: var(--blueThree);
+          font-family: var(--flexa);
+        }
+      `}</style>
     </div>
   );
 };
 
-export default Dropdown;
+export default GoodEnergyDropdown;
