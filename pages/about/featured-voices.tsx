@@ -5,8 +5,10 @@ import { Header } from '../../components/About';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { Card } from '../../components/Cards';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Row } from '../../components/FeaturedVoices';
+import { useStore } from '../../stores/store';
+import { observer } from 'mobx-react-lite';
 function chunks(array: any[], n: number): any[] {
   const chunkedArray = [];
   for (let i = 0; i < array.length; i += n) {
@@ -16,10 +18,20 @@ function chunks(array: any[], n: number): any[] {
   return chunkedArray;
 }
 
-const FeaturedVoices = ({ pageData }) => {
+const FeaturedVoices = observer(({ pageData }) => {
+  const store = useStore();
+  const {
+    uiStore: { windowWidth },
+  } = store;
   const [activeQuotes, setActiveQuotes] = useState(null);
   const { title, description, featuredVoices } = pageData;
-  const featuredVoicesRows = [...chunks(featuredVoices, 4)];
+  const featuredVoicesRows = [
+    ...chunks(featuredVoices, windowWidth < 1080 ? 3 : 4),
+  ];
+
+  useEffect(() => {
+    console.log(windowWidth);
+  }, [windowWidth]);
 
   return (
     <>
@@ -70,6 +82,7 @@ const FeaturedVoices = ({ pageData }) => {
               .results {
                 grid-template-columns: repeat(1, minmax(0, 1fr));
                 padding: 0 1.25rem;
+                margin-bottom: 2.5rem;
               }
             }
           `}</style>
@@ -78,7 +91,7 @@ const FeaturedVoices = ({ pageData }) => {
       <Footer />
     </>
   );
-};
+});
 
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(

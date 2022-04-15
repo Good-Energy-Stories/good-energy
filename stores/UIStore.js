@@ -25,6 +25,7 @@ class UIStore {
   lastScrollPosition = 0;
   @observable scrollPositionTotal = 0;
   @observable pageHeight = 0;
+  @observable pageWidth = 0;
   @action.bound closeNavOverlay() {
     this.navOverlayOpen = false;
   }
@@ -70,6 +71,10 @@ class UIStore {
 
   @action.bound updateWindowWidth(width) {
     this.windowWidth = width;
+  }
+  @action.bound updateWindowSize() {
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
   }
   @computed get windowScrollPositionPixels() {
     return this.scrollPosition * this.pageHeight;

@@ -20,6 +20,13 @@ export default {
       type: 'string',
     },
     {
+      name: 'donateLink',
+      title: 'Donate Link',
+      description:
+        "Link a user should be brought to when they click the 'Donate' button. Leaving this blank will mean the button will not appear.",
+      type: 'url',
+    },
+    {
       name: 'showBanner',
       title: 'Show Banner at Top of Page',
       description:

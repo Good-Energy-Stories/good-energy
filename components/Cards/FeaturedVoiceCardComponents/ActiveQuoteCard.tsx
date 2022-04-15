@@ -50,6 +50,11 @@ const ActiveQuoteCard = ({ quotes }) => {
         .container {
           margin-top: 2.5rem;
         }
+        @media only screen and (max-width: 768px) {
+          .container {
+            margin-top: 2.5rem;
+          }
+        }
       `}</style>
     </div>
   );

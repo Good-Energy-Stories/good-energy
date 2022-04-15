@@ -37,7 +37,6 @@ const Team = ({ pageData }) => {
           margin-bottom: 5rem;
         }
         .team {
-          padding: 0 7.5rem;
           grid-column: 1/5;
           display: grid;
 

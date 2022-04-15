@@ -30,7 +30,6 @@ const Root = observer(
     playbookStructure: any;
     preview: boolean;
   }) => {
-    console.log(playbookStructure);
     const { data: pageData } = usePreviewSubscription(
       groq`${queries.landingPageQuery}`,
       {
@@ -46,8 +45,15 @@ const Root = observer(
 
     if (!pageData) return null;
 
-    const { title, subtitle, content, bannerImage, showBanner, bannerCopy } =
-      pageData;
+    const {
+      title,
+      subtitle,
+      content,
+      bannerImage,
+      showBanner,
+      bannerCopy,
+      donateLink,
+    } = pageData;
 
     const navMode =
       scrollPosition > 0.03 ? NavBarStyles.dark : NavBarStyles.light;
@@ -55,7 +61,11 @@ const Root = observer(
       <>
         <Meta />
 
-        <StickyNavBar showBanner={showBanner} mode={navMode} />
+        <StickyNavBar
+          showBanner={showBanner}
+          mode={navMode}
+          donateLink={donateLink}
+        />
         {showBanner && <PageBanner copy={bannerCopy} />}
         <Header title={title} subtitle={subtitle} image={bannerImage} />
         <Layout key="home">

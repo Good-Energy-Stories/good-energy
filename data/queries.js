@@ -400,6 +400,7 @@ export const landingPageQuery = `
   title,
   subtitle,
   showBanner,
+  donateLink,
   bannerCopy,
   bannerImage{
     ${imageMeta}

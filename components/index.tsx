@@ -13,6 +13,8 @@ export { default as Layout } from './Layout';
 export { default as AnimatedUnderline } from './AnimatedUnderline';
 export { default as CTAButton } from './CTAButton';
 export { default as SmallBorderCTAButton } from './SmallBorderCTAButton';
+export { default as MediumBorderCTAButton } from './MediumBorderCTAButton';
+
 export { default as BorderCTAButton } from './BorderCTAButton';
 export { default as PageBanner } from './PageBanner';
 

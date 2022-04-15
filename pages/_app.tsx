@@ -30,7 +30,12 @@ const MyApp = observer(
 
     const {
       dataStore: { setPlaybookNavTableOfContents },
-      uiStore: { navOverlayOpen, clearRouteVariables, updateScrollPosition },
+      uiStore: {
+        navOverlayOpen,
+        clearRouteVariables,
+        updateScrollPosition,
+        updateWindowSize,
+      },
     } = store;
 
     const router = useRouter();
@@ -62,9 +67,11 @@ const MyApp = observer(
     }, []);
 
     useEffect(() => {
+      window.addEventListener('resize', updateWindowSize);
       window.addEventListener('scroll', updateScrollPosition);
       return () => {
         window.removeEventListener('scroll', updateScrollPosition);
+        window.removeEventListener('resize', updateWindowSize);
       };
     }, [updateScrollPosition]);
 

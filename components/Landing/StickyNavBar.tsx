@@ -11,7 +11,16 @@ import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import SearchButton from './SearchButton';
-const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
+import CTAButton from '../CTAButton';
+import { BorderCTAButton, MediumBorderCTAButton } from '..';
+import SmallBorderCTAButton from '../SmallBorderCTAButton';
+const NavLinks = ({
+  theme,
+  donateLink,
+}: {
+  theme?: NavBarStyle;
+  donateLink?: string;
+}) => {
   return (
     <div className="nav-link-xl-bold">
       <Link href="/playbook">
@@ -23,6 +32,14 @@ const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
       </Link>
 
       <a>About</a>
+
+      {donateLink && (
+        <MediumBorderCTAButton
+          href={donateLink}
+          label={'Donate'}
+          color={theme.textColor}
+        />
+      )}
 
       <style jsx>{`
         div {
@@ -52,38 +69,40 @@ const NavLinks = ({ theme }: { theme?: NavBarStyle }) => {
   );
 };
 
-const NavButtons = observer(({ theme }: { theme?: NavBarStyle }) => {
-  const store = useStore();
-  const {
-    uiStore: { openNavOverlay },
-  } = store;
-  return (
-    <div>
-      <button onClick={() => openNavOverlay()}>
-        <HamburgerIcon fill={theme.textColor} />
-      </button>
+const NavButtons = observer(
+  ({ theme, donateLink }: { theme?: NavBarStyle; donateLink?: string }) => {
+    const store = useStore();
+    const {
+      uiStore: { openNavOverlay },
+    } = store;
+    return (
+      <div>
+        <button onClick={() => openNavOverlay()}>
+          <HamburgerIcon fill={theme.textColor} />
+        </button>
 
-      <NavLinks theme={theme} />
-      <style jsx>{`
-        div {
-          display: flex;
-          grid-column: span 3;
-        }
-        button {
-          line-height: 28px;
-          background-color: transparent;
-          display: flex;
-          align-items: center;
-        }
-
-        @media only screen and (max-width: 768px) {
+        <NavLinks theme={theme} donateLink={donateLink} />
+        <style jsx>{`
           div {
+            display: flex;
+            grid-column: span 3;
           }
-        }
-      `}</style>
-    </div>
-  );
-});
+          button {
+            line-height: 28px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+          }
+
+          @media only screen and (max-width: 768px) {
+            div {
+            }
+          }
+        `}</style>
+      </div>
+    );
+  },
+);
 
 const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -212,15 +231,17 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
 const StickyNavBar = ({
   mode = NavBarStyles.light,
   showBanner,
+  donateLink,
 }: {
   mode?: NavBarStyles;
   showBanner: boolean;
+  donateLink?: string;
 }) => {
   const theme = mode === NavBarStyles.dark ? dark : light;
   return (
     <>
       <div>
-        <NavButtons theme={theme} />
+        <NavButtons theme={theme} donateLink={donateLink} />
         <SearchBar theme={theme} />
 
         <style jsx>{`

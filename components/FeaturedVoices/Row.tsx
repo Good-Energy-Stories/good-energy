@@ -11,25 +11,33 @@ const Row = ({ featuredVoices }) => {
       <div className="featured-voices-row">
         <div className="featured-voices-cards">
           {featuredVoices.map((fv, i) => {
+            const active = activeIndex === i;
             return (
-              <Card
-                key={i}
-                index={i}
-                content={fv}
-                last={i === featuredVoices.length - 1}
-                active={activeIndex === i}
-                onActionButtonClicked={() => {
-                  if (fv?.quotes) {
-                    if (activeIndex === i) {
-                      setActiveQuotes(null);
-                      setActiveIndex(null);
-                    } else {
-                      setActiveQuotes(fv.quotes);
-                      setActiveIndex(i);
+              <>
+                <Card
+                  key={i}
+                  index={i}
+                  content={fv}
+                  last={i === featuredVoices.length - 1}
+                  active={active}
+                  onActionButtonClicked={() => {
+                    if (fv?.quotes) {
+                      if (activeIndex === i) {
+                        setActiveQuotes(null);
+                        setActiveIndex(null);
+                      } else {
+                        setActiveQuotes(fv.quotes);
+                        setActiveIndex(i);
+                      }
                     }
-                  }
-                }}
-              />
+                  }}
+                />
+                {active && (
+                  <div className="mobile-featured-voices-active-quote">
+                    <ActiveQuoteCard quotes={activeQuotes} />
+                  </div>
+                )}
+              </>
             );
           })}
         </div>
@@ -54,8 +62,27 @@ const Row = ({ featuredVoices }) => {
           border-bottom: 1px solid var(--blueThree);
           justify-content: space-around;
         }
+        .mobile-featured-voices-active-quote {
+          display: none;
+        }
         .featured-voices-active-quote {
           width: 100%;
+        }
+        @media only screen and (max-width: 768px) {
+          .featured-voices-row {
+            margin-bottom: 0;
+          }
+          .featured-voices-cards {
+            flex-direction: column;
+            justify-content: center;
+            border: 0;
+          }
+          .featured-voices-active-quote {
+            display: none;
+          }
+          .mobile-featured-voices-active-quote {
+            display: block;
+          }
         }
       `}</style>
     </>
