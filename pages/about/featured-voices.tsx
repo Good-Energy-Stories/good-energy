@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Row } from '../../components/FeaturedVoices';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
+
 function chunks(array: any[], n: number): any[] {
   const chunkedArray = [];
   for (let i = 0; i < array.length; i += n) {
@@ -18,7 +19,7 @@ function chunks(array: any[], n: number): any[] {
   return chunkedArray;
 }
 
-const FeaturedVoices = observer(({ pageData }) => {
+const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
   const store = useStore();
   const {
     uiStore: { windowWidth },
