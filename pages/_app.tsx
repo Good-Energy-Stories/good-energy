@@ -61,6 +61,9 @@ const MyApp = observer(
         const playbookStructure = await getClient().fetch(
           groq`${queries.playbookStructureQuery}`,
         );
+        console.log('yooo');
+        console.log(playbookStructure);
+        console.log('yooo');
         setPlaybookNavTableOfContents(playbookStructure);
       };
       initializePlaybookTOC();

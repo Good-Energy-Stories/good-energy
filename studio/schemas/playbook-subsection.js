@@ -2,8 +2,8 @@ import React from 'react';
 import { FaRegListAlt as icon } from 'react-icons/fa';
 
 export default {
-  name: 'playbookSection',
-  title: 'Playbook Section',
+  name: 'playbookSubsection',
+  title: 'Playbook Subsection',
   type: 'document',
   icon,
   fields: [
@@ -21,11 +21,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [
-            { type: 'article' },
-            { type: 'characterProfilesPage' },
-            { type: 'playbookSubsection' },
-          ],
+          to: [{ type: 'article' }],
         },
       ],
     },

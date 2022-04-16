@@ -378,6 +378,13 @@ h4 {
   font-variation-settings: 'wght' 388, 'wdth' 95;
   text-transform: uppercase;
 }
+.playbook-toc-nav-link {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 429, 'wdth' 69;
+  color: var(--blueThree);
+}
 .nav-link-medium {
   font-family: var(--flexa);
   font-size: 20px;

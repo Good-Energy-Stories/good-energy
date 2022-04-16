@@ -25,6 +25,7 @@ import partnerPage from './partners-page';
 import partnerSection from './partner-section';
 import playbookHome from './playbook-home';
 import playbookSection from './playbook-section';
+import playbookSubsection from './playbook-subsection';
 import playbookStructure from './playbook-structure';
 import playbookQuote from './playbook-quote';
 import playbookThreeColumn from './playbook-three-column';
@@ -65,6 +66,7 @@ export default createSchema({
     playbookStructure,
     playbookHome,
     playbookSection,
+    playbookSubsection,
     playbookQuote,
     playbookThreeColumn,
     playlist,

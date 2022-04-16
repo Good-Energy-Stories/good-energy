@@ -272,6 +272,15 @@ quotes[] {
 }
 `;
 
+export const playbookSubsection = `
+title,
+contents[]-> {
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+}
+`;
 export const playbookSection = `
 title,
 contents[]-> {
@@ -279,21 +288,11 @@ contents[]-> {
     _type,
     ${articlePreview}
   },
-  _type == 'playbookSection' => {
+  _type == 'playbookSubsection' => {
     _type,
-    title,
-    contents[]-> {
-      _type == 'article' => {
-        _type,
-        ${articlePreview}
-      },
-      _type == 'characterProfilePage' => {
-        _type,
-        ${characterProfilePagePreview}
-      },
-    }
+    ${playbookSubsection}
   },
-  _type == 'characterProfilePage' => {
+  _type == 'characterProfilesPage' => {
     _type,
     ${characterProfilePagePreview}
   },
@@ -317,7 +316,7 @@ export const contentReferences = `
     _type,
     ${quoteCollection}
   },
-  _type == 'characterProfilePage' => {
+  _type == 'characterProfilesPage' => {
     _type,
     ${characterProfilePagePreview}
   },
