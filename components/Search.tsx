@@ -57,7 +57,7 @@ const Search = ({
         }
         @media only screen and (max-width: 768px) {
           .search-bar {
-            width: ${width ?? 'calc(100vw - 2.5rem)'};
+            width: 100%;
           }
         }
       `}</style>

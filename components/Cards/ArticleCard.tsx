@@ -6,7 +6,7 @@ const ArticleFeatured = dynamic(() => import('./ArticleFeatured'));
 const ArticleFeaturedSecondary = dynamic(
   () => import('./ArticleFeaturedSecondary'),
 );
-
+const ArticleNextUp = dynamic(() => import('./ArticleNextUp'));
 const ArticleReadMore = dynamic(() => import('./ArticleReadMore'));
 export interface ArticleCardData {
   title: string;
@@ -25,6 +25,7 @@ export enum ArticleCardStyle {
   featured = 'featured',
   featuredSecondary = 'featuredSecondary',
   featuredSecondaryWide = 'featuredSecondaryWide',
+  nextUp = 'nextUp',
 }
 const ArticleCard = ({
   data,
@@ -48,6 +49,8 @@ const ArticleCard = ({
       return <ArticleReadMore data={data} />;
     case ArticleCardStyle.featured:
       return <ArticleFeatured data={data} />;
+    case ArticleCardStyle.nextUp:
+      return <ArticleNextUp data={data} />;
     case ArticleCardStyle.featuredSecondary:
       return (
         <ArticleFeaturedSecondary

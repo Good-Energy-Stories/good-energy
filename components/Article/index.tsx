@@ -9,3 +9,4 @@ export type { SectionRefLookup } from './Section';
 export { default as TOC } from './TOC/TOC';
 export type { SectionTOC, SectionsTOC } from './TOC/TOC';
 export { default as AuthorSection } from './AuthorSection';
+export { default as NextUp } from './NextUp';

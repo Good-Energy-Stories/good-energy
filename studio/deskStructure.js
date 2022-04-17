@@ -65,6 +65,8 @@ export default () =>
             'quoteCollection',
             'teamMember',
             'teamPage',
+            'twoWorldsArticle',
+            'whyClimateArticle',
           ].includes(listItem.getId()),
       ),
     ]);

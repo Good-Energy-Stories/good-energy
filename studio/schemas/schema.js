@@ -37,6 +37,11 @@ import resourceSection from './resource-section';
 import seo from './seo';
 import team from './team-member';
 import teamPage from './team-page';
+import twoWorldsArticle from './two-worlds-article';
+import twoWorldsCompareSection from './two-worlds-compare-section';
+import twoWorldsSection from './two-worlds-section';
+import whyClimateArticle from './why-climate-article';
+import whyClimateTextBlock from './why-climate-text-block';
 
 export default createSchema({
   name: 'default',
@@ -77,5 +82,10 @@ export default createSchema({
     seo,
     team,
     teamPage,
+    twoWorldsArticle,
+    twoWorldsCompareSection,
+    twoWorldsSection,
+    whyClimateArticle,
+    whyClimateTextBlock,
   ]),
 });

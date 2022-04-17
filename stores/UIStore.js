@@ -11,6 +11,9 @@ class UIStore {
 
   @observable activeFilter = DEFAULT_FILTER;
   lastActiveFilter = DEFAULT_FILTER;
+  @observable borderColor = 'var(--pink)';
+  @observable textColor = 'var(--black)';
+  @observable backgroundColor = 'var(--blueFive)';
 
   @observable navOverlayOpen = false;
   @observable playbookNavOverlayOpen = false;
@@ -26,6 +29,16 @@ class UIStore {
   @observable scrollPositionTotal = 0;
   @observable pageHeight = 0;
   @observable pageWidth = 0;
+
+  @action.bound setBorderColor(color) {
+    this.borderColor = color;
+  }
+  @action.bound setTextColor(color) {
+    this.textColor = color;
+  }
+  @action.bound setBackgroundColor(color) {
+    this.backgroundColor = color;
+  }
   @action.bound closeNavOverlay() {
     this.navOverlayOpen = false;
   }

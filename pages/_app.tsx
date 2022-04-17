@@ -35,6 +35,9 @@ const MyApp = observer(
         clearRouteVariables,
         updateScrollPosition,
         updateWindowSize,
+        borderColor,
+        textColor,
+        backgroundColor,
       },
     } = store;
 
@@ -45,16 +48,13 @@ const MyApp = observer(
         clearRouteVariables();
         ga.pageview(url);
       };
-      //When the component is mounted, subscribe to router changes
-      //and log those page views
+
       router.events.on('routeChangeComplete', handleRouteChange);
 
-      // If the component is unmounted, unsubscribe
-      // from the event with the `off` method
       return () => {
         router.events.off('routeChangeComplete', handleRouteChange);
       };
-    }, [router.events]);
+    }, [router.events, clearRouteVariables]);
 
     useEffect(() => {
       const initializePlaybookTOC = async () => {
@@ -98,8 +98,6 @@ const MyApp = observer(
           };
         });
 
-        console.log('sections', sections);
-
         setPlaybookSections(sections);
         setPlaybookNavTableOfContents(playbookStructure);
       };
@@ -113,7 +111,7 @@ const MyApp = observer(
         window.removeEventListener('scroll', updateScrollPosition);
         window.removeEventListener('resize', updateWindowSize);
       };
-    }, [updateScrollPosition]);
+    }, [updateScrollPosition, updateWindowSize]);
 
     return (
       <Provider store={store}>
@@ -124,6 +122,11 @@ const MyApp = observer(
         <style jsx global>{`
           body {
             overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
+            border: 12px solid ${borderColor};
+            color: ${textColor};
+            background-color: ${backgroundColor};
+            transition-delay: 2s;
+            transition: 1s ease-in-out;
           }
         `}</style>
       </Provider>

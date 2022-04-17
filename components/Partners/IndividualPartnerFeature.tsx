@@ -11,6 +11,7 @@ import Card from './Card';
 
 const { className, styles } = css.resolve`
   div {
+    margin-top: 5rem;
     grid-column: 1/5;
     padding: 0 2.5rem;
     background-color: var(--blueFive);
@@ -36,7 +37,6 @@ const variants = {
 
 const IndividualPartnerFeature = ({ data }: { data: any }) => {
   const { description, partner } = data;
-  console.log(data.partner);
   return (
     <motion.div
       transition={{ duration: 2 }}

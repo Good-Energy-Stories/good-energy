@@ -542,6 +542,65 @@ export const searchFeaturedVoicesQuery = `*[_type == "featuredVoice" && quotes[]
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
 export const characterProfilePathsQuery = `*[_type == "characterProfile"] { slug }`;
+
+export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] { 
+  title,
+  smallTitle,
+  description,
+  author[]-> {
+    _type == 'expertProfile' => {
+      _type,
+      ${expertProfilePreview}
+    },
+    _type == 'author' => {
+      _type,
+    ${author}
+    }
+  },
+  content[]{
+    _type == 'illustration' => {
+      _type,
+      ${imageMeta}
+    },
+    _type == 'twoWorldsSection' => {
+      _type,
+      title,
+      body
+    },
+    _type == 'twoWorldsCompareSection' => {
+      _type,
+      year,
+      initialSection,
+      rise[] {
+        _type == 'twoWorldsSection' => {
+          _type,
+          title,
+          body
+        },
+      },
+      collapse[] {
+        _type == 'twoWorldsSection' => {
+          _type,
+          title,
+          body
+        },
+      }
+    },
+    
+  
+   
+    
+  },
+  related[]-> {
+    ${related}
+  },
+  nextUp->{
+    _type,
+    ${articlePreview}
+  }
+
+ }[0]`;
+
 export const expertProfilePathsQuery = `*[_type == "expertProfile" && includeSpotlightPage == true] { slug }`;
 
 export const articleQuery = `*[_type == "article" && slug.current == $slug] {

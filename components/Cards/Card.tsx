@@ -31,6 +31,7 @@ export const Card = ({
   active?: boolean;
   onActionButtonClicked?: () => void;
 }) => {
+  if (!content) return null;
   const type = content._type;
   switch (type) {
     case 'article':

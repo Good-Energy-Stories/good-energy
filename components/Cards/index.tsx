@@ -8,6 +8,7 @@ export { default as ArticleStandard } from './ArticleStandard';
 export { default as ArticleSmall } from './ArticleSmall';
 export { default as ArticleFeatured } from './ArticleFeatured';
 export { default as ArticleFeaturedSecondary } from './ArticleFeaturedSecondary';
+export { default as ArticleNextUp } from './ArticleNextUp';
 export { default as FeaturedTag } from './FeaturedTag';
 export { default as ArticleReadMore } from './ArticleReadMore';
 export { default as CharacterProfileFeaturedSecondary } from './CharacterProfileFeaturedSecondary';

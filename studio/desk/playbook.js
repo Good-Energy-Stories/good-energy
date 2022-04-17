@@ -1,8 +1,8 @@
 import S from '@sanity/desk-tool/structure-builder';
 import { GiBookCover } from 'react-icons/gi';
-import { BsPersonFill } from 'react-icons/bs';
+import { BsPersonFill, BsThermometerHalf } from 'react-icons/bs';
 import { BsCircleFill } from 'react-icons/bs';
-import { GiQuillInk } from 'react-icons/gi';
+import { GiQuillInk, GiWorld } from 'react-icons/gi';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FaRegListAlt } from 'react-icons/fa';
 import { MdOutlineLineStyle } from 'react-icons/md';
@@ -45,6 +45,24 @@ export const playbookMenu = S.listItem()
             S.documentTypeList('quoteCollection').title('Quote Collections'),
           )
           .icon(FaQuoteLeft),
+        S.listItem()
+          .title('Two Worlds Article')
+          .child(
+            S.document()
+              .title('Two Worlds Article')
+              .schemaType('twoWorldsArticle')
+              .documentId('twoWorldsArticle'),
+          )
+          .icon(GiWorld),
+        S.listItem()
+          .title('Why Climate Article')
+          .child(
+            S.document()
+              .title('Why Climate Article')
+              .schemaType('whyClimateArticle')
+              .documentId('whyCliamteArticle'),
+          )
+          .icon(BsThermometerHalf),
         S.listItem()
           .title('Playbook Sections')
           .child(
