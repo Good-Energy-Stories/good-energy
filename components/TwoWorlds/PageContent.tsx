@@ -13,7 +13,7 @@ export const PageContent = ({ index, content }) => {
       return <CompareSection index={index} data={content} />;
     case 'illustration':
       console.log('illlll', content);
-      return <Illustration index={index} data={content} />;
+      return <Illustration data={content} />;
     case 'twoWorldsSection':
       return <SingleSection index={index} data={content} />;
 

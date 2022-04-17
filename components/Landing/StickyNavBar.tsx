@@ -15,9 +15,6 @@ import CTAButton from '../CTAButton';
 import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
 
-const NavDropdown = observer(() => {
-  return;
-});
 const NavLinks = ({
   theme,
   donateLink,
