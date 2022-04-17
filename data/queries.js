@@ -207,7 +207,12 @@ body[] {
 related[]-> {
   ${related}
 },
-"relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0]
+"relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0],
+nextUp->{
+  _type,
+  ${articlePreview}
+}
+
 `;
 
 export const characterProfilePagePreview = `

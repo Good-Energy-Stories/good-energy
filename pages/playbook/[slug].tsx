@@ -15,6 +15,7 @@ import {
   Introduction,
   Banner,
   AuthorSection,
+  NextUp,
 } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useRef } from 'react';
@@ -78,6 +79,7 @@ const Project = observer(
           <Introduction body={article?.introduction} />
           <Body body={article?.body} sectionsRef={sectionsRef} />
           <AuthorSection content={article?.author} />
+          <NextUp article={article?.nextUp} />
           <Related content={article?.related} />
         </Layout>
         <Footer />

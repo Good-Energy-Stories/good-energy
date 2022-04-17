@@ -26,13 +26,13 @@ const variants = {
 
 const Tags = ({
   tags,
-  truncateTags,
+  truncateTags = true,
 }: {
   tags: string[];
   truncateTags?: boolean;
 }) => {
   const truncatedTags =
-    truncateTags && tags.length < 3 ? tags : tags.slice(0, 3);
+    !truncateTags || tags.length < 3 ? tags : tags.slice(0, 3);
 
   return (
     <motion.div

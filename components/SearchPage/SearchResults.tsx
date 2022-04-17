@@ -25,7 +25,7 @@ const SearchResults = observer(() => {
             key={i}
             last={i === playbookSearchResults.length - 1}
             content={c}
-            articleCardStyle={ArticleCardStyle.featuredSecondary}
+            articleCardStyle={ArticleCardStyle.search}
             characterProfileCardStyle={
               CharacterProfileCardStyle.featuredSecondary
             }
