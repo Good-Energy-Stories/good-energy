@@ -24,7 +24,16 @@ const variants = {
   },
 };
 
-const Tags = ({ tags }: { tags: string[] }) => {
+const Tags = ({
+  tags,
+  truncateTags,
+}: {
+  tags: string[];
+  truncateTags?: boolean;
+}) => {
+  const truncatedTags =
+    truncateTags && tags.length < 3 ? tags : tags.slice(0, 3);
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -34,7 +43,7 @@ const Tags = ({ tags }: { tags: string[] }) => {
       variants={variants}
       className={className}
     >
-      {tags.map((t, i) => (
+      {truncatedTags.map((t, i) => (
         <Tag key={`${t}${i}`} tag={t} />
       ))}
 

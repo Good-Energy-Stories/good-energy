@@ -446,6 +446,65 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
   },
 }[0]`;
 
+export const structureSectionsFirstArticle = `*[_type == "playbookStructure"] { 
+introduction[]->{
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+},
+why[]->{
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+},
+credits-> {
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+}
+}[0]
+`;
+export const sectionsFirstArticle = `*[_type == "playbookSection"] { 
+  title,
+  "firstArticle": contents[0]->{
+    _type == 'article' => {
+      _type,
+      title,
+      "slug": slug.current,
+    },
+  },
+  "articles": contents[]->{
+    _type == 'article' => {
+      _type,
+      title,
+      "slug": slug.current,
+    },
+    _type == 'playbookSubsection' => {
+      _type,
+      title,
+      contents[]->{
+        _type == 'article' => {
+          _type,
+          title,
+          "slug": slug.current,
+        },
+      }
+    },
+    _type == 'characterProfilesPage' => {
+      _type,
+      "title": "Character Profiles",
+      "slug": "characters",
+    },
+  }
+  }
+  `;
+
 export const characterProfilePageQuery = `
 *[_type == "characterProfilesPage" ] {
   ${characterProfilePagePreview},

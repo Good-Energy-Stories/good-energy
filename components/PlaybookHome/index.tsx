@@ -5,3 +5,5 @@ export { default as Playlist } from './Playlist';
 export { default as ThreeColumnLayout } from './ThreeColumnLayout';
 export { default as StickyNavBar } from './StickyNavBar';
 export { ThreeColumnLayoutStyle } from './ThreeColumnLayout';
+export { default as SecondaryNavMenu } from './SecondaryNavMenu';
+export { default as DropdownMenu } from './DropdownMenu';

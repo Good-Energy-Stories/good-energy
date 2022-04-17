@@ -8,42 +8,8 @@ import Link from 'next/link';
 import { SearchButton } from '../Landing';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-const NavDropdownButton = () => {
-  return (
-    <div className="border">
-      <button>
-        Contents
-        <span>
-          <ArrowIcon />
-        </span>
-      </button>
-
-      <style jsx>{`
-        div {
-          display: flex;
-          align-items: center;
-        }
-        span {
-          margin-left: 10px;
-          padding-bottom: 4px;
-        }
-        .border {
-          border-left: 4px solid var(--black);
-          border-right: 4px solid var(--black);
-        }
-        button {
-          line-height: 28px;
-          background-color: var(--blueFive);
-        }
-        @media only screen and (max-width: 768px) {
-          div {
-            display: none;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
+import { SecondaryNavMenu } from './';
+import NavDropdownButton from './NavDropdownButton';
 
 const NavLinks = () => {
   return (
@@ -52,13 +18,9 @@ const NavLinks = () => {
 
       <a>Featured Voices</a>
 
-      <a>About</a>
-
       <Link href="/about/partners">
         <a>Partners</a>
       </Link>
-
-      <a>Credits</a>
 
       <style jsx>{`
         div {
@@ -87,39 +49,44 @@ const NavLinks = () => {
   );
 };
 
-const NavButtons = observer(() => {
-  const store = useStore();
-  const {
-    uiStore: { openNavOverlay },
-  } = store;
-  return (
-    <div>
-      <button onClick={() => openNavOverlay()}>
-        <HamburgerIcon fill="var(--black)" />
-      </button>
-
-      <NavLinks />
-      <style jsx>{`
-        div {
-          display: flex;
-          grid-column: span 3;
-        }
-        button {
-          line-height: 28px;
-          background-color: var(--blueFive);
-          display: flex;
-          align-items: center;
-          border-right: 4px solid var(--black);
-        }
-
-        @media only screen and (max-width: 768px) {
+const NavButtons = observer(
+  ({ setExpanded, expanded }: { setExpanded: any; expanded: boolean }) => {
+    const store = useStore();
+    const {
+      uiStore: { openNavOverlay },
+    } = store;
+    return (
+      <div>
+        <button onClick={() => openNavOverlay()}>
+          <HamburgerIcon fill="var(--black)" />
+        </button>
+        <NavDropdownButton
+          onClick={() => setExpanded(!expanded)}
+          expanded={expanded}
+        />
+        <NavLinks />
+        <style jsx>{`
           div {
+            display: flex;
+            grid-column: span 3;
           }
-        }
-      `}</style>
-    </div>
-  );
-});
+          button {
+            line-height: 28px;
+            background-color: var(--blueFive);
+            display: flex;
+            align-items: center;
+            border-right: 4px solid var(--black);
+          }
+
+          @media only screen and (max-width: 768px) {
+            div {
+            }
+          }
+        `}</style>
+      </div>
+    );
+  },
+);
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -191,12 +158,13 @@ const SearchBar = () => {
 };
 
 const StickyNavBar = (props) => {
+  const [expanded, setExpanded] = useState(false);
   return (
     <>
       <div>
-        <NavButtons />
+        <NavButtons setExpanded={setExpanded} expanded={expanded} />
         <SearchBar />
-
+        <SecondaryNavMenu expanded={expanded} />
         <style jsx>{`
           div {
             border-top: 5px solid var(--black);
@@ -204,6 +172,7 @@ const StickyNavBar = (props) => {
             display: grid;
             grid-template-columns: var(--grid-col);
             justify-content: space-between;
+
             position: sticky;
             top: 0;
             font-size: 20px;

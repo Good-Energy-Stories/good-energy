@@ -29,7 +29,7 @@ const MyApp = observer(
     const store = useStore(pageProps.initialState);
 
     const {
-      dataStore: { setPlaybookNavTableOfContents },
+      dataStore: { setPlaybookNavTableOfContents, setPlaybookSections },
       uiStore: {
         navOverlayOpen,
         clearRouteVariables,
@@ -61,9 +61,46 @@ const MyApp = observer(
         const playbookStructure = await getClient().fetch(
           groq`${queries.playbookStructureQuery}`,
         );
-        console.log('yooo');
-        console.log(playbookStructure);
-        console.log('yooo');
+
+        const climateStoryTellingSections = await getClient().fetch(
+          groq`${queries.sectionsFirstArticle}`,
+        );
+        const mainSections = await getClient().fetch(
+          groq`${queries.structureSectionsFirstArticle}`,
+        );
+
+        const introSection = {
+          title: 'Introduction',
+          firstArticle: mainSections.introduction[0],
+          articles: mainSections.introduction,
+        };
+        const whySection = {
+          title: 'The Why',
+          firstArticle: mainSections.why[0],
+          articles: mainSections.why,
+        };
+        const creditsSection = {
+          title: 'Credits',
+          firstArticle: mainSections.credits,
+          articles: [mainSections.credits],
+        };
+
+        const sections = [
+          introSection,
+          whySection,
+          ...climateStoryTellingSections,
+          creditsSection,
+        ].map((s) => {
+          return {
+            label: s.title,
+            articles: s.articles,
+            href: `/playbook/${s.firstArticle.slug}`,
+          };
+        });
+
+        console.log('sections', sections);
+
+        setPlaybookSections(sections);
         setPlaybookNavTableOfContents(playbookStructure);
       };
       initializePlaybookTOC();

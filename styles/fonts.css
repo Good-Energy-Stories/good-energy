@@ -385,6 +385,20 @@ h4 {
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
 }
+.playbook-toc-nav-link-small {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 429, 'wdth' 40;
+  color: var(--blueThree);
+}
+.playbook-toc-nav-link-extra-small {
+  font-family: var(--flexa);
+  font-size: 14px;
+  line-height: 16px;
+  font-variation-settings: 'wght' 429, 'wdth' 40;
+  color: var(--blueThree);
+}
 .nav-link-medium {
   font-family: var(--flexa);
   font-size: 20px;

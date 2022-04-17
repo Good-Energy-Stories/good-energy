@@ -1,33 +1,39 @@
 import { LinkColumn } from './';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../stores/store';
 
 const playbook = [
-  { label: 'Introduction', link: '' },
-  { label: 'The Why', link: '' },
-  { label: 'Climate Storytelling', link: '' },
-  { label: 'Solutions on Screen', link: '' },
-  { label: 'Characters', link: '' },
-  { label: 'Story World', link: '' },
-  { label: 'Climate Storytelling', link: '' },
-  { label: 'Credits', link: '' },
+  { label: 'Introduction', href: '' },
+  { label: 'The Why', href: '' },
+  { label: 'Climate Storytelling', href: '' },
+  { label: 'Solutions on Screen', href: '' },
+  { label: 'Characters', href: '' },
+  { label: 'Story World', href: '' },
+  { label: 'Climate Storytelling', href: '' },
+  { label: 'Credits', href: '' },
 ];
 
 const resources = [
-  { label: 'Library of Experts', link: '/about/library-of-experts' },
-  { label: 'Partner Organizations', link: '/about/partners' },
+  { label: 'Library of Experts', href: '/about/library-of-experts' },
+  { label: 'Partner Organizations', href: '/about/partners' },
 ];
 
 const team = [
-  { label: 'Team', link: '/about/team' },
-  { label: 'Contact', link: '/about/contact' },
+  { label: 'Team', href: '/about/team' },
+  { label: 'Contact', href: '/about/contact' },
 ];
 
-const links = [
-  { label: 'Playbook', links: playbook },
-  { label: 'Resources', links: resources },
-  { label: 'Team', links: team },
-];
+const Links = observer(() => {
+  const store = useStore();
+  const {
+    dataStore: { playbookSections },
+  } = store;
 
-const Links = () => {
+  const links = [
+    { label: 'Playbook', links: playbookSections },
+    { label: 'Resources', links: resources },
+    { label: 'Team', links: team },
+  ];
   return (
     <>
       <div className="links">
@@ -49,6 +55,6 @@ const Links = () => {
       `}</style>
     </>
   );
-};
+});
 
 export default Links;

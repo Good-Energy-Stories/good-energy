@@ -72,5 +72,13 @@ export default {
         },
       ],
     },
+    {
+      title: 'Credits',
+      name: 'credits',
+      description:
+        'Add the article here that contains the credits for the playbook.',
+      type: 'reference',
+      to: [{ type: 'article' }],
+    },
   ],
 };

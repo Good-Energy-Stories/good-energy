@@ -8,6 +8,7 @@ class DataStore {
 
     makeObservable(this);
   }
+  @observable playbookSections = [];
 
   @observable playbookNavTableOfContents = null;
   @observable playbookSearchQuery = '';
@@ -82,6 +83,10 @@ class DataStore {
     };
 
     return tagFilteredResults.sort(alphabeticalSort);
+  }
+
+  @action.bound setPlaybookSections(sections) {
+    this.playbookSections = sections;
   }
   @action.bound setPlaybookNavTableOfContents(toc) {
     this.playbookNavTableOfContents = toc;

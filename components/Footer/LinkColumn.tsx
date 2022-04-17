@@ -13,7 +13,7 @@ const LinkColumn = ({
       <div className="col">
         <h4>{label}</h4>
         {links.map((l) => (
-          <Link key={l.label} href={l.link} passHref>
+          <Link key={l.label} href={l.href ?? '/'} passHref>
             <a>
               <div className="link">{l.label}</div>
             </a>

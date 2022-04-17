@@ -1,6 +1,6 @@
 interface FooterLink {
   label: string;
-  link: string;
+  href: string;
 }
 
 export default FooterLink;
