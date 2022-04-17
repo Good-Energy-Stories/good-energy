@@ -14,6 +14,10 @@ import SearchButton from './SearchButton';
 import CTAButton from '../CTAButton';
 import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
+
+const NavDropdown = observer(() => {
+  return;
+});
 const NavLinks = ({
   theme,
   donateLink,
@@ -140,6 +144,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           padding-top: 3px;
         }
         .search-container {
+          overflow: hidden;
           width: 100%;
           position: relative;
           padding-left: 0.625rem;
