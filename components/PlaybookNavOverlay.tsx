@@ -144,6 +144,7 @@ const TOCSubsection = ({ content }) => {
 };
 
 const TOCSubsubsection = ({ content }) => {
+  console.log(content);
   return (
     <div>
       <div className="playbook-toc-nav-link">{content?.title}</div>

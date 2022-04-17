@@ -122,11 +122,14 @@ const MyApp = observer(
         <style jsx global>{`
           body {
             overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
-            border: 12px solid ${borderColor};
+            border-width: 12px;
+            border-style: solid;
+            border-color: ${borderColor};
             color: ${textColor};
             background-color: ${backgroundColor};
             transition-delay: 2s;
-            transition: 1s ease-in-out;
+            transition: border-color, background-color,
+              background-color 1s ease-in-out;
           }
         `}</style>
       </Provider>

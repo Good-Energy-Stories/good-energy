@@ -279,6 +279,11 @@ contents[]-> {
     _type,
     ${articlePreview}
   },
+  _type == 'twoWorldsArticle' => {
+    _type,
+    title,
+    "slug": "two-worlds",
+  },
 }
 `;
 export const playbookSection = `
@@ -493,6 +498,11 @@ export const sectionsFirstArticle = `*[_type == "playbookSection"] {
           _type,
           title,
           "slug": slug.current,
+        },
+        _type == 'twoWorldsArticle' => {
+          _type,
+          title,
+          "slug": "two-worlds",
         },
       }
     },

@@ -50,7 +50,8 @@ const DropdownSubsection = ({ title, contents }) => {
     <div className="container">
       <div className="playbook-toc-nav-link-small">{title}</div>
       {contents.map((s) => {
-        const { title, slug } = s;
+        const { _type, title, slug } = s;
+
         return (
           <Link href={`/playbook/${slug}`} key={title}>
             <a className="playbook-toc-nav-link-extra-small">{title}</a>
@@ -130,7 +131,6 @@ const DropdownMenu = observer(
               {articles.map((s) => {
                 const { _type, title, slug } = s;
                 if (_type === 'playbookSubsection') {
-                  console.log('s', s);
                   return (
                     <DropdownSubsection
                       key={s.title}

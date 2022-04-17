@@ -21,7 +21,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'article' }],
+          to: [{ type: 'twoWorldsArticle' }, { type: 'article' }],
         },
       ],
     },
