@@ -56,7 +56,7 @@ const Root = observer(
     } = pageData;
 
     const navMode =
-      scrollPosition > 0.03 ? NavBarStyles.dark : NavBarStyles.light;
+      scrollPosition > 0.001 ? NavBarStyles.dark : NavBarStyles.light;
     return (
       <>
         <Meta />

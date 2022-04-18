@@ -7,6 +7,7 @@ import { ReactChild, Key } from 'react';
 
 const { className, styles } = css.resolve`
   div {
+    word-break: break-word;
   }
   @media only screen and (max-width: 768px) {
     div {

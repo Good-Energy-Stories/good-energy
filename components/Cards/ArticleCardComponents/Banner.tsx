@@ -42,7 +42,7 @@ const Banner = ({ image }: { image: any }) => {
           min-width: 228px;
           max-width: 100%;
         }
-        @media only screen and (min-width: 768px) {
+        @media only screen and (max-width: 1080px) {
           img {
             min-width: 100%;
             max-width: 100%;
