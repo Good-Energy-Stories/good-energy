@@ -83,6 +83,7 @@ const AuthorCard = ({
   const {
     name,
     authorBio,
+    shortBio,
     slug,
     portraitImage,
     smallPortraitImage,
@@ -110,8 +111,11 @@ const AuthorCard = ({
           )}
         </div>
         <div className="right">
-          {authorBio ? (
-            <PortableText value={authorBio} components={AuthorBioSerializer} />
+          {authorBio || shortBio ? (
+            <PortableText
+              value={authorBio || shortBio}
+              components={AuthorBioSerializer}
+            />
           ) : (
             <h2>{name}</h2>
           )}

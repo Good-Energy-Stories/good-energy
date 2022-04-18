@@ -177,19 +177,58 @@ portraitImage{
 }
 `;
 
+export const featureVoiceQuote = `
+quote,
+isFromArticle,
+attribution,
+article-> {
+  ${articlePreview}
+}`;
+
+export const featuredVoice = `
+_type,
+name,
+credentials,
+shortBio,
+portraitImage{
+  ${imageMeta}
+},
+quotes[] {
+ ${featureVoiceQuote}
+}
+`;
+
+export const featuredVoiceAuthor = `
+_type,
+name,
+credentials,
+shortBio,
+portraitImage{
+  ${imageMeta}
+}
+`;
+
+export const authorReferences = `
+_type == 'expertProfile' => {
+  _type,
+  ${expertProfilePreview}
+},
+_type == 'featuredVoice' => {
+  _type,
+  ${featuredVoiceAuthor}
+},
+_type == 'author' => {
+  _type,
+${author}
+}
+`;
+
 export const article = `
 title,
 lede,
 byline,
 author[]-> {
-  _type == 'expertProfile' => {
-    _type,
-    ${expertProfilePreview}
-  },
-  _type == 'author' => {
-    _type,
-  ${author}
-  }
+  ${authorReferences}
 },
 tags[],
 section,
@@ -420,27 +459,6 @@ export const landingPageQuery = `
 }[0]
 `;
 
-export const featureVoiceQuote = `
-quote,
-isFromArticle,
-attribution,
-article-> {
-  ${articlePreview}
-}`;
-
-export const featuredVoice = `
-_type,
-name,
-credentials,
-shortBio,
-portraitImage{
-  ${imageMeta}
-},
-quotes[] {
- ${featureVoiceQuote}
-}
-`;
-
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
   introduction[]->{
     ${contentReferences}
@@ -563,14 +581,7 @@ export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] {
   smallTitle,
   description,
   author[]-> {
-    _type == 'expertProfile' => {
-      _type,
-      ${expertProfilePreview}
-    },
-    _type == 'author' => {
-      _type,
-    ${author}
-    }
+    ${authorReferences}
   },
   content[]{
     _type == 'illustration' => {
@@ -620,14 +631,7 @@ export const whyClimateArticle = `*[_type == "whyClimateArticle"] {
   title,
   subtitle,
   author[]-> {
-    _type == 'expertProfile' => {
-      _type,
-      ${expertProfilePreview}
-    },
-    _type == 'author' => {
-      _type,
-    ${author}
-    }
+    ${authorReferences}
   },
   content[] {
     _type == 'illustration' => {
