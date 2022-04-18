@@ -29,6 +29,7 @@ const PathDivider = () => {
 };
 
 const PathLabel = ({ label, href, last }) => {
+  if (!label) return null;
   return (
     <>
       <div>
