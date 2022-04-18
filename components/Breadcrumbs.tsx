@@ -34,10 +34,10 @@ const PathLabel = ({ label, href, last }) => {
     <>
       <div>
         {last ? (
-          <span className="label-medium">{label?.replaceAll('-', ' ')}</span>
+          <span className="label-medium">{label}</span>
         ) : (
           <Link href={href}>
-            <a className="label-medium">{label?.replaceAll('-', ' ')}</a>
+            <a className="label-medium">{label}</a>
           </Link>
         )}
         {!last && <PathDivider />}
