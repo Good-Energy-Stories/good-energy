@@ -17,13 +17,19 @@ import {
 import { Header, Characters } from '../../../components/CharacterProfilesHome';
 import { Footer } from '../../../components/Footer';
 import Related from '../../../components/Related';
+import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 const Root = ({ pageData }) => {
   console.log('pageData:', pageData);
-  const { title, description, related, characterProfiles } = pageData;
+  const { title, description, related, characterProfiles, seo } = pageData;
   return (
     <>
-      <Meta />
+      <Meta
+        title={seo?.title}
+        description={seo?.description}
+        slug={'playbook/characters'}
+        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
+      />
 
       <StickyNavBar label="Playbook Contents" />
 

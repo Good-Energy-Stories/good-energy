@@ -177,6 +177,13 @@ portraitImage{
 }
 `;
 
+export const pageSeo = `
+title,
+description,
+image {
+  ${imageMeta}
+}`;
+
 export const featureVoiceQuote = `
 quote,
 isFromArticle,
@@ -453,6 +460,9 @@ export const playbookSections = `
 export const landingPageQuery = `
 *[_type == "landingPage" ] {
   "id": _id,
+  seo {
+    ${pageSeo}
+  },
   title,
   subtitle,
   showBanner,
@@ -553,6 +563,9 @@ export const sectionsFirstArticle = `*[_type == "playbookSection"] {
 
 export const characterProfilePageQuery = `
 *[_type == "characterProfilesPage" ] {
+  seo {
+    ${pageSeo}
+  },
   ${characterProfilePagePreview},
   characterProfiles[]-> {
     ${characterProfilePreview}

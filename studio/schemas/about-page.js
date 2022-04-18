@@ -7,6 +7,11 @@ export default {
   icon,
   fields: [
     {
+      name: 'seo',
+      title: 'SEO',
+      type: 'pageSeo',
+    },
+    {
       name: 'headline',
       title: 'Headline',
       type: 'text',

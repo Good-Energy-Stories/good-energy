@@ -8,15 +8,27 @@ import {
   PageDivider,
   PageDividerLabelSize,
 } from '../../components/PageDivider';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const Team = ({ pageData }) => {
   console.log(pageData);
-  const { title, description, featuredTeamMembers, teamMembers, boardMembers } =
-    pageData;
+  const {
+    title,
+    description,
+    featuredTeamMembers,
+    teamMembers,
+    boardMembers,
+    seo,
+  } = pageData;
 
   return (
     <>
-      <Meta />
+      <Meta
+        title={seo?.title}
+        description={seo?.description}
+        slug={'about/team'}
+        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
+      />
       <StickyNavBar />
       <Layout key="team" paddingHorizontal={'2.5rem'}>
         <Header title={title} description={description} />
@@ -83,6 +95,9 @@ export const getStaticProps = async () => {
     `
         *[_type == "teamPage" ] {
           "id": _id,
+          seo {
+            ${queries.pageSeo}
+          },
           title,
           featuredTeamMembers[]-> {
             ${queries.teamMember}

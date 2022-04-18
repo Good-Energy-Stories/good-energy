@@ -15,9 +15,10 @@ import {
   ThreeColumnLayoutStyle,
 } from '../components/PlaybookHome';
 import { Footer } from '../components/Footer';
+import { imageUrlFor } from '../utils/imageUrlFor';
 
 const Root = ({ pageData }) => {
-  const { masthead, content } = pageData;
+  const { masthead, content, seo } = pageData;
 
   const clearCookie = async () => {
     await fetch('/api/logout', {
@@ -30,7 +31,12 @@ const Root = ({ pageData }) => {
 
   return (
     <>
-      <Meta />
+      <Meta
+        title={seo?.title}
+        description={seo?.description}
+        slug={'playbook'}
+        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
+      />
       <Masthead />
       <StickyNavBar />
 
@@ -53,6 +59,9 @@ export async function getStaticProps({ preview, previewData }) {
     `
     *[_type == "playbookHome" ] {
       "id": _id,
+      seo {
+        ${queries.pageSeo}
+      },
       masthead{
         ${queries.threeColumnLayout}
       },

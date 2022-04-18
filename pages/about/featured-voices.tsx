@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { Row } from '../../components/FeaturedVoices';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 
 function chunks(array: any[], n: number): any[] {
   const chunkedArray = [];
@@ -25,7 +26,7 @@ const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
     uiStore: { windowWidth },
   } = store;
   const [activeQuotes, setActiveQuotes] = useState(null);
-  const { title, description, featuredVoices } = pageData;
+  const { title, description, featuredVoices, seo } = pageData;
   const featuredVoicesRows = [
     ...chunks(featuredVoices, windowWidth < 1080 ? 3 : 4),
   ];
@@ -36,7 +37,12 @@ const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
 
   return (
     <>
-      <Meta />
+      <Meta
+        title={seo?.title}
+        description={seo?.description}
+        slug={'about/featured-voices'}
+        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
+      />
       <StickyNavBar />
       <Layout key="featured-voices" paddingHorizontal={'7.5rem'}>
         <Header title={title} description={description} />
@@ -99,6 +105,9 @@ export const getStaticProps = async () => {
     `
     *[_type == "featuredVoicesPage" ] {
       "id": _id,
+      seo {
+        ${queries.pageSeo}
+      },
       title,
       description,
       featuredVoices[]-> {

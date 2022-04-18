@@ -13,6 +13,11 @@ export default {
   ],
   fields: [
     {
+      name: 'seo',
+      title: 'SEO',
+      type: 'pageSeo',
+    },
+    {
       title: 'Masthead',
       description:
         'This is where you change the first section of content on the playbook home page.',

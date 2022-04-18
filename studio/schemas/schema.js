@@ -43,6 +43,7 @@ import twoWorldsSection from './two-worlds-section';
 import whyClimateArticle from './why-climate-article';
 import whyClimateTextBlock from './why-climate-text-block';
 import aboutPage from './about-page';
+import pageSeo from './page-seo';
 
 export default createSchema({
   name: 'default',
@@ -67,6 +68,7 @@ export default createSchema({
     individualPartnerFeature,
     landingPage,
     libraryOfExpertsPage,
+    pageSeo,
     partner,
     partnerPage,
     partnerSection,
