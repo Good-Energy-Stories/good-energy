@@ -17,6 +17,8 @@ import {
 import { PortraitSizes, RoundPortrait } from './CharacterProfileCardComponents';
 import { Tags } from '.';
 import CTAButton from '../CTAButton';
+import { PortableText } from '@portabletext/react';
+import PortableTextSerializer from '../PortableTextSerializer';
 function getStyles(last, marginBottom) {
   return css.resolve`
     div {
@@ -65,6 +67,7 @@ const Card = ({
     expertType,
     includeSpotlightPage,
     shortBio,
+    Information,
     slug,
     smallPortraitImage,
     tags,
@@ -110,7 +113,10 @@ const Card = ({
             pronouns={pronouns}
             organization={organization}
           />
-          {shortBio && <Bio bio={shortBio} />}
+          <PortableText
+            value={Information}
+            components={PortableTextSerializer}
+          />
           {includeSpotlightPage && (
             <div className="cta">
               <CTAButton

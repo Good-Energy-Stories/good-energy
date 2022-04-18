@@ -23,6 +23,7 @@ const SearchResults = observer(() => {
         {filteredSearchResults.map((c, i) => (
           <Card
             key={i}
+            index={i}
             last={i === playbookSearchResults.length - 1}
             content={c}
             articleCardStyle={ArticleCardStyle.search}

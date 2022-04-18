@@ -32,6 +32,7 @@ const SubmitButton = ({ formSubmitted }) => {
       <motion.div
         transition={FRAMER_TRANSITION_EASEOUT}
         variants={variants}
+        initial={'unsubmitted'}
         animate={formSubmitted ? 'submitted' : 'unsubmitted'}
         className={className}
       >
