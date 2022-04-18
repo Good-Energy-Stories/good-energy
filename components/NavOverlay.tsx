@@ -167,7 +167,7 @@ const NavOverlay = observer(() => {
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={navOverlayOpen ? 'in' : 'out'}
-        variants={isMobile ? mobileVariants : variants}
+        variants={variants}
         className={className}
       >
         <div>
