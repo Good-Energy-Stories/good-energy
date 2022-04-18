@@ -115,7 +115,12 @@ const DropdownMenu = observer(
       uiStore: { windowWidth },
     } = store;
 
-    const menuOffset = offset > windowWidth - DROPDOWN_MIN_WIDTH ? -200 : -40;
+    const menuOffset =
+      offset > windowWidth - DROPDOWN_MIN_WIDTH
+        ? -200
+        : offset < 200
+        ? 20
+        : -40;
 
     const { className, styles } = getStyles(menuOffset);
 
@@ -130,11 +135,7 @@ const DropdownMenu = observer(
             >
               {articles.map((s) => {
                 const { _type, title, slug } = s;
-                if (_type === 'whyClimateArticle') {
-                  console.log('----');
-                  console.log(s);
-                  console.log('----');
-                }
+
                 if (_type === 'playbookSubsection') {
                   return (
                     <DropdownSubsection
