@@ -28,13 +28,12 @@ const { className, styles } = css.resolve`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: scroll;
   }
   @media only screen and (max-width: 768px) {
     div {
       width: 100%;
       padding: 1.25rem 1.25rem;
-
+      overflow: scroll;
       grid-column-gap: 0;
     }
   }
