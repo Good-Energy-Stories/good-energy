@@ -358,6 +358,9 @@ h4 {
   position: absolute;
   margin-left: -9px;
 }
+.block-quote::after {
+  content: '”';
+}
 
 .nav-link-xl-bold {
   font-family: var(--flexa);
