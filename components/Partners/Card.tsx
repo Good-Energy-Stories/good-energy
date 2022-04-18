@@ -42,7 +42,7 @@ function getStyles(size) {
     }
     @media only screen and (max-width: 1080px) {
       div {
-        grid-column: ${gridColumn};
+        grid-column: 1/5;
         padding: ${paddingMobile};
       }
     }

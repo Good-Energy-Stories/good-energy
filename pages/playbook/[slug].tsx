@@ -26,6 +26,7 @@ import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { AuthorCard } from '../../components/Cards';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const Project = observer(
   ({ data, preview }: { data: any; preview: boolean }) => {
@@ -35,13 +36,14 @@ const Project = observer(
       enabled: preview,
     });
 
-    console.log(data);
-
     const article = filterDataToSingleItem(previewData, preview);
 
     const {
       title,
       byline,
+      lede,
+      slug,
+      seo: { keywords },
       introduction,
       body,
       heroImage,
@@ -64,7 +66,13 @@ const Project = observer(
         : NavBarStyles.dark;
     return (
       <>
-        <Meta />
+        <Meta
+          title={title}
+          image={heroImage ? imageUrlFor(heroImage).width(500).url() : null}
+          slug={slug}
+          description={lede}
+          keywords={keywords}
+        />
         <StickyNavBar label="Playbook Contents" mode={navMode} />
         <Layout key={article.slug}>
           <Banner image={heroImage} />

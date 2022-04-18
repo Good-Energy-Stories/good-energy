@@ -227,6 +227,9 @@ export const article = `
 title,
 lede,
 byline,
+seo {
+  keywords
+},
 author[]-> {
   ${authorReferences}
 },

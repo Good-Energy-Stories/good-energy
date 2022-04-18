@@ -195,7 +195,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           color: ${theme.textColor};
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 1080px) {
           .search-container {
             display: none;
           }
