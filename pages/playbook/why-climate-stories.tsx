@@ -25,7 +25,7 @@ import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { AuthorCard } from '../../components/Cards';
-import { PageContent, Header } from '../../components/TwoWorlds';
+import { Header, PageContent } from '../../components/WhyClimateStories';
 
 const Project = observer(({ pageData }: { pageData: any }) => {
   const store = useStore();
@@ -38,8 +38,10 @@ const Project = observer(({ pageData }: { pageData: any }) => {
     },
   } = store;
 
+  console.log(pageData);
+
   useEffect(() => {
-    setBorderColor('var(--blueBorder)');
+    setBorderColor('var(--pink)');
     setBackgroundColor('var(--black)');
     setTextColor('var(--white)');
     return () => {
@@ -55,6 +57,10 @@ const Project = observer(({ pageData }: { pageData: any }) => {
       <Meta />
       <StickyNavBar mode={NavBarStyles.light} />
       <Layout key="two-worlds">
+        <Header title={pageData?.title} subtitle={pageData?.subtitle} />
+        {pageData?.content?.map((c, i) => {
+          return <PageContent key={i} content={c} index={i} />;
+        })}
         <AuthorSection content={pageData?.author} />
         <NextUp article={pageData?.nextUp} />
         <Related content={pageData?.related} />
@@ -65,7 +71,7 @@ const Project = observer(({ pageData }: { pageData: any }) => {
 });
 
 export const getStaticProps = async () => {
-  const pageData = await getClient().fetch(queries.twoWorldsArticleQuery);
+  const pageData = await getClient().fetch(queries.whyClimateArticle);
 
   return {
     props: {

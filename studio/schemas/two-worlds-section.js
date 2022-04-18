@@ -19,6 +19,31 @@ export default {
       type: 'array',
       of: [{ type: 'block' }],
     },
+
+    {
+      title: 'Illustration',
+      name: 'illustration',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
   ],
   preview: {
     select: {

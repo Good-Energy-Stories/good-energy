@@ -26,7 +26,16 @@ export default {
       type: 'array',
       of: [{ type: 'block' }],
     },
-
+    {
+      name: 'lede',
+      title: 'Lede',
+      type: 'string',
+    },
+    {
+      name: 'byline',
+      title: 'Byline',
+      type: 'string',
+    },
     {
       title: 'Author',
       name: 'author',
@@ -41,6 +50,39 @@ export default {
           ],
         },
       ],
+    },
+    {
+      title: 'Project Hero Image',
+      name: 'heroImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+      },
     },
     {
       name: 'content',

@@ -616,6 +616,39 @@ export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] {
 
  }[0]`;
 
+export const whyClimateArticle = `*[_type == "whyClimateArticle"] {
+  title,
+  subtitle,
+  author[]-> {
+    _type == 'expertProfile' => {
+      _type,
+      ${expertProfilePreview}
+    },
+    _type == 'author' => {
+      _type,
+    ${author}
+    }
+  },
+  content[] {
+    _type == 'illustration' => {
+      _type,
+      ${imageMeta}
+    },
+    _type == 'whyClimateTextBlock' => {
+      _type,
+      textSize,
+      text
+    },
+  },
+  related[]-> {
+    ${related}
+  },
+  nextUp->{
+    _type,
+    ${articlePreview}
+  }
+ }[0]`;
+
 export const expertProfilePathsQuery = `*[_type == "expertProfile" && includeSpotlightPage == true] { slug }`;
 
 export const articleQuery = `*[_type == "article" && slug.current == $slug] {
