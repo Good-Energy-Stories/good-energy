@@ -145,4 +145,4 @@ export default process.env.PASSWORD_PROTECT
       },
       loginApiUrl: '/api/login',
     })
-  : App;
+  : MyApp;
