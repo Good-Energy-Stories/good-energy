@@ -23,8 +23,11 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
             { type: 'article' },
             { type: 'characterProfile' },
+            { type: 'expertProfile' },
             { type: 'quoteCollection' },
           ],
         },
@@ -38,8 +41,11 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
             { type: 'article' },
             { type: 'characterProfile' },
+            { type: 'expertProfile' },
             { type: 'quoteCollection' },
           ],
         },
@@ -53,8 +59,11 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
             { type: 'article' },
             { type: 'characterProfile' },
+            { type: 'expertProfile' },
             { type: 'quoteCollection' },
           ],
         },

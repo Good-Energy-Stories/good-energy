@@ -3,11 +3,15 @@ import Image from 'next/image';
 import { sanity } from '../../lib/sanity';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-import { motion } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import Link from 'next/link';
+import { useState } from 'react';
+import EmailCaptureErrorMessage from './EmailCaptureErrorMessage';
+import { FRAMER_TRANSITION_FASTEASE } from '../../lib/framer/framer-animations';
+import EmailCaptureSubmitButton from './EmailCaptureSubmitButton';
 function getStyles(color) {
   return css.resolve`
     div {
@@ -43,6 +47,9 @@ interface EmailCaptureData {
   subtitle?: string;
   backgroundColor?: string;
 }
+
+export const EMAIL_CAPTURE_INPUT_HEIGHT = 72;
+
 const EmailCapture = ({
   data,
   index,
@@ -50,10 +57,46 @@ const EmailCapture = ({
   data: EmailCaptureData;
   index: number;
 }) => {
+  const controls = useAnimation();
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(null);
+
+  const [submitted, setSubmiited] = useState(false);
   const { title, subtitle, backgroundColor: color } = data;
   const backgroundColor = color ?? 'black';
   const { className, styles } = getStyles(backgroundColor);
   const inverseColor = backgroundColor === 'black' ? 'white' : 'black';
+
+  const onSubmit = async () => {
+    try {
+      if (!email) {
+        throw "Can't be left blank";
+      }
+      const response = await fetch('/api/addEmail', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+        type: 'application/json',
+      });
+
+      if (response.status === 401) {
+        throw 'Email already subscribed';
+      } else if (response.status === 400) {
+        throw "Couldn't subscribe";
+      }
+      setEmailError(null);
+      setSubmiited(true);
+    } catch (err) {
+      controls.start({
+        x: [0, -8, 8, -5, 5, 0],
+        transition: {
+          delay: FRAMER_TRANSITION_FASTEASE.duration,
+          duration: 0.5,
+        },
+      });
+      setEmailError(err);
+    }
+  };
+
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -67,9 +110,18 @@ const EmailCapture = ({
         {title && <h2 className="title">{title}</h2>}
         {subtitle && <div className="subtitle tease-lede">{subtitle}</div>}
         <div className="input-row">
-          <input placeholder="NAME@EXAMPLE.COM" type="text" />
-          <button type="button">→</button>
+          <input
+            placeholder="NAME@EXAMPLE.COM"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <EmailCaptureSubmitButton onClick={onSubmit} submitted={submitted} />
         </div>
+        <EmailCaptureErrorMessage
+          errorMessage={emailError}
+          errorControls={controls}
+        />
       </div>
       <img src="/fern-small.png" alt="Fern" />
 
@@ -81,6 +133,7 @@ const EmailCapture = ({
           font-variation-settings: 'wght' 700, 'wdth' 40;
           margin-bottom: 0.625rem;
         }
+
         h2 {
           margin: 0;
         }
@@ -101,21 +154,11 @@ const EmailCapture = ({
         .article-link {
         }
         .input-row {
-          display: flex;
-          width: 100%;
+          height: ${EMAIL_CAPTURE_INPUT_HEIGHT}px;
           position: relative;
-        }
-        button {
-          border: none;
-          padding: 15px 24px;
-          text-align: center;
-          text-decoration: none;
           display: inline-block;
-          font-size: 28px;
-
-          cursor: pointer;
-          background-color: var(--pink);
         }
+
         img {
           position: absolute;
           bottom: 0;
@@ -126,6 +169,7 @@ const EmailCapture = ({
           border-top: 4px solid var(--black);
         }
         input[type='text'] {
+          height: ${EMAIL_CAPTURE_INPUT_HEIGHT}px;
           border: 0;
           border-radius: 0;
           padding: 1.25rem;

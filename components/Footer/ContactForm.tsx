@@ -2,7 +2,9 @@ import SearchIcon from '../../public/search.svg';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { SubmitButton } from './';
-
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../stores/store';
+import { useState } from 'react';
 export const light: ContactFormStyle = {
   backgroundColor: 'transparent',
   textColor: 'var(--white)',
@@ -16,14 +18,48 @@ export interface ContactFormStyle {
   textColor: string;
 }
 
-const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
+const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const store = useStore();
+  const {
+    dataStore: {
+      setFirstName,
+      setLastName,
+      setEmail,
+      setOrganization,
+      formData,
+      formValidForSubmit,
+      resetErrors,
+    },
+    uiStore: { setSubscribeFormSubmitted },
+  } = store;
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async () => {
+    resetErrors();
+    try {
+      const response = await fetch('/api/addEmail', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        type: 'application/json',
+      });
+
+      if (response.status === 401) {
+        throw 'Email already subscribed';
+      } else if (response.status === 400) {
+        throw "Couldn't subscribe";
+      }
+
+      reset();
+      setFormSubmitted(true);
+    } catch (err) {
+      formData.errors.email = err;
+    }
+  };
   return (
     <>
       <div>
@@ -32,21 +68,46 @@ const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
           <div className="row">
             <div className="half-row">
               <label className="sublabel">First Name</label>
-              <input {...register('firstName')} />
+              <input
+                {...register('firstName')}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
             </div>
             <div className="spacer" />
             <div className="half-row">
               <label className="sublabel">Last Name</label>
-              <input {...register('lastName')} />
+              <input
+                {...register('lastName')}
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
           </div>
           <label>Organization</label>
-          <input {...register('organization')} />
-          <label>Email</label>
-          <input {...register('email', { required: true })} />
-          {errors.email && <span>This field is required</span>}
+          <input
+            {...register('organization')}
+            onChange={(e) => setOrganization(e.target.value)}
+          />
+          <label>
+            Email{' '}
+            {errors.email && (
+              <span className="error-message label-small">
+                This field is required
+              </span>
+            )}
+          </label>
+          <input
+            {...register('email', { required: true })}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
           <div className="row submit-row">
-            <SubmitButton />
+            {!errors.email && formData.errors.email && (
+              <span className="form-error-message label-small">
+                {formData.errors.email}
+              </span>
+            )}
+
+            <SubmitButton formSubmitted={formSubmitted} />
           </div>
         </form>
       </div>
@@ -59,6 +120,7 @@ const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
         }
         .submit-row {
           justify-content: flex-end;
+          position: relative;
         }
         .spacer {
           width: 2.5rem;
@@ -85,6 +147,16 @@ const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
           color: (--white);
 
           text-align: left;
+        }
+        .error-message {
+          color: var(--yellow);
+          margin-left: 0.3125rem;
+        }
+        .form-error-message {
+          color: var(--yellow);
+          width: 100px;
+          position: absolute;
+          left: 0;
         }
         input {
           text-transform: uppercase;
@@ -123,6 +195,6 @@ const ContactForm = ({ mode = dark }: { mode: ContactFormStyle }) => {
       `}</style>
     </>
   );
-};
+});
 
 export default ContactForm;

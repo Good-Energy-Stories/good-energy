@@ -8,6 +8,18 @@ class DataStore {
 
     makeObservable(this);
   }
+  @observable formData = {
+    first: '',
+    last: '',
+    email: '',
+    organization: '',
+    errors: {
+      first: null,
+      last: null,
+      email: null,
+    },
+  };
+
   @observable playbookSections = [];
 
   @observable playbookNavTableOfContents = null;
@@ -25,6 +37,39 @@ class DataStore {
   @observable directory__activeFilters = [];
 
   @observable media__playbackObject = this.playbackObjectInitial;
+
+  @action.bound setFirstName(name) {
+    this.formData.first = name;
+  }
+  @action.bound setLastName(name) {
+    this.formData.last = name;
+  }
+  @action.bound setOrganization(org) {
+    this.formData.organization = org;
+  }
+  @action.bound setEmail(email) {
+    this.formData.email = email;
+  }
+  @action.bound resetErrors() {
+    this.formData.errors = {
+      first: null,
+      last: null,
+      email: null,
+    };
+  }
+  @action.bound validateFormEmail() {
+    this.formData.errors.email = validateEmail(this.formData.email)
+      ? null
+      : 'A valid email is required';
+  }
+  @action.bound formValidForSubmit() {
+    this.validateFormEmail();
+    return (
+      this.formData.errors.email === null &&
+      this.formData.errors.first === null &&
+      this.formData.errors.last === null
+    );
+  }
 
   @action.bound setLibraryOfExpertsResults(results) {
     this.libraryOfExpertsResults = results;

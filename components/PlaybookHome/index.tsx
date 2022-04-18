@@ -7,3 +7,5 @@ export { default as StickyNavBar } from './StickyNavBar';
 export { ThreeColumnLayoutStyle } from './ThreeColumnLayout';
 export { default as SecondaryNavMenu } from './SecondaryNavMenu';
 export { default as DropdownMenu } from './DropdownMenu';
+export { default as EmailCaptureErrorMessage } from './EmailCaptureErrorMessage';
+export { default as EmailCaptureSubmitButton } from './EmailCaptureSubmitButton';
