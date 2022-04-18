@@ -93,6 +93,7 @@ const MyApp = observer(
         ].map((s) => {
           return {
             label: s.title,
+            firstArticle: s.firstArticle,
             articles: s.articles,
             href: `/playbook/${s.firstArticle?.slug}`,
           };

@@ -38,7 +38,7 @@ function getStyles() {
   `;
 }
 
-const MenuTab = ({ label, articles }) => {
+const MenuTab = ({ label, firstArticle, articles }) => {
   const [expanded, setExpanded] = useState(false);
   const [offset, setOffset] = useState(0);
 
@@ -55,9 +55,19 @@ const MenuTab = ({ label, articles }) => {
         }}
       >
         <div className="tab-inner">
-          <div className="playbook-toc-nav-link-small">{label}</div>
+          <Link href={`/playbook/${firstArticle?.slug}`}>
+            <a>
+              <div className="playbook-toc-nav-link-small">{label}</div>
+            </a>
+          </Link>
         </div>
-        <DropdownMenu expanded={expanded} offset={offset} articles={articles} />
+        {articles?.length > 1 && (
+          <DropdownMenu
+            expanded={expanded}
+            offset={offset}
+            articles={articles}
+          />
+        )}
         <style jsx>{`
           .tab {
             position: relative;
@@ -112,7 +122,12 @@ const SecondaryNavMenu = observer(({ expanded }: { expanded: boolean }) => {
       >
         {playbookSections.map((s) => {
           return (
-            <MenuTab key={s.label} label={s.label} articles={s.articles} />
+            <MenuTab
+              key={s.label}
+              label={s.label}
+              firstArticle={s.firstArticle}
+              articles={s.articles}
+            />
           );
         })}
       </motion.div>
