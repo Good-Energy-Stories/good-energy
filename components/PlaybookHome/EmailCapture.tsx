@@ -27,7 +27,6 @@ function getStyles(color) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 2.5rem 1.25rem;
       }
     }
   `;

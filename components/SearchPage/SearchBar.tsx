@@ -7,6 +7,7 @@ import { sanity } from '../../lib/sanity';
 import { queries } from '../../data';
 import { getClient } from '../../lib/sanity/sanity.server';
 import { useRouter } from 'next/router';
+import * as ga from '../../lib/ga';
 
 const SearchBar = observer(
   ({ expand = false, width }: { expand?: boolean; width?: string }) => {
@@ -23,6 +24,12 @@ const SearchBar = observer(
     } = store;
 
     const search = useCallback(async (query) => {
+      ga.event({
+        action: 'search',
+        params: {
+          search_term: query,
+        },
+      });
       setPlaybookLastSearchedQuery(query);
       const params = { query: `${query}*` };
       const articleSearchResults = await getClient().fetch(

@@ -42,6 +42,12 @@ const Banner = ({ image }: { image: any }) => {
           min-width: 228px;
           max-width: 100%;
         }
+        @media only screen and (min-width: 768px) {
+          img {
+            min-width: 100%;
+            max-width: 100%;
+          }
+        }
       `}</style>
       {styles}
     </motion.div>

@@ -40,29 +40,24 @@ const variants = {
 
 const MediumBorderCTAButton = ({
   label,
-  href = '/',
+  onClick,
   color = 'var(--black)',
 }: {
   label: string;
-  href: string;
+  onClick: () => void;
   color?: string;
 }) => {
   return (
-    <div className="container">
-      <Link href={href}>
-        <a target="_blank" rel="noferrer">
-          <div className="button-text">{label}</div>
-        </a>
-      </Link>
+    <div className="container" onClick={onClick}>
+      <div className="button-text">{label}</div>
+
       <style jsx>{`
-        a {
-          color: ${color} !important;
-        }
         .button-text {
           text-align: center;
           padding: 5px 10px;
           padding-bottom: 4px;
           text-transform: uppercase;
+          color: ${color};
         }
         .container {
           margin: 0 1.25rem;

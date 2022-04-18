@@ -35,13 +35,7 @@ const Title = ({ title }: { title: String }) => {
     >
       <h4>{title}</h4>
 
-      <style jsx>{`
-        .open-quote {
-        }
-        h3 {
-          margin: 0.625rem auto;
-        }
-      `}</style>
+      <style jsx>{``}</style>
       {styles}
     </motion.div>
   );

@@ -8,7 +8,7 @@ function getStyles(maxWidth, last) {
   return css.resolve`
     div {
       display: inline-block;
-      max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
+      max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
       margin-bottom: 1.25rem;
       padding-bottom: 1.25rem;
       border-bottom: ${last ? '0' : '1px solid var(--blueThree)'};
@@ -16,7 +16,7 @@ function getStyles(maxWidth, last) {
     @media only screen and (max-width: 768px) {
       div {
         display: grid;
-        max-width: none;
+
         grid-column-gap: 0;
       }
     }

@@ -3,6 +3,7 @@ import css from 'styled-jsx/css';
 import PageDivider from '../PageDivider';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import Link from 'next/link';
+import * as ga from '../../lib/ga';
 
 function getStyles(size) {
   var gridColumn, padding, paddingMobile, marginTop, marginBottom;
@@ -146,11 +147,20 @@ const LogoLink = ({
   link: string;
   size: string;
 }) => {
+  const handleClick = () => {
+    ga.event({
+      action: 'partner_link_click',
+      params: {
+        partner: title,
+      },
+    });
+    window.open(link ?? '', '_ blank');
+  };
   return (
-    <a href={link ?? ''} target="_blank" rel="noreferrer">
+    <div onClick={handleClick}>
       {logo && <LogoImage title={title} logo={logo} size={size} />}
       {!logo && <LogoPlaceholder title={title} />}
-    </a>
+    </div>
   );
 };
 

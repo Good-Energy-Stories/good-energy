@@ -32,7 +32,7 @@ function getStyles(maxWidth, last) {
         margin-bottom: 0;
         padding-bottom: 0;
         display: grid;
-        max-width: none;
+        max-width: 100%;
       }
     }
   `;

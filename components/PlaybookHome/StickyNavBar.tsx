@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { SecondaryNavMenu } from './';
 import NavDropdownButton from './NavDropdownButton';
+import * as ga from '../../lib/ga';
 
 const NavLinks = () => {
   return (
@@ -84,8 +85,9 @@ const NavButtons = observer(
             border-right: 4px solid var(--black);
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: 1080px) {
             div {
+              grid-column: span 4;
             }
           }
         `}</style>
@@ -98,6 +100,12 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
   const handleClick = () => {
+    ga.event({
+      action: 'search_initiated',
+      params: {
+        origin: 'playbook_home_nav_bar',
+      },
+    });
     router.push({
       pathname: '/playbook/search',
       query: { query: searchQuery },
@@ -152,7 +160,7 @@ const SearchBar = () => {
             color: var(--black);
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: 1080px) {
             div {
               display: none;
             }

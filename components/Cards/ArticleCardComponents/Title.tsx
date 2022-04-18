@@ -40,6 +40,7 @@ const Title = ({ title }: { title: String }) => {
         }
         h3 {
           margin: 0.625rem auto;
+          word-wrap: break-word;
         }
       `}</style>
       {styles}

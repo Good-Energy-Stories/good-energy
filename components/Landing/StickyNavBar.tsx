@@ -14,6 +14,7 @@ import SearchButton from './SearchButton';
 import CTAButton from '../CTAButton';
 import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
+import * as ga from '../../lib/ga';
 
 const NavLinks = ({
   theme,
@@ -22,6 +23,17 @@ const NavLinks = ({
   theme?: NavBarStyle;
   donateLink?: string;
 }) => {
+  const handleClick = () => {
+    ga.event({
+      action: 'donate_link_click',
+      params: {
+        donate_link: donateLink,
+      },
+    });
+    if (donateLink) {
+      window.open(donateLink, '_blank');
+    }
+  };
   return (
     <div className="nav-link-xl-bold">
       <Link href="/playbook">
@@ -36,7 +48,7 @@ const NavLinks = ({
 
       {donateLink && (
         <MediumBorderCTAButton
-          href={donateLink}
+          onClick={handleClick}
           label={'Donate'}
           color={theme.textColor}
         />
@@ -109,6 +121,12 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
   const handleClick = () => {
+    ga.event({
+      action: 'search_initiated',
+      params: {
+        origin: 'landing_page_nav_bar',
+      },
+    });
     router.push({
       pathname: '/playbook/search',
       query: { query: searchQuery },

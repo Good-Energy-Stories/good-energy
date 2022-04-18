@@ -31,8 +31,7 @@ const Tags = ({
   tags: string[];
   truncateTags?: boolean;
 }) => {
-  const truncatedTags =
-    !truncateTags || tags.length < 3 ? tags : tags.slice(0, 3);
+  const truncatedTags = truncateTags ? [] : tags;
 
   return (
     <motion.div
