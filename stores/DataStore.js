@@ -146,11 +146,9 @@ class DataStore {
     this.playbookSearchResults = results;
   }
   @action.bound setPlaybookSearchContentFilter(filter) {
-    console.log(filter);
     this.playbookSearchContentFilter = filter;
   }
   @action.bound setPlaybookSearchTagFilter(filter) {
-    console.log(filter);
     this.playbookSearchTagFilter = filter;
   }
 
@@ -166,10 +164,6 @@ class DataStore {
   }
 
   @computed get filteredSearchResults() {
-    console.log(
-      'contentTypeFilteredSearchResults: ',
-      contentTypeFilteredSearchResults,
-    );
     const contentTypeFilteredSearchResults = this.playbookSearchResults.filter(
       (result) => {
         if (this.playbookSearchContentFilter !== null) {

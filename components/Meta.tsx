@@ -5,13 +5,11 @@ const Meta = ({
   image,
   slug,
   description,
-  keywords,
 }: {
   title?: string;
   image?: string;
   slug?: string;
   description?: string;
-  keywords?: string;
 }) => {
   return (
     <Head>
@@ -29,7 +27,6 @@ const Meta = ({
           'https://www.goodenergystories.com/'
         }
       />
-      <meta name="keywords" content={keywords} />
 
       <meta property="og:type" content="article" />
       <meta

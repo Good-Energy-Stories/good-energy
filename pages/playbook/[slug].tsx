@@ -43,7 +43,7 @@ const Project = observer(
       byline,
       lede,
       slug,
-      seo: { keywords },
+      seo,
       introduction,
       body,
       heroImage,
@@ -71,7 +71,6 @@ const Project = observer(
           image={heroImage ? imageUrlFor(heroImage).width(500).url() : null}
           slug={slug}
           description={lede}
-          keywords={keywords}
         />
         <StickyNavBar label="Playbook Contents" mode={navMode} />
         <Layout key={article.slug}>
