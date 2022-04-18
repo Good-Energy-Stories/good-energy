@@ -60,7 +60,6 @@ export default {
       name: 'lede',
       title: 'Lede',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'byline',
