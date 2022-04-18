@@ -16,7 +16,6 @@ const { className, styles } = css.resolve`
     position: relative;
     margin-top: -106px;
 
-    height: 100vh;
     overflow: hidden;
   }
   @media only screen and (max-width: 768px) {
