@@ -194,6 +194,7 @@ const TOCSerializer = ({ content, index }) => {
   const type = content._type;
 
   switch (type) {
+    case 'characterProfilesPage':
     case 'whyClimateArticle':
     case 'article':
       return (

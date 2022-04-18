@@ -359,7 +359,8 @@ contents[]-> {
   },
   _type == 'characterProfilesPage' => {
     _type,
-    ${characterProfilePagePreview}
+    "title": "Character Profiles",
+    "slug": "characters",
   },
 }
 `;
