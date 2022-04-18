@@ -23,7 +23,6 @@ const { className, styles } = css.resolve`
     height: ${BANNER_HEIGHT}px;
     background-color: var(--black);
     text-align: center;
-    padding: 0 2.5rem;
 
     display: flex;
     justify-content: center;
@@ -35,7 +34,7 @@ const { className, styles } = css.resolve`
   @media only screen and (max-width: 768px) {
     div {
       top: 12px;
-
+      padding: 0 1.25rem;
       height: ${BANNER_HEIGHT_MOBILE}px;
     }
   }
@@ -66,6 +65,18 @@ const PageBanner = ({ copy }: { copy: any }) => {
           .label-medium {
             color: var(--white);
             padding-top: 4px;
+          }
+          @media only screen and (max-width: 1080px) {
+            .label-medium {
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+          @media only screen and (max-width: 768px) {
+            .label-medium {
+              font-size: 14px;
+              line-height: 16px;
+            }
           }
         `}</style>
       </motion.div>
