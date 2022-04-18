@@ -66,24 +66,51 @@ const Breadcrumbs = ({
   dropCurrent?: boolean;
 }) => {
   const router = useRouter();
-  const { asPath } = router;
   if (!router.isReady) {
     return null;
   }
-  const asPathArray = asPath.substring(1).split('/');
-  const routerPath = asPathArray
-    .slice(0, dropCurrent ? asPathArray.length - 1 : asPathArray.length)
-    .map((c) => ({ label: c.replaceAll('-', ' '), href: `/${c}` }));
-  const crumbs = path ?? routerPath;
+
+  function generateBreadcrumbs() {
+    // Remove any query parameters, as those aren't included in breadcrumbs
+    const asPathWithoutQuery = router.asPath.split('?')[0];
+
+    // Break down the path between "/"s, removing empty entities
+    // Ex:"/my/nested/path" --> ["my", "nested", "path"]
+    const asPathNestedRoutes = asPathWithoutQuery
+      .split('/')
+      .filter((v) => v.length > 0);
+
+    if (dropCurrent) {
+      asPathNestedRoutes.pop();
+    }
+
+    // Iterate over the list of nested route parts and build
+    // a "crumb" object for each one.
+    const crumblist = asPathNestedRoutes.map((subpath, idx) => {
+      // We can get the partial nested route for the crumb
+      // by joining together the path parts up to this point.
+      const href = '/' + asPathNestedRoutes.slice(0, idx + 1).join('/');
+      // The title will just be the route string for now
+      const label = subpath.replaceAll('-', ' ');
+      return { href, label };
+    });
+
+    // Add in a default "Home" crumb for the top-level
+    return [...crumblist];
+  }
+
+  // Call the function to generate the breadcrumbs list
+  const breadcrumbs = generateBreadcrumbs();
+  const currentBreadcrumbs = path ?? breadcrumbs;
   return (
     <>
       <div>
-        {crumbs.map(({ label, href }, i) => (
+        {currentBreadcrumbs.map(({ label, href }, i) => (
           <span key={i}>
             <PathLabel
               label={label}
               href={href}
-              last={crumbs.length - 1 === i}
+              last={currentBreadcrumbs.length - 1 === i}
             />
           </span>
         ))}
