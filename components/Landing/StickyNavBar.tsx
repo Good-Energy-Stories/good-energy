@@ -27,12 +27,12 @@ const NavLinks = ({
       <Link href="/playbook">
         <a>Playbook</a>
       </Link>
-
       <Link href="/about/library-of-experts">
         <a>Resources</a>
       </Link>
-
-      <a>About</a>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
 
       {donateLink && (
         <MediumBorderCTAButton
@@ -189,7 +189,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
         }
 
         @media only screen and (max-width: 768px) {
-          div {
+          .search-container {
             display: none;
           }
         }

@@ -34,10 +34,22 @@ export default {
       ],
     },
     {
-      title: ' Team Members',
+      title: 'Team Members',
       name: 'teamMembers',
       description:
         'This is where you select the order of the rest of the team members',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'teamMember' }],
+        },
+      ],
+    },
+    {
+      title: 'Board Members',
+      name: 'boardMembers',
+      description: 'This is where you select the order of the board members',
       type: 'array',
       of: [
         {

@@ -14,12 +14,18 @@ import NavDropdownButton from './NavDropdownButton';
 const NavLinks = () => {
   return (
     <div className="nav-link-xl-bold">
-      <a>Home</a>
-
-      <a>Featured Voices</a>
-
+      <Link href="/">
+        <a>Home</a>
+      </Link>
+      <Link href="/about/featured-voices">
+        <a>Featured Voices</a>
+      </Link>
       <Link href="/about/partners">
         <a>Partners</a>
+      </Link>
+
+      <Link href="/about">
+        <a>About</a>
       </Link>
 
       <style jsx>{`

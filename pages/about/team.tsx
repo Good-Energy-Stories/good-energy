@@ -1,30 +1,62 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta, StickyNavBar } from '../../components';
+import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
 import { queries } from '../../data';
 import { Header } from '../../components/About';
 import { Footer } from '../../components/Footer';
 import { TeamMemberCard, TeamMemberCardSmall } from '../../components/Cards';
+import {
+  PageDivider,
+  PageDividerLabelSize,
+} from '../../components/PageDivider';
 
 const Team = ({ pageData }) => {
   console.log(pageData);
-  const { title, description, featuredTeamMembers, teamMembers } = pageData;
+  const { title, description, featuredTeamMembers, teamMembers, boardMembers } =
+    pageData;
 
   return (
     <>
       <Meta />
       <StickyNavBar />
-      <Layout key="team" paddingHorizontal={'7.5rem'}>
+      <Layout key="team" paddingHorizontal={'2.5rem'}>
         <Header title={title} description={description} />
         <div className="featured-team">
-          {featuredTeamMembers.map((f, i) => {
-            return <TeamMemberCard key={i} data={f} index={i} />;
+          {featuredTeamMembers?.map((f, i) => {
+            return (
+              <TeamMemberCard
+                key={i}
+                data={f}
+                index={i}
+                last={i === featuredTeamMembers?.length - 1}
+              />
+            );
           })}
         </div>
+        {teamMembers && (
+          <PageDivider
+            label="Team Members"
+            labelSize={PageDividerLabelSize.small}
+            marginBottom={'2.5rem'}
+          />
+        )}
         <div className="team">
-          {teamMembers.map((f, i) => {
+          {teamMembers?.map((f, i) => {
             return <TeamMemberCardSmall key={i} data={f} index={i} />;
           })}
         </div>
+        {boardMembers && (
+          <PageDivider
+            label="Board Members"
+            labelSize={PageDividerLabelSize.small}
+            marginBottom={'2.5rem'}
+          />
+        )}
+        <div className="team">
+          {boardMembers?.map((f, i) => {
+            return <TeamMemberCardSmall key={i} data={f} index={i} />;
+          })}
+        </div>
+        <NextUpPage label={'Partners'} href={'/about/partners'} />
       </Layout>
       <Footer />
       <style jsx>{`
@@ -34,7 +66,6 @@ const Team = ({ pageData }) => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          margin-bottom: 5rem;
         }
         .team {
           grid-column: 1/5;
@@ -57,6 +88,9 @@ export const getStaticProps = async () => {
             ${queries.teamMember}
           },
           teamMembers[]-> {
+            ${queries.teamMember}
+          },
+          boardMembers[]-> {
             ${queries.teamMember}
           },
         }[0]

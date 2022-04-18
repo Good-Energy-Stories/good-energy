@@ -43,6 +43,7 @@ export default () =>
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
+            'aboutPage',
             'article',
             'author',
             'characterProfile',

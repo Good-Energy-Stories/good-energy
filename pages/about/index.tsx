@@ -5,18 +5,15 @@ import { Header } from '../../components/About';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 
-const Partners = ({ pageData }) => {
-  const { title, description } = pageData;
+const About = ({ pageData }) => {
+  const { headline, description } = pageData;
   return (
     <>
       <Meta />
       <StickyNavBar />
-      <Layout key="partners" paddingHorizontal={'2.5rem'}>
-        <Header title={title} description={description} />
-        {pageData.sections.map((p, i) => (
-          <PartnerSection key={i} index={i} data={p} />
-        ))}
-        <NextUpPage label={'Contact'} href={'/about/contact'} />
+      <Layout key="About" paddingHorizontal={'2.5rem'}>
+        <Header title={headline} description={description} />
+        <NextUpPage label={'Team'} href={'/about/team'} />
       </Layout>
       <Footer />
     </>
@@ -26,13 +23,10 @@ const Partners = ({ pageData }) => {
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(
     `
-    *[_type == "partnersPage" ] {
+    *[_type == "aboutPage" ] {
       "id": _id,
-      title,
-      description,
-      sections[]->{
-        ${queries.partnerSection}
-      }
+      headline,
+      description
     }[0]
   `,
   );
@@ -42,4 +36,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Partners;
+export default About;

@@ -34,9 +34,8 @@ const { className, styles } = css.resolve`
 
   @media only screen and (max-width: 768px) {
     div {
-      width: 100%;
-      top: 0;
-      padding: 1.25rem 2.5rem;
+      top: 12px;
+
       height: ${BANNER_HEIGHT_MOBILE}px;
     }
   }

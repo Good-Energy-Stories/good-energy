@@ -42,11 +42,13 @@ import twoWorldsCompareSection from './two-worlds-compare-section';
 import twoWorldsSection from './two-worlds-section';
 import whyClimateArticle from './why-climate-article';
 import whyClimateTextBlock from './why-climate-text-block';
+import aboutPage from './about-page';
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     blockContent,
+    aboutPage,
     article,
     articleBlockQuote,
     articleIntroductionSection,

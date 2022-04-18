@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 
 const BUTTON_WIDTH = 100;
 
@@ -45,6 +46,7 @@ const SearchButton = ({
   return (
     <>
       <motion.button
+        transition={FRAMER_TRANSITION_EASEOUT}
         variants={variants}
         initial={'inactive'}
         animate={active ? 'active' : 'inactive'}

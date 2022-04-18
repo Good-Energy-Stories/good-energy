@@ -10,7 +10,7 @@ const Contact = ({ pageData }) => {
     <>
       <Meta />
       <StickyNavBar />
-      <Layout key="contact" paddingHorizontal={'7.5rem'}>
+      <Layout key="contact" paddingHorizontal={'2.5rem'}>
         <Header title={title} description={description} />
         <div className="contact-form">
           <ContactForm mode={dark} />

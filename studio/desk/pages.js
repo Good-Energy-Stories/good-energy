@@ -1,5 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder';
-import { BsGrid3X2GapFill, BsGlobe, BsPersonFill } from 'react-icons/bs';
+import {
+  BsGrid3X2GapFill,
+  BsGlobe,
+  BsPersonFill,
+  BsFillQuestionCircleFill,
+} from 'react-icons/bs';
 import { FaHome, FaPeopleCarry } from 'react-icons/fa';
 import { MdRecordVoiceOver } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
@@ -49,6 +54,15 @@ export const pagesMenu = S.listItem()
               .documentId('landingPage'),
           )
           .icon(FaHome),
+        S.listItem()
+          .title('About Page')
+          .child(
+            S.document()
+              .title('About Page')
+              .schemaType('aboutPage')
+              .documentId('aboutPage'),
+          )
+          .icon(BsFillQuestionCircleFill),
         S.listItem()
           .title('Partners Page')
           .child(
