@@ -137,7 +137,7 @@ const MyApp = observer(
   },
 );
 
-export default false
+export default process.env.PASSWORD_PROTECT
   ? withPasswordProtect(MyApp, {
       loginComponentProps: {
         logo: '/light-logo.png',
