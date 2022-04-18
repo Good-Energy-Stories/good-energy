@@ -68,9 +68,10 @@ const Breadcrumbs = ({
   const router = useRouter();
   const { asPath } = router;
   const asPathArray = asPath.substring(1).split('/');
+  console.log(asPathArray);
   const routerPath = asPathArray
     .slice(0, dropCurrent ? asPathArray.length - 1 : asPathArray.length)
-    .map((c) => ({ label: c, href: `/${c}` }));
+    .map((c) => ({ label: c.replaceAll('-', ' '), href: `/${c}` }));
   const crumbs = path ?? routerPath;
   return (
     <>
