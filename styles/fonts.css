@@ -73,8 +73,8 @@
 h1 {
   font-family: var(--flexa);
   font-size: 96px;
-  line-height: 80px;
-  letter-spacing: -2px;
+  letter-spacing: 0;
+  line-height: 86px;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: uppercase;
 }
