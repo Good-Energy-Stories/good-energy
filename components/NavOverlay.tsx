@@ -170,9 +170,17 @@ const NavOverlay = observer(() => {
         className={className}
       >
         <div>
-          <h3 className="home">Home</h3>
+          <Link href={'/'}>
+            <a>
+              <h3 className="home">Home</h3>
+            </a>
+          </Link>
           <div className="section">
-            <h3>Playbook</h3>
+            <Link href={'/playbook'}>
+              <a>
+                <h3>Playbook</h3>
+              </a>
+            </Link>
             <ListItemButton
               label="Table of Contents"
               onClick={() => {
@@ -193,7 +201,11 @@ const NavOverlay = observer(() => {
             />
           </div>
           <div className="section">
-            <h3>About</h3>
+            <Link href={'/about'}>
+              <a>
+                <h3>About</h3>
+              </a>
+            </Link>
             <ListItemLink label="Team" href="/about/team" />
             <ListItemLink label="Partners" href="/about/partners" />
             <ListItemLink label="Contact" href="/about/contact" />
