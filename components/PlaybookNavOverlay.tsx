@@ -144,7 +144,6 @@ const TOCSubsection = ({ content }) => {
 };
 
 const TOCSubsubsection = ({ content }) => {
-  console.log(content);
   return (
     <div>
       <div className="playbook-toc-nav-link">{content?.title}</div>
@@ -195,6 +194,7 @@ const TOCSerializer = ({ content, index }) => {
   const type = content._type;
 
   switch (type) {
+    case 'whyClimateArticle':
     case 'article':
       return (
         <ListItemLink
@@ -202,6 +202,7 @@ const TOCSerializer = ({ content, index }) => {
           href={`/playbook/${content.slug}`}
         />
       );
+
     case 'playbookSection':
       return <TOCSubsection content={content} />;
     case 'playbookSubsection':

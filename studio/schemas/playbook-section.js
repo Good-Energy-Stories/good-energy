@@ -22,6 +22,7 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'whyClimateArticle' },
             { type: 'article' },
             { type: 'characterProfilesPage' },
             { type: 'playbookSubsection' },

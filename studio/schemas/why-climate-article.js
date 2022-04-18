@@ -4,7 +4,7 @@ import { RiTeamFill as icon } from 'react-icons/ri';
 import toPlainText from '../utils/toPlainText';
 export default {
   name: 'whyClimateArticle',
-  title: 'Why Climate Article',
+  title: 'Why Climate Stories Article',
   type: 'document',
   icon,
   fields: [

@@ -337,6 +337,11 @@ contents[]-> {
     _type,
     ${articlePreview}
   },
+  _type == 'whyClimateArticle' => {
+    _type,
+    title,
+    "slug": "why-climate-stories",
+  },
   _type == 'playbookSubsection' => {
     _type,
     ${playbookSubsection}
@@ -512,6 +517,11 @@ export const sectionsFirstArticle = `*[_type == "playbookSection"] {
       _type,
       title,
       "slug": slug.current,
+    },
+    _type == 'whyClimateArticle' => {
+      _type,
+      title,
+      "slug": "why-climate-stories",
     },
     _type == 'playbookSubsection' => {
       _type,

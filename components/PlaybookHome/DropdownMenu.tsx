@@ -130,6 +130,11 @@ const DropdownMenu = observer(
             >
               {articles.map((s) => {
                 const { _type, title, slug } = s;
+                if (_type === 'whyClimateArticle') {
+                  console.log('----');
+                  console.log(s);
+                  console.log('----');
+                }
                 if (_type === 'playbookSubsection') {
                   return (
                     <DropdownSubsection
