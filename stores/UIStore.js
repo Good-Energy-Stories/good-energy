@@ -15,6 +15,7 @@ class UIStore {
   @observable textColor = 'var(--black)';
   @observable backgroundColor = 'var(--blueFive)';
 
+  @observable playbookSecondaryNavOpen = true;
   @observable navOverlayOpen = false;
   @observable playbookNavOverlayOpen = false;
 
@@ -38,6 +39,9 @@ class UIStore {
   }
   @action.bound setBackgroundColor(color) {
     this.backgroundColor = color;
+  }
+  @action.bound setPlaybookSecondaryNavOpen(open) {
+    this.playbookSecondaryNavOpen = open;
   }
   @action.bound closeNavOverlay() {
     this.navOverlayOpen = false;

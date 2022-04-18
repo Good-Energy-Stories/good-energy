@@ -99,24 +99,28 @@ const variants = {
   open: {
     height: SECONDARY_MENU_HEIGHT,
     overflow: 'visible',
-    transition: { overflow: { delay: FRAMER_TRANSITION_EASEOUT.duration } },
+    transition: {
+      height: FRAMER_TRANSITION_EASEOUT,
+      overflow: { delay: FRAMER_TRANSITION_EASEOUT.duration },
+    },
   },
   closed: { height: 0, overflow: 'hidden' },
 };
 
-const SecondaryNavMenu = observer(({ expanded }: { expanded: boolean }) => {
+const SecondaryNavMenu = observer(() => {
   const { className, styles } = getStyles();
   const store = useStore();
   const {
+    uiStore: { playbookSecondaryNavOpen },
     dataStore: { playbookSections },
   } = store;
   return (
     <>
       <motion.div
-        style={{ overflow: expanded ? 'visible' : 'hidden', marginTop: -2 }}
+        style={{ marginTop: -2 }}
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'closed'}
-        animate={expanded ? 'open' : 'closed'}
+        animate={playbookSecondaryNavOpen ? 'open' : 'closed'}
         variants={variants}
         className={className}
       >

@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Link from 'next/link';
 import { SearchButton } from '../Landing';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { SecondaryNavMenu } from './';
 import NavDropdownButton from './NavDropdownButton';
@@ -171,38 +171,50 @@ const SearchBar = () => {
   );
 };
 
-const StickyNavBar = (props) => {
-  const [expanded, setExpanded] = useState(false);
-  return (
-    <>
-      <div>
-        <NavButtons setExpanded={setExpanded} expanded={expanded} />
-        <SearchBar />
-        <SecondaryNavMenu expanded={expanded} />
-        <style jsx>{`
-          div {
-            border-top: 5px solid var(--black);
-            border-bottom: 5px solid var(--black);
-            display: grid;
-            grid-template-columns: var(--grid-col);
-            justify-content: space-between;
+const StickyNavBar = observer(
+  ({ secondaryMenuInitial }: { secondaryMenuInitial: boolean }) => {
+    const store = useStore();
+    const {
+      uiStore: { playbookSecondaryNavOpen, setPlaybookSecondaryNavOpen },
+    } = store;
 
-            position: sticky;
-            top: 0;
-            font-size: 20px;
-            min-height: 100px;
-            z-index: 100;
-            background-color: var(--blueFive);
-          }
-
-          @media only screen and (max-width: 768px) {
+    useEffect(() => {
+      setPlaybookSecondaryNavOpen(secondaryMenuInitial);
+    }, [secondaryMenuInitial, setPlaybookSecondaryNavOpen]);
+    return (
+      <>
+        <div>
+          <NavButtons
+            setExpanded={setPlaybookSecondaryNavOpen}
+            expanded={playbookSecondaryNavOpen}
+          />
+          <SearchBar />
+          <SecondaryNavMenu />
+          <style jsx>{`
             div {
+              border-top: 5px solid var(--black);
+              border-bottom: 5px solid var(--black);
+              display: grid;
+              grid-template-columns: var(--grid-col);
+              justify-content: space-between;
+
+              position: sticky;
+              top: 0;
+              font-size: 20px;
+              min-height: 100px;
+              z-index: 100;
+              background-color: var(--blueFive);
             }
-          }
-        `}</style>
-      </div>
-    </>
-  );
-};
+
+            @media only screen and (max-width: 768px) {
+              div {
+              }
+            }
+          `}</style>
+        </div>
+      </>
+    );
+  },
+);
 
 export default StickyNavBar;

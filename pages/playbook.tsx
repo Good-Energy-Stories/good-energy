@@ -6,7 +6,10 @@ import Link from 'next/link';
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
 import { Layout, Masthead, Meta, QuoteCarousel, Tag } from '../components';
-import { StickyNavBar } from '../components/PlaybookHome';
+import {
+  PlaybookAnimatedSpacer,
+  StickyNavBar,
+} from '../components/PlaybookHome';
 
 import { queries } from '../data';
 import {
@@ -18,7 +21,8 @@ import { Footer } from '../components/Footer';
 import { imageUrlFor } from '../utils/imageUrlFor';
 
 const Root = ({ pageData }) => {
-  const { masthead, content, seo } = pageData;
+  const { masthead, content, seo, playbookTableOfContentsInitialState } =
+    pageData;
 
   const clearCookie = async () => {
     await fetch('/api/logout', {
@@ -38,9 +42,12 @@ const Root = ({ pageData }) => {
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
       <Masthead />
-      <StickyNavBar />
+      <StickyNavBar
+        secondaryMenuInitial={playbookTableOfContentsInitialState}
+      />
 
       <Layout key="playbookHome">
+        <PlaybookAnimatedSpacer />
         <ThreeColumnLayout
           data={masthead}
           style={ThreeColumnLayoutStyle.primary}
@@ -59,6 +66,7 @@ export async function getStaticProps({ preview, previewData }) {
     `
     *[_type == "playbookHome" ] {
       "id": _id,
+      playbookTableOfContentsInitialState,
       seo {
         ${queries.pageSeo}
       },
