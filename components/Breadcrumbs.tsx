@@ -65,6 +65,7 @@ const Breadcrumbs = ({
   path?: Breadcrumbs;
   dropCurrent?: boolean;
 }) => {
+  return null;
   const router = useRouter();
   const { asPath } = router;
   const asPathArray = asPath.substring(1).split('/');
