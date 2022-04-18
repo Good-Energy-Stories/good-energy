@@ -9,6 +9,12 @@ const { className, styles } = css.resolve`
     margin-left: 1.25rem;
     grid-column: 2/4;
     margin-bottom: 2.5rem;
+    margin-left: -2.75rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    div {
+      margin-left: -2.75rem;
+    }
   }
   @media only screen and (max-width: 768px) {
     div {
