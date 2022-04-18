@@ -39,13 +39,13 @@ const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
     reset,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async () => {
     resetErrors();
     try {
       const response = await fetch('/api/addEmail', {
         method: 'POST',
         body: JSON.stringify(formData),
-        type: 'application/json',
       });
 
       if (response.status === 401) {

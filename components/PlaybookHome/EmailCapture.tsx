@@ -75,7 +75,6 @@ const EmailCapture = ({
       const response = await fetch('/api/addEmail', {
         method: 'POST',
         body: JSON.stringify({ email }),
-        type: 'application/json',
       });
 
       if (response.status === 401) {
