@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-
+import * as ga from '../../../lib/ga';
 const { className, styles } = css.resolve`
   div {
   }
@@ -26,9 +26,9 @@ const variants = {
 const Link = ({ link }) => {
   const getLabelFromURL = (fullUrl = '') => {
     let newUrl = fullUrl
-      .replace('https://www.', '')
-      .replace('www.', '')
       .replace('https://', '')
+      .replace('http://', '')
+      .replace('www.', '')
       .split('/');
     if (newUrl.length > 0) {
       return newUrl[0];
@@ -37,7 +37,12 @@ const Link = ({ link }) => {
   };
   return (
     <div className="label-medium">
-      <a href={link} target="_blank" rel="noreferrer">
+      <a
+        href={link}
+        onClick={() => ga.captureOutboundLink(link)}
+        target="_blank"
+        rel="noreferrer"
+      >
         {getLabelFromURL(link)}
       </a>
       <style jsx>{`

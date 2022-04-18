@@ -12,6 +12,7 @@ import { useState } from 'react';
 import EmailCaptureErrorMessage from './EmailCaptureErrorMessage';
 import { FRAMER_TRANSITION_FASTEASE } from '../../lib/framer/framer-animations';
 import EmailCaptureSubmitButton from './EmailCaptureSubmitButton';
+import * as ga from '../../lib/ga';
 function getStyles(color) {
   return css.resolve`
     div {
@@ -81,6 +82,13 @@ const EmailCapture = ({
       } else if (response.status === 400) {
         throw "Couldn't subscribe";
       }
+
+      ga.event({
+        action: 'mailing_list_subscription_success',
+        params: {
+          origin: 'email_capture_block',
+        },
+      });
       setEmailError(null);
       setSubmiited(true);
     } catch (err) {

@@ -77,6 +77,15 @@ export default {
         }),
       hidden: ({ parent }) => !parent?.includeSpotlightPage,
     },
+    {
+      name: 'linkNote',
+      type: 'note',
+      options: {
+        headline: 'Link Note',
+        message:
+          "Remember to add 'https://' before any link you add here. Leaving this out will cause the site to misinterpret the link as a relative link. For example, adding 'earthjustice.org' instead of 'https://earthjustice.org' will cause the site to bring you to 'goodenergystories.com/earthjustics.org'.",
+      },
+    },
 
     {
       name: 'links',

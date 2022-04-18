@@ -5,6 +5,7 @@ import { SubmitButton } from './';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import { useState } from 'react';
+import * as ga from '../../lib/ga';
 export const light: ContactFormStyle = {
   backgroundColor: 'transparent',
   textColor: 'var(--white)',
@@ -53,6 +54,12 @@ const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
       } else if (response.status === 400) {
         throw "Couldn't subscribe";
       }
+      ga.event({
+        action: 'mailing_list_subscription_success',
+        params: {
+          origin: 'footer',
+        },
+      });
 
       reset();
       setFormSubmitted(true);

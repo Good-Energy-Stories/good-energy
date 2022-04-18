@@ -313,8 +313,9 @@ const PlaybookNavOverlay = observer(() => {
             overflow: scroll;
             -ms-overflow-style: none;
             scrollbar-width: none;
-            padding-bottom: 5rem;
+            padding-bottom: 15rem;
             position: relative;
+            margin-right: 0 !important;
           }
           .climate-storytelling-scroll-affordance {
             width: 100%;
@@ -336,6 +337,7 @@ const PlaybookNavOverlay = observer(() => {
             position: sticky;
             top: 0;
             background-color: var(--black);
+            margin-right: 0 !important;
           }
           .home {
             opacity: 0.5;

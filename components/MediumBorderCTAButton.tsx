@@ -6,6 +6,7 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { AnimatedUnderline } from './';
 import Link from 'next/link';
+import * as ga from '../lib/ga';
 function getStyles(color) {
   return css.resolve`
     div {
@@ -40,24 +41,33 @@ const variants = {
 
 const MediumBorderCTAButton = ({
   label,
-  onClick,
+  href = '/',
   color = 'var(--black)',
 }: {
   label: string;
-  onClick: () => void;
+  href: string;
   color?: string;
 }) => {
   return (
-    <div className="container" onClick={onClick}>
-      <div className="button-text">{label}</div>
+    <div className="container">
+      <a
+        href={href}
+        onClick={() => ga.captureOutboundLink(href)}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className="button-text">{label}</div>
+      </a>
 
       <style jsx>{`
+        a {
+          color: ${color} !important;
+        }
         .button-text {
           text-align: center;
           padding: 5px 10px;
           padding-bottom: 4px;
           text-transform: uppercase;
-          color: ${color};
         }
         .container {
           margin: 0 1.25rem;

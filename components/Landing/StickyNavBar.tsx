@@ -23,17 +23,6 @@ const NavLinks = ({
   theme?: NavBarStyle;
   donateLink?: string;
 }) => {
-  const handleClick = () => {
-    ga.event({
-      action: 'donate_link_click',
-      params: {
-        donate_link: donateLink,
-      },
-    });
-    if (donateLink) {
-      window.open(donateLink, '_blank');
-    }
-  };
   return (
     <div className="nav-link-xl-bold">
       <Link href="/playbook">
@@ -48,7 +37,7 @@ const NavLinks = ({
 
       {donateLink && (
         <MediumBorderCTAButton
-          onClick={handleClick}
+          href={donateLink}
           label={'Donate'}
           color={theme.textColor}
         />
