@@ -73,6 +73,7 @@ const Filters = observer(() => {
           grid-column: 1/5;
         }
         .spacer {
+          height: 0.625rem;
           width: 0.625rem;
         }
         .filter-row {
@@ -81,6 +82,12 @@ const Filters = observer(() => {
         h4 {
           text-transform: none;
           margin-bottom: 0.625rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .filter-row {
+            flex-direction: column;
+            margin-bottom: 0.625rem;
+          }
         }
       `}</style>
     </div>

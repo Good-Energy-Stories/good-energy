@@ -158,7 +158,6 @@ const SearchBar = observer(
             .search-bar {
               margin: 0 1.25rem;
               margin-top: 2.5rem;
-              width: ${width ?? 'calc(100vw - 2.5rem)'};
             }
             .search-icon {
               margin-right: 0;
