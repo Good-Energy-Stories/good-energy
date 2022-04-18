@@ -87,6 +87,11 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => {
           .body-italic {
             grid-column: 1/5;
           }
+          .titles {
+            justify-content: flex-start;
+          }
+          h1 {
+          }
         }
       `}</style>
       {styles}

@@ -50,6 +50,11 @@ const Illustration = ({ data }: { data: any }) => {
         img {
           max-width: 400px;
         }
+        @media only screen and (max-width: 768px) {
+          img {
+            max-width: calc(100vw - 24px);
+          }
+        }
       `}</style>
       {styles}
     </motion.div>
