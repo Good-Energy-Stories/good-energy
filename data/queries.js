@@ -145,6 +145,9 @@ tags[],
 smallPortraitImage{
   ${imageMeta}
 },
+fullSizePortraitImage {
+  ${imageMeta}
+},
 `;
 
 export const related = `
@@ -570,7 +573,14 @@ export const characterProfilePageQuery = `
   },
   ${characterProfilePagePreview},
   characterProfiles[]-> {
-    ${characterProfilePreview}
+    _type == 'characterProfile' => {
+      _type,
+      ${characterProfilePreview}
+    },
+    _type == 'expertProfile' => {
+      _type,
+      ${expertProfilePreview}
+    },
   },
   related[]-> {
     ${related}

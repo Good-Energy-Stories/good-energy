@@ -8,10 +8,12 @@ import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
 import dynamic from 'next/dynamic';
 
+const ExpertProfileSmall = dynamic(() => import('./ExpertProfileSmall'));
 const ExpertProfileSearch = dynamic(() => import('./ExpertProfileSearch'));
 const ExpertProfileStandard = dynamic(() => import('./ExpertProfileStandard'));
 
 export enum ExpertProfileCardStyle {
+  small = 'small',
   standard = 'standard',
   search = 'search',
 }
@@ -30,6 +32,8 @@ const CharacterProfileCard = ({
   style: ExpertProfileCardStyle;
 }) => {
   switch (style) {
+    case ExpertProfileCardStyle.small:
+      return <ExpertProfileSmall data={data} index={index} last={last} />;
     case ExpertProfileCardStyle.standard:
       return <ExpertProfileStandard data={data} index={index} last={last} />;
     case ExpertProfileCardStyle.search:

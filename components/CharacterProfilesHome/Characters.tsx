@@ -1,7 +1,7 @@
 import { Card, ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
+import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
 
 const Characters = ({ content }: { content: any }) => {
-  console.log('ok: ', content);
   if (!content) return null;
   return (
     <>
@@ -13,6 +13,7 @@ const Characters = ({ content }: { content: any }) => {
               content={c}
               articleCardStyle={ArticleCardStyle.small}
               characterProfileCardStyle={CharacterProfileCardStyle.standard}
+              expertProfileCardStyle={ExpertProfileCardStyle.small}
             />
           </div>
         ))}
