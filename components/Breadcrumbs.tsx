@@ -34,10 +34,10 @@ const PathLabel = ({ label, href, last }) => {
     <>
       <div>
         {last ? (
-          <span className="label-medium">{label.replaceAll('-', ' ')}</span>
+          <span className="label-medium">{label?.replaceAll('-', ' ')}</span>
         ) : (
           <Link href={href}>
-            <a className="label-medium">{label.replaceAll('-', ' ')}</a>
+            <a className="label-medium">{label?.replaceAll('-', ' ')}</a>
           </Link>
         )}
         {!last && <PathDivider />}
@@ -65,7 +65,6 @@ const Breadcrumbs = ({
   path?: Breadcrumbs;
   dropCurrent?: boolean;
 }) => {
-  return null;
   const router = useRouter();
   const { asPath } = router;
   const asPathArray = asPath.substring(1).split('/');
