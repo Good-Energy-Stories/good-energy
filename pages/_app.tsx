@@ -94,7 +94,7 @@ const MyApp = observer(
           return {
             label: s.title,
             articles: s.articles,
-            href: `/playbook/${s.firstArticle.slug}`,
+            href: `/playbook/${s.firstArticle?.slug}`,
           };
         });
 
