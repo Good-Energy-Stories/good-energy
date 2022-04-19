@@ -23,7 +23,7 @@ function getStyles() {
     div {
       position: absolute;
       z-index: -1;
-      top: ${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT - 4}px;
+      top: ${PLAYBOOK_NAV_HEIGHT - 4}px;
       right: 0;
       left: 0;
       display: flex;

@@ -229,11 +229,11 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
       <Link href="/">
         <a
           style={{
-            height: isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT,
+            height: PLAYBOOK_NAV_HEIGHT,
           }}
         >
           <Logo
-            height={isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}
+            height={PLAYBOOK_NAV_HEIGHT}
             textColor={theme.logoTextColor}
             backgroundColor={theme.logoBackgroundColor}
           />

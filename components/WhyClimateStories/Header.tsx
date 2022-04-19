@@ -16,9 +16,7 @@ function getStyles() {
   return css.resolve`
     div {
       grid-column: 1/5;
-      height: calc(
-        100vh - ${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}px
-      );
+      height: calc(100vh - ${PLAYBOOK_NAV_HEIGHT}px);
 
       padding-bottom: 2rem;
       display: grid;

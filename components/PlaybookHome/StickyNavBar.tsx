@@ -232,9 +232,7 @@ const StickyNavBar = observer(
               position: sticky;
               top: 0;
               font-size: 20px;
-              min-height: ${isMobile
-                ? MOBILE_PLAYBOOK_NAV_HEIGHT
-                : PLAYBOOK_NAV_HEIGHT}px;
+              min-height: ${PLAYBOOK_NAV_HEIGHT}px;
               z-index: 100;
               background-color: var(--blueFive);
             }

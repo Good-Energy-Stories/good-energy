@@ -19,7 +19,7 @@ const { className, styles } = css.resolve`
     padding-bottom: 2rem;
     background-color: var(--blueFive);
     position: relative;
-    margin-top: -${(isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT) + 6}px;
+    margin-top: -${PLAYBOOK_NAV_HEIGHT + 6}px;
 
     overflow: hidden;
   }

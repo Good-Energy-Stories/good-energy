@@ -47,9 +47,7 @@ const Nav = ({
         div {
           display: flex;
           grid-column: span 1;
-          height: ${isMobile
-            ? MOBILE_PLAYBOOK_NAV_HEIGHT
-            : PLAYBOOK_NAV_HEIGHT}px;
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
           background-color: ${label ? theme.backgroundColor : 'transparent'};
         }
 
@@ -112,11 +110,14 @@ const NavButtons = ({
           align-items: center;
           background-color: transparent;
           padding: 0.3125rem;
-          padding-top: 1rem;
+          padding-top: 0.625rem;
         }
         @media only screen and (max-width: 768px) {
           .border {
             border: 0;
+          }
+          button {
+            padding-top: 1rem;
           }
           div {
             padding: 1.25rem 0;
@@ -137,9 +138,7 @@ const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
           align-items: center;
           justify-content: center;
           padding: 0 1.25rem;
-          height: ${isMobile
-            ? MOBILE_PLAYBOOK_NAV_HEIGHT
-            : PLAYBOOK_NAV_HEIGHT}px;
+          height: ${PLAYBOOK_NAV_HEIGHT}px;
           text-align: center;
           line-height: 24px;
           border-right: 4px solid ${theme.textColor};
@@ -166,7 +165,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
       <Link href="/">
         <a>
           <Logo
-            height={isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}
+            height={PLAYBOOK_NAV_HEIGHT}
             textColor={theme.logoTextColor}
             backgroundColor={theme.logoBackgroundColor}
           />
@@ -191,7 +190,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
   );
 };
 
-export const PLAYBOOK_NAV_HEIGHT = 100;
+export const PLAYBOOK_NAV_HEIGHT = 80;
 export const MOBILE_PLAYBOOK_NAV_HEIGHT = 80;
 
 const PlaybookStickyNavBar = ({
@@ -216,9 +215,7 @@ const PlaybookStickyNavBar = ({
             position: sticky;
             top: 0;
             font-size: 20px;
-            height: ${isMobile
-              ? MOBILE_PLAYBOOK_NAV_HEIGHT
-              : PLAYBOOK_NAV_HEIGHT}px;
+            height: ${PLAYBOOK_NAV_HEIGHT}px;
             width: 100%;
             z-index: 100;
           }

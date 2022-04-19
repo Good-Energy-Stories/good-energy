@@ -13,7 +13,7 @@ const { className, styles } = css.resolve`
     grid-column: 1/5;
     grid-row-start: 1;
     max-height: 100vh;
-    margin-top: -${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}px;
+    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
   }
   @media only screen and (max-width: 768px) {
     div {
