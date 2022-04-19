@@ -16,8 +16,7 @@ import Related from '../../../../components/Related';
 import { imageUrlFor } from '../../../../utils/imageUrlFor';
 
 const Project = observer(({ characterProfile }: { characterProfile: any }) => {
-  const { related, name, shortBio, slug, smallPortraitImage } =
-    characterProfile;
+  const { related, name, shortBio, slug, portraitImage } = characterProfile;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -29,9 +28,7 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
       <Meta
         title={name}
         image={
-          smallPortraitImage
-            ? imageUrlFor(smallPortraitImage).width(500).url()
-            : null
+          portraitImage ? imageUrlFor(portraitImage).width(500).url() : null
         }
         slug={`playbook/characters/spotlight/${slug}`}
         description={shortBio}

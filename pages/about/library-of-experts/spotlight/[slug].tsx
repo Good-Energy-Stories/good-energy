@@ -16,7 +16,7 @@ import Related from '../../../../components/Related';
 import { imageUrlFor } from '../../../../utils/imageUrlFor';
 
 const Project = observer(({ expertProfile }: { expertProfile: any }) => {
-  const { name, shortBio, slug, smallPortraitImage } = expertProfile;
+  const { name, shortBio, slug, fullSizePortraitImage } = expertProfile;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -28,8 +28,8 @@ const Project = observer(({ expertProfile }: { expertProfile: any }) => {
       <Meta
         title={name}
         image={
-          smallPortraitImage
-            ? imageUrlFor(smallPortraitImage).width(500).url()
+          fullSizePortraitImage
+            ? imageUrlFor(fullSizePortraitImage).width(500).url()
             : null
         }
         slug={`about/library-of-experts/spotlight/${slug}`}
