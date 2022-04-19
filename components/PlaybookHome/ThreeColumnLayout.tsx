@@ -71,9 +71,8 @@ const LeftColumn = ({
   const leftColumnCharacterProfileCardStyle =
     getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
-  console.log('data.length', data.length);
   return (
-    <div>
+    <div className="container">
       {data.map((c, i) => (
         <Card
           key={i}
@@ -85,7 +84,7 @@ const LeftColumn = ({
         />
       ))}
       <style jsx>{`
-        div {
+        .container {
           grid-column: 1/2;
           padding-left: 1.25rem;
           margin-top: ${style === ThreeColumnLayoutStyle.primary
@@ -97,7 +96,7 @@ const LeftColumn = ({
           align-items: flex-start;
         }
         @media only screen and (max-width: 768px) {
-          div {
+          .container {
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
@@ -123,7 +122,7 @@ const MainColumn = ({
 
   if (!data) return null;
   return (
-    <div>
+    <div className="container">
       {data.map((c, i) => (
         <Card
           key={i}
@@ -136,14 +135,14 @@ const MainColumn = ({
         />
       ))}
       <style jsx>{`
-        div {
+        .container {
           grid-column: 2/4;
           padding: 0 1.25rem;
           margin-top: 1.25rem;
           margin-bottom: 1.25rem;
         }
         @media only screen and (max-width: 768px) {
-          div {
+          .container {
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
@@ -166,7 +165,7 @@ const RightColumn = ({
     getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
   return (
-    <div>
+    <div className="container">
       {data.map((c, i) => (
         <Card
           key={i}
@@ -178,7 +177,7 @@ const RightColumn = ({
         />
       ))}
       <style jsx>{`
-        div {
+        .container {
           grid-column: 4/5;
           padding-right: 1.25rem;
           margin-top: ${style === ThreeColumnLayoutStyle.primary
@@ -191,7 +190,7 @@ const RightColumn = ({
           flex-direction: column;
         }
         @media only screen and (max-width: 768px) {
-          div {
+          .container {
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
