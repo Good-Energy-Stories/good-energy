@@ -144,12 +144,4 @@ const MyApp = observer(
   },
 );
 
-export default process.env.PASSWORD_PROTECT
-  ? withPasswordProtect(MyApp, {
-      loginComponentProps: {
-        logo: '/light-logo.png',
-        buttonBackgroundColor: 'var(--pink)',
-      },
-      loginApiUrl: '/api/login',
-    })
-  : MyApp;
+export default MyApp;
