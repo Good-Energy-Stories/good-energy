@@ -8,6 +8,7 @@ function getStyles(maxWidth, last) {
   return css.resolve`
     div {
       display: inline-block;
+      width: 100%;
       max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
       margin-bottom: 1.25rem;
       padding-bottom: 1.25rem;

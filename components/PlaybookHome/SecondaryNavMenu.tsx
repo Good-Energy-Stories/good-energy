@@ -56,11 +56,13 @@ const MenuTab = ({ label, firstArticle, articles }) => {
         }}
       >
         <div className="tab-inner">
-          <Link href={`/playbook/${firstArticle?.slug}`}>
-            <a>
-              <div className="playbook-toc-nav-link-small">{label}</div>
-            </a>
-          </Link>
+          <motion.div whileHover={{ opacity: 0.6 }}>
+            <Link href={`/playbook/${firstArticle?.slug}`}>
+              <a>
+                <div className="playbook-toc-nav-link-small">{label}</div>
+              </a>
+            </Link>
+          </motion.div>
         </div>
         {articles?.length > 1 && (
           <DropdownMenu

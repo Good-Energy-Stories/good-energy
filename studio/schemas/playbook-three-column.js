@@ -23,6 +23,7 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'characterProfilesPage' },
             { type: 'whyClimateArticle' },
             { type: 'twoWorldsArticle' },
             { type: 'article' },
@@ -41,6 +42,7 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'characterProfilesPage' },
             { type: 'whyClimateArticle' },
             { type: 'twoWorldsArticle' },
             { type: 'article' },
@@ -59,6 +61,7 @@ export default {
         {
           type: 'reference',
           to: [
+            { type: 'characterProfilesPage' },
             { type: 'whyClimateArticle' },
             { type: 'twoWorldsArticle' },
             { type: 'article' },

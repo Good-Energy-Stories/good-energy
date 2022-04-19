@@ -34,6 +34,9 @@ export const Card = ({
   if (!content) return null;
   const type = content._type;
   switch (type) {
+    case 'twoWorldsArticle':
+    case 'whyClimateArticle':
+    case 'characterProfilesPage':
     case 'article':
       return (
         <ArticleCard

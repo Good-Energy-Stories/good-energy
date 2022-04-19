@@ -276,8 +276,22 @@ related[]-> {
 },
 "relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0],
 nextUp->{
-  _type,
-  ${articlePreview}
+  _type == 'twoWorldsArticle' => {
+    _type,
+    ${articlePreview},
+    "slug": "two-worlds",
+  },
+  _type == 'whyClimateArticle' => {
+    _type,
+    ${articlePreview},
+    "slug": "why-climate-stories",
+  },
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+ 
+ 
 }
 
 `;
@@ -386,6 +400,25 @@ export const contentReferences = `
   _type == 'article' => {
     _type,
     ${articlePreview}
+  },
+  _type == 'characterProfilesPage' => {
+    _type,
+    title,
+    lede,
+    heroImage{
+      ${imageMeta}
+    },
+    "slug": "characters",
+  },
+  _type == 'twoWorldsArticle' => {
+    _type,
+    ${articlePreview},
+    "slug": "two-worlds",
+  },
+  _type == 'whyClimateArticle' => {
+    _type,
+    ${articlePreview},
+    "slug": "why-climate-stories",
   },
   _type == 'characterProfile' => {
     _type,

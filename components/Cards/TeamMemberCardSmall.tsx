@@ -20,7 +20,7 @@ function getStyles(maxWidth, last) {
       display: inline-block;
       height: 100%;
       width: 100%;
-      max-width: ${maxWidth ? `${maxWidth}px` : 'none'};
+
       margin-bottom: 1.25rem;
       padding-bottom: 1.25rem;
       text-align: center;
@@ -88,6 +88,7 @@ const CharacterProfileStandard = ({
         }
         .tease-lede-small {
           margin-top: 0.625rem;
+          max-width: 228px;
         }
         h3 {
           margin: 0.625rem 0;

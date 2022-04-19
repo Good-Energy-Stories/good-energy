@@ -48,12 +48,16 @@ const BorderCTAButton = ({
   color?: string;
 }) => {
   return (
-    <div>
-      <Link href={href}>
-        <a className="button-text-large">
-          <h4>{label}</h4>
-        </a>
-      </Link>
+    <>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+        <div>
+          <Link href={href}>
+            <a className="button-text-large">
+              <h4>{label}</h4>
+            </a>
+          </Link>
+        </div>
+      </motion.div>
       <style jsx>{`
         a {
           color: ${color} !important;
@@ -72,7 +76,7 @@ const BorderCTAButton = ({
           margin-left: 6px;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

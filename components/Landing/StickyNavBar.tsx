@@ -133,9 +133,16 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
   return (
     <>
       <div className="search-container">
-        <span>
+        <motion.span
+          animate={{
+            transform:
+              searchQuery.length !== 0
+                ? 'matrix(1.20,-0.20,0.20,1.20,-2,2)'
+                : 'matrix(1,0,0,1,0,2)',
+          }}
+        >
           <SearchIcon fill={theme.textColor} />
-        </span>
+        </motion.span>
         <input
           type="text"
           className="nav-link-xl"
@@ -150,16 +157,11 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
       </div>
       <NavLogo theme={theme} />
       <style jsx>{`
-        span {
-          width: 25px;
-          margin-right: 5px;
-          padding-top: 3px;
-        }
         .search-container {
           overflow: hidden;
           width: 100%;
           position: relative;
-          padding-left: 0.625rem;
+          padding-left: 1.25rem;
           border-left: 5px solid ${theme.textColor};
           display: flex;
           align-items: center;
@@ -185,6 +187,7 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
         }
         input[type='text'] {
           padding: 0.625rem;
+
           text-transform: uppercase;
           color: ${theme.textColor};
           border: 0;

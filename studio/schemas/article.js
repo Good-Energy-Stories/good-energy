@@ -91,7 +91,7 @@ export default {
       ],
     },
     {
-      title: 'Project Hero Image',
+      title: 'Article Hero Image',
       name: 'heroImage',
       type: 'image',
       options: {
@@ -176,7 +176,11 @@ export default {
       description:
         'The next article in the playbook that you want to see appear after this article. This is used for the "Next Up" section on the article page.',
       type: 'reference',
-      to: [{ type: 'article' }],
+      to: [
+        { type: 'article' },
+        { type: 'whyClimateArticle' },
+        { type: 'twoWorldsArticle' },
+      ],
     },
     {
       title: 'Related',

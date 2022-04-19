@@ -35,7 +35,7 @@ const Related = ({ content }: { content: any }) => {
           padding-top: 1.25rem;
         }
         .card-wrapper {
-          margin: 0 1.25rem;
+          margin: 0 0.625rem;
         }
         @media only screen and (max-width: 1080px) {
           .layout {

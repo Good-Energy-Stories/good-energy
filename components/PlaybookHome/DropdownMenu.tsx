@@ -13,7 +13,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import { SECONDARY_MENU_HEIGHT } from './SecondaryNavMenu';
-
 const DROPDOWN_MIN_WIDTH = 240;
 function getStyles(offset) {
   return css.resolve`
@@ -53,9 +52,11 @@ const DropdownSubsection = ({ title, contents }) => {
         const { _type, title, slug } = s;
 
         return (
-          <Link href={`/playbook/${slug}`} key={title}>
-            <a className="playbook-toc-nav-link-extra-small">{title}</a>
-          </Link>
+          <motion.div key={title} whileHover={{ opacity: 0.6 }}>
+            <Link href={`/playbook/${slug}`}>
+              <a className="playbook-toc-nav-link-extra-small">{title}</a>
+            </Link>
+          </motion.div>
         );
       })}
       <style jsx>{`
@@ -147,7 +148,11 @@ const DropdownMenu = observer(
                 } else {
                   return (
                     <Link href={`/playbook/${slug}`} key={title}>
-                      <a className="playbook-toc-nav-link-small">{title}</a>
+                      <a className="playbook-toc-nav-link-small">
+                        <motion.span whileHover={{ opacity: 0.6 }}>
+                          {title}
+                        </motion.span>
+                      </a>
                     </Link>
                   );
                 }

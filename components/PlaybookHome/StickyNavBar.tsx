@@ -10,24 +10,33 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { SecondaryNavMenu } from './';
 import NavDropdownButton from './NavDropdownButton';
+import { motion } from 'framer-motion';
 import * as ga from '../../lib/ga';
 
 const NavLinks = () => {
   return (
     <div className="nav-link-xl-bold">
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Link href="/about/featured-voices">
-        <a>Featured Voices</a>
-      </Link>
-      <Link href="/about/partners">
-        <a>Partners</a>
-      </Link>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </motion.div>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+        <Link href="/about/featured-voices">
+          <a>Featured Voices</a>
+        </Link>
+      </motion.div>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+        <Link href="/about/partners">
+          <a>Partners</a>
+        </Link>
+      </motion.div>
 
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </motion.div>
 
       <style jsx>{`
         div {
@@ -65,7 +74,9 @@ const NavButtons = observer(
     return (
       <div>
         <button onClick={() => openNavOverlay()}>
-          <HamburgerIcon fill="var(--black)" />
+          <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+            <HamburgerIcon fill="var(--black)" />
+          </motion.div>
         </button>
         <NavDropdownButton
           onClick={() => setExpanded(!expanded)}
@@ -114,9 +125,17 @@ const SearchBar = () => {
   return (
     <>
       <div>
-        <span>
+        <motion.span
+          style={{ width: 30 }}
+          animate={{
+            transform:
+              searchQuery.length !== 0
+                ? 'matrix(1.20,-0.20,0.20,1.20,-2,2)'
+                : 'matrix(1,0,0,1,0,2)',
+          }}
+        >
           <SearchIcon fill="var(--black)" />
-        </span>
+        </motion.span>
         <input
           className="nav-link-xl"
           type="text"
@@ -137,6 +156,7 @@ const SearchBar = () => {
           }
           div {
             padding: 0.625rem;
+            padding-left: 1.25rem;
             border-left: 5px solid var(--black);
 
             display: flex;

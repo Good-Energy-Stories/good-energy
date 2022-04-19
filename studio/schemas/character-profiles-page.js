@@ -20,6 +20,37 @@ export default {
       description: "Ex. 'Character Profiles'",
     },
     {
+      name: 'lede',
+      title: 'Lede',
+      type: 'string',
+      description:
+        'This is the text that will show up on the card if this page is linked on the homa page.',
+    },
+    {
+      title: 'Character Profiles Hero Image',
+      name: 'heroImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
       name: 'description',
       title: 'Description',
       description: "Information about the character profile's page",
