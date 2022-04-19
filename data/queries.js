@@ -497,6 +497,50 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
   },
 }[0]`;
 
+export const climateStorytellingSections = `
+title,
+"firstArticle": contents[0]->{
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+},
+"articles": contents[]->{
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+  _type == 'whyClimateArticle' => {
+    _type,
+    title,
+    "slug": "why-climate-stories",
+  },
+  _type == 'playbookSubsection' => {
+    _type,
+    title,
+    contents[]->{
+      _type == 'article' => {
+        _type,
+        title,
+        "slug": slug.current,
+      },
+      _type == 'twoWorldsArticle' => {
+        _type,
+        title,
+        "slug": "two-worlds",
+      },
+    }
+  },
+  _type == 'characterProfilesPage' => {
+    _type,
+    "title": "Character Profiles",
+    "slug": "characters",
+  },
+}
+`;
+
 export const structureSectionsFirstArticle = `*[_type == "playbookStructure"] { 
 introduction[]->{
   _type == 'article' => {
@@ -512,6 +556,12 @@ why[]->{
     "slug": slug.current,
   },
 },
+climateStorytelling[]->{
+  _type == 'playbookSection' => {
+    _type,
+  ${climateStorytellingSections}
+  },
+},
 credits-> {
   _type == 'article' => {
     _type,
@@ -521,50 +571,11 @@ credits-> {
 }
 }[0]
 `;
+
 export const sectionsFirstArticle = `*[_type == "playbookSection"] { 
-  title,
-  "firstArticle": contents[0]->{
-    _type == 'article' => {
-      _type,
-      title,
-      "slug": slug.current,
-    },
-  },
-  "articles": contents[]->{
-    _type == 'article' => {
-      _type,
-      title,
-      "slug": slug.current,
-    },
-    _type == 'whyClimateArticle' => {
-      _type,
-      title,
-      "slug": "why-climate-stories",
-    },
-    _type == 'playbookSubsection' => {
-      _type,
-      title,
-      contents[]->{
-        _type == 'article' => {
-          _type,
-          title,
-          "slug": slug.current,
-        },
-        _type == 'twoWorldsArticle' => {
-          _type,
-          title,
-          "slug": "two-worlds",
-        },
-      }
-    },
-    _type == 'characterProfilesPage' => {
-      _type,
-      "title": "Character Profiles",
-      "slug": "characters",
-    },
-  }
-  }
-  `;
+ ${climateStorytellingSections}
+}
+`;
 
 export const characterProfilePageQuery = `
 *[_type == "characterProfilesPage" ] {

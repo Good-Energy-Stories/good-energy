@@ -79,6 +79,7 @@ const MyApp = observer(
           firstArticle: mainSections.why[0],
           articles: mainSections.why,
         };
+
         const creditsSection = {
           title: 'Credits',
           firstArticle: mainSections.credits,
@@ -88,7 +89,7 @@ const MyApp = observer(
         const sections = [
           introSection,
           whySection,
-          ...climateStoryTellingSections,
+          ...mainSections.climateStorytelling,
           creditsSection,
         ].map((s) => {
           return {
