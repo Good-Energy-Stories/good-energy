@@ -145,12 +145,6 @@ const EmailCapture = ({
           margin: 0;
         }
         .subtitle {
-          font-family: var(--flexa);
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 429;
-          line-height: 27px;
-          letter-spacing: 0em;
           text-align: left;
           color: var(--${inverseColor});
           margin-bottom: 1.25rem;
@@ -198,7 +192,9 @@ const EmailCapture = ({
           img {
             display: none;
           }
-
+          .input-row {
+            width: 100%;
+          }
           input[type='text'] {
             min-width: 0;
           }

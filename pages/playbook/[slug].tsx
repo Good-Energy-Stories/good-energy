@@ -19,7 +19,7 @@ import {
   MobileFootnotes,
 } from '../../components/Article';
 import { Footer } from '../../components/Footer';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../components/Related';
@@ -54,12 +54,6 @@ const Project = observer(
     } = article;
     const sectionsRef = useRef<SectionRefLookup>({});
 
-    console.log('-------');
-    console.log(article);
-    console.log(article.footnotes);
-    console.log(article.footnotes.length);
-    console.log('-------');
-
     const sectionsTOC = body
       ?.filter((e) => e._type === 'articleSection')
       .map((e) => ({ key: e._key, title: e.title }));
@@ -68,6 +62,7 @@ const Project = observer(
     const {
       uiStore: { scrollPosition },
     } = store;
+
     const navMode =
       heroImage && scrollPosition < 0.05
         ? NavBarStyles.light

@@ -49,6 +49,7 @@ const SubmitButtonInner = ({ formSubmitted }) => {
           color: var(--black);
         }
         input[type='submit'] {
+          cursor: pointer;
           background-color: transparent;
           text-align: center;
           color: var(--black);
