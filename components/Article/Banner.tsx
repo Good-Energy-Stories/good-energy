@@ -12,6 +12,7 @@ const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
     grid-row-start: 1;
+    width: 100%;
     max-height: 100vh;
     margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
   }

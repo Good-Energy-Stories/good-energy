@@ -40,6 +40,7 @@ const Banner = ({ image }: { image: any }) => {
       <style jsx>{`
         img {
           max-width: 100%;
+          min-width: 100%;
         }
         @media only screen and (max-width: 1080px) {
           img {
