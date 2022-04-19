@@ -6,6 +6,7 @@ import css from 'styled-jsx/css';
 import { Breadcrumbs } from '..';
 import { PortableTextSerializer } from '../';
 import { PortableText } from '@portabletext/react';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
@@ -13,6 +14,8 @@ const { className, styles } = css.resolve`
     padding: 0 1.25rem;
     padding-bottom: 1.25rem;
     display: flex;
+    display: grid;
+    grid-template-columns: var(--grid-col);
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -30,11 +33,15 @@ const variants = {
 };
 
 const Header = ({
+  heroImage,
   title,
   description,
+  fittedText,
 }: {
+  heroImage: any;
   title: string;
   description: any;
+  fittedText?: boolean;
 }) => {
   return (
     <motion.div
@@ -45,22 +52,28 @@ const Header = ({
       variants={variants}
       className={className}
     >
-      <div>
+      <div className="container">
         <div className="breadcrumbs">
           <Breadcrumbs />
         </div>
         <h1>{title}</h1>
-        <div className="left">
-          <PortableText
-            value={description}
-            components={PortableTextSerializer}
+        {heroImage && (
+          <img
+            alt={heroImage?.caption}
+            src={imageUrlFor(heroImage).width(1200).url()}
           />
-        </div>
+        )}
+      </div>
+      <div className="text">
+        <PortableText value={description} components={PortableTextSerializer} />
       </div>
 
       <style jsx>{`
-        .left {
-          width: 70%;
+        .container {
+          grid-column: 1/5;
+        }
+        .text {
+          grid-column: 2/4;
         }
         .right {
           width: 66%;
@@ -73,6 +86,11 @@ const Header = ({
           margin-bottom: 2rem;
         }
         .open-quote {
+        }
+        img {
+          min-width: 100%;
+          max-width: 100%;
+          margin-bottom: 2.5rem;
         }
         h1 {
           word-break: keep-all;

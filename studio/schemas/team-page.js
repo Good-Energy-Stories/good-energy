@@ -12,6 +12,30 @@ export default {
       type: 'pageSeo',
     },
     {
+      title: 'Hero Image',
+      name: 'heroImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',

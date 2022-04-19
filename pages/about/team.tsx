@@ -13,6 +13,7 @@ import { imageUrlFor } from '../../utils/imageUrlFor';
 const Team = ({ pageData }) => {
   console.log(pageData);
   const {
+    heroImage,
     title,
     description,
     featuredTeamMembers,
@@ -31,7 +32,7 @@ const Team = ({ pageData }) => {
       />
       <StickyNavBar />
       <Layout key="team" paddingHorizontal={'2.5rem'}>
-        <Header title={title} description={description} />
+        <Header heroImage={heroImage} title={title} description={description} />
         <div className="featured-team">
           {featuredTeamMembers?.map((f, i) => {
             return (
@@ -98,6 +99,7 @@ export const getStaticProps = async () => {
           seo {
             ${queries.pageSeo}
           },
+          heroImage,
           title,
           featuredTeamMembers[]-> {
             ${queries.teamMember}
