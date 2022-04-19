@@ -122,6 +122,9 @@ class DataStore {
       this.libraryOfExpertsSortOrder === 'ascending' ? 1 : -1;
 
     const alphabeticalSort = (a, b) => {
+      if (!a?.name || !b?.name) {
+        return 0;
+      }
       const firstLastName = a.name.split(' ').at(-1).toUpperCase();
       const secondLastName = b.name.split(' ').at(-1).toUpperCase();
       if (firstLastName < secondLastName) {
