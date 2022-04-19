@@ -72,7 +72,9 @@ const CloseNavButton = observer(() => {
           closePlaybookNavOverlay();
         }}
       >
-        <CloseButtonIcon />
+        <motion.div whileHover={{ scale: 0.9 }} whileTap={{ scale: 0.8 }}>
+          <CloseButtonIcon />
+        </motion.div>
       </div>
       <style jsx>{`
         div {
@@ -98,9 +100,17 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
     <>
       <Link href={href}>
         <a>
-          <div className="playbook-toc-nav-link">{label}</div>
+          <div className="playbook-toc-nav-link">
+            <motion.div
+              whileHover={{ opacity: 0.6 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {label}
+            </motion.div>
+          </div>
         </a>
       </Link>
+
       <style jsx>{`
         div {
           color: var(--white);

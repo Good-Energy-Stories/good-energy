@@ -16,9 +16,9 @@ const MobileFootnotes = ({ footnotes }: { footnotes: any }) => {
     <>
       <div className="footnotes">
         {footnotes.map((f, i) => {
-          if (f._type === 'footnote') {
+          if (f?._type === 'footnote') {
             return (
-              <Footnote key={f.text + i} text={f.text} number={f.number} />
+              <Footnote key={f?.text + i} text={f?.text} number={f?.number} />
             );
           }
         })}

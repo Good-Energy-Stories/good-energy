@@ -65,7 +65,9 @@ const CloseNavButton = observer(() => {
   return (
     <>
       <div onClick={() => closeNavOverlay()}>
-        <CloseButtonIcon />
+        <motion.div whileHover={{ scale: 0.9 }} whileTap={{ scale: 0.8 }}>
+          <CloseButtonIcon />
+        </motion.div>
       </div>
       <style jsx>{`
         div {
@@ -96,7 +98,13 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
             <span className="arrow">
               <ListArrowIcon />
             </span>
-            {label}
+            <motion.div
+              style={{ display: 'inline-block' }}
+              whileHover={{ opacity: 0.6 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {label}
+            </motion.div>
           </div>
         </a>
       </Link>
@@ -132,7 +140,13 @@ const ListItemButton = ({
         <span className="arrow">
           <ListArrowIcon />
         </span>
-        {label}
+        <motion.div
+          style={{ display: 'inline-block' }}
+          whileHover={{ opacity: 0.6 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {label}
+        </motion.div>
       </div>
       <style jsx>{`
         div {
@@ -172,13 +186,19 @@ const NavOverlay = observer(() => {
         <div>
           <Link href={'/'}>
             <a>
-              <h3 className="home">Home</h3>
+              <h3 className="home">
+                <motion.span whileHover={{ opacity: 0.6 }}>Home </motion.span>
+              </h3>
             </a>
           </Link>
           <div className="section">
             <Link href={'/playbook'}>
               <a>
-                <h3>Playbook</h3>
+                <h3>
+                  <motion.span whileHover={{ opacity: 0.6 }}>
+                    Playbook
+                  </motion.span>
+                </h3>
               </a>
             </Link>
             <ListItemButton
@@ -203,7 +223,9 @@ const NavOverlay = observer(() => {
           <div className="section">
             <Link href={'/about'}>
               <a>
-                <h3>About</h3>
+                <h3>
+                  <motion.span whileHover={{ opacity: 0.6 }}>About</motion.span>
+                </h3>
               </a>
             </Link>
             <ListItemLink label="Team" href="/about/team" />
