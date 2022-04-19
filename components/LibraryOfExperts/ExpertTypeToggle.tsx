@@ -33,6 +33,11 @@ const ExpertTypeToggle = observer(() => {
           display: flex;
           flex-direction: column;
         }
+        @media only screen and (max-width: 768px) {
+          .container {
+            margin-bottom: 0.625rem;
+          }
+        }
       `}</style>
     </div>
   );

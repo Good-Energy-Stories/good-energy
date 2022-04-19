@@ -52,6 +52,11 @@ const DropdownFilterSection = ({
           margin: 0;
           margin-bottom: 0.625rem;
         }
+        @media only screen and (max-width: 768px) {
+          .container {
+            margin-bottom: 1.25rem;
+          }
+        }
       `}</style>
     </>
   );

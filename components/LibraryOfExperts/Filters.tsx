@@ -15,6 +15,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      flex-direction: column;
     }
   }
 `;
@@ -90,6 +91,7 @@ const Filters = observer(() => {
         }
         .spacer {
           width: 0.625rem;
+          height: 0.625rem;
         }
         .filter-row {
           display: flex;
@@ -98,6 +100,11 @@ const Filters = observer(() => {
           text-transform: none;
           margin: 0;
           margin-bottom: 0.625rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .container {
+            flex-direction: column;
+          }
         }
       `}</style>
     </div>
