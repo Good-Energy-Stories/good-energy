@@ -660,6 +660,9 @@ export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] {
       _type,
       year,
       initialSection,
+      riseIllustration {
+        ${imageMeta}
+      },
       rise[] {
         _type == 'twoWorldsSection' => {
           _type,
@@ -667,9 +670,13 @@ export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] {
           body
         },
       },
+      collapseIllustration {
+        ${imageMeta}
+      },
       collapse[] {
         _type == 'twoWorldsSection' => {
           _type,
+          
           title,
           body
         },

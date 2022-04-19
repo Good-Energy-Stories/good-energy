@@ -28,10 +28,58 @@ export default {
       },
     },
     {
+      title: 'Collapse Illustration',
+      name: 'collapseIllustration',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
       title: 'Collapse',
       name: 'collapse',
       type: 'array',
       of: [{ type: 'twoWorldsSection' }],
+    },
+    {
+      title: 'Rise Illustration',
+      name: 'riseIllustration',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
       title: 'Rise',

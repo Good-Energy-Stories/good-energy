@@ -18,17 +18,18 @@ import {
   FRAMER_TRANSITION_EASEOUT,
   FRAMER_TRANSITION_FASTEREASE,
 } from '../../lib/framer/framer-animations';
-import { ActiveSide } from '../../pages/playbook/two-worlds';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
-
     margin-bottom: 2.5rem;
-    padding: 0 1.25rem;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
+    padding: 0 2.5rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
     overflow-x: hidden;
   }
   @media only screen and (max-width: 768px) {
@@ -43,73 +44,46 @@ const { className, styles } = css.resolve`
 
 const variants = {
   in: {
-    opacity: 1,
+    y: 0,
   },
   out: {
-    opacity: 0,
+    y: 200,
   },
 };
+
+export enum ActiveSide {
+  rise = 'rise',
+  collapse = 'collapse',
+}
 
 const MotionIllustration = motion(Illustration);
 
 const CompareSection = ({
-  data,
-  index,
+  setActiveSide,
   activeSide,
+  visible,
 }: {
-  data: any;
-  index: number;
+  setActiveSide: any;
   activeSide: ActiveSide;
+  visible: boolean;
 }) => {
-  const {
-    _key,
-    title,
-    body,
-    year,
-    rise,
-    collapse,
-    collapseIllustration,
-    riseIllustration,
-    initialSection,
-  } = data;
-
-  const activeIllustration =
-    activeSide === ActiveSide.collapse
-      ? collapseIllustration
-      : riseIllustration;
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        <MotionIllustration
-          key={activeSide}
-          transition={FRAMER_TRANSITION_EASEOUT}
-          initial={{
-            x: activeSide === ActiveSide.collapse ? -100 : 100,
-            scale: 0.9,
-          }}
-          animate={{ x: 0, scale: 1 }}
-          exit={{
-            x: activeSide === ActiveSide.collapse ? 100 : -100,
-            scale: 0.9,
-          }}
-          data={activeIllustration}
-        />
-      </AnimatePresence>
       <motion.div
-        transition={{ duration: 2 }}
+        transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
-        animate={'in'}
-        exit={'out'}
+        animate={visible ? 'in' : 'out'}
         variants={variants}
         className={className}
       >
-        <Collapse
-          year={year}
-          data={collapse}
+        <SeeRiseButton
+          onClick={() => setActiveSide(ActiveSide.rise)}
           active={activeSide === ActiveSide.collapse}
         />
-        <Rise year={year} data={rise} active={activeSide === ActiveSide.rise} />
-
+        <SeeCollapseButton
+          onClick={() => setActiveSide(ActiveSide.collapse)}
+          active={activeSide === ActiveSide.rise}
+        />
         {styles}
       </motion.div>
     </>

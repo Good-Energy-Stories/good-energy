@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-const SingleSection = ({ data, index }: { data: any; index: number }) => {
+const SingleSection = ({ data, index }: { data: any; index?: number }) => {
   const { _key, title, body, rise, collapse } = data;
 
   return (

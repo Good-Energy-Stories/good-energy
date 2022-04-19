@@ -6,17 +6,20 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
+import { forwardRef } from 'react';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
 
     max-height: 100vh;
+    min-height: 70vh;
 
     padding: 0 2.5rem;
     margin: 2.5rem 0;
   }
   @media only screen and (max-width: 768px) {
     div {
+      min-height: 15vh;
       padding: 0 1.25rem;
     }
   }
@@ -31,10 +34,11 @@ const variants = {
   },
 };
 
-const Illustration = ({ data }: { data: any }) => {
+const Illustration = ({ data }, ref) => {
   if (!data) return null;
   return (
     <motion.div
+      ref={ref}
       transition={{ duration: 2 }}
       initial={'out'}
       animate={'in'}
@@ -55,4 +59,4 @@ const Illustration = ({ data }: { data: any }) => {
   );
 };
 
-export default Illustration;
+export default forwardRef(Illustration);

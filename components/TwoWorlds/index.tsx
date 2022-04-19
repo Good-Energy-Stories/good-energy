@@ -9,3 +9,4 @@ export { default as Rise } from './Rise';
 export { default as SeeRiseButton } from './SeeRiseButton';
 export { default as SeeCollapseButton } from './SeeCollapseButton';
 export { default as ScrollDownPrompt } from './ScrollDownPrompt';
+export { default as Controls } from './Controls';

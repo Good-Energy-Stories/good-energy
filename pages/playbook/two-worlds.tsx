@@ -25,7 +25,19 @@ import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { AuthorCard } from '../../components/Cards';
-import { PageContent, Header } from '../../components/TwoWorlds';
+import {
+  PageContent,
+  Header,
+  Section,
+  SingleSection,
+  Controls,
+} from '../../components/TwoWorlds';
+import { useState } from 'react';
+
+export enum ActiveSide {
+  rise = 'rise',
+  collapse = 'collapse',
+}
 
 const Project = observer(({ pageData }: { pageData: any }) => {
   const store = useStore();
@@ -38,6 +50,10 @@ const Project = observer(({ pageData }: { pageData: any }) => {
     },
   } = store;
 
+  const [activeSide, setActiveSide] = useState(
+    pageData?.initialSection ?? ActiveSide.rise,
+  );
+
   useEffect(() => {
     setBorderColor('var(--blueBorder)');
     setBackgroundColor('var(--black)');
@@ -49,23 +65,31 @@ const Project = observer(({ pageData }: { pageData: any }) => {
     };
   }, [setBorderColor, setBackgroundColor, setTextColor]);
 
-  console.log(pageData);
   return (
     <>
       <Meta />
       <StickyNavBar mode={NavBarStyles.light} />
       <Layout key="two-worlds">
-        <Header
-          title={pageData?.title}
-          smallTitle={pageData?.smallTitle}
-          description={pageData?.description}
-        />
+        <Header title={pageData?.title} smallTitle={pageData?.smallTitle} />
+        <SingleSection data={{ body: pageData?.description }} />
         {pageData?.content?.map((c, i) => {
-          return <PageContent key={i} content={c} index={i} />;
+          return (
+            <PageContent
+              key={i}
+              content={c}
+              index={i}
+              activeSide={activeSide}
+            />
+          );
         })}
         <AuthorSection content={pageData?.author} />
         <NextUp article={pageData?.nextUp} />
         <Related content={pageData?.related} />
+        <Controls
+          activeSide={activeSide}
+          setActiveSide={setActiveSide}
+          visible={scrollPosition > 0.02 && scrollPosition < 0.94}
+        />
       </Layout>
       <Footer />
     </>

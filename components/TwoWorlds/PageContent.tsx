@@ -5,14 +5,15 @@ const SingleSection = dynamic(() => import('./SingleSection'));
 const Illustration = dynamic(() => import('./Illustration'));
 const CompareSection = dynamic(() => import('./CompareSection'));
 
-export const PageContent = ({ index, content }) => {
+export const PageContent = ({ index, content, activeSide }) => {
   const type = content._type;
   console.log('rise: ', type);
   switch (type) {
     case 'twoWorldsCompareSection':
-      return <CompareSection index={index} data={content} />;
-    case 'illustration':
-      return <Illustration data={content} />;
+      return (
+        <CompareSection index={index} data={content} activeSide={activeSide} />
+      );
+
     case 'twoWorldsSection':
       return <SingleSection index={index} data={content} />;
 

@@ -21,8 +21,9 @@ function getStyles() {
     @media only screen and (max-width: 768px) {
       div {
         grid-column: 1/5;
-        padding: 0 1.25rem;
-        padding-top: 2.5rem;
+        padding: 2.5rem 1.25rem;
+
+        height: auto;
       }
     }
   `;
@@ -40,11 +41,9 @@ const variants = {
 const Header = ({
   title,
   smallTitle,
-  description,
 }: {
   title: string;
   smallTitle: string;
-  description: any;
 }) => {
   const { className, styles } = getStyles();
 
@@ -61,12 +60,11 @@ const Header = ({
         <h3>{smallTitle}</h3>
         <h1>{title}</h1>
       </div>
-      <div className="body-italic">
-        <PortableText value={description} />
-      </div>
+
       <ScrollDownPrompt />
       <style jsx>{`
         .titles {
+          padding-top: 2.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;

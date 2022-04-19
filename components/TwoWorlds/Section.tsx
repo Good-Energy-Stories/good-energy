@@ -31,7 +31,7 @@ const variants = {
   },
 };
 
-const ArticleSection = ({ data, index }: { data: any; index: number }) => {
+const ArticleSection = ({ data, index }: { data: any; index?: number }) => {
   const { _key, title, body } = data;
   return (
     <motion.div
