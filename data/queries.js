@@ -40,6 +40,13 @@ partners[]->{
 export const articleSection = `
 title,
 body,
+"footnotes": body[].markDefs[] {
+  _type == 'footnote' => {
+    _type,
+    number,
+    text
+  }
+},
 includeSpotIllustration,
 spotIllustration{
     ${imageMeta}
@@ -247,6 +254,13 @@ author[]-> {
 tags[],
 section,
 "slug": slug.current,
+"footnotes": body[].body[].markDefs[] {
+  _type == 'footnote' => {
+    _type,
+    number,
+    text
+  }
+},
 heroImage{
   ${imageMeta}
 },

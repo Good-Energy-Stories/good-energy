@@ -44,7 +44,8 @@ const Related = ({ content }: { content: any }) => {
         }
         @media only screen and (max-width: 768px) {
           .layout {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            padding: 0;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
           }
         }
       `}</style>

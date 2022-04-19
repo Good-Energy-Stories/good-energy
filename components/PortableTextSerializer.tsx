@@ -1,4 +1,5 @@
 import { PortableTextReactComponents } from '@portabletext/react';
+import FootnoteNumber from './FootnoteNumber';
 
 const PortableTextSerializer: Partial<PortableTextReactComponents> = {
   block: {
@@ -24,6 +25,12 @@ const PortableTextSerializer: Partial<PortableTextReactComponents> = {
         </a>
       );
     },
+    footnote: ({ value, children }) => (
+      <span className="body-footnote">
+        {children}
+        <FootnoteNumber number={value?.number} />
+      </span>
+    ),
   },
 };
 

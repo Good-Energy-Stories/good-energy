@@ -16,6 +16,7 @@ import {
   Banner,
   AuthorSection,
   NextUp,
+  MobileFootnotes,
 } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useRef } from 'react';
@@ -48,9 +49,16 @@ const Project = observer(
       body,
       heroImage,
       section,
+      footnotes,
       relatedSubsection,
     } = article;
     const sectionsRef = useRef<SectionRefLookup>({});
+
+    console.log('-------');
+    console.log(article);
+    console.log(article.footnotes);
+    console.log(article.footnotes.length);
+    console.log('-------');
 
     const sectionsTOC = body
       ?.filter((e) => e._type === 'articleSection')
@@ -85,9 +93,11 @@ const Project = observer(
           <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
           <Introduction body={article?.introduction} />
           <Body body={article?.body} sectionsRef={sectionsRef} />
+
           <AuthorSection content={article?.author} />
           <NextUp article={article?.nextUp} />
           <Related content={article?.related} />
+          <MobileFootnotes footnotes={footnotes} />
         </Layout>
         <Footer />
         <ExitPreviewButton

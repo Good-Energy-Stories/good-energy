@@ -5,8 +5,7 @@ import { useState } from 'react';
 
 const { className, styles } = css.resolve`
   div {
-    margin-left: 1.25rem;
-
+    margin: 0 1.25rem;
     grid-column: 2/4;
     margin-bottom: 2.5rem;
     padding: 1.25rem 0;
@@ -16,6 +15,7 @@ const { className, styles } = css.resolve`
   @media only screen and (max-width: 768px) {
     div {
       grid-column: 1/5;
+      margin: 1.25rem;
     }
   }
 `;

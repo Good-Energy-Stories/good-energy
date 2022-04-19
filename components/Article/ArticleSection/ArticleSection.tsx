@@ -8,6 +8,9 @@ import { Content } from './';
 import SpotIllustration from './SpotIllustration';
 import { RefObject } from 'react';
 import { SectionRefLookup } from '../';
+import { PortableText } from '@portabletext/react';
+import Footnote from '../Footnote';
+import DesktopFootnotes from '../DesktopFootnotes';
 const { className, styles } = css.resolve`
   div {
     grid-column: 2/5;
@@ -41,7 +44,8 @@ const ArticleSection = ({
   index: number;
   sectionsRef: RefObject<SectionRefLookup>;
 }) => {
-  const { includeSpotIllustration, _key } = data;
+  const { includeSpotIllustration, _key, footnotes } = data;
+
   return (
     <motion.div
       ref={(el) => (sectionsRef.current[_key] = el)}
@@ -53,11 +57,28 @@ const ArticleSection = ({
       className={className}
     >
       <Content data={data} />
+
       {includeSpotIllustration && (
         <SpotIllustration image={data?.spotIllustration} />
       )}
+      <DesktopFootnotes footnotes={footnotes} />
       <style jsx>{`
         .open-quote {
+        }
+
+        .footnotes {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: absolute;
+          max-width: 228px;
+          right: 2.5rem;
+          color: var(--blueThree);
+          font-family: var(--flexa);
+          font-variation-settings: 'wght' 220;
+          font-size: 14px;
+          line-height: 18px;
         }
       `}</style>
       {styles}

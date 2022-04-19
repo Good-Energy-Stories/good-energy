@@ -69,7 +69,8 @@ const Title = ({
           margin-top: 2.5rem;
           margin-bottom: 2rem;
         }
-        .open-quote {
+        .subhead {
+          margin-bottom: 1.25rem;
         }
         h1 {
           margin-top: 0;

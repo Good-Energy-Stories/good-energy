@@ -18,7 +18,7 @@ const { className, styles } = css.resolve`
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
-    normal: ({ children }) => <p className="body-italic">{children}</p>,
+    normal: ({ children }) => <span className="body-italic">{children}</span>,
   },
 };
 

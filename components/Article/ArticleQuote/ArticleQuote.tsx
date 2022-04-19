@@ -8,7 +8,8 @@ const { className, styles } = css.resolve`
   div {
     margin-left: 1.25rem;
     grid-column: 2/4;
-    margin-bottom: 2.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
     margin-left: -2.75rem;
   }
   @media only screen and (min-width: 1200px) {

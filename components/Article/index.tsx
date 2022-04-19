@@ -10,3 +10,6 @@ export { default as TOC } from './TOC/TOC';
 export type { SectionTOC, SectionsTOC } from './TOC/TOC';
 export { default as AuthorSection } from './AuthorSection';
 export { default as NextUp } from './NextUp';
+export { default as Footnote } from './Footnote';
+export { default as MobileFootnotes } from './MobileFootnotes';
+export { default as DesktopFootnotes } from './DesktopFootnotes';
