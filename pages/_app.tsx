@@ -84,6 +84,11 @@ const MyApp = observer(
           firstArticle: mainSections.why[0],
           articles: mainSections.why,
         };
+        const whatsNextSection = {
+          title: "What's Next",
+          firstArticle: mainSections.whatsNext[0],
+          articles: mainSections.whatsNext,
+        };
 
         const creditsSection = {
           title: 'Credits',
@@ -95,6 +100,7 @@ const MyApp = observer(
           introSection,
           whySection,
           ...mainSections.climateStorytelling,
+          whatsNextSection,
           creditsSection,
         ].map((s) => {
           return {
@@ -144,4 +150,12 @@ const MyApp = observer(
   },
 );
 
-export default MyApp;
+export default process.env.PASSWORD_PROTECT
+  ? withPasswordProtect(MyApp, {
+      loginComponentProps: {
+        logo: '/light-logo.png',
+        buttonBackgroundColor: 'var(--pink)',
+      },
+      loginApiUrl: '/api/login',
+    })
+  : MyApp;

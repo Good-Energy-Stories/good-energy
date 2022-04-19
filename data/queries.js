@@ -626,6 +626,13 @@ climateStorytelling[]->{
   ${climateStorytellingSections}
   },
 },
+whatsNext[]->{
+  _type == 'article' => {
+    _type,
+    title,
+    "slug": slug.current,
+  },
+},
 credits-> {
   _type == 'article' => {
     _type,

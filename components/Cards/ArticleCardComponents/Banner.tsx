@@ -25,7 +25,7 @@ const variants = {
 };
 
 const Banner = ({ image }: { image: any }) => {
-  if (!image) return null;
+  if (!image || !image?.asset) return null;
   return (
     <motion.div
       transition={{ duration: 2 }}

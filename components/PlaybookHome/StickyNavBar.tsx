@@ -16,6 +16,9 @@ import {
   MOBILE_PLAYBOOK_NAV_HEIGHT,
   PLAYBOOK_NAV_HEIGHT,
 } from '../StickyNavBar';
+import MediumBorderCTAButton from '../MediumBorderCTAButton';
+import SmallBorderCTAButton from '../SmallBorderCTAButton';
+import CTAButton from '../CTAButton';
 
 const NavLinks = () => {
   return (
@@ -72,6 +75,47 @@ const NavLinks = () => {
   );
 };
 
+const MobileOpenTOCButton = observer(() => {
+  const store = useStore();
+  const {
+    uiStore: { openPlaybookNavOverlay },
+  } = store;
+  return (
+    <motion.div whileTap={{ scale: 0.95 }} whileHover={{ opacity: 0.8 }}>
+      <div className="container">
+        <div
+          className="container-inner"
+          onClick={() => openPlaybookNavOverlay()}
+        >
+          <div className="button-text">Table of Contents</div>
+        </div>
+      </div>
+      <style jsx>{`
+        .button-text {
+          white-space: nowrap;
+          text-align: center;
+          padding: 5px 10px;
+          padding-bottom: 4px;
+          text-transform: uppercase;
+        }
+        .container {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+        .container-inner {
+          margin: 0 1.25rem;
+          display: inline-block;
+          position: relative;
+          border: 4px solid;
+        }
+      `}</style>
+    </motion.div>
+  );
+});
+
 const NavButtons = observer(
   ({ setExpanded, expanded }: { setExpanded: any; expanded: boolean }) => {
     const store = useStore();
@@ -89,6 +133,7 @@ const NavButtons = observer(
           onClick={() => setExpanded(!expanded)}
           expanded={expanded}
         />
+        <MobileOpenTOCButton />
         <NavLinks />
         <style jsx>{`
           div {
