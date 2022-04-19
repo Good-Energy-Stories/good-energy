@@ -251,7 +251,7 @@ const PlaybookNavOverlay = observer(() => {
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={playbookNavOverlayOpen ? 'in' : 'out'}
-        variants={isMobile ? mobileVariants : variants}
+        variants={variants}
         className={className}
       >
         <div className="container">
