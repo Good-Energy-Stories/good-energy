@@ -72,17 +72,19 @@ const LeftColumn = ({
     getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
   return (
-    <div className="container">
-      {data.map((c, i) => (
-        <Card
-          key={i}
-          index={i}
-          last={i === data.length - 1}
-          content={c}
-          articleCardStyle={leftColumnCardStyle}
-          characterProfileCardStyle={leftColumnCharacterProfileCardStyle}
-        />
-      ))}
+    <>
+      <div className="container">
+        {data.map((c, i) => (
+          <Card
+            key={i}
+            index={i}
+            last={i === data.length - 1}
+            content={c}
+            articleCardStyle={leftColumnCardStyle}
+            characterProfileCardStyle={leftColumnCharacterProfileCardStyle}
+          />
+        ))}
+      </div>
       <style jsx>{`
         .container {
           grid-column: 1/2;
@@ -103,7 +105,7 @@ const LeftColumn = ({
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
@@ -122,18 +124,20 @@ const MainColumn = ({
 
   if (!data) return null;
   return (
-    <div className="container">
-      {data.map((c, i) => (
-        <Card
-          key={i}
-          index={i}
-          last={i === data.length - 1}
-          shouldUseExpandedStyles={secondaryColumnsEmpty}
-          content={c}
-          articleCardStyle={mainColumnArticleCardStyle}
-          characterProfileCardStyle={mainColumnCharacterProfileCardStyle}
-        />
-      ))}
+    <>
+      <div className="container">
+        {data.map((c, i) => (
+          <Card
+            key={i}
+            index={i}
+            last={i === data.length - 1}
+            shouldUseExpandedStyles={secondaryColumnsEmpty}
+            content={c}
+            articleCardStyle={mainColumnArticleCardStyle}
+            characterProfileCardStyle={mainColumnCharacterProfileCardStyle}
+          />
+        ))}
+      </div>
       <style jsx>{`
         .container {
           grid-column: 2/4;
@@ -149,7 +153,7 @@ const MainColumn = ({
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
@@ -165,17 +169,19 @@ const RightColumn = ({
     getSecondaryColumnCharacterProfileCardStyle(style);
   if (!data) return null;
   return (
-    <div className="container">
-      {data.map((c, i) => (
-        <Card
-          key={i}
-          index={i}
-          last={i === data.length - 1}
-          content={c}
-          articleCardStyle={rightColumnCardStyle}
-          characterProfileCardStyle={rightColumnCharacterProfileCardStyle}
-        />
-      ))}
+    <>
+      <div className="container">
+        {data.map((c, i) => (
+          <Card
+            key={i}
+            index={i}
+            last={i === data.length - 1}
+            content={c}
+            articleCardStyle={rightColumnCardStyle}
+            characterProfileCardStyle={rightColumnCharacterProfileCardStyle}
+          />
+        ))}
+      </div>
       <style jsx>{`
         .container {
           grid-column: 4/5;
@@ -197,7 +203,7 @@ const RightColumn = ({
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
