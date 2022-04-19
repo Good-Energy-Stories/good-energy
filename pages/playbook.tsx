@@ -33,10 +33,6 @@ const Root = ({ pageData }) => {
     window.location.reload();
   };
 
-  console.log('---------');
-  console.log(pageData);
-  console.log('---------');
-
   return (
     <>
       <Meta

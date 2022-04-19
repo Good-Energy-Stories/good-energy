@@ -187,7 +187,6 @@ const RightColumn = ({
           margin-bottom: 1.25rem;
           align-content: flex-end;
           display: flex;
-          display: flex;
           align-items: flex-end;
           flex-direction: column;
         }

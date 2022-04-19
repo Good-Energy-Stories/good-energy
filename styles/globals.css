@@ -75,5 +75,6 @@ input:focus {
 @media only screen and (max-width: 768px) {
   body {
     border: 0;
+    min-width: 100vw;
   }
 }
