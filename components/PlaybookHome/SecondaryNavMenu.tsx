@@ -32,6 +32,7 @@ function getStyles() {
     }
     @media only screen and (max-width: 768px) {
       div {
+        display: none;
         padding: 0;
       }
     }

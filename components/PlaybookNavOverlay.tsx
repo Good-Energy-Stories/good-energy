@@ -128,7 +128,7 @@ const TOCSubsection = ({ content }) => {
       <TOCSection content={content?.contents} />
       <style jsx>{`
         div {
-          margin-bottom: 0.625rem;
+          margin-bottom: 1.25rem;
           width: 100%;
           margin-right: 1.25rem;
         }
@@ -145,7 +145,7 @@ const TOCSubsection = ({ content }) => {
 
 const TOCSubsubsection = ({ content }) => {
   return (
-    <div>
+    <div className="container">
       <div className="playbook-toc-nav-link">{content?.title}</div>
       <ul>
         {content?.contents?.map((content, index) => {
@@ -162,7 +162,7 @@ const TOCSubsubsection = ({ content }) => {
         })}
       </ul>
       <style jsx>{`
-        div {
+        .container {
         }
         .playbook-toc-nav-link {
           color: var(--white);
@@ -224,6 +224,17 @@ const PlaybookNavOverlay = observer(() => {
   } = store;
   console.log('playbookNavTableOfContents : ', playbookNavTableOfContents);
   if (!playbookNavTableOfContents) return null;
+
+  const m = Math.floor(
+    playbookNavTableOfContents.climateStorytelling.length / 2 + 1,
+  );
+  const [climateStorytellingLeft, climateStorytellingRight] = [
+    playbookNavTableOfContents.climateStorytelling.slice(0, m),
+    playbookNavTableOfContents.climateStorytelling.slice(
+      m,
+      playbookNavTableOfContents.climateStorytelling.length,
+    ),
+  ];
   return (
     <>
       <motion.div
@@ -237,20 +248,12 @@ const PlaybookNavOverlay = observer(() => {
           <h2 className="title">Playbook Contents</h2>
           <div className="section introduction">
             <div>
-              <h3>Introduction</h3>
+              <h3>Foreword</h3>
               <TOCSection content={playbookNavTableOfContents.introduction} />
             </div>
-            <div className="section resources-desktop">
-              <h3>{"What's Next and Resources"}</h3>
-              <TOCSection content={playbookNavTableOfContents.whatsNext} />
-              <ListItemLink
-                label="Library of Experts"
-                href="/about/library-of-experts"
-              />
-              <ListItemLink
-                label="Partners and Recommended Organizations"
-                href="/about/partners"
-              />
+            <div className="section why">
+              <h3>The Why</h3>
+              <TOCSection content={playbookNavTableOfContents.why} />
             </div>
           </div>
           <div className="section resources-mobile">
@@ -266,17 +269,28 @@ const PlaybookNavOverlay = observer(() => {
             />
           </div>
 
-          <div className="section why">
-            <h3>The Why</h3>
-            <TOCSection content={playbookNavTableOfContents.why} />
-          </div>
           <div className="section climate-storytelling">
             <h3 className="climate-storytelling-title">Climate Storytelling</h3>
+            <div className="climate-storytelling-left">
+              <TOCSection content={climateStorytellingLeft} />
+            </div>
+            <div className="climate-storytelling-right">
+              <TOCSection content={climateStorytellingRight} />
+            </div>
 
-            <TOCSection
-              content={playbookNavTableOfContents.climateStorytelling}
-            />
             <div className="climate-storytelling-scroll-affordance" />
+          </div>
+          <div className="section resources-desktop whats-next">
+            <h3>{"What's Next and Resources"}</h3>
+            <TOCSection content={playbookNavTableOfContents.whatsNext} />
+            <ListItemLink
+              label="Library of Experts"
+              href="/about/library-of-experts"
+            />
+            <ListItemLink
+              label="Partners and Recommended Organizations"
+              href="/about/partners"
+            />
           </div>
         </div>
 
@@ -293,7 +307,6 @@ const PlaybookNavOverlay = observer(() => {
             grid-row-start: 2;
           }
           .resources-desktop {
-            margin-top: 2.5rem;
             display: block;
           }
           .resources-mobile {
@@ -302,21 +315,34 @@ const PlaybookNavOverlay = observer(() => {
           .why {
             grid-column: 2/3;
             grid-row-start: 2;
+            margin-top: 2.5rem;
           }
           .title {
             grid-column: 1/4;
             grid-row-start: 1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
           }
-
+          .whats-next {
+            grid-row-start: 2;
+            grid-column: 4/5;
+          }
+          .climate-storytelling-left {
+            margin-right: 1.25rem;
+            grid-column: span 1;
+          }
+          .climate-storytelling-right {
+            margin-right: 1.25rem;
+            grid-column: span 1;
+          }
           .climate-storytelling {
-            grid-column: 3/5;
+            grid-column: 2/4;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             overflow: scroll;
             -ms-overflow-style: none;
             scrollbar-width: none;
             padding-bottom: 15rem;
             position: relative;
-            margin-right: 0 !important;
           }
           .climate-storytelling-scroll-affordance {
             width: 100%;
@@ -386,6 +412,16 @@ const PlaybookNavOverlay = observer(() => {
               grid-row-start: 4;
               overflow: visible;
               padding-bottom: 0;
+            }
+            .climate-storytelling-left {
+              margin-right: 1.25rem;
+              grid-row-start: 2;
+              grid-column: 1/3;
+            }
+            .climate-storytelling-right {
+              margin-right: 1.25rem;
+              grid-row-start: 3;
+              grid-column: 1/3;
             }
             .climate-storytelling-title {
               position: relative;
