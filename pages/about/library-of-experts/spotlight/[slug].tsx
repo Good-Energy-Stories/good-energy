@@ -13,9 +13,10 @@ import { Footer } from '../../../../components/Footer';
 import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../../../components/Related';
+import { imageUrlFor } from '../../../../utils/imageUrlFor';
 
 const Project = observer(({ expertProfile }: { expertProfile: any }) => {
-  console.log(expertProfile);
+  const { name, shortBio, slug, smallPortraitImage } = expertProfile;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -24,7 +25,16 @@ const Project = observer(({ expertProfile }: { expertProfile: any }) => {
     scrollPosition > 0.05 ? NavBarStyles.dark : NavBarStyles.light;
   return (
     <>
-      <Meta />
+      <Meta
+        title={name}
+        image={
+          smallPortraitImage
+            ? imageUrlFor(smallPortraitImage).width(500).url()
+            : null
+        }
+        slug={`about/library-of-experts/spotlight/${slug}`}
+        description={shortBio}
+      />
       <StickyNavBar mode={navMode} />
       <Layout key={expertProfile.slug}>
         <SpotlightBody

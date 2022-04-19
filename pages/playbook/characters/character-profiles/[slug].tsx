@@ -13,9 +13,11 @@ import { Footer } from '../../../../components/Footer';
 import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../../../components/Related';
+import { imageUrlFor } from '../../../../utils/imageUrlFor';
 
 const Project = observer(({ characterProfile }: { characterProfile: any }) => {
-  const { related } = characterProfile;
+  const { related, name, shortBio, slug, smallPortraitImage } =
+    characterProfile;
   const store = useStore();
   const {
     uiStore: { scrollPosition },
@@ -24,7 +26,16 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
     scrollPosition > 0.05 ? NavBarStyles.dark : NavBarStyles.light;
   return (
     <>
-      <Meta />
+      <Meta
+        title={name}
+        image={
+          smallPortraitImage
+            ? imageUrlFor(smallPortraitImage).width(500).url()
+            : null
+        }
+        slug={`playbook/characters/spotlight/${slug}`}
+        description={shortBio}
+      />
       <StickyNavBar mode={navMode} />
       <Layout key={characterProfile.slug}>
         <SpotlightBody
