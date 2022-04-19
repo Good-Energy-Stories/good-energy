@@ -75,7 +75,7 @@ const MyApp = observer(
         );
 
         const introSection = {
-          title: 'Introduction',
+          title: 'Foreword',
           firstArticle: mainSections.introduction[0],
           articles: mainSections.introduction,
         };
