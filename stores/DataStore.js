@@ -84,6 +84,11 @@ class DataStore {
   @action.bound setLibraryOfExpertsSortOrder(sortOrder) {
     this.libraryOfExpertsSortOrder = sortOrder;
   }
+
+  @action.bound clearRouteVariablesData() {
+    this.libraryOfExpertsResults = [];
+  }
+
   @computed get libraryOfExpertsTags() {
     const tags = [];
     this.libraryOfExpertsResults.forEach((expert) => {
@@ -94,6 +99,7 @@ class DataStore {
 
     return [...new Set(tags)];
   }
+
   @computed get filteredLibraryOfExpertsResults() {
     const categoryResults = this.libraryOfExpertsResults.filter(
       ({ expertType }) => {
@@ -116,12 +122,12 @@ class DataStore {
       this.libraryOfExpertsSortOrder === 'ascending' ? 1 : -1;
 
     const alphabeticalSort = (a, b) => {
-      const firstName = a.name.toUpperCase();
-      const secondName = b.name.toUpperCase();
-      if (firstName < secondName) {
+      const firstLastName = a.name.split(' ').at(-1).toUpperCase();
+      const secondLastName = b.name.split(' ').at(-1).toUpperCase();
+      if (firstLastName < secondLastName) {
         return sortOrderModifier * -1;
       }
-      if (firstName > secondName) {
+      if (firstLastName > secondLastName) {
         return sortOrderModifier * 1;
       }
       return 0;

@@ -25,7 +25,6 @@ import {
 } from '../../components/SearchPage';
 
 const Root = ({ pageData }) => {
-  console.log('pageData:', pageData);
   const { title, description, related, characterProfiles } = pageData;
 
   return (

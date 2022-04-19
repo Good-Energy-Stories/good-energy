@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
+import { motion } from 'framer-motion';
 
 export const light: NavBarStyle = {
   backgroundColor: 'transparent',
@@ -78,7 +79,12 @@ const NavButtons = ({
       <button>
         <Link href={'/playbook/search'}>
           <a>
-            <SearchIcon fill={theme.textColor} />
+            <motion.div
+              whileHover={{ opacity: 0.6 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <SearchIcon fill={theme.textColor} />
+            </motion.div>
           </a>
         </Link>
       </button>
@@ -97,6 +103,7 @@ const NavButtons = ({
           display: flex;
           align-items: center;
           background-color: transparent;
+          padding: 0.3125rem;
         }
         @media only screen and (max-width: 768px) {
           .border {
@@ -200,6 +207,7 @@ const PlaybookStickyNavBar = ({
 
           @media only screen and (max-width: 768px) {
             div {
+              padding-left: 0.625rem;
             }
           }
         `}</style>

@@ -1,6 +1,6 @@
 import { FooterLink } from './';
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 const LinkColumn = ({
   label,
   links,
@@ -15,7 +15,11 @@ const LinkColumn = ({
         {links.map((l) => (
           <Link key={l.label} href={l.href ?? '/'} passHref>
             <a>
-              <div className="link">{l.label}</div>
+              <div className="link">
+                <motion.span whileHover={{ opacity: 0.6 }}>
+                  {l.label}
+                </motion.span>
+              </div>
             </a>
           </Link>
         ))}

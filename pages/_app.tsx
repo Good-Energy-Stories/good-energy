@@ -29,7 +29,11 @@ const MyApp = observer(
     const store = useStore(pageProps.initialState);
 
     const {
-      dataStore: { setPlaybookNavTableOfContents, setPlaybookSections },
+      dataStore: {
+        clearRouteVariablesData,
+        setPlaybookNavTableOfContents,
+        setPlaybookSections,
+      },
       uiStore: {
         navOverlayOpen,
         clearRouteVariables,
@@ -45,6 +49,7 @@ const MyApp = observer(
 
     useEffect(() => {
       const handleRouteChange = (url) => {
+        clearRouteVariablesData();
         clearRouteVariables();
         ga.pageview(url);
       };

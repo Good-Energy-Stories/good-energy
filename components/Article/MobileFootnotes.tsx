@@ -12,6 +12,11 @@ import { PortableText } from '@portabletext/react';
 import Footnote from './Footnote';
 
 const MobileFootnotes = ({ footnotes }: { footnotes: any }) => {
+  if (
+    !footnotes ||
+    footnotes.filter((f) => f?._type === 'footnote').length === 0
+  )
+    return null;
   return (
     <>
       <div className="footnotes">
