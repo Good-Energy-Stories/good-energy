@@ -72,6 +72,8 @@ export async function getStaticProps({ preview, previewData }) {
     }[0]
   `,
   );
+
+  console.log(pageData);
   return { props: { pageData } };
 }
 

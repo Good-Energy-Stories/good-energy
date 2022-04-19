@@ -8,6 +8,7 @@ import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const Partners = ({ pageData }) => {
   const { title, description, seo } = pageData;
+  console.log(description);
   return (
     <>
       <Meta
