@@ -1,17 +1,17 @@
-import { sanity } from '../lib/sanity';
-import { Layout, Masthead, Meta } from '../components';
+import { sanity } from '../../lib/sanity';
+import { Layout, Masthead, Meta } from '../../components';
 import {
   PlaybookAnimatedSpacer,
   StickyNavBar,
-} from '../components/PlaybookHome';
-import { queries } from '../data';
+} from '../../components/PlaybookHome';
+import { queries } from '../../data';
 import {
   PageContent,
   ThreeColumnLayout,
   ThreeColumnLayoutStyle,
-} from '../components/PlaybookHome';
-import { Footer } from '../components/Footer';
-import { imageUrlFor } from '../utils/imageUrlFor';
+} from '../../components/PlaybookHome';
+import { Footer } from '../../components/Footer';
+import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const Root = ({ pageData }) => {
   const { masthead, content, seo, playbookTableOfContentsInitialState } =
@@ -73,7 +73,6 @@ export async function getStaticProps({ preview, previewData }) {
   `,
   );
 
-  console.log(pageData);
   return { props: { pageData } };
 }
 
