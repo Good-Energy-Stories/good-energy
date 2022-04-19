@@ -16,7 +16,6 @@ import {
 } from '../StickyNavBar';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import DropdownMenu from './DropdownMenu';
-import { isMobile } from 'react-device-detect';
 
 function getStyles() {
   return css.resolve`

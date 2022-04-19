@@ -1,16 +1,9 @@
 import { sanity } from '../lib/sanity';
-import styles from '../styles/Home.module.css';
-
-import Link from 'next/link';
-
-import { useRef, useEffect, useState, useCallback } from 'react';
-import { useStore } from '../stores/store';
-import { Layout, Masthead, Meta, QuoteCarousel, Tag } from '../components';
+import { Layout, Masthead, Meta } from '../components';
 import {
   PlaybookAnimatedSpacer,
   StickyNavBar,
 } from '../components/PlaybookHome';
-
 import { queries } from '../data';
 import {
   PageContent,

@@ -12,7 +12,6 @@ import {
   FRAMER_TRANSITION_FASTEASE,
 } from '../../../lib/framer/framer-animations';
 import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../../StickyNavBar';
-import { isMobile } from 'react-device-detect';
 
 function getStyles(sticky) {
   return css.resolve`

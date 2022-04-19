@@ -12,7 +12,6 @@ import CloseButtonIcon from '../public/close-button.svg';
 import ListArrowIcon from '../public/list-arrow.svg';
 import Link from 'next/link';
 import { Search } from './';
-import { isMobile } from 'react-device-detect';
 const { className, styles } = css.resolve`
   div {
     height: 100%;

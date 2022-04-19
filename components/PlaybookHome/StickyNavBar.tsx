@@ -12,7 +12,6 @@ import { SecondaryNavMenu } from './';
 import NavDropdownButton from './NavDropdownButton';
 import { motion } from 'framer-motion';
 import * as ga from '../../lib/ga';
-import { isMobile } from 'react-device-detect';
 import {
   MOBILE_PLAYBOOK_NAV_HEIGHT,
   PLAYBOOK_NAV_HEIGHT,

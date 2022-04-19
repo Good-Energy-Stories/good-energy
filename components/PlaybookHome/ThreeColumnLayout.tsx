@@ -73,7 +73,7 @@ const LeftColumn = ({
   if (!data) return null;
   return (
     <>
-      <div className="container">
+      <div className="three-column-left">
         {data.map((c, i) => (
           <Card
             key={i}
@@ -86,7 +86,7 @@ const LeftColumn = ({
         ))}
       </div>
       <style jsx>{`
-        .container {
+        .three-column-left {
           grid-column: 1/2;
           padding-left: 1.25rem;
           margin-top: ${style === ThreeColumnLayoutStyle.primary
@@ -98,7 +98,7 @@ const LeftColumn = ({
           align-items: flex-start;
         }
         @media only screen and (max-width: 768px) {
-          .container {
+          .three-column-left {
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;

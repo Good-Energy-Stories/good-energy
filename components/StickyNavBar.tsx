@@ -6,7 +6,6 @@ import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import { isMobile } from 'react-device-detect';
 
 export const light: NavBarStyle = {
   backgroundColor: 'transparent',

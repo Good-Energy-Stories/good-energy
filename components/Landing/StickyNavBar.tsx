@@ -23,7 +23,6 @@ import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
 import * as ga from '../../lib/ga';
 import { motion } from 'framer-motion';
-import { isMobile } from 'react-device-detect';
 const NavLinks = ({
   theme,
   donateLink,

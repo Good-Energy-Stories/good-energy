@@ -10,7 +10,6 @@ import {
   PLAYBOOK_NAV_HEIGHT,
 } from '../StickyNavBar';
 import { ScrollDownPrompt } from '.';
-import { isMobile } from 'react-device-detect';
 
 function getStyles() {
   return css.resolve`
