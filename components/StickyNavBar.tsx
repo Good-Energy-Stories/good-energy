@@ -102,6 +102,7 @@ const NavButtons = ({
         }
         div {
           padding: 0 1.25rem;
+
           pointer-events: auto;
           display: flex;
         }
@@ -111,13 +112,14 @@ const NavButtons = ({
           align-items: center;
           background-color: transparent;
           padding: 0.3125rem;
+          padding-top: 1rem;
         }
         @media only screen and (max-width: 768px) {
           .border {
             border: 0;
           }
           div {
-            padding: 0;
+            padding: 1.25rem 0;
           }
         }
       `}</style>
