@@ -290,6 +290,15 @@ nextUp->{
     _type,
     ${articlePreview}
   },
+  _type == 'characterProfilesPage' => {
+    _type,
+    title,
+    lede,
+    heroImage{
+      ${imageMeta}
+    },
+    "slug": "characters",
+  },
  
  
 }

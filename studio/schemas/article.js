@@ -180,6 +180,7 @@ export default {
         { type: 'article' },
         { type: 'whyClimateArticle' },
         { type: 'twoWorldsArticle' },
+        { type: 'characterProfilesPage' },
       ],
     },
     {
