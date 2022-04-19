@@ -104,6 +104,7 @@ const MobileOpenTOCButton = observer(() => {
           display: flex;
           justify-content: flex-end;
           align-items: center;
+          cursor: pointer;
         }
         .container-inner {
           margin: 0 1.25rem;
