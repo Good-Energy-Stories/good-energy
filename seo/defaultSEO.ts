@@ -1,14 +1,14 @@
-const siteTitle = 'Boilerplate';
+const siteTitle = 'Good Energy';
 
 const defaultSeo = {
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://www.Boilerplate.com/',
+    url: 'https://www.goodenergystories.com/',
     site_name: siteTitle,
   },
   twitter: {
-    handle: '@Boilerplate',
+    handle: '@goodenergystory',
     cardType: 'summary_large_image',
   },
   titleTemplate: `%s | ${siteTitle}`,
