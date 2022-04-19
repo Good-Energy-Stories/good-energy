@@ -38,7 +38,7 @@ const Header = ({
   description,
   fittedText,
 }: {
-  heroImage: any;
+  heroImage?: any;
   title: string;
   description: any;
   fittedText?: boolean;
