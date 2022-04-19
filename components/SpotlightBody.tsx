@@ -13,6 +13,7 @@ import {
   CharacterProfileCardStyle,
   CharacterProfileFeaturedSecondary,
 } from './Cards';
+import { PLAYBOOK_NAV_HEIGHT } from './StickyNavBar';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;
@@ -122,7 +123,10 @@ const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
               grid-column: 1/5;
               grid-row-start: 1;
 
-              height: 75vh;
+              height: 500px;
+              overflow: hidden;
+              margin-bottom: 1.25rem;
+              margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
             }
             .right {
               padding: 0 1.25rem;
