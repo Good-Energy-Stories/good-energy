@@ -7,12 +7,12 @@ import PortableTextSerializer from './PortableTextSerializer';
 import { Banner } from './Spotlight';
 import Breadcrumbs from './Breadcrumbs';
 import {
+  ArticleCardStyle,
   Card,
   CharacterProfileCard,
   CharacterProfileCardStyle,
   CharacterProfileFeaturedSecondary,
 } from './Cards';
-import { PLAYBOOK_NAV_HEIGHT } from './StickyNavBar';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;
@@ -41,9 +41,10 @@ const NextUp = ({ nextUp }) => {
   return (
     <>
       <div className="divider" />
-      <div className="label-medium">Next Up</div>
+
       <Card
         content={nextUp}
+        articleCardStyle={ArticleCardStyle.nextUp}
         characterProfileCardStyle={CharacterProfileCardStyle.nextUp}
         last
         marginBottom={'1.25rem'}

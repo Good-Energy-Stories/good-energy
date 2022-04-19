@@ -39,14 +39,15 @@ const Logo = observer(
   ({
     textColor = 'var(--white)',
     backgroundColor = 'var(--black)',
+    height,
   }: {
     textColor?: string;
     backgroundColor?: string;
+    height?: number;
   }) => {
     return (
       <svg
-        width="121"
-        height="100"
+        height={height ?? '100'}
         viewBox="0 0 121 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

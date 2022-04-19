@@ -5,14 +5,20 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Breadcrumbs } from '..';
 import { PortableText } from '@portabletext/react';
-import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
+import {
+  MOBILE_PLAYBOOK_NAV_HEIGHT,
+  PLAYBOOK_NAV_HEIGHT,
+} from '../StickyNavBar';
 import { ScrollDownPrompt } from '.';
+import { isMobile } from 'react-device-detect';
 
 function getStyles() {
   return css.resolve`
     div {
       grid-column: 1/5;
-      height: calc(100vh - ${PLAYBOOK_NAV_HEIGHT}px);
+      height: calc(
+        100vh - ${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}px
+      );
 
       padding-bottom: 2rem;
       display: grid;

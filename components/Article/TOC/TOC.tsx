@@ -11,6 +11,8 @@ import {
   FRAMER_TRANSITION_EASEOUT,
   FRAMER_TRANSITION_FASTEASE,
 } from '../../../lib/framer/framer-animations';
+import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../../StickyNavBar';
+import { isMobile } from 'react-device-detect';
 
 function getStyles(sticky) {
   return css.resolve`
@@ -21,7 +23,11 @@ function getStyles(sticky) {
       margin-right: 1.25rem;
       max-width: 228px;
       position: ${sticky ? 'sticky' : 'relative'};
-      top: ${sticky ? PLAYBOOK_NAV_HEIGHT : 0}px;
+      top: ${sticky
+        ? isMobile
+          ? MOBILE_PLAYBOOK_NAV_HEIGHT
+          : PLAYBOOK_NAV_HEIGHT
+        : 0}px;
     }
     @media only screen and (max-width: 768px) {
       div {

@@ -6,6 +6,7 @@ import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
+import { isMobile } from 'react-device-detect';
 
 export const light: NavBarStyle = {
   backgroundColor: 'transparent',
@@ -46,7 +47,9 @@ const Nav = ({
         div {
           display: flex;
           grid-column: span 1;
-          height: ${PLAYBOOK_NAV_HEIGHT}px;
+          height: ${isMobile
+            ? MOBILE_PLAYBOOK_NAV_HEIGHT
+            : PLAYBOOK_NAV_HEIGHT}px;
           background-color: ${label ? theme.backgroundColor : 'transparent'};
         }
 
@@ -74,8 +77,11 @@ const NavButtons = ({
   return (
     <div className={border ? 'border' : ''}>
       <button onClick={() => openNavOverlay()}>
-        <HamburgerIcon fill={theme.textColor} />
+        <motion.div whileHover={{ opacity: 0.8 }} whileTap={{ scale: 0.95 }}>
+          <HamburgerIcon fill={theme.textColor} />
+        </motion.div>
       </button>
+
       <button>
         <Link href={'/playbook/search'}>
           <a>
@@ -110,6 +116,9 @@ const NavButtons = ({
           .border {
             border: 0;
           }
+          div {
+            padding: 0;
+          }
         }
       `}</style>
     </div>
@@ -126,7 +135,9 @@ const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
           align-items: center;
           justify-content: center;
           padding: 0 1.25rem;
-          height: ${PLAYBOOK_NAV_HEIGHT}px;
+          height: ${isMobile
+            ? MOBILE_PLAYBOOK_NAV_HEIGHT
+            : PLAYBOOK_NAV_HEIGHT}px;
           text-align: center;
           line-height: 24px;
           border-right: 4px solid ${theme.textColor};
@@ -153,6 +164,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
       <Link href="/">
         <a>
           <Logo
+            height={isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}
             textColor={theme.logoTextColor}
             backgroundColor={theme.logoBackgroundColor}
           />
@@ -178,6 +190,7 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
 };
 
 export const PLAYBOOK_NAV_HEIGHT = 100;
+export const MOBILE_PLAYBOOK_NAV_HEIGHT = 80;
 
 const PlaybookStickyNavBar = ({
   label = null,
@@ -201,7 +214,9 @@ const PlaybookStickyNavBar = ({
             position: sticky;
             top: 0;
             font-size: 20px;
-            height: ${PLAYBOOK_NAV_HEIGHT}px;
+            height: ${isMobile
+              ? MOBILE_PLAYBOOK_NAV_HEIGHT
+              : PLAYBOOK_NAV_HEIGHT}px;
             width: 100%;
             z-index: 100;
           }

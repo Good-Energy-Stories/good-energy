@@ -328,7 +328,15 @@ related[]-> {
   ${related}
 },
 nextUp->{
-  ${characterProfilePreview}
+  _type == 'article' => {
+    _type,
+    ${articlePreview}
+  },
+  _type == 'characterProfile' => {
+    _type,
+    ${characterProfilePreview}
+  },
+  
 }
 `;
 

@@ -7,7 +7,14 @@ import { useStore } from '../../stores/store';
 import Logo from '../Logo';
 import Link from 'next/link';
 import { BANNER_HEIGHT, BANNER_HEIGHT_MOBILE } from '../PageBanner';
-import { NavBarStyles, NavBarStyle, dark, light } from '../StickyNavBar';
+import {
+  NavBarStyles,
+  NavBarStyle,
+  dark,
+  light,
+  MOBILE_PLAYBOOK_NAV_HEIGHT,
+  PLAYBOOK_NAV_HEIGHT,
+} from '../StickyNavBar';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import SearchButton from './SearchButton';
@@ -16,6 +23,7 @@ import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
 import * as ga from '../../lib/ga';
 import { motion } from 'framer-motion';
+import { isMobile } from 'react-device-detect';
 const NavLinks = ({
   theme,
   donateLink,
@@ -219,8 +227,13 @@ const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
   return (
     <>
       <Link href="/">
-        <a>
+        <a
+          style={{
+            height: isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT,
+          }}
+        >
           <Logo
+            height={isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}
             textColor={theme.logoTextColor}
             backgroundColor={theme.logoBackgroundColor}
           />

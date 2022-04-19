@@ -48,15 +48,19 @@ const SmallBorderCTAButton = ({
   color?: string;
 }) => {
   return (
-    <div className="container">
-      <Link href={href}>
-        <a>
-          <div className="button-text-small">
-            {label}
-            <span className="arrow">→</span>
-          </div>
-        </a>
-      </Link>
+    <>
+      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.98 }}>
+        <div className="container">
+          <Link href={href}>
+            <a>
+              <div className="button-text-small">
+                {label}
+                <span className="arrow">→</span>
+              </div>
+            </a>
+          </Link>
+        </div>
+      </motion.div>
       <style jsx>{`
         a {
           color: ${color} !important;
@@ -74,7 +78,7 @@ const SmallBorderCTAButton = ({
           margin-left: 6px;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { PLAYBOOK_NAV_HEIGHT } from '../';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;

@@ -5,6 +5,11 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { BANNER_HEIGHT } from '../PageBanner';
+import { isMobile } from 'react-device-detect';
+import {
+  MOBILE_PLAYBOOK_NAV_HEIGHT,
+  PLAYBOOK_NAV_HEIGHT,
+} from '../StickyNavBar';
 
 const { className, styles } = css.resolve`
   div {
@@ -14,7 +19,7 @@ const { className, styles } = css.resolve`
     padding-bottom: 2rem;
     background-color: var(--blueFive);
     position: relative;
-    margin-top: -106px;
+    margin-top: -${(isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT) + 6}px;
 
     overflow: hidden;
   }

@@ -1,13 +1,6 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { Dropdown, PLAYBOOK_NAV_HEIGHT } from '../';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
-import ExpertTypeToggle from './ExpertTypeToggle';
+import { Dropdown } from '../';
+
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;

@@ -89,7 +89,7 @@ export default {
       name: 'nextUp',
       description: 'Character profile to read after this one',
       type: 'reference',
-      to: [{ type: 'characterProfile' }],
+      to: [{ type: 'article' }, { type: 'characterProfile' }],
     },
     {
       title: 'Related',

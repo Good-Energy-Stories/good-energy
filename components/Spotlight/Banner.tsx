@@ -6,10 +6,12 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
+import { isMobile } from 'react-device-detect';
+import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 const { className, styles } = css.resolve`
   div {
     max-width: 100%;
-    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
+    margin-top: -${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT}px;
   }
   @media only screen and (max-width: 768px) {
     div {

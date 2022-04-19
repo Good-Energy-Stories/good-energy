@@ -16,7 +16,7 @@ const Attribution = ({
     <>
       <div className="attribution mega-quote-attribution">
         {shouldLinkToAboutPage ? (
-          <CTAButton label="About Good Energy" href="/" color={color} />
+          <CTAButton label="About Good Energy" href="/about" color={color} />
         ) : (
           attribution
         )}

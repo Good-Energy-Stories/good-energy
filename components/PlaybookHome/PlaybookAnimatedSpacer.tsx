@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import { SECONDARY_MENU_HEIGHT } from './SecondaryNavMenu';
+import { isMobile } from 'react-device-detect';
 
 function getStyles() {
   return css.resolve`
@@ -34,6 +35,8 @@ const PlaybookAnimatedSpacer = observer(() => {
   const {
     uiStore: { playbookSecondaryNavOpen },
   } = store;
+
+  if (isMobile) return null;
 
   return (
     <>

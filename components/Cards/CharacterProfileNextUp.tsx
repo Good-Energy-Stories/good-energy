@@ -66,6 +66,7 @@ const CharacterProfileFeaturedSecondary = ({
       className={className}
     >
       <div className="layout">
+        <div className="label-medium">Next Up</div>
         <div className="left">
           {portraitImage && (
             <Portrait image={portraitImage} size={PortraitSizes.medium} />
@@ -87,6 +88,7 @@ const CharacterProfileFeaturedSecondary = ({
       <style jsx>{`
         .label-medium {
           color: var(--blueThree);
+          margin-bottom: 0.625rem;
         }
         h2 {
           margin: 0.625rem 0;

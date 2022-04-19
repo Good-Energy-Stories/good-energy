@@ -12,6 +12,11 @@ import { SecondaryNavMenu } from './';
 import NavDropdownButton from './NavDropdownButton';
 import { motion } from 'framer-motion';
 import * as ga from '../../lib/ga';
+import { isMobile } from 'react-device-detect';
+import {
+  MOBILE_PLAYBOOK_NAV_HEIGHT,
+  PLAYBOOK_NAV_HEIGHT,
+} from '../StickyNavBar';
 
 const NavLinks = () => {
   return (
@@ -59,6 +64,9 @@ const NavLinks = () => {
           div {
             display: none;
           }
+          button {
+            line-height: 20px;
+          }
         }
       `}</style>
     </div>
@@ -99,6 +107,9 @@ const NavButtons = observer(
           @media only screen and (max-width: 1080px) {
             div {
               grid-column: span 4;
+            }
+            button {
+              line-height: 20px;
             }
           }
         `}</style>
@@ -221,7 +232,9 @@ const StickyNavBar = observer(
               position: sticky;
               top: 0;
               font-size: 20px;
-              min-height: 100px;
+              min-height: ${isMobile
+                ? MOBILE_PLAYBOOK_NAV_HEIGHT
+                : PLAYBOOK_NAV_HEIGHT}px;
               z-index: 100;
               background-color: var(--blueFive);
             }

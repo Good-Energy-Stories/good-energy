@@ -10,16 +10,20 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import css from 'styled-jsx/css';
 import { motion } from 'framer-motion';
-import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
+import {
+  MOBILE_PLAYBOOK_NAV_HEIGHT,
+  PLAYBOOK_NAV_HEIGHT,
+} from '../StickyNavBar';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import DropdownMenu from './DropdownMenu';
+import { isMobile } from 'react-device-detect';
 
 function getStyles() {
   return css.resolve`
     div {
       position: absolute;
       z-index: -1;
-      top: ${PLAYBOOK_NAV_HEIGHT - 4}px;
+      top: ${isMobile ? MOBILE_PLAYBOOK_NAV_HEIGHT : PLAYBOOK_NAV_HEIGHT - 4}px;
       right: 0;
       left: 0;
       display: flex;

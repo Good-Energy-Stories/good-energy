@@ -101,7 +101,7 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
             <motion.div
               style={{ display: 'inline-block' }}
               whileHover={{ opacity: 0.6 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
             >
               {label}
             </motion.div>

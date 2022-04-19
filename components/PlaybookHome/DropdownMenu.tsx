@@ -10,7 +10,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import css from 'styled-jsx/css';
 import { AnimatePresence, motion } from 'framer-motion';
-import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import { SECONDARY_MENU_HEIGHT } from './SecondaryNavMenu';
 const DROPDOWN_MIN_WIDTH = 240;

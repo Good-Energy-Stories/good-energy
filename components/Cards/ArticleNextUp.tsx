@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { ArticleCardData } from '.';
 import FeaturedTag from './FeaturedTag';
 import { Tags } from '.';
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
-
+    padding-top: 1.25rem;
     width: 100%;
     margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-bottom: 0;
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -34,10 +35,11 @@ const NextUp = ({ data }: { data: ArticleCardData }) => {
 
   return (
     <motion.div
-      transition={{ duration: 2 }}
+      transition={FRAMER_TRANSITION_EASEOUT}
       initial={'out'}
       animate={'in'}
       exit={'out'}
+      whileHover={{ opacity: 0.8 }}
       variants={variants}
       className={className}
     >
