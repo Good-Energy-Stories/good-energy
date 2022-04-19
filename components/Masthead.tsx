@@ -128,13 +128,12 @@ const Masthead = (props) => {
 
           @media only screen and (max-width: 768px) {
             .container {
-              padding-top: 1.25rem;
+              padding: 0.625rem;
             }
             .header {
-              grid-column: span 4;
+              grid-column: span 3;
             }
             img {
-              display: none;
             }
           }
         `}</style>
