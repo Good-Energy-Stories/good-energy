@@ -95,6 +95,7 @@ const NavButtons = ({
           border-bottom: 4px solid ${theme.textColor};
         }
         div {
+          padding: 0 1.25rem;
           pointer-events: auto;
           display: flex;
         }

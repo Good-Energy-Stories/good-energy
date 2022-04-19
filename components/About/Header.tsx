@@ -36,7 +36,7 @@ const Header = ({
   heroImage,
   title,
   description,
-  fittedText,
+  fittedText = false,
 }: {
   heroImage?: any;
   title: string;
@@ -73,7 +73,7 @@ const Header = ({
           grid-column: 1/5;
         }
         .text {
-          grid-column: 2/4;
+          grid-column: ${fittedText ? '2/4' : '1/4'};
         }
         .right {
           width: 66%;

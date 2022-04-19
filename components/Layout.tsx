@@ -12,7 +12,7 @@ function getStyles(paddingHorizontal) {
     div {
       width: 100%;
       height: 100%;
-
+      min-height: 60vh;
       display: grid;
       padding: 0 ${paddingHorizontal ?? 0};
       grid-template-rows: auto;

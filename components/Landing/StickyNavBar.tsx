@@ -15,7 +15,7 @@ import CTAButton from '../CTAButton';
 import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
 import * as ga from '../../lib/ga';
-
+import { motion } from 'framer-motion';
 const NavLinks = ({
   theme,
   donateLink,
@@ -26,13 +26,19 @@ const NavLinks = ({
   return (
     <div className="nav-link-xl-bold">
       <Link href="/playbook">
-        <a>Playbook</a>
+        <a>
+          <motion.div whileTap={{ scale: 0.95 }} whileHover={{ opacity: 0.8 }}>
+            Playbook
+          </motion.div>
+        </a>
       </Link>
-      <Link href="/about/library-of-experts">
-        <a>Resources</a>
-      </Link>
+
       <Link href="/about">
-        <a>About</a>
+        <a>
+          <motion.div whileTap={{ scale: 0.95 }} whileHover={{ opacity: 0.8 }}>
+            About
+          </motion.div>
+        </a>
       </Link>
 
       {donateLink && (
@@ -80,7 +86,9 @@ const NavButtons = observer(
     return (
       <div>
         <button onClick={() => openNavOverlay()}>
-          <HamburgerIcon fill={theme.textColor} />
+          <motion.div whileTap={{ scale: 0.95 }} whileHover={{ opacity: 0.8 }}>
+            <HamburgerIcon fill={theme.textColor} />
+          </motion.div>
         </button>
 
         <NavLinks theme={theme} donateLink={donateLink} />
@@ -153,7 +161,6 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           position: relative;
           padding-left: 0.625rem;
           border-left: 5px solid ${theme.textColor};
-
           display: flex;
           align-items: center;
           grid-column: span 1;

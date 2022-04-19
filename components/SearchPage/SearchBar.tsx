@@ -96,8 +96,6 @@ const SearchBar = observer(
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 70vh;
-            padding-bottom: 15%;
           }
           .search-bar {
             background-color: var(--blueFive);

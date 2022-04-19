@@ -18,7 +18,7 @@ const About = ({ pageData }) => {
       />
       <StickyNavBar />
       <Layout key="About" paddingHorizontal={'2.5rem'}>
-        <Header title={headline} description={description} />
+        <Header title={headline} description={description} fittedText />
         <NextUpPage label={'Team'} href={'/about/team'} />
       </Layout>
       <Footer />

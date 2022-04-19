@@ -49,37 +49,39 @@ const MediumBorderCTAButton = ({
   color?: string;
 }) => {
   return (
-    <div className="container">
-      <a
-        href={href}
-        onClick={() => ga.captureOutboundLink(href)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div className="button-text">{label}</div>
-      </a>
+    <motion.div whileTap={{ scale: 0.95 }} whileHover={{ opacity: 0.8 }}>
+      <div className="container">
+        <a
+          href={href}
+          onClick={() => ga.captureOutboundLink(href)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="button-text">{label}</div>
+        </a>
 
-      <style jsx>{`
-        a {
-          color: ${color} !important;
-        }
-        .button-text {
-          text-align: center;
-          padding: 5px 10px;
-          padding-bottom: 4px;
-          text-transform: uppercase;
-        }
-        .container {
-          margin: 0 1.25rem;
-          display: inline-block;
-          position: relative;
-          border: 4px solid ${color};
-        }
-        .arrow {
-          margin-left: 6px;
-        }
-      `}</style>
-    </div>
+        <style jsx>{`
+          a {
+            color: ${color} !important;
+          }
+          .button-text {
+            text-align: center;
+            padding: 5px 10px;
+            padding-bottom: 4px;
+            text-transform: uppercase;
+          }
+          .container {
+            margin: 0 1.25rem;
+            display: inline-block;
+            position: relative;
+            border: 4px solid ${color};
+          }
+          .arrow {
+            margin-left: 6px;
+          }
+        `}</style>
+      </div>
+    </motion.div>
   );
 };
 

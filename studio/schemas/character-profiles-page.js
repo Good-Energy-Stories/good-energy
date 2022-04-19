@@ -39,7 +39,11 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'characterProfile' }, { type: 'expertProfile' }],
+          to: [
+            { type: 'article' },
+            { type: 'characterProfile' },
+            { type: 'expertProfile' },
+          ],
         },
       ],
     },
