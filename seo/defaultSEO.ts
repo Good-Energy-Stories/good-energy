@@ -9,7 +9,7 @@ const defaultSeo = {
   },
   twitter: {
     handle: '@goodenergystory',
-    cardType: 'summary_large_image',
+    cardType: 'summary',
   },
   titleTemplate: `%s | ${siteTitle}`,
 };
