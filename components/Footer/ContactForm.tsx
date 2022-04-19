@@ -199,6 +199,12 @@ const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
         .title {
           margin-bottom: 1.25rem;
         }
+        @media only screen and (max-width: 768px) {
+          input {
+            color: var(--black);
+            font-size: 16px;
+          }
+        }
       `}</style>
     </>
   );

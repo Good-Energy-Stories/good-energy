@@ -23,8 +23,6 @@ function getStyles(last, marginBottom) {
     div {
       display: inline-block;
 
-      width: 100%;
-
       margin-bottom: ${marginBottom ?? '1.25rem'};
 
       max-width: 800px;
@@ -32,10 +30,8 @@ function getStyles(last, marginBottom) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0px;
-        display: grid;
-        margin-bottom: 1.25rem;
-        grid-column-gap: 0;
+        border-bottom: 0;
+        margin-bottom: 0;
       }
     }
   `;
@@ -129,6 +125,11 @@ const Card = ({
             display: flex;
             justify-content: center;
             margin-bottom: 2.5rem;
+          }
+          .right {
+            padding: 0 1.25rem;
+
+            margin-bottom: 0;
           }
           .layout {
             margin-bottom: 2.5rem;

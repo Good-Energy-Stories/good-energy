@@ -101,6 +101,16 @@ const Header = ({
           .left {
             width: 100%;
           }
+          h1 {
+            margin-bottom: 1.25rem;
+          }
+          img {
+            display: none;
+            margin-bottom: 0;
+          }
+          .text {
+            grid-column: 1/5;
+          }
         }
       `}</style>
       {styles}

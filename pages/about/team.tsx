@@ -86,6 +86,12 @@ const Team = ({ pageData }) => {
 
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+        @media only screen and (max-width: 768px) {
+          .team {
+            padding-top: 1.25rem;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
+        }
       `}</style>
     </>
   );
