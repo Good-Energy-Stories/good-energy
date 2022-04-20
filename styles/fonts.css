@@ -365,7 +365,8 @@ h4 {
 .nav-link-xl-bold {
   font-family: var(--flexa);
   font-size: 24px;
-  line-height: 18px;
+  line-height: 24px;
+
   font-variation-settings: 'wght' 604, 'wdth' 69;
 }
 .nav-link-xl {

@@ -60,6 +60,10 @@ const NavLinks = () => {
           justify-content: space-around;
           text-transform: uppercase;
         }
+
+        .nav-link-xl-bold {
+          text-align: center;
+        }
         .border {
           border-left: 4px solid var(--black);
           border-right: 4px solid var(--black);
@@ -68,10 +72,18 @@ const NavLinks = () => {
           line-height: 28px;
           background-color: var(--blueFive);
         }
-        @media only screen and (max-width: 1080px) {
+        @media only screen and (max-width: 1300px) {
           .featured-voices-link {
             display: none;
           }
+        }
+        @media only screen and (max-width: 1200px) {
+          a {
+            padding: 0 0.625rem;
+            text-align: center;
+          }
+        }
+        @media only screen and (max-width: 900px) {
           .partners-link {
             display: none;
           }
@@ -163,6 +175,11 @@ const NavButtons = observer(
             align-items: center;
             border-right: 4px solid var(--black);
           }
+          @media only screen and (max-width: 1200px) {
+            div {
+              grid-column: span 4;
+            }
+          }
 
           @media only screen and (max-width: 1080px) {
             div {
@@ -251,7 +268,7 @@ const SearchBar = () => {
             color: var(--black);
           }
 
-          @media only screen and (max-width: 1080px) {
+          @media only screen and (max-width: 1200px) {
             div {
               display: none;
             }
