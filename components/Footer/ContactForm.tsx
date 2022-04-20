@@ -25,7 +25,7 @@ const ContactForm = observer(
     inFooter,
   }: {
     mode: ContactFormStyle;
-    inFooter: boolean;
+    inFooter?: boolean;
   }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const store = useStore();
