@@ -421,6 +421,15 @@ h4 {
   line-height: 16px;
   font-variation-settings: 'wght' 305, 'wdth' 69;
 }
+@media only screen and (max-width: 1080px) {
+  .playbook-toc-nav-link-small {
+    font-family: var(--flexa);
+    font-size: 12px;
+    line-height: 16px;
+    font-variation-settings: 'wght' 429, 'wdth' 40;
+    color: var(--blueThree);
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .h1-xl {

@@ -23,27 +23,34 @@ import CTAButton from '../CTAButton';
 const NavLinks = () => {
   return (
     <div className="nav-link-xl-bold">
-      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </motion.div>
-      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/about/featured-voices">
-          <a>Featured Voices</a>
-        </Link>
-      </motion.div>
-      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/about/partners">
-          <a>Partners</a>
-        </Link>
-      </motion.div>
-
-      <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </motion.div>
+      <div>
+        <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </motion.div>
+      </div>
+      <div className="featured-voices-link">
+        <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+          <Link href="/about/featured-voices">
+            <a>Featured Voices</a>
+          </Link>
+        </motion.div>
+      </div>
+      <div className="partners-link">
+        <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+          <Link href="/about/partners">
+            <a>Partners</a>
+          </Link>
+        </motion.div>
+      </div>
+      <div>
+        <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </motion.div>
+      </div>
 
       <style jsx>{`
         div {
@@ -60,6 +67,14 @@ const NavLinks = () => {
         button {
           line-height: 28px;
           background-color: var(--blueFive);
+        }
+        @media only screen and (max-width: 1080px) {
+          .featured-voices-link {
+            display: none;
+          }
+          .partners-link {
+            display: none;
+          }
         }
 
         @media only screen and (max-width: 768px) {
