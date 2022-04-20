@@ -102,6 +102,7 @@ const LeftColumn = ({
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
+            margin-bottom: 0;
           }
         }
       `}</style>
@@ -150,6 +151,7 @@ const MainColumn = ({
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
+            margin-bottom: 0;
           }
         }
       `}</style>
@@ -200,6 +202,7 @@ const RightColumn = ({
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
+            margin-bottom: 0;
           }
         }
       `}</style>

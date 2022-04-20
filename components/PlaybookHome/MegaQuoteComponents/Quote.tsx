@@ -5,7 +5,7 @@ const Quote = ({ quote, color }: { quote: string; color: MegaQuoteColor }) => {
   return (
     <>
       <div className="quote">
-        <h1>{`${quote}`}</h1>
+        <h1 className="h1-quote">{`${quote}`}</h1>
       </div>
       <style jsx>{`
         h1::before {

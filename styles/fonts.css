@@ -101,8 +101,16 @@ h3 {
   font-size: 36px;
   line-height: 34px;
   letter-spacing: 0px;
+  font-weight: 400;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: uppercase;
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @media {
+    h3 {
+      letter-spacing: -1px;
+    }
+  }
 }
 .h3-sentence {
   font-family: var(--flexa);
@@ -422,6 +430,7 @@ h4 {
   line-height: 16px;
   font-variation-settings: 'wght' 305, 'wdth' 69;
 }
+
 @media only screen and (max-width: 1080px) {
   .playbook-toc-nav-link-small {
     font-family: var(--flexa);
@@ -448,14 +457,18 @@ h4 {
     line-height: 41px;
     letter-spacing: -1px;
   }
+  .h1-quote {
+    font-size: 38px;
+    line-height: 34px;
+  }
   h2 {
     font-size: 38px;
     line-height: 36px;
     letter-spacing: -1px;
   }
   h3 {
-    font-size: 26px;
-    line-height: 28px;
+    font-size: 30px;
+    line-height: 32px;
   }
   .subhead {
     font-size: 26px;
@@ -474,8 +487,8 @@ h4 {
     line-height: 22px;
   }
   .tease-lede-small {
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 20px;
+    line-height: 20px;
   }
   .button-text-large {
     font-size: 18px;
