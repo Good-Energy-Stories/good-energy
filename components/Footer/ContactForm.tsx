@@ -169,8 +169,10 @@ const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
           text-transform: uppercase;
           font-family: var(--flexa);
 
-          font-size: 14px;
-          padding: 6px;
+          font-size: 16px;
+          font-variation-settings: 'wght' 400, 'wdth' 90;
+
+          padding: 16px 8px;
           font-style: normal;
           font-weight: 100;
           line-height: 18px;
@@ -179,8 +181,10 @@ const ContactForm = observer(({ mode = dark }: { mode: ContactFormStyle }) => {
           text-align: left;
           color: var(--white);
           border: 0;
+          border-radius: 0;
           width: 100%;
           background-color: transparent;
+          color: ${mode.textColor};
           border: 2px solid ${mode.textColor};
           margin-bottom: 1.25rem;
         }

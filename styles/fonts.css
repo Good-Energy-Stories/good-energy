@@ -210,6 +210,7 @@ h4 {
   text-decoration-line: underline;
   color: var(--blueThree);
   cursor: pointer;
+  word-break: break-word;
 }
 .spotlight-intro-graf {
   font-family: var(--flexa);

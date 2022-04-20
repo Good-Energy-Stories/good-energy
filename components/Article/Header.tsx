@@ -47,7 +47,10 @@ const Title = ({
 }) => {
   const { className, styles } = getStyles(hasBannerImage);
   const path = section
-    ? [{ label: 'Playbook', href: '/playbook' }, { label: section }]
+    ? [
+        { label: 'Playbook', href: '/playbook' },
+        { label: section === 'introduction' ? section : 'foreword' },
+      ]
     : null;
   return (
     <motion.div

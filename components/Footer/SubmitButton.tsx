@@ -8,6 +8,7 @@ const { className, styles } = css.resolve`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 2.5rem;
   }
   @media only screen and (max-width: 768px) {
     div {
