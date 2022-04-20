@@ -40,7 +40,6 @@ const Root = ({ pageData }) => {
       />
 
       <Layout key="playbookHome">
-        <PlaybookAnimatedSpacer />
         <ThreeColumnLayout
           data={masthead}
           style={ThreeColumnLayoutStyle.primary}

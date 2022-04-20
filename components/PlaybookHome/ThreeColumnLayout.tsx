@@ -170,7 +170,7 @@ const RightColumn = ({
   if (!data) return null;
   return (
     <>
-      <div className="container">
+      <div className="three-column-right">
         {data.map((c, i) => (
           <Card
             key={i}
@@ -183,7 +183,7 @@ const RightColumn = ({
         ))}
       </div>
       <style jsx>{`
-        .container {
+        .three-column-right {
           grid-column: 4/5;
           padding-right: 1.25rem;
           margin-top: ${style === ThreeColumnLayoutStyle.primary
@@ -196,7 +196,7 @@ const RightColumn = ({
           flex-direction: column;
         }
         @media only screen and (max-width: 768px) {
-          .container {
+          .three-column-right {
             grid-column: 1/5;
             padding: 0 1.25rem;
             margin-top: 1.25rem;

@@ -10,8 +10,10 @@ function getStyles() {
   return css.resolve`
     div {
       width: 100%;
+      grid-column: 1 / 5;
+      grid-row-start: 1;
     }
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1200px) {
       div {
         display: none;
       }
