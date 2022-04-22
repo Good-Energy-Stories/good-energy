@@ -125,8 +125,12 @@ class DataStore {
 
     const alphabeticalSort = (a, b) => {
       try {
-        const firstLastName = a.name.split(' ').at(-1).toUpperCase();
-        const secondLastName = b.name.split(' ').at(-1).toUpperCase();
+        const getLastName = (fullname) => {
+          const lastName = fullname.split(' ').pop();
+          return lastName;
+        };
+        const firstLastName = getLastName(a.name);
+        const secondLastName = getLastName(b.name);
         if (firstLastName < secondLastName) {
           return sortOrderModifier * -1;
         }

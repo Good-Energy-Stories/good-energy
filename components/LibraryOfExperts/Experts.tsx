@@ -8,12 +8,16 @@ const Experts = observer(() => {
   const {
     dataStore: { libraryOfExpertsResults, filteredLibraryOfExpertsResults },
   } = store;
+  console.log(
+    'filteredLibraryOfExpertsResults:',
+    filteredLibraryOfExpertsResults,
+  );
   return (
     <div className="results">
       {filteredLibraryOfExpertsResults.map((e, i) => {
         return (
           <Card
-            key={i}
+            key={e.name}
             index={i}
             content={e}
             last={i === filteredLibraryOfExpertsResults.length - 1}

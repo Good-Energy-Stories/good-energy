@@ -108,15 +108,17 @@ const Card = ({
           )}
         </div>
         <div className="right">
-          <Name name={name} />
+          {name && <Name name={name} />}
           <PronounsAndOrganization
             pronouns={pronouns}
             organization={organization}
           />
-          <PortableText
-            value={Information}
-            components={PortableTextSerializer}
-          />
+          {Information && (
+            <PortableText
+              value={Information}
+              components={PortableTextSerializer}
+            />
+          )}
           {includeSpotlightPage && (
             <div className="cta">
               <CTAButton
