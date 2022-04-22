@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import App from 'next/app';
+import React, { useEffect, useCallback } from 'react';
 import '../styles/globals.css';
 import '../styles/fonts.css';
 import { useStore } from '../stores/store';
-import { BrowserRouter as Router } from 'react-router-dom';
 import * as ga from '../lib/ga';
 import { Provider } from 'mobx-react';
-import { AnimatePresence } from 'framer-motion';
 import { isBrowser } from '../utils/isBrowser';
 import { useRouter } from 'next/router';
 import { signature } from '../utils/signature';
-import { withPasswordProtect } from '../lib/withPasswordProtect';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
 import { NavOverlay, PlaybookNavOverlay } from '../components';
@@ -33,6 +29,7 @@ const MyApp = observer(
         clearRouteVariablesData,
         setPlaybookNavTableOfContents,
         setPlaybookSections,
+        setPlaybookCredits,
       },
       uiStore: {
         navOverlayOpen,
@@ -59,63 +56,71 @@ const MyApp = observer(
       return () => {
         router.events.off('routeChangeComplete', handleRouteChange);
       };
-    }, [router.events, clearRouteVariables]);
+    }, [router.events, clearRouteVariables, clearRouteVariablesData]);
+
+    const buildTableOfContents = useCallback((content) => {
+      const introSection = {
+        title: 'Foreword',
+        firstArticle: content.introduction[0],
+        articles: content.introduction,
+      };
+      const whySection = {
+        title: 'The Why',
+        firstArticle: content.why[0],
+        articles: content.why,
+      };
+      const whatsNextSection = {
+        title: "What's Next",
+        firstArticle: content.whatsNext[0],
+        articles: content.whatsNext,
+      };
+
+      const creditsSection = {
+        title: 'Credits',
+        firstArticle: content.credits,
+        articles: [content.credits],
+      };
+
+      return [
+        introSection,
+        whySection,
+        ...content.climateStorytelling,
+        whatsNextSection,
+        creditsSection,
+      ].map((s) => {
+        return {
+          label: s.title,
+          firstArticle: s.firstArticle,
+          articles: s.articles,
+          href: `/playbook/${s.firstArticle?.slug}`,
+        };
+      });
+    }, []);
+
+    const initializePlaybookTOC = useCallback(async () => {
+      const playbookStructure = await getClient().fetch(
+        groq`${queries.playbookStructureQuery}`,
+      );
+
+      const mainSections = await getClient().fetch(
+        groq`${queries.structureSectionsFirstArticle}`,
+      );
+
+      const sections = buildTableOfContents(mainSections);
+
+      setPlaybookCredits(mainSections.credits);
+      setPlaybookSections(sections);
+      setPlaybookNavTableOfContents(playbookStructure);
+    }, [
+      buildTableOfContents,
+      setPlaybookCredits,
+      setPlaybookNavTableOfContents,
+      setPlaybookSections,
+    ]);
 
     useEffect(() => {
-      const initializePlaybookTOC = async () => {
-        const playbookStructure = await getClient().fetch(
-          groq`${queries.playbookStructureQuery}`,
-        );
-
-        const climateStoryTellingSections = await getClient().fetch(
-          groq`${queries.sectionsFirstArticle}`,
-        );
-        const mainSections = await getClient().fetch(
-          groq`${queries.structureSectionsFirstArticle}`,
-        );
-
-        const introSection = {
-          title: 'Foreword',
-          firstArticle: mainSections.introduction[0],
-          articles: mainSections.introduction,
-        };
-        const whySection = {
-          title: 'The Why',
-          firstArticle: mainSections.why[0],
-          articles: mainSections.why,
-        };
-        const whatsNextSection = {
-          title: "What's Next",
-          firstArticle: mainSections.whatsNext[0],
-          articles: mainSections.whatsNext,
-        };
-
-        const creditsSection = {
-          title: 'Credits',
-          firstArticle: mainSections.credits,
-          articles: [mainSections.credits],
-        };
-
-        const sections = [
-          introSection,
-          whySection,
-          ...mainSections.climateStorytelling,
-          whatsNextSection,
-          creditsSection,
-        ].map((s) => {
-          return {
-            label: s.title,
-            firstArticle: s.firstArticle,
-            articles: s.articles,
-            href: `/playbook/${s.firstArticle?.slug}`,
-          };
-        });
-
-        setPlaybookSections(sections);
-        setPlaybookNavTableOfContents(playbookStructure);
-      };
       initializePlaybookTOC();
-    }, []);
+    }, [initializePlaybookTOC]);
 
     useEffect(() => {
       window.addEventListener('resize', updateWindowSize);

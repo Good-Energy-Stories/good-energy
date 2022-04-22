@@ -22,6 +22,8 @@ class DataStore {
 
   @observable playbookSections = [];
 
+  @observable playbookCredits = {};
+
   @observable playbookNavTableOfContents = null;
   @observable playbookSearchQuery = '';
   @observable playbookLastSearchedQuery = '';
@@ -142,6 +144,9 @@ class DataStore {
 
   @action.bound setPlaybookSections(sections) {
     this.playbookSections = sections;
+  }
+  @action.bound setPlaybookCredits(credits) {
+    this.playbookCredits = credits;
   }
   @action.bound setPlaybookNavTableOfContents(toc) {
     this.playbookNavTableOfContents = toc;

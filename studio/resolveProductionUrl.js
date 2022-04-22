@@ -4,7 +4,7 @@ const previewSecret =
   'tmQGZcFgU3szcOVZZxclhvEH2I44heqyo64b8yhRpxgpcZdZmfasyCZq8Rif';
 
 // Replace `remoteUrl` with your deployed Next.js site
-const remoteUrl = `https://good-energy.vercel.app`;
+const remoteUrl = `https://www.goodenergystories.com/`;
 const localUrl = `http://localhost:3000`;
 
 export default function resolveProductionUrl(doc) {

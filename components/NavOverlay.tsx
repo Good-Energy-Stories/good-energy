@@ -170,8 +170,11 @@ const ListItemButton = ({
 const NavOverlay = observer(() => {
   const store = useStore();
   const {
+    dataStore: { playbookCredits },
     uiStore: { navOverlayOpen, openPlaybookNavOverlay },
   } = store;
+
+  console.log('y:', playbookCredits);
 
   return (
     <>
@@ -210,7 +213,10 @@ const NavOverlay = observer(() => {
               label="Featured Voices"
               href="/about/featured-voices"
             />
-            <ListItemLink label="Credits" href="/" />
+            <ListItemLink
+              label="Credits"
+              href={`/playbook/${playbookCredits.slug}`}
+            />
           </div>
           <div className="section">
             <h3>Resources</h3>
