@@ -251,6 +251,8 @@ const SearchBar = () => {
             display: flex;
             align-items: center;
             grid-column: span 1;
+            overflow: hidden;
+            position: relative;
           }
           input[type='text'] {
             text-transform: uppercase;
