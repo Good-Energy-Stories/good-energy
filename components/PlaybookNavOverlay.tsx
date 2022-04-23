@@ -113,7 +113,7 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
       <style jsx>{`
         div {
           color: var(--white);
-          margin: 0.3125rem 0;
+
           margin-bottom: 10px;
         }
         .arrow {
@@ -144,7 +144,7 @@ const TOCSubsection = ({ content }) => {
         h4 {
           color: var(--white);
           margin-top: 0;
-          margin-bottom: 12px;
+          margin-bottom: 15px;
           text-transform: none;
         }
       `}</style>
@@ -155,34 +155,39 @@ const TOCSubsection = ({ content }) => {
 const TOCSubsubsection = ({ content }) => {
   return (
     <div className="container">
-      <div className="playbook-toc-nav-link">{content?.title}</div>
-      <ul>
+      <div className="playbook-toc-nav-link title">{content?.title}</div>
+      <div className="ul">
         {content?.contents?.map((content, index) => {
           return (
-            <li key={content.title}>
-              {
-                <ListItemLink
-                  label={content.title}
-                  href={`/playbook/${content.slug}`}
-                />
-              }
-            </li>
+            <div className="li" key={content.title}>
+              <span className="bullet">•</span>
+              <ListItemLink
+                label={content.title}
+                href={`/playbook/${content.slug}`}
+              />
+            </div>
           );
         })}
-      </ul>
+      </div>
       <style jsx>{`
         .container {
         }
         .playbook-toc-nav-link {
           color: var(--white);
         }
-        ul {
-          margin: 0;
-          paddding: 0;
+        .title {
+          margin-bottom: 12px;
         }
-        li {
+        .ul {
+        }
+        .li {
           color: var(--white);
-          margin: 0;
+          margin-left: 2.5rem;
+          display: flex;
+        }
+        .bullet {
+          margin-right: 8px;
+          line-height: 18px;
         }
         h4 {
           color: var(--white);
