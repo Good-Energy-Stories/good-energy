@@ -231,7 +231,6 @@ const PlaybookNavOverlay = observer(() => {
     dataStore: { playbookNavTableOfContents },
     uiStore: { playbookNavOverlayOpen },
   } = store;
-  console.log('playbookNavTableOfContents : ', playbookNavTableOfContents);
   if (!playbookNavTableOfContents) return null;
 
   const m = Math.floor(

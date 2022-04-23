@@ -239,7 +239,7 @@ const NavOverlay = observer(() => {
           </div>
         </div>
         <div className="search">
-          <Search expand width={'100%'} />
+          <Search expand />
         </div>
         <img src="/fern-small.png" alt="Fern" />
         {styles}

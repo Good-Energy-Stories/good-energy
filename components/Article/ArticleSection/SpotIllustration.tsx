@@ -16,6 +16,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
+      margin: 0 1.25rem;
       grid-column: 1/5;
     }
   }

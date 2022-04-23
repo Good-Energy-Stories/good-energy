@@ -127,36 +127,51 @@ const NavButtons = ({
   );
 };
 
-const NavTitle = ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
-  return (
-    <div className="nav-link-xl-bold">
-      {label}
-      <style jsx>{`
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 1.25rem;
-          height: ${PLAYBOOK_NAV_HEIGHT}px;
-          text-align: center;
-          line-height: 24px;
-          border-right: 4px solid ${theme.textColor};
-          border-bottom: 4px solid ${theme.textColor};
-          color: ${theme.textColor};
-          text-transform: uppercase;
-          background-color: ${theme.backgroundColor};
-          white-space: nowrap;
-        }
-
-        @media only screen and (max-width: 768px) {
+const NavTitle = observer(
+  ({ label, theme }: { label: string; theme?: NavBarStyle }) => {
+    const store = useStore();
+    const {
+      uiStore: { openPlaybookNavOverlay },
+    } = store;
+    return (
+      <div
+        className="nav-link-xl-bold"
+        onClick={() => {
+          openPlaybookNavOverlay();
+        }}
+      >
+        <motion.span whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
+          {label}
+        </motion.span>
+        <style jsx>{`
           div {
-            display: none;
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1.25rem;
+            height: ${PLAYBOOK_NAV_HEIGHT}px;
+            text-align: center;
+            line-height: 24px;
+            border-right: 4px solid ${theme.textColor};
+            border-bottom: 4px solid ${theme.textColor};
+            color: ${theme.textColor};
+            text-transform: uppercase;
+            background-color: ${theme.backgroundColor};
+            white-space: nowrap;
           }
-        }
-      `}</style>
-    </div>
-  );
-};
+
+          @media only screen and (max-width: 768px) {
+            div {
+              display: none;
+            }
+          }
+        `}</style>
+      </div>
+    );
+  },
+);
 
 const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
   return (

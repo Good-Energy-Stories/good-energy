@@ -247,7 +247,6 @@ const SearchBar = () => {
             padding: 0.625rem;
             padding-left: 1.25rem;
             border-left: 5px solid var(--black);
-
             display: flex;
             align-items: center;
             grid-column: span 1;
