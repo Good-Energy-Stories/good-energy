@@ -32,7 +32,13 @@ const Team = ({ pageData }) => {
       />
       <StickyNavBar />
       <Layout key="team" paddingHorizontal={'2.5rem'}>
-        <Header heroImage={heroImage} title={title} description={description} />
+        <Header
+          heroImage={heroImage}
+          title={title}
+          description={description}
+          fittedText
+        />
+        <PageDivider />
         <div className="featured-team">
           {featuredTeamMembers?.map((f, i) => {
             return (
@@ -107,6 +113,7 @@ export const getStaticProps = async () => {
           },
           heroImage,
           title,
+          description,
           featuredTeamMembers[]-> {
             ${queries.teamMember}
           },

@@ -60,7 +60,7 @@ const Header = ({
         {heroImage && (
           <img
             alt={heroImage?.caption}
-            src={imageUrlFor(heroImage).width(1200).url()}
+            src={imageUrlFor(heroImage).width(1080).url()}
           />
         )}
       </div>
