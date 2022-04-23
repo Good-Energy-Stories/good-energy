@@ -1,15 +1,10 @@
 import SearchIcon from '../public/search.svg';
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { SearchButton } from './Landing';
 import { useState } from 'react';
-const Search = ({
-  expand = false,
-  width,
-}: {
-  expand?: boolean;
-  width?: string;
-}) => {
+import { SEARCH_BUTTON_WIDTH } from './Landing/SearchButton';
+
+const Search = ({ expand = false }: { expand?: boolean }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const router = useRouter();
@@ -61,21 +56,19 @@ const Search = ({
         }
         input[type='text'] {
           text-transform: uppercase;
-
           text-align: left;
           color: var(--white);
           border: 0;
           width: 100%;
           background-color: transparent;
+          padding-right: ${SEARCH_BUTTON_WIDTH}px;
         }
         ::placeholder {
           color: var(--white);
         }
-
         :-ms-input-placeholder {
           color: var(--white);
         }
-
         ::-ms-input-placeholder {
           color: var(--white);
         }

@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 
-const BUTTON_WIDTH = 100;
+export const SEARCH_BUTTON_WIDTH = 100;
 
 const variants = {
   active: { x: 0 },
-  inactive: { x: BUTTON_WIDTH + 12 },
+  inactive: { x: SEARCH_BUTTON_WIDTH + 12 },
 };
 
 function getStyles(color) {
@@ -22,7 +22,7 @@ function getStyles(color) {
       text-decoration: none;
       display: inline-block;
       font-size: 28px;
-      width: ${BUTTON_WIDTH}px;
+      width: ${SEARCH_BUTTON_WIDTH}px;
       cursor: pointer;
       z-index: 0;
       background-color: ${color ?? 'var(--pink)'};
