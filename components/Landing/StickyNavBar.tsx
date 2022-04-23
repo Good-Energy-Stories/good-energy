@@ -17,7 +17,7 @@ import {
 } from '../StickyNavBar';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import SearchButton from './SearchButton';
+import SearchButton, { SEARCH_BUTTON_WIDTH } from './SearchButton';
 import CTAButton from '../CTAButton';
 import { BorderCTAButton, MediumBorderCTAButton } from '..';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
@@ -199,6 +199,8 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           color: ${theme.textColor};
           border: 0;
           background-color: transparent;
+          width: 100%;
+          padding-right: calc(0.625rem + ${SEARCH_BUTTON_WIDTH}px);
         }
         ::placeholder {
           color: ${theme.textColor};

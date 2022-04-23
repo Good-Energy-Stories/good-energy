@@ -1,14 +1,12 @@
-import SearchIcon from '../../public/search.svg';
-import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import { useCallback, useEffect } from 'react';
-import { sanity } from '../../lib/sanity';
 import { queries } from '../../data';
 import { getClient } from '../../lib/sanity/sanity.server';
 import { useRouter } from 'next/router';
 import * as ga from '../../lib/ga';
 import { SubmitSearchButton } from '.';
+import { BIG_SEARCH_BUTTON_WIDTH } from './SubmitSearchButton';
 
 const SearchBar = observer(
   ({ expand = false, width }: { expand?: boolean; width?: string }) => {
@@ -105,13 +103,13 @@ const SearchBar = observer(
             padding: 0.625rem 1.25rem;
             width: 100%;
             position: relative;
+            padding-right: calc(0.625rem + ${BIG_SEARCH_BUTTON_WIDTH}px);
           }
           .search-icon {
             display: flex;
             align-items: center;
             margin-right: 0.625rem;
           }
-
           span {
             margin-right: 5px;
           }

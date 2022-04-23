@@ -19,6 +19,7 @@ import {
 import MediumBorderCTAButton from '../MediumBorderCTAButton';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
 import CTAButton from '../CTAButton';
+import { SEARCH_BUTTON_WIDTH } from '../Landing/SearchButton';
 
 const NavLinks = () => {
   return (
@@ -255,6 +256,8 @@ const SearchBar = () => {
             text-transform: uppercase;
             border: 0;
             background-color: transparent;
+            width: 100%;
+            padding-right: calc(0.625rem + ${SEARCH_BUTTON_WIDTH}px);
           }
           ::placeholder {
             color: var(--black);

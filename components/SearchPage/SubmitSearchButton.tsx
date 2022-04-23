@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import * as ga from '../../lib/ga';
 import { useState } from 'react';
 
+export const BIG_SEARCH_BUTTON_WIDTH = 160;
+
 const SearchBar = observer(({ onClick }: { onClick: () => void }) => {
   const [hovered, setHovered] = useState(false);
   return (
@@ -45,7 +47,6 @@ const SearchBar = observer(({ onClick }: { onClick: () => void }) => {
         .search-icon {
           display: flex;
           align-items: center;
-          margin-right: 0.625rem;
         }
         .search-button-label {
           padding-top: 1px;
@@ -53,6 +54,7 @@ const SearchBar = observer(({ onClick }: { onClick: () => void }) => {
           text-transform: uppercase;
         }
         .submit-search-button {
+          width: ${BIG_SEARCH_BUTTON_WIDTH}px;
           cursor: pointer;
           position: absolute;
           top: 0;
@@ -61,6 +63,7 @@ const SearchBar = observer(({ onClick }: { onClick: () => void }) => {
           background-color: var(--blueFour);
           display: flex;
           align-items: center;
+          justify-content: center;
           padding: 0 1.25rem;
           border-left: 2px solid var(--black);
         }
