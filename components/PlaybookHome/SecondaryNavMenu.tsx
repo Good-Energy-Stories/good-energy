@@ -99,7 +99,7 @@ const MenuTab = ({ label, firstArticle, articles }) => {
   );
 };
 
-export const SECONDARY_MENU_HEIGHT = 50;
+export const SECONDARY_MENU_HEIGHT = 40;
 
 const variants = {
   open: {

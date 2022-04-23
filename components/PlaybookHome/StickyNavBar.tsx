@@ -23,7 +23,7 @@ import { SEARCH_BUTTON_WIDTH } from '../Landing/SearchButton';
 
 const NavLinks = () => {
   return (
-    <div className="nav-link-xl-bold">
+    <div className="nav-link-xl-bold container">
       <div>
         <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.95 }}>
           <Link href="/">
@@ -54,8 +54,13 @@ const NavLinks = () => {
       </div>
 
       <style jsx>{`
-        div {
+        .container {
           width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+        div {
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -73,6 +78,7 @@ const NavLinks = () => {
           line-height: 28px;
           background-color: var(--blueFive);
         }
+
         @media only screen and (max-width: 1300px) {
           .featured-voices-link {
             display: none;
@@ -158,10 +164,7 @@ const NavButtons = observer(
             <HamburgerIcon fill="var(--black)" />
           </motion.div>
         </button>
-        <NavDropdownButton
-          onClick={() => setExpanded(!expanded)}
-          expanded={expanded}
-        />
+
         <MobileOpenTOCButton />
         <NavLinks />
         <style jsx>{`

@@ -30,7 +30,13 @@ const variants = {
   },
 };
 
-const Featured = ({ data }: { data: ArticleCardData }) => {
+const Featured = ({
+  data,
+  index,
+}: {
+  data: ArticleCardData;
+  index: number;
+}) => {
   const { title, lede, tags, slug, heroImage } = data;
 
   return (
@@ -45,9 +51,11 @@ const Featured = ({ data }: { data: ArticleCardData }) => {
       <Link href={`/playbook/${slug}`}>
         <a>
           <div className="article-link">
-            <div className="featured-tag">
-              <FeaturedTag />
-            </div>
+            {index !== 0 && (
+              <div className="featured-tag">
+                <FeaturedTag />
+              </div>
+            )}
             {heroImage && <Banner image={heroImage} />}
             {!heroImage && <div className="line" />}
             <Title title={title} />

@@ -51,7 +51,7 @@ const ArticleCard = ({
     case ArticleCardStyle.readMore:
       return <ArticleReadMore data={data} />;
     case ArticleCardStyle.featured:
-      return <ArticleFeatured data={data} />;
+      return <ArticleFeatured data={data} index={index} />;
     case ArticleCardStyle.nextUp:
       return <ArticleNextUp data={data} />;
     case ArticleCardStyle.search:

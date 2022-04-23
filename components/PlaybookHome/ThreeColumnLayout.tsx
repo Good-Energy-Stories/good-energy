@@ -4,8 +4,10 @@ import { Card } from '../Cards';
 import { ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
 import { FEATURED_TAG_LINE_HEIGHT } from '../Cards/FeaturedTag';
 import PageDivider from '../PageDivider';
+import { SECONDARY_MENU_HEIGHT } from './SecondaryNavMenu';
 
-const SHIFTED_TOP_SECONDARY = `calc(${FEATURED_TAG_LINE_HEIGHT}px + 1.875rem)`;
+const SHIFTED_TOP_SECONDARY = `calc(${FEATURED_TAG_LINE_HEIGHT}px + ${SECONDARY_MENU_HEIGHT}px)`;
+const TOP_OFFSET = `calc(0.625rem + ${SECONDARY_MENU_HEIGHT}px)`;
 interface ThreeColumnLayoutData {
   leftColumn: any[];
   mainColumn: any[];
@@ -89,9 +91,7 @@ const LeftColumn = ({
         .three-column-left {
           grid-column: 1/2;
           padding-left: 1.25rem;
-          margin-top: ${style === ThreeColumnLayoutStyle.primary
-            ? SHIFTED_TOP_SECONDARY
-            : '1.25rem'};
+          margin-top: ${TOP_OFFSET};
           margin-bottom: 1.25rem;
           display: flex;
           flex-direction: column;
@@ -143,7 +143,7 @@ const MainColumn = ({
         .container {
           grid-column: 2/4;
           padding: 0 1.25rem;
-          margin-top: 1.25rem;
+          margin-top: ${TOP_OFFSET};
           margin-bottom: 1.25rem;
         }
         @media only screen and (max-width: 768px) {
@@ -188,9 +188,7 @@ const RightColumn = ({
         .three-column-right {
           grid-column: 4/5;
           padding-right: 1.25rem;
-          margin-top: ${style === ThreeColumnLayoutStyle.primary
-            ? SHIFTED_TOP_SECONDARY
-            : '1.25rem'};
+          margin-top: ${TOP_OFFSET};
           margin-bottom: 1.25rem;
           align-content: flex-end;
           display: flex;

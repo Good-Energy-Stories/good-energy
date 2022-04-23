@@ -186,15 +186,11 @@ const SearchBar = ({ theme }: { theme?: NavBarStyle }) => {
           text-decoration: none;
           display: inline-block;
           font-size: 28px;
-
           cursor: pointer;
           background-color: var(--pink);
         }
-        div {
-        }
         input[type='text'] {
           padding: 0.625rem;
-
           text-transform: uppercase;
           color: ${theme.textColor};
           border: 0;
