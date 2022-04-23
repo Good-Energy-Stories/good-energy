@@ -79,7 +79,7 @@ const NavLinks = () => {
           background-color: var(--blueFive);
         }
 
-        @media only screen and (max-width: 1300px) {
+        @media only screen and (max-width: 900px) {
           .featured-voices-link {
             display: none;
           }
@@ -88,11 +88,6 @@ const NavLinks = () => {
           a {
             padding: 0 0.625rem;
             text-align: center;
-          }
-        }
-        @media only screen and (max-width: 900px) {
-          .partners-link {
-            display: none;
           }
         }
 
