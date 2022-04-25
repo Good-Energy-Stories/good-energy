@@ -174,8 +174,6 @@ const NavOverlay = observer(() => {
     uiStore: { navOverlayOpen, openPlaybookNavOverlay },
   } = store;
 
-  console.log('y:', playbookCredits);
-
   return (
     <>
       <motion.div

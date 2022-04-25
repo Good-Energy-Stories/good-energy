@@ -11,7 +11,6 @@ import {
 import { imageUrlFor } from '../../utils/imageUrlFor';
 
 const Team = ({ pageData }) => {
-  console.log(pageData);
   const {
     heroImage,
     title,

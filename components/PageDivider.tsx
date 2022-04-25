@@ -21,7 +21,6 @@ export const PageDivider = ({
   size?: PageDividerSize;
   marginBottom?: string;
 }) => {
-  console.log('labelSize: ', labelSize);
   var pageDividerLabel;
   switch (labelSize) {
     case PageDividerLabelSize.small:

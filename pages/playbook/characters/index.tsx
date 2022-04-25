@@ -20,7 +20,6 @@ import Related from '../../../components/Related';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 const Root = ({ pageData }) => {
-  console.log('pageData:', pageData);
   const { title, description, related, characterProfiles, seo } = pageData;
   return (
     <>

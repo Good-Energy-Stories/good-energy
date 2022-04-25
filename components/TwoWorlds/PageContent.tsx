@@ -7,7 +7,6 @@ const CompareSection = dynamic(() => import('./CompareSection'));
 
 export const PageContent = ({ index, content, activeSide }) => {
   const type = content._type;
-  console.log('rise: ', type);
   switch (type) {
     case 'twoWorldsCompareSection':
       return (

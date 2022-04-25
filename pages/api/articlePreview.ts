@@ -18,14 +18,12 @@ export default async function articlePreview(req, res) {
     const absoluteUrl = new URL(
       `${proto}${host}/playbook/${pathname}`,
     ).toString();
-    console.log(absoluteUrl);
     const previewHtml = await fetch(absoluteUrl, {
       credentials: `include`,
       headers: { Cookie: req.headers.cookie },
     })
       .then((previewRes) => previewRes.text())
       .catch((err) => console.error(err));
-    console.log(previewHtml);
     return res.send(previewHtml);
   }
 

@@ -40,7 +40,6 @@ const Filters = observer(() => {
       searchResultsTags,
     },
   } = store;
-  console.log(searchResultsTags);
   return (
     <div className="container">
       <h4>Filters</h4>

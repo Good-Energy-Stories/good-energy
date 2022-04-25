@@ -22,7 +22,6 @@ export default async function handleRequest(req, res) {
   try {
     await addEmailToMailingList(first, last, email, organization);
   } catch (err) {
-    console.log(err);
     const { title } = JSON.parse(err.response.text);
     if (title === 'Member Exists') {
       return res.status(401).json({ message: 'Member Exists' });

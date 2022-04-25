@@ -58,19 +58,15 @@ export const getStaticPaths = async () => {
     params: { slug: expertProfile.slug.current },
   }));
 
-  console.log(paths);
-
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }) => {
-  console.log(params);
   const expertProfile = await sanity.fetch(queries.expertProfileQuery, {
     slug: params.slug,
   });
-  console.log(expertProfile);
   return { props: { expertProfile } };
 };
 

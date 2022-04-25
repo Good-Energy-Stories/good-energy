@@ -5,7 +5,6 @@ const IntrodutionPortableTextSerializer: Partial<PortableTextReactComponents> =
     block: {
       normal: (props) => {
         const { children, index } = props;
-        console.log(props);
         if (index === 0) {
           return (
             <p className="intro-graf">

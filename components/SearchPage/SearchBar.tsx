@@ -35,7 +35,6 @@ const SearchBar = observer(
         queries.searchArticlesQuery,
         params,
       );
-      // console.log(articleSearchResults);
       const characterProfileSearchResults = await getClient().fetch(
         queries.searchCharacterProfilesQuery,
         params,
@@ -49,7 +48,6 @@ const SearchBar = observer(
         queries.searchFeaturedVoicesQuery,
         params,
       );
-      //console.log(expertProfileSearchResults);
       const results = [
         ...articleSearchResults,
         ...characterProfileSearchResults,

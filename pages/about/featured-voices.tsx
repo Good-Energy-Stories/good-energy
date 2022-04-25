@@ -31,10 +31,6 @@ const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
     ...chunks(featuredVoices, windowWidth < 1080 ? 3 : 4),
   ];
 
-  useEffect(() => {
-    console.log(windowWidth);
-  }, [windowWidth]);
-
   return (
     <>
       <Meta

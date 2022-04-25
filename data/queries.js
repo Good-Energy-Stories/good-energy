@@ -570,6 +570,16 @@ title,
     title,
     "slug": slug.current,
   },
+  _type == 'whyClimateArticle' => {
+    _type,
+    title,
+    "slug": "why-climate-stories",
+  },
+  _type == 'twoWorldsArticle' => {
+    _type,
+    title,
+    "slug": "two-worlds",
+  }
 },
 "articles": contents[]->{
   _type == 'article' => {

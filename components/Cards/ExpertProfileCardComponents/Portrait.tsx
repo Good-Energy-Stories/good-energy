@@ -39,7 +39,6 @@ const Portrait = ({
   inset?: boolean;
   backgroundColor?: string;
 }) => {
-  console.log(image);
   const insetFactor = inset ? 20 : 0;
   return (
     <motion.div

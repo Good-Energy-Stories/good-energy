@@ -90,8 +90,6 @@ const AuthorCard = ({
     hasSpotlightPage,
   } = content;
 
-  console.log(portraitImage || smallPortraitImage);
-
   return (
     <motion.div
       transition={{ duration: 2 }}

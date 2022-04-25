@@ -36,13 +36,11 @@ const variants = {
 };
 
 const ActiveQuoteCard = ({ quotes }) => {
-  console.log(quotes);
   const quotesArray = quotes?.map(({ quote, attribution }) => ({
     quote,
     attribution,
   }));
 
-  console.log('quotesArray', quotesArray);
   return (
     <div className="container">
       <QuoteCarousel data={{ quotes: quotesArray }} />

@@ -8,10 +8,7 @@ const Experts = observer(() => {
   const {
     dataStore: { libraryOfExpertsResults, filteredLibraryOfExpertsResults },
   } = store;
-  console.log(
-    'filteredLibraryOfExpertsResults:',
-    filteredLibraryOfExpertsResults,
-  );
+
   return (
     <div className="results">
       {filteredLibraryOfExpertsResults.map((e, i) => {

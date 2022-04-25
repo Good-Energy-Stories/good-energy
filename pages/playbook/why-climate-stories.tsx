@@ -38,8 +38,6 @@ const Project = observer(({ pageData }: { pageData: any }) => {
     },
   } = store;
 
-  console.log(pageData);
-
   useEffect(() => {
     setBorderColor('var(--pink)');
     setBackgroundColor('var(--black)');
@@ -51,7 +49,6 @@ const Project = observer(({ pageData }: { pageData: any }) => {
     };
   }, [setBorderColor, setBackgroundColor, setTextColor]);
 
-  console.log(pageData);
   return (
     <>
       <Meta />

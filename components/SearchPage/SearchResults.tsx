@@ -15,7 +15,6 @@ const SearchResults = observer(() => {
   const {
     dataStore: { playbookSearchResults, filteredSearchResults },
   } = store;
-  console.log('playbookSearchResults: ', playbookSearchResults);
 
   return (
     <>

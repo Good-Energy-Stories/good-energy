@@ -35,7 +35,6 @@ export const PageContent = ({ index, content }) => {
     case 'partnerSection':
       return <PartnerSection index={index} data={content} truncate />;
     case 'individualPartnerFeature':
-      console.log(content);
       return <IndividualPartnerFeature data={content} />;
     default:
       return null;
