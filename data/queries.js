@@ -48,6 +48,7 @@ body,
   }
 },
 includeSpotIllustration,
+illustrationPosition,
 spotIllustration{
     ${imageMeta}
 },

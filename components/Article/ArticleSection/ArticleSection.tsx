@@ -13,10 +13,10 @@ import Footnote from '../Footnote';
 import DesktopFootnotes from '../DesktopFootnotes';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 2/5;
+    grid-column: 1/5;
     margin-bottom: 2.5rem;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   @media only screen and (max-width: 768px) {
     div {
@@ -59,7 +59,10 @@ const ArticleSection = ({
       <Content data={data} />
 
       {includeSpotIllustration && (
-        <SpotIllustration image={data?.spotIllustration} />
+        <SpotIllustration
+          image={data?.spotIllustration}
+          illustrationPosition={data?.illustrationPosition}
+        />
       )}
       <DesktopFootnotes footnotes={footnotes} />
       <style jsx>{`

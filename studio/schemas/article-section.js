@@ -78,6 +78,22 @@ export default {
       description: 'If this section has a spot illustration or not',
       type: 'boolean',
     },
+    {
+      title: 'Illustration Position',
+      name: 'illustrationPosition',
+      description:
+        'Where the illustration should be placed. Inline means it will be placed under the text and will be larger. To the side is typically better for spot illustrations.',
+      type: 'string',
+
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'To the Side', value: 'side' },
+          { title: 'Inline', value: 'inline' },
+        ],
+      },
+      hidden: ({ parent }) => parent?.includeSpotIllustration !== true,
+    },
 
     {
       title: 'Spot Illustration',

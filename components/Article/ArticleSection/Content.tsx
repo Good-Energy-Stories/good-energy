@@ -10,7 +10,7 @@ const { className, styles } = css.resolve`
   div {
     margin-left: 1.25rem;
     margin-right: 1.25rem;
-    grid-column: 1/3;
+    grid-column: 2/4;
     margin-bottom: 0rem;
   }
   @media only screen and (max-width: 768px) {

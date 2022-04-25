@@ -6,21 +6,25 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
-const { className, styles } = css.resolve`
-  div {
-    grid-column: 3/4;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 1.25rem;
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(illustrationPosition) {
+  return css.resolve`
     div {
-      margin: 0 1.25rem;
-      grid-column: 1/5;
+      grid-column: ${illustrationPosition === 'inline' ? '2/4' : '4/5'};
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin-top: 1.25rem;
+      margin-left: ${illustrationPosition === 'inline' ? '0' : '0'};
+      margin-right: ${illustrationPosition === 'inline' ? '0' : '1.25rem'};
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+        margin: 0 1.25rem;
+        grid-column: 1/5;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -31,7 +35,14 @@ const variants = {
   },
 };
 
-const SpotIllustration = ({ image }: { image: any }) => {
+const SpotIllustration = ({
+  image,
+  illustrationPosition,
+}: {
+  image: any;
+  illustrationPosition: string;
+}) => {
+  const { className, styles } = getStyles(illustrationPosition);
   if (!image) return null;
   return (
     <motion.div
@@ -42,7 +53,12 @@ const SpotIllustration = ({ image }: { image: any }) => {
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).url()} />
+      <img
+        alt={image?.caption}
+        src={imageUrlFor(image)
+          .width(illustrationPosition === 'inline' ? 1000 : 400)
+          .url()}
+      />
 
       <style jsx>{`
         img {
