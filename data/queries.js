@@ -681,17 +681,26 @@ export const characterProfilePageQuery = `
 }[0]
 `;
 
-export const searchArticlesQuery = `*[_type == "article" && title match $query] {
+export const searchArticlesQuery = `*[_type == "article" && 
+([title, lede, byline, tags[]] match $query ||
+author[].name match $query ||
+body[].title match $query ||
+body[].body[].children[].text match $query)] {
   _type,
   ${articlePreview}
 }`;
 
-export const searchCharacterProfilesQuery = `*[_type == "characterProfile" && name match $query] {
+export const searchCharacterProfilesQuery = `*[_type == "characterProfile" && 
+([name, shortBio] match $query ||
+bio[].children[].text match $query)] {
   _type,
   ${characterProfilePreview}
 }`;
 
-export const searchExpertProfilesQuery = `*[_type == "expertProfile" && name match $query] {
+export const searchExpertProfilesQuery = `*[_type == "expertProfile" && 
+(name match $query ||
+Information[].children[].text match $query ||
+bio[].children[].text match $query)] {
   _type,
   ${expertProfilePreview}
 }`;
