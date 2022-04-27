@@ -6,7 +6,6 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
-import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 const { className, styles } = css.resolve`
   div {
     max-width: 100%;

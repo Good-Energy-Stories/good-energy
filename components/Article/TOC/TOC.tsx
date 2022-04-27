@@ -11,7 +11,6 @@ import {
   FRAMER_TRANSITION_EASEOUT,
   FRAMER_TRANSITION_FASTEASE,
 } from '../../../lib/framer/framer-animations';
-import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../../StickyNavBar';
 
 function getStyles(sticky) {
   return css.resolve`

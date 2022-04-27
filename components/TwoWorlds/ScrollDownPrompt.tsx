@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Breadcrumbs } from '..';
 import { PortableText } from '@portabletext/react';
-import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import DownArrowIcon from '../../public/down-arrow.svg';
 
 function getStyles() {

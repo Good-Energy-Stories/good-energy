@@ -28,6 +28,7 @@ import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { AuthorCard } from '../../components/Cards';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import { SecondaryNavMenu } from '../../components/PlaybookHome';
 
 const Project = observer(
   ({ data, preview }: { data: any; preview: boolean }) => {
@@ -75,7 +76,8 @@ const Project = observer(
           slug={slug}
           description={lede}
         />
-        <StickyNavBar label="Playbook Contents" mode={navMode} />
+        <StickyNavBar hideOnDesktop />
+        <SecondaryNavMenu position={'sticky'} includeNavItems top={0} />
         <Layout key={article.slug}>
           <Banner image={heroImage} />
           <Header

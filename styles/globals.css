@@ -34,6 +34,7 @@ button {
   border: none;
   padding: 0.625rem;
   margin: 0;
+  background-color: transparent;
   text-decoration: none;
   color: var(--black);
   font-family: FlexaVar, Pressura, Helvetica Neue, sans-serif;

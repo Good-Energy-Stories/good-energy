@@ -419,7 +419,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
-  font-variation-settings: 'wght' 429, 'wdth' 40;
+  font-variation-settings: 'wght' 419, 'wdth' 35;
   color: var(--blueThree);
 }
 .playbook-toc-nav-link-extra-small {
@@ -452,7 +452,7 @@ h4 {
 @media only screen and (max-width: 1080px) {
   .playbook-toc-nav-link-small {
     font-family: var(--flexa);
-    font-size: 12px;
+    font-size: 15px;
     line-height: 16px;
     font-variation-settings: 'wght' 429, 'wdth' 40;
     color: var(--blueThree);

@@ -6,17 +6,18 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
-import { MOBILE_PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
+import { SECONDARY_MENU_HEIGHT } from '../PlaybookHome/SecondaryNavMenu';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
     grid-row-start: 1;
     width: 100%;
     max-height: 100vh;
-    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
+    margin-top: -${SECONDARY_MENU_HEIGHT}px;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1080px) {
     div {
+      margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
     }
   }
 `;

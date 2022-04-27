@@ -299,7 +299,13 @@ const StickyNavBar = observer(
             expanded={playbookSecondaryNavOpen}
           />
           <SearchBar />
-          <SecondaryNavMenu />
+          <SecondaryNavMenu
+            initial="closed"
+            position={'absolute'}
+            top={PLAYBOOK_NAV_HEIGHT - 4}
+            color={'var(--black)'}
+            backgroundColor={'var(--blueFive)'}
+          />
           <style jsx>{`
             div {
               border-top: 5px solid var(--black);

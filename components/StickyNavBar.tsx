@@ -6,6 +6,7 @@ import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
+import NavLogo from './NavLogo';
 
 export const light: NavBarStyle = {
   backgroundColor: 'transparent',
@@ -108,10 +109,10 @@ const NavButtons = ({
           display: flex;
           align-items: center;
           background-color: transparent;
-          padding: 0.3125rem;
+          padding: 0.625rem;
           padding-top: 0.625rem;
         }
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 1080px) {
           .border {
             border: 0;
           }
@@ -173,44 +174,15 @@ const NavTitle = observer(
   },
 );
 
-const NavLogo = ({ theme }: { theme?: NavBarStyle }) => {
-  return (
-    <div>
-      <Link href="/">
-        <a>
-          <Logo
-            height={PLAYBOOK_NAV_HEIGHT}
-            textColor={theme.logoTextColor}
-            backgroundColor={theme.logoBackgroundColor}
-          />
-        </a>
-      </Link>
-
-      <style jsx>{`
-        div {
-          pointer-events: auto;
-          display: flex;
-          width: 100%;
-          justify-content: flex-end;
-          grid-column-start: 4;
-        }
-
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
 export const PLAYBOOK_NAV_HEIGHT = 80;
 export const MOBILE_PLAYBOOK_NAV_HEIGHT = 80;
 
-const PlaybookStickyNavBar = ({
+const StickyNavBar = ({
+  hideOnDesktop = false,
   label = null,
   mode = NavBarStyles.dark,
 }: {
+  hideOnDesktop?: boolean;
   label?: string;
   mode?: NavBarStyles;
 }) => {
@@ -219,11 +191,11 @@ const PlaybookStickyNavBar = ({
     <>
       <div>
         <Nav label={label} theme={theme} />
-        <NavLogo theme={theme} />
+        <NavLogo theme={theme} height={PLAYBOOK_NAV_HEIGHT} />
         <style jsx>{`
           div {
             pointer-events: none;
-            display: grid;
+            display: ${hideOnDesktop ? 'none' : 'grid'};
             grid-template-columns: var(--grid-col);
             justify-content: space-between;
             position: sticky;
@@ -234,8 +206,9 @@ const PlaybookStickyNavBar = ({
             z-index: 100;
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: 1080px) {
             div {
+              display: grid;
               padding-left: 0.625rem;
             }
           }
@@ -245,4 +218,4 @@ const PlaybookStickyNavBar = ({
   );
 };
 
-export default PlaybookStickyNavBar;
+export default StickyNavBar;
