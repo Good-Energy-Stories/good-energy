@@ -484,6 +484,7 @@ export const contentPreviewReferences = `
 
 export const playlist = `
 title,
+"slug": slug.current,
 byline,
 description,
 playlist[]->{

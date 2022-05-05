@@ -43,6 +43,7 @@ const variants = {
 
 interface PlaylistData {
   title: string;
+  slug: string;
   byline: string;
   description: any;
   playlist: any;
@@ -50,11 +51,13 @@ interface PlaylistData {
 
 const PlaylistInformation = ({
   title,
+  slug,
   byline,
   description,
   length,
 }: {
   title: string;
+  slug: string;
   byline: string;
   description: any;
   length: number;
@@ -68,7 +71,7 @@ const PlaylistInformation = ({
           <PortableText value={description} />
         </div>
         <div className="label-medium story-count">{`${length} stories`}</div>
-        <CTAButton label="Read More" href="/" />
+        <CTAButton label="Read More" href={`/playbook/playlists/${slug}`} />
       </div>
       <style jsx>{`
         h2 {
@@ -104,7 +107,7 @@ const SeeAll = () => {
   return (
     <>
       <div className="see-all">
-        <BorderCTAButton label="See All Playlists" href="/" />
+        <BorderCTAButton label="See All Playlists" href="/playbook/playlists" />
       </div>
       <style jsx>{`
         .see-all {
@@ -132,7 +135,7 @@ const Playlist = ({
   const [hovered, setHovered] = useState(false);
 
   const { className, styles } = getStyles();
-  const { title, byline, description, playlist } = data;
+  const { title, slug, byline, description, playlist } = data;
   return (
     <>
       <motion.div
@@ -145,6 +148,7 @@ const Playlist = ({
       >
         <PlaylistInformation
           title={title}
+          slug={slug}
           byline={byline}
           description={description}
           length={playlist.length}
