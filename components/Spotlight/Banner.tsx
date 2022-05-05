@@ -6,16 +6,18 @@ import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
-const { className, styles } = css.resolve`
-  div {
-    max-width: 100%;
-    margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
-  }
-  @media only screen and (max-width: 768px) {
+function getStyles(isInPlaylist) {
+  return css.resolve`
     div {
+      max-width: 100%;
+      margin-top: -${isInPlaylist ? 0 : PLAYBOOK_NAV_HEIGHT}px;
     }
-  }
-`;
+    @media only screen and (max-width: 768px) {
+      div {
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -26,7 +28,14 @@ const variants = {
   },
 };
 
-const Banner = ({ image }: { image: any }) => {
+const Banner = ({
+  image,
+  isInPlaylist,
+}: {
+  image: any;
+  isInPlaylist: boolean;
+}) => {
+  const { className, styles } = getStyles(isInPlaylist);
   if (!image) return null;
   return (
     <motion.div

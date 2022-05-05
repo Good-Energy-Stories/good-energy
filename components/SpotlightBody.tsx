@@ -64,7 +64,21 @@ const NextUp = ({ nextUp }) => {
   );
 };
 
-const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
+const Spotlight = ({
+  name,
+  shortBio,
+  bio,
+  nextUp,
+  portraitImage,
+  isInPlaylist,
+}: {
+  name: string;
+  shortBio: any;
+  bio: any;
+  nextUp: any;
+  portraitImage: any;
+  isInPlaylist?: boolean;
+}) => {
   return (
     <>
       <motion.div
@@ -74,7 +88,7 @@ const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
       >
         {portraitImage && (
           <div className="left">
-            <Banner image={portraitImage} />
+            <Banner image={portraitImage} isInPlaylist={isInPlaylist} />
           </div>
         )}
         <div className="right">
@@ -126,7 +140,7 @@ const Spotlight = ({ name, shortBio, bio, nextUp, portraitImage }) => {
               height: 500px;
               overflow: hidden;
               margin-bottom: 1.25rem;
-              margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
+              margin-top: -${isInPlaylist ? 0 : PLAYBOOK_NAV_HEIGHT}px;
             }
             .right {
               padding: 0 1.25rem;

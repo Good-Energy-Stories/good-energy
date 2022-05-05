@@ -13,3 +13,4 @@ export { default as NextUp } from './NextUp';
 export { default as Footnote } from './Footnote';
 export { default as MobileFootnotes } from './MobileFootnotes';
 export { default as DesktopFootnotes } from './DesktopFootnotes';
+export { default as Article } from './Article';

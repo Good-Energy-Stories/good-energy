@@ -60,7 +60,7 @@ const FeaturedVoiceCard = ({
   maxWidth?: number;
   active?: boolean;
   last?: boolean;
-  onActionButtonClicked?: () => void;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   const { className, styles } = getStyles(maxWidth, last);
   const { name, credentials, slug, portraitImage } = data;
@@ -82,7 +82,10 @@ const FeaturedVoiceCard = ({
 
         <h3>{name}</h3>
         <div className="label-medium">{credentials}</div>
-        <SeeQuotesButton onClick={onActionButtonClicked} active={active} />
+        <SeeQuotesButton
+          onClick={() => onActionButtonClicked(slug)}
+          active={active}
+        />
       </div>
 
       <style jsx>{`

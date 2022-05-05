@@ -1,20 +1,11 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../../lib/sanity';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
+
 import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
-import Link from 'next/link';
-import { CharacterProfileData } from './CharacterProfileCard';
+
 import { PortraitSizes } from './CharacterProfileCardComponents';
-import { Tags } from './';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
-import { PortableText } from '@portabletext/react';
-import PortableTextSerializer from '../PortableTextSerializer';
+
 function getStyles(maxWidth, last) {
   return css.resolve`
     div {
@@ -45,7 +36,7 @@ const variants = {
   },
 };
 
-const ExpertProfileStandard = ({
+const ExpertProfileReadMore = ({
   data,
   index,
   maxWidth,
@@ -81,7 +72,7 @@ const ExpertProfileStandard = ({
         {!fullSizePortraitImage && <div className="line" />}
         <div className="label-medium">{'Expert Profile'}</div>
         <h3>{name}</h3>
-        {shortBio && <div className="tease-lede-small">{shortBio}</div>}
+
         <SmallBorderCTAButton
           label="Read More"
           href={`/about/library-of-experts/spotlight/${slug}`}
@@ -114,4 +105,4 @@ const ExpertProfileStandard = ({
   );
 };
 
-export default ExpertProfileStandard;
+export default ExpertProfileReadMore;

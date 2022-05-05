@@ -5,10 +5,12 @@ const CharacterProfileSmall = ({
   data,
   index,
   last,
+  onActionButtonClicked,
 }: {
   data: CharacterProfileData;
   index: number;
   last?: boolean;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   return (
     <CharacterProfileStandard
@@ -16,6 +18,7 @@ const CharacterProfileSmall = ({
       maxWidth={228}
       data={data}
       last={last}
+      onActionButtonClicked={onActionButtonClicked}
     />
   );
 };

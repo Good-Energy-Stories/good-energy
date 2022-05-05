@@ -35,10 +35,12 @@ const Small = ({
   data,
   last,
   maxWidth,
+  onActionButtonClicked,
 }: {
   data: ArticleCardData;
   last?: boolean;
   maxWidth?: number;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   const { className, styles } = getStyles(maxWidth, last);
 

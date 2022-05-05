@@ -6,7 +6,7 @@ import {
   BsFillQuestionCircleFill,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry } from 'react-icons/fa';
-import { MdRecordVoiceOver } from 'react-icons/md';
+import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
 import { GiLetterBomb } from 'react-icons/gi';
 import { RiTeamFill } from 'react-icons/ri';
@@ -99,6 +99,15 @@ export const pagesMenu = S.listItem()
               .documentId('characterProfilesPage'),
           )
           .icon(BsPersonFill),
+        S.listItem()
+          .title('Playlists Page')
+          .child(
+            S.document()
+              .title('Playlists Page')
+              .schemaType('playlistsPage')
+              .documentId('playlistsPage'),
+          )
+          .icon(MdOutlinePlaylistAdd),
         S.listItem()
           .title('Featured Voices Page')
           .child(

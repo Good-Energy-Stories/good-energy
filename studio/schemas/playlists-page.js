@@ -3,8 +3,8 @@ import { CharacterProfilePreview } from '../components';
 import { BsPersonFill as icon } from 'react-icons/bs';
 
 export default {
-  name: 'characterProfilesPage',
-  title: 'Character Profiles Page',
+  name: 'playlistsPage',
+  title: 'Playlists Page',
   type: 'document',
   icon,
   fields: [
@@ -17,7 +17,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: "Ex. 'Character Profiles'",
+      description: "Ex. 'Playlists'",
     },
     {
       name: 'lede',
@@ -27,7 +27,7 @@ export default {
         'This is the text that will show up on the card if this page is linked on the homa page.',
     },
     {
-      title: 'Character Profiles Hero Image',
+      title: 'Playlists Page Hero Image',
       name: 'heroImage',
       type: 'image',
       options: {
@@ -53,7 +53,7 @@ export default {
     {
       name: 'description',
       title: 'Description',
-      description: 'Information about the character profiles page',
+      description: 'Information about the playlist page',
       type: 'array',
       of: [
         {
@@ -62,37 +62,15 @@ export default {
       ],
     },
     {
-      title: 'Character Profiles',
-      name: 'characterProfiles',
+      title: 'Playlists',
+      name: 'playlists',
       description:
-        'This is where you change which character profiles to surface and what order they should appear in.',
+        'This is where you change which playlists to surface and what order they should appear in.',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [
-            { type: 'article' },
-            { type: 'characterProfile' },
-            { type: 'expertProfile' },
-          ],
-        },
-      ],
-    },
-
-    {
-      title: 'Related',
-      name: 'related',
-      description:
-        'You can add any number of related articles or character profiles here.',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            { type: 'article' },
-            { type: 'characterProfile' },
-            { type: 'expertProfile' },
-          ],
+          to: [{ type: 'playlist' }],
         },
       ],
     },

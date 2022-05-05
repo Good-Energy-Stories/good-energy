@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CTAButton, BorderCTAButton } from '../';
 import { PortableText } from '@portabletext/react';
 import { Card, ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
-import { ShadowOverlay } from '../Playlist';
+import { CardRow, ShadowOverlay } from '../Playlist';
 
 function getStyles() {
   return css.resolve`
@@ -47,51 +47,6 @@ interface PlaylistData {
   description: any;
   playlist: any;
 }
-
-const CardRow = ({ playlist }: { playlist: any }) => {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <>
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="right"
-      >
-        <ShadowOverlay active={!hovered} />
-        {playlist.map((c, i) => (
-          <div key={i} className="card-wrapper">
-            <Card
-              index={i}
-              content={c}
-              articleCardStyle={ArticleCardStyle.readMore}
-              characterProfileCardStyle={CharacterProfileCardStyle.readMore}
-            />
-          </div>
-        ))}
-      </div>
-      <style jsx>{`
-        .right {
-          grid-column: 3/5;
-          display: flex;
-          overflow: hidden;
-          position: relative;
-          margin-right: -2.5rem;
-          padding-top: 1.25rem;
-        }
-        .card-wrapper {
-          margin: 0 1.25rem;
-        }
-        @media only screen and (max-width: 768px) {
-          .right {
-            max-width: 100vw;
-            overflow-x: scroll;
-            grid-column: 1/-1;
-          }
-        }
-      `}</style>
-    </>
-  );
-};
 
 const PlaylistInformation = ({
   title,
@@ -165,7 +120,17 @@ const SeeAll = () => {
   );
 };
 
-const Playlist = ({ data }: { data: PlaylistData }) => {
+const Playlist = ({
+  data,
+  includeSeeAll = false,
+  onActionButtonClicked,
+}: {
+  data: PlaylistData;
+  includeSeeAll?: boolean;
+  onActionButtonClicked?: (slug: string) => void;
+}) => {
+  const [hovered, setHovered] = useState(false);
+
   const { className, styles } = getStyles();
   const { title, byline, description, playlist } = data;
   return (
@@ -184,10 +149,37 @@ const Playlist = ({ data }: { data: PlaylistData }) => {
           description={description}
           length={playlist.length}
         />
-        <CardRow playlist={playlist} />
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="right"
+        >
+          <CardRow
+            playlist={playlist}
+            shadowActive={!hovered}
+            onActionButtonClicked={onActionButtonClicked}
+          />
+        </div>
       </motion.div>
-      <SeeAll />
+      {includeSeeAll && <SeeAll />}
       {styles}
+      <style jsx>{`
+        .right {
+          grid-column: 3/5;
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          margin-right: -2.5rem;
+          padding-top: 1.25rem;
+        }
+        @media only screen and (max-width: 768px) {
+          .right {
+            max-width: 100vw;
+            overflow-x: scroll;
+            grid-column: 1/-1;
+          }
+        }
+      `}</style>
     </>
   );
 };

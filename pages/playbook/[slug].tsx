@@ -17,6 +17,7 @@ import {
   AuthorSection,
   NextUp,
   MobileFootnotes,
+  Article,
 } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useEffect, useRef } from 'react';
@@ -79,19 +80,7 @@ const Project = observer(
         <StickyNavBar hideOnDesktop />
         <SecondaryNavMenu position={'sticky'} includeNavItems top={0} />
         <Layout key={article.slug}>
-          <Banner image={heroImage} />
-          <Header
-            title={title}
-            byline={byline}
-            hasBannerImage={heroImage ? true : false}
-            section={section}
-          />
-          <Divider />
-          <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
-          <Introduction body={article?.introduction} />
-          <Body body={article?.body} sectionsRef={sectionsRef} />
-
-          <AuthorSection content={article?.author} />
+          <Article data={article} />
           <NextUp article={article?.nextUp} />
           <Related content={article?.related} />
           <MobileFootnotes footnotes={footnotes} />

@@ -24,7 +24,7 @@ export const PageContent = ({ index, content }) => {
     case 'playbookQuote':
       return <MegaQuote index={index} data={content} />;
     case 'playlist':
-      return <Playlist data={content} />;
+      return <Playlist data={content} includeSeeAll />;
 
     default:
       return null;

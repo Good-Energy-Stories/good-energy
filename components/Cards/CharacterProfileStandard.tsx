@@ -13,6 +13,7 @@ import { CharacterProfileData } from './CharacterProfileCard';
 import { PortraitSizes } from './CharacterProfileCardComponents';
 import { Tags } from './';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
+import { on } from 'events';
 function getStyles(maxWidth, last) {
   return css.resolve`
     div {
@@ -48,11 +49,13 @@ const CharacterProfileStandard = ({
   index,
   maxWidth,
   last,
+  onActionButtonClicked,
 }: {
   data: CharacterProfileData;
   index: number;
   maxWidth?: number;
   last?: boolean;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   const { className, styles } = getStyles(maxWidth, last);
   const { name, shortBio, slug, portraitImage } = data;
@@ -77,6 +80,7 @@ const CharacterProfileStandard = ({
         <SmallBorderCTAButton
           label="Read More"
           href={`/playbook/characters/character-profiles/${slug}`}
+          onClick={() => onActionButtonClicked(slug)}
         />
       </div>
 

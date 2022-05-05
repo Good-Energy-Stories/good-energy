@@ -34,7 +34,13 @@ const variants = {
   },
 };
 
-const Small = ({ data }: { data: ArticleCardData }) => {
+const Small = ({
+  data,
+  onActionButtonClicked,
+}: {
+  data: ArticleCardData;
+  onActionButtonClicked: (slug: string) => void;
+}) => {
   const { title, lede, tags, slug, heroImage } = data;
 
   return (
@@ -50,7 +56,11 @@ const Small = ({ data }: { data: ArticleCardData }) => {
         {heroImage && <Banner image={heroImage} />}
         {!heroImage && <div className="line" />}
         <Title title={title} />
-        <SmallBorderCTAButton label="Read More" href={`/playbook/${slug}`} />
+        <SmallBorderCTAButton
+          label="Read More"
+          href={`/playbook/${slug}`}
+          onClick={() => onActionButtonClicked(slug)}
+        />
       </div>
 
       <style jsx>{`

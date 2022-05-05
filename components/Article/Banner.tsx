@@ -7,20 +7,22 @@ import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
 import { SECONDARY_MENU_HEIGHT } from '../PlaybookHome/SecondaryNavMenu';
-const { className, styles } = css.resolve`
-  div {
-    grid-column: 1/5;
-    grid-row-start: 1;
-    width: 100%;
-    max-height: 100vh;
-    margin-top: -${SECONDARY_MENU_HEIGHT}px;
-  }
-  @media only screen and (max-width: 1080px) {
+function getStyles(isInPlaylist) {
+  return css.resolve`
     div {
-      margin-top: -${PLAYBOOK_NAV_HEIGHT}px;
+      grid-column: 1/5;
+      grid-row-start: 1;
+      width: 100%;
+      max-height: 100vh;
+      margin-top: -${isInPlaylist ? 0 : SECONDARY_MENU_HEIGHT}px;
     }
-  }
-`;
+    @media only screen and (max-width: 1080px) {
+      div {
+        margin-top: -${isInPlaylist ? 0 : PLAYBOOK_NAV_HEIGHT}px;
+      }
+    }
+  `;
+}
 
 const variants = {
   in: {
@@ -31,7 +33,14 @@ const variants = {
   },
 };
 
-const Banner = ({ image }: { image: any }) => {
+const Banner = ({
+  image,
+  isInPlaylist,
+}: {
+  image: any;
+  isInPlaylist: boolean;
+}) => {
+  const { className, styles } = getStyles(isInPlaylist);
   if (!image) return null;
   return (
     <motion.div

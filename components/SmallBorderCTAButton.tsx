@@ -38,27 +38,58 @@ const variants = {
   },
 };
 
+const Label = ({ children }) => {
+  return (
+    <div className="button-text-small">
+      {children}
+      <span className="arrow">→</span>
+      <style jsx>{`
+        .button-text-small {
+          margin: 0;
+          padding: 6px;
+          cursor: pointer;
+        }
+
+        .arrow {
+          margin-left: 6px;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const LinkWrapper = ({ children, href }) => {
+  return (
+    <Link href={href}>
+      <a>{children}</a>
+    </Link>
+  );
+};
+
 const SmallBorderCTAButton = ({
   label,
   href = '/',
   color = 'var(--black)',
+  onClick,
 }: {
   label: string;
   href: string;
   color?: string;
+  onClick?: () => void;
 }) => {
   return (
     <>
       <motion.div whileHover={{ opacity: 0.6 }} whileTap={{ scale: 0.98 }}>
         <div className="container">
-          <Link href={href}>
-            <a>
-              <div className="button-text-small">
-                {label}
-                <span className="arrow">→</span>
-              </div>
+          {onClick ? (
+            <a onClick={onClick}>
+              <Label>{label}</Label>
             </a>
-          </Link>
+          ) : (
+            <LinkWrapper href={href}>
+              <Label>{label}</Label>
+            </LinkWrapper>
+          )}
         </div>
       </motion.div>
       <style jsx>{`

@@ -50,14 +50,14 @@ const CharacterProfileFeaturedSecondary = ({
   wide = false,
   onActionButtonClicked,
 }: {
-  data: CharacterProfileData;
+  data: any;
   index: number;
   wide?: boolean;
   onActionButtonClicked?: (slug: string) => void;
 }) => {
   const { className, styles } = getStyles(wide);
 
-  const { name, shortBio, slug, portraitImage } = data;
+  const { name, shortBio, slug, smallPortraitImage } = data;
   return (
     <motion.div
       transition={{ duration: 2 }}
@@ -70,8 +70,8 @@ const CharacterProfileFeaturedSecondary = ({
       <div className="layout" onClick={() => onActionButtonClicked(slug)}>
         <div className="label-medium">Next Up</div>
         <div className="left">
-          {portraitImage && (
-            <Portrait image={portraitImage} size={PortraitSizes.medium} />
+          {smallPortraitImage && (
+            <Portrait image={smallPortraitImage} size={PortraitSizes.medium} />
           )}
         </div>
         <div className="right">

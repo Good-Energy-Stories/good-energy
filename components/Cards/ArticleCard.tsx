@@ -36,24 +36,42 @@ const ArticleCard = ({
   last,
   shouldUseExpandedStyles = true,
   style,
+  onActionButtonClicked,
 }: {
   data: ArticleCardData;
   shouldUseExpandedStyles?: boolean;
   last?: boolean;
   index: number;
   style: ArticleCardStyle;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   switch (style) {
     case ArticleCardStyle.standard:
       return <ArticleStandard data={data} last={last} />;
     case ArticleCardStyle.small:
-      return <ArticleSmall data={data} last={last} />;
+      return (
+        <ArticleSmall
+          data={data}
+          last={last}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case ArticleCardStyle.readMore:
-      return <ArticleReadMore data={data} />;
+      return (
+        <ArticleReadMore
+          data={data}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case ArticleCardStyle.featured:
       return <ArticleFeatured data={data} index={index} />;
     case ArticleCardStyle.nextUp:
-      return <ArticleNextUp data={data} />;
+      return (
+        <ArticleNextUp
+          data={data}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case ArticleCardStyle.search:
       return <ArticleSearch data={data} />;
     case ArticleCardStyle.featuredSecondary:

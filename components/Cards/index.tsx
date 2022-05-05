@@ -19,6 +19,8 @@ export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';
 export { default as ExpertProfileCard } from './ExpertProfileCard';
 export { default as ExpertProfileSearch } from './ExpertProfileSearch';
+export { default as ExpertProfileReadMore } from './ExpertProfileReadMore';
+export { default as ExpertProfileNextUp } from './ExpertProfileNextUp';
 
 export { default as AuthorCard } from './AuthorCard';
 export { default as TeamMemberCard } from './TeamMemberCard';

@@ -30,6 +30,7 @@ import playbookStructure from './playbook-structure';
 import playbookQuote from './playbook-quote';
 import playbookThreeColumn from './playbook-three-column';
 import playlist from './playlist';
+import playlistsPage from './playlists-page';
 import quote from './quote';
 import quoteCollection from './quote-collection';
 import resource from './resource';
@@ -79,6 +80,7 @@ export default createSchema({
     playbookQuote,
     playbookThreeColumn,
     playlist,
+    playlistsPage,
     quote,
     quoteCollection,
     resource,

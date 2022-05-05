@@ -312,6 +312,12 @@ export const characterProfilePagePreview = `
   description
 `;
 
+export const playlistsPagePreview = `
+  "id": _id,
+  title,
+  description
+`;
+
 export const characterProfile = `
 _type,
 name,
@@ -417,6 +423,21 @@ contents[]-> {
 export const contentReferences = `
   _type == 'article' => {
     _type,
+    ${article}
+  },
+  _type == 'characterProfile' => {
+    _type,
+    ${characterProfile}
+  },
+  _type == 'expertProfile' => {
+    _type,
+    ${expertProfile}
+  }
+`;
+
+export const contentPreviewReferences = `
+  _type == 'article' => {
+    _type,
     ${articlePreview}
   },
   _type == 'characterProfilesPage' => {
@@ -472,13 +493,13 @@ playlist[]->{
 
 export const threeColumnLayout = `
     leftColumn[]->{
-      ${contentReferences}
+      ${contentPreviewReferences}
     },
     mainColumn[]->{
-      ${contentReferences}
+      ${contentPreviewReferences}
     },
     rightColumn[]->{
-      ${contentReferences}
+      ${contentPreviewReferences}
     }
   
 `;
@@ -549,16 +570,16 @@ export const landingPageQuery = `
 
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
   introduction[]->{
-    ${contentReferences}
+    ${contentPreviewReferences}
   },
   why[]->{
-    ${contentReferences}
+    ${contentPreviewReferences}
   },
   climateStorytelling[]->{
-    ${contentReferences}
+    ${contentPreviewReferences}
   },
   whatsNext[]->{
-    ${contentReferences}
+    ${contentPreviewReferences}
   },
 }[0]`;
 
@@ -681,6 +702,19 @@ export const characterProfilePageQuery = `
 }[0]
 `;
 
+export const playlistsPageQuery = `
+*[_type == "playlistsPage" ] {
+  seo {
+    ${pageSeo}
+  },
+  ${playlistsPagePreview},
+  playlists[]-> {
+    _type,
+    ${playlist}
+  }
+}[0]
+`;
+
 export const searchArticlesQuery = `*[_type == "article" && 
 ([title, lede, byline, tags[]] match $query ||
 author[].name match $query ||
@@ -715,6 +749,7 @@ export const searchFeaturedVoicesQuery = `*[_type == "featuredVoice" && quotes[]
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
 export const characterProfilePathsQuery = `*[_type == "characterProfile"] { slug }`;
+export const playlistPathsQuery = `*[_type == "playlist"] { slug }`;
 
 export const twoWorldsArticleQuery = `*[_type == "twoWorldsArticle"] { 
   title,
@@ -807,6 +842,9 @@ export const articleQuery = `*[_type == "article" && slug.current == $slug] {
 }[0]`;
 export const characterProfileQuery = `*[_type == "characterProfile" && slug.current == $slug] {
   ${characterProfile}
+}[0]`;
+export const playlistQuery = `*[_type == "playlist" && slug.current == $slug] {
+  ${playlist}
 }[0]`;
 export const expertProfileQuery = `*[_type == "expertProfile" && slug.current == $slug] {
   ${expertProfile}

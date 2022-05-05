@@ -14,6 +14,24 @@ export default {
       description: "Ex. 'Characters'",
     },
     {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 200,
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+            .replace(/\-\-+/g, '-') // Replace multiple - with single -
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/-+$/, ''), // Trim - from end of text.slice(0, 200),
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'byline',
       title: 'Byline',
       type: 'string',

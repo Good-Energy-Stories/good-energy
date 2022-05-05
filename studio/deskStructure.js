@@ -63,6 +63,7 @@ export default () =>
             'playlist',
             'playbookSection',
             'playbookSubsection',
+            'playlistsPage',
             'quoteCollection',
             'teamMember',
             'teamPage',

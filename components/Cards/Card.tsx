@@ -29,7 +29,7 @@ export const Card = ({
   expertProfileCardStyle?: ExpertProfileCardStyle;
   marginBottom?: string;
   active?: boolean;
-  onActionButtonClicked?: () => void;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   if (!content) return null;
   const type = content._type;
@@ -45,6 +45,7 @@ export const Card = ({
           data={content}
           style={articleCardStyle}
           shouldUseExpandedStyles={shouldUseExpandedStyles}
+          onActionButtonClicked={onActionButtonClicked}
         />
       );
     case 'quoteCollection':
@@ -57,6 +58,7 @@ export const Card = ({
           data={content}
           style={characterProfileCardStyle}
           shouldUseExpandedStyles={shouldUseExpandedStyles}
+          onActionButtonClicked={onActionButtonClicked}
         />
       );
     case 'expertProfile':
@@ -66,6 +68,7 @@ export const Card = ({
           last={last}
           data={content}
           style={expertProfileCardStyle}
+          onActionButtonClicked={onActionButtonClicked}
         />
       );
     case 'featuredVoice':

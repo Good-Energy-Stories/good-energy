@@ -30,32 +30,16 @@ const variants = {
   },
 };
 
-const NextUp = ({ data }: { data: ArticleCardData }) => {
-  const { title, lede, tags, slug, heroImage } = data;
-
+const NextUpCard = ({ data }) => {
+  const { title, lede, tags } = data;
   return (
-    <motion.div
-      transition={FRAMER_TRANSITION_EASEOUT}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
-      whileHover={{ opacity: 0.8 }}
-      variants={variants}
-      className={className}
-    >
-      <Link href={`/playbook/${slug}`}>
-        <a>
-          <div className="article-link">
-            <div className="featured-tag">Next Up</div>
+    <div className="article-link">
+      <div className="featured-tag">Next Up</div>
 
-            <h2>{title} </h2>
-            <div className="layout tease-lede">{lede}</div>
+      <h2>{title} </h2>
+      <div className="layout tease-lede">{lede}</div>
 
-            {tags && <Tags tags={tags} />}
-          </div>
-        </a>
-      </Link>
-
+      {tags && <Tags tags={tags} />}
       <style jsx>{`
         h2 {
           margin: 0;
@@ -69,9 +53,49 @@ const NextUp = ({ data }: { data: ArticleCardData }) => {
           color: var(--blueThree);
           text-transform: uppercase;
         }
-        .article-link {
-        }
+      `}</style>
+    </div>
+  );
+};
 
+const LinkWrapper = ({ slug, children }) => {
+  return (
+    <Link href={`/playbook/${slug}`}>
+      <a>{children}</a>
+    </Link>
+  );
+};
+
+const NextUp = ({
+  data,
+  onActionButtonClicked,
+}: {
+  data: ArticleCardData;
+  onActionButtonClicked: (slug: string) => void;
+}) => {
+  const { slug } = data;
+
+  return (
+    <motion.div
+      transition={FRAMER_TRANSITION_EASEOUT}
+      initial={'out'}
+      animate={'in'}
+      exit={'out'}
+      whileHover={{ opacity: 0.8 }}
+      variants={variants}
+      className={className}
+    >
+      {onActionButtonClicked ? (
+        <a onClick={() => onActionButtonClicked(slug)}>
+          <NextUpCard data={data} />
+        </a>
+      ) : (
+        <LinkWrapper slug={slug}>
+          <NextUpCard data={data} />
+        </LinkWrapper>
+      )}
+
+      <style jsx>{`
         .line {
           width: 100%;
           border-top: 4px solid var(--black);

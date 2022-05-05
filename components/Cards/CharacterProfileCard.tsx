@@ -44,20 +44,42 @@ const CharacterProfileCard = ({
   last,
   shouldUseExpandedStyles = true,
   style,
+  onActionButtonClicked,
 }: {
   data: CharacterProfileData;
   index: number;
   last?: boolean;
   shouldUseExpandedStyles?: boolean;
   style: CharacterProfileCardStyle;
+  onActionButtonClicked?: (slug: string) => void;
 }) => {
   switch (style) {
     case CharacterProfileCardStyle.standard:
-      return <CharacterProfileStandard data={data} index={index} last={last} />;
+      return (
+        <CharacterProfileStandard
+          data={data}
+          index={index}
+          last={last}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case CharacterProfileCardStyle.readMore:
-      return <CharacterProfileReadMore data={data} index={index} />;
+      return (
+        <CharacterProfileReadMore
+          data={data}
+          index={index}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case CharacterProfileCardStyle.small:
-      return <CharacterProfileSmall data={data} index={index} last={last} />;
+      return (
+        <CharacterProfileSmall
+          data={data}
+          index={index}
+          last={last}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     case CharacterProfileCardStyle.featuredSecondary:
       return (
         <CharacterProfileFeaturedSecondary
@@ -67,9 +89,21 @@ const CharacterProfileCard = ({
         />
       );
     case CharacterProfileCardStyle.nextUp:
-      return <CharacterProfileNextUp data={data} index={index} />;
+      return (
+        <CharacterProfileNextUp
+          data={data}
+          index={index}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
     default:
-      return <CharacterProfileStandard data={data} index={index} />;
+      return (
+        <CharacterProfileStandard
+          data={data}
+          index={index}
+          onActionButtonClicked={onActionButtonClicked}
+        />
+      );
   }
 };
 
