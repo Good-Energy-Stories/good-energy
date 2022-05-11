@@ -43,8 +43,7 @@ function getStyles(
     }
     @media only screen and (max-width: 1080px) {
       div {
-        display: none;
-        padding: 0;
+        display: none !important;
       }
     }
   `;
