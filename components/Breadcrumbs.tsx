@@ -36,9 +36,11 @@ const PathLabel = ({ label, href, last }) => {
         {last ? (
           <span className="label-medium">{label}</span>
         ) : (
-          <Link href={href}>
-            <a className="label-medium">{label}</a>
-          </Link>
+          <motion.span whileHover={{ opacity: 0.4 }}>
+            <Link href={href}>
+              <a className="label-medium">{label}</a>
+            </Link>
+          </motion.span>
         )}
         {!last && <PathDivider />}
       </div>
