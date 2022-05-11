@@ -836,6 +836,8 @@ export const whyClimateArticle = `*[_type == "whyClimateArticle"] {
   }
  }[0]`;
 
+export const socialsQuery = `*[_type == "socials"] { twitter,instagram }[0]`;
+
 export const expertProfilePathsQuery = `*[_type == "expertProfile" && includeSpotlightPage == true] { slug }`;
 
 export const articleQuery = `*[_type == "article" && slug.current == $slug] {

@@ -30,6 +30,7 @@ const MyApp = observer(
         setPlaybookNavTableOfContents,
         setPlaybookSections,
         setPlaybookCredits,
+        setSocialLinks,
       },
       uiStore: {
         navOverlayOpen,
@@ -118,9 +119,15 @@ const MyApp = observer(
       setPlaybookSections,
     ]);
 
+    const getSocials = useCallback(async () => {
+      const socials = await getClient().fetch(groq`${queries.socialsQuery}`);
+      setSocialLinks(socials);
+    }, [setSocialLinks]);
+
     useEffect(() => {
       initializePlaybookTOC();
-    }, [initializePlaybookTOC]);
+      getSocials();
+    }, [initializePlaybookTOC, getSocials]);
 
     useEffect(() => {
       window.addEventListener('resize', updateWindowSize);

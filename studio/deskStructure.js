@@ -5,6 +5,7 @@ import { aboutMenu } from './desk/about';
 import SeoPane from 'sanity-plugin-seo-pane';
 import resolveProductionUrl from './resolveProductionUrl';
 import SocialPreview from 'part:social-preview/component';
+import { BiLinkAlt } from 'react-icons/bi';
 
 export const getDefaultDocumentNode = ({ schemaType }) => {
   if (['article'].includes(schemaType)) {
@@ -40,6 +41,15 @@ export default () =>
       S.divider(),
       aboutMenu,
       S.divider(),
+      S.listItem()
+        .title('Socials')
+        .child(
+          S.document()
+            .title('Socials')
+            .schemaType('socials')
+            .documentId('socials'),
+        )
+        .icon(BiLinkAlt),
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
@@ -65,6 +75,8 @@ export default () =>
             'playbookSubsection',
             'playlistsPage',
             'quoteCollection',
+            'resource',
+            'socials',
             'teamMember',
             'teamPage',
             'twoWorldsArticle',

@@ -20,6 +20,11 @@ class DataStore {
     },
   };
 
+  @observable socials = {
+    instagram: '',
+    twitter: '',
+  };
+
   @observable playbookSections = [];
 
   @observable playbookCredits = {};
@@ -85,6 +90,18 @@ class DataStore {
   }
   @action.bound setLibraryOfExpertsSortOrder(sortOrder) {
     this.libraryOfExpertsSortOrder = sortOrder;
+  }
+
+  @action.bound setSocialLinks(links) {
+    this.socials = links;
+  }
+
+  @action.bound setTwitterLink(link) {
+    this.socials.twitter = link;
+  }
+
+  @action.bound setInstagramLink(link) {
+    this.socials.instagram = link;
   }
 
   @action.bound clearRouteVariablesData() {

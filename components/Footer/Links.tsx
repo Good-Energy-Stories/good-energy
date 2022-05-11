@@ -1,17 +1,7 @@
 import { LinkColumn } from './';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-
-const playbook = [
-  { label: 'Introduction', href: '' },
-  { label: 'The Why', href: '' },
-  { label: 'Climate Storytelling', href: '' },
-  { label: 'Solutions on Screen', href: '' },
-  { label: 'Characters', href: '' },
-  { label: 'Story World', href: '' },
-  { label: 'Climate Storytelling', href: '' },
-  { label: 'Credits', href: '' },
-];
+import Socials from './Socials';
 
 const resources = [
   { label: 'Library of Experts', href: '/about/library-of-experts' },
@@ -38,7 +28,11 @@ const Links = observer(() => {
     <>
       <div className="links">
         {links.map((l, i) => {
-          return <LinkColumn key={i} label={l.label} links={l.links} />;
+          return (
+            <>
+              <LinkColumn key={i} label={l.label} links={l.links} />
+            </>
+          );
         })}
       </div>
 
