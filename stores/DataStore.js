@@ -105,6 +105,7 @@ class DataStore {
   }
 
   @action.bound clearRouteVariablesData() {
+    this.playbookSearchQuery = '';
     this.libraryOfExpertsResults = [];
   }
 
