@@ -37,7 +37,7 @@ const Quote = ({ quote, attribution }: QuoteType) => {
     <motion.div className={className} variants={variants}>
       <span>
         {isLongQuote ? (
-          <h4>{quote}</h4>
+          <h4 className="h4-quote">{quote}</h4>
         ) : (
           <div className="pull-quote">{quote}</div>
         )}

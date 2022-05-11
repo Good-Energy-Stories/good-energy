@@ -145,6 +145,17 @@ h4 {
   text-transform: uppercase;
 }
 
+.h4-quote {
+}
+.h4-quote::before {
+  content: '“';
+  position: absolute;
+  margin-left: -12px;
+}
+.h4-quote::after {
+  content: '”';
+}
+
 .tease-lede-small {
   font-family: var(--flexa);
   font-size: 18px;
