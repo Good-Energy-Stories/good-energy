@@ -62,7 +62,10 @@ const ArticleBody = observer(
         />
         <Divider />
         <TOC sections={sectionsTOC} sectionsRef={sectionsRef} />
-        <Introduction body={data?.introduction} />
+        <Introduction
+          body={data?.introduction}
+          includeDropCap={data?.includeDropCap}
+        />
         <Body body={data?.body} sectionsRef={sectionsRef} />
 
         <AuthorSection content={data?.author} />

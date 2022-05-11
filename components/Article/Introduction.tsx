@@ -9,6 +9,7 @@ export const Introduction = ({
   includeDropCap?: boolean;
 }) => {
   if (!body) return null;
+
   return (
     <>
       {body.map((c, i) => (
