@@ -4,6 +4,7 @@ import { Banner, Title, Lede } from './ArticleCardComponents';
 import Link from 'next/link';
 import { ArticleCardData } from '.';
 import { Tags } from './';
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 function getStyles(maxWidth, last) {
   return css.resolve`
     div {
@@ -48,6 +49,7 @@ const Small = ({
 
   return (
     <motion.div
+      whileHover={{ opacity: 0.8, transition: { duration: 0.4 } }}
       transition={{ duration: 2 }}
       initial={'out'}
       animate={'in'}

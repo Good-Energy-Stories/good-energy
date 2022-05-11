@@ -45,6 +45,7 @@ const Small = ({
 
   return (
     <motion.div
+      whileHover={{ opacity: 0.8, transition: { duration: 0.4 } }}
       transition={{ duration: 2 }}
       initial={'out'}
       animate={'in'}
