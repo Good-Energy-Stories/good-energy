@@ -80,7 +80,9 @@ const CharacterProfileStandard = ({
         <SmallBorderCTAButton
           label="Read More"
           href={`/playbook/characters/character-profiles/${slug}`}
-          onClick={() => onActionButtonClicked(slug)}
+          onClick={
+            onActionButtonClicked ? () => onActionButtonClicked(slug) : null
+          }
         />
       </div>
 

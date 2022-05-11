@@ -27,6 +27,20 @@ export default {
         'This is the text that will show up on the card if this page is linked on the homa page.',
     },
     {
+      name: 'cardStyle',
+      title: 'Card Style',
+      description:
+        'Choosing standard means that whenever this page is linked to on the home page it will appear as a standard profile card. Choosing carousel means that it will cycle through random character profile spotlights. Defaults to standard.',
+      type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Standard', value: 'standard' },
+          { title: 'Carousel', value: 'carousel' },
+        ],
+      },
+    },
+    {
       title: 'Character Profiles Hero Image',
       name: 'heroImage',
       type: 'image',

@@ -2,6 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { ArticleCardStyle, CharacterProfileCardStyle } from './';
 import { ExpertProfileCardStyle } from './ExpertProfileCard';
+import CharacterProfilePageCarousel from './CharacterProfilePageCarousel';
 const ArticleCard = dynamic(() => import('./ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
 const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
@@ -36,7 +37,6 @@ export const Card = ({
   switch (type) {
     case 'twoWorldsArticle':
     case 'whyClimateArticle':
-    case 'characterProfilesPage':
     case 'article':
       return (
         <ArticleCard
@@ -48,6 +48,27 @@ export const Card = ({
           onActionButtonClicked={onActionButtonClicked}
         />
       );
+    case 'characterProfilesPage':
+      if (content.cardStyle == 'standard') {
+        return (
+          <ArticleCard
+            index={index}
+            last={last}
+            data={content}
+            style={articleCardStyle}
+            shouldUseExpandedStyles={shouldUseExpandedStyles}
+            onActionButtonClicked={onActionButtonClicked}
+          />
+        );
+      } else if (content.cardStyle == 'carousel') {
+        return (
+          <CharacterProfilePageCarousel
+            index={index}
+            data={content}
+            last={last}
+          />
+        );
+      }
     case 'quoteCollection':
       return <QuoteCarousel index={index} data={content} />;
     case 'characterProfile':

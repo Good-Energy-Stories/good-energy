@@ -14,6 +14,7 @@ export { default as ArticleReadMore } from './ArticleReadMore';
 export { default as CharacterProfileFeaturedSecondary } from './CharacterProfileFeaturedSecondary';
 export { default as CharacterProfileReadMore } from './CharacterProfileReadMore';
 export { default as CharacterProfileNextUp } from './CharacterProfileNextUp';
+export { default as CharacterProfilePageCarousel } from './CharacterProfilePageCarousel';
 
 export { default as Tags } from './Tags';
 export { default as Tag } from './Tag';

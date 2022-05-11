@@ -47,7 +47,7 @@ const CharacterProfileCard = ({
   onActionButtonClicked,
 }: {
   data: CharacterProfileData;
-  index: number;
+  index?: number;
   last?: boolean;
   shouldUseExpandedStyles?: boolean;
   style: CharacterProfileCardStyle;

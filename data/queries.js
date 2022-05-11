@@ -309,6 +309,10 @@ nextUp->{
 export const characterProfilePagePreview = `
   "id": _id,
   title,
+  cardStyle,
+  cardStyle == 'carousel' => {
+    "characterProfiles": *[_type == 'characterProfile'] {${characterProfilePreview}},
+  },
   description
 `;
 
