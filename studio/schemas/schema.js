@@ -46,6 +46,7 @@ import whyClimateArticle from './why-climate-article';
 import whyClimateTextBlock from './why-climate-text-block';
 import aboutPage from './about-page';
 import pageSeo from './page-seo';
+import standardPagePortableText from './standard-page-portable-text';
 
 export default createSchema({
   name: 'default',
@@ -88,6 +89,7 @@ export default createSchema({
     resourceSection,
     socials,
     seo,
+    standardPagePortableText,
     team,
     teamPage,
     twoWorldsArticle,

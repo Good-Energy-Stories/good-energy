@@ -112,7 +112,15 @@ export const getStaticProps = async () => {
           },
           heroImage,
           title,
-          description,
+          description[]{
+            ...,
+            markDefs[]{
+              ...,
+              _type == "internalLink" => {
+                "slug": @.reference->slug
+              }
+            }
+          },
           featuredTeamMembers[]-> {
             ${queries.teamMember}
           },

@@ -46,8 +46,7 @@ export default {
       name: 'description',
       title: 'Description',
       description: 'Some optional information about the team',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'standardPagePortableText',
     },
     {
       title: 'Featured Team Members',
