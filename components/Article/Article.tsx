@@ -19,16 +19,9 @@ import {
   MobileFootnotes,
 } from '.';
 import { Footer } from '../Footer';
-import { useEffect, useRef } from 'react';
-import { useStore } from '../../stores/store';
+import { useRef } from 'react';
+
 import { observer } from 'mobx-react-lite';
-import Related from '../Related';
-import { getClient } from '../../lib/sanity/sanity.server';
-import { usePreviewSubscription } from '../../lib/sanity/sanity';
-import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
-import { AuthorCard } from '../Cards';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { SecondaryNavMenu } from '../PlaybookHome';
 
 const ArticleBody = observer(
   ({ data, isInPlaylist }: { data: any; isInPlaylist?: boolean }) => {

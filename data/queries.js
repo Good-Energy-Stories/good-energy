@@ -840,7 +840,7 @@ export const whyClimateArticle = `*[_type == "whyClimateArticle"] {
   }
  }[0]`;
 
-export const socialsQuery = `*[_type == "socials"] { twitter,instagram }[0]`;
+export const socialsQuery = `*[_type == "socials"] { twitter,instagram,facebook }[0]`;
 
 export const expertProfilePathsQuery = `*[_type == "expertProfile" && includeSpotlightPage == true] { slug }`;
 

@@ -22,9 +22,7 @@ import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../components/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
-import { usePreviewSubscription } from '../../lib/sanity/sanity';
-import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
-import { AuthorCard } from '../../components/Cards';
+
 import { Header, PageContent } from '../../components/WhyClimateStories';
 
 const Project = observer(({ pageData }: { pageData: any }) => {

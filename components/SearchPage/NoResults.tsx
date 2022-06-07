@@ -2,12 +2,17 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
+import { ReactChild, Key, useMemo, useState, useEffect } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Filters from './Filters';
+import {
+  FRAMER_TRANSITION_EASEOUT,
+  FRAMER_TRANSITION_FASTEASE,
+  FRAMER_TRANSITION_FASTEREASE,
+} from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
@@ -32,39 +37,24 @@ const variants = {
   },
 };
 
-const ResultsFor = observer(() => {
+const NoResults = observer(() => {
   const store = useStore();
   const {
-    dataStore: {
-      playbookSearchQuery,
-      playbookSearchResults,
-      playbookLastSearchedQuery,
-    },
+    dataStore: { playbookSearchQuery },
   } = store;
-
   return (
-    <AnimatePresence>
-      {playbookSearchResults.length !== 0 && (
-        <motion.div
-          transition={{ duration: 1 }}
-          initial={'out'}
-          animate={'in'}
-          exit={'out'}
-          variants={variants}
-          className={className}
-        >
-          <h1>{`Results for “${playbookLastSearchedQuery}”`}</h1>
-          <Filters />
-          <style jsx>{`
-            h1 {
-              margin-bottom: 1.25rem;
-            }
-          `}</style>
-          {styles}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      key="no-results"
+      transition={FRAMER_TRANSITION_FASTEASE}
+      initial={'out'}
+      animate={'in'}
+      exit={'out'}
+      variants={variants}
+      className={className}
+    >
+      <h1>{`No Results for "${playbookSearchQuery}"`}</h1> {styles}
+    </motion.div>
   );
 });
 
-export default ResultsFor;
+export default NoResults;

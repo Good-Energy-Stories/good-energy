@@ -7,6 +7,11 @@ import BlockContent from '@sanity/block-content-to-react';
 import { RefObject } from 'react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import { PortableText } from '@portabletext/react';
+import { useInView } from 'react-intersection-observer';
+import {
+  FRAMER_TRANSITION_EASEOUT,
+  FRAMER_TRANSITION_FASTEASE,
+} from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;
@@ -29,9 +34,11 @@ const { className, styles } = css.resolve`
 const variants = {
   in: {
     opacity: 1,
+    y: 0,
   },
   out: {
     opacity: 0,
+    y: 100,
   },
 };
 
@@ -80,11 +87,13 @@ const WhyClimateTextBlock = ({
 
 const ArticleSection = ({ data, index }: { data: any; index: number }) => {
   const { _key, textSize, text } = data;
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   return (
     <motion.div
-      transition={{ duration: 2 }}
+      ref={ref}
+      transition={{ ...FRAMER_TRANSITION_EASEOUT, duration: 2 }}
       initial={'out'}
-      animate={'in'}
+      animate={inView ? 'in' : 'out'}
       exit={'out'}
       variants={variants}
       className={className}

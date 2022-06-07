@@ -261,7 +261,7 @@ const PlaybookNavOverlay = observer(() => {
           <h2 className="title">Playbook Contents</h2>
           <div className="section introduction">
             <div>
-              <h3>Foreword</h3>
+              <h3 className="forward-title">Foreword</h3>
               <TOCSection content={playbookNavTableOfContents.introduction} />
             </div>
             <div className="section why">
@@ -294,7 +294,7 @@ const PlaybookNavOverlay = observer(() => {
             <div className="climate-storytelling-scroll-affordance" />
           </div>
           <div className="section resources-desktop whats-next">
-            <h3>{"What's Next and Resources"}</h3>
+            <h3 className="whats-next-title">{"What's Next and Resources"}</h3>
             <TOCSection content={playbookNavTableOfContents.whatsNext} />
             <ListItemLink
               label="Library of Experts"
@@ -318,6 +318,12 @@ const PlaybookNavOverlay = observer(() => {
           .introduction {
             grid-column: 1/2;
             grid-row-start: 2;
+            overflow: scroll;
+            padding-bottom: 2.5rem;
+            scrollbar-width: none;
+          }
+          .introduction::-webkit-scrollbar {
+            display: none;
           }
           .resources-desktop {
             display: block;
@@ -338,6 +344,21 @@ const PlaybookNavOverlay = observer(() => {
           .whats-next {
             grid-row-start: 2;
             grid-column: 4/5;
+            overflow: scroll;
+            padding-bottom: 2.5rem;
+            scrollbar-width: none;
+          }
+          .whats-next::-webkit-scrollbar {
+            display: none;
+          }
+          .whats-next-title {
+            position: sticky;
+            top: 0;
+          }
+          .forward-title {
+            position: sticky;
+            top: 0;
+            background-color: var(--black);
           }
           .climate-storytelling-left {
             margin-right: 1.25rem;
@@ -379,6 +400,7 @@ const PlaybookNavOverlay = observer(() => {
             background-color: var(--black);
             margin-right: 0 !important;
           }
+
           .home {
             opacity: 0.5;
             margin-bottom: 1.5rem;

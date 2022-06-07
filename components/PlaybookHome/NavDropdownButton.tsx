@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { SearchButton } from '../Landing';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { SecondaryNavMenu } from './';
+import { SecondaryNavMenu } from '../SecondaryNavMenu';
 import { motion } from 'framer-motion';
 
 import css from 'styled-jsx/css';

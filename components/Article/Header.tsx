@@ -4,10 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Breadcrumbs } from '..';
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 
 function getStyles(hasBannerImage) {
   return css.resolve`
     div {
+      z-index: 1;
       grid-column: 1/4;
       margin-left: 0rem;
       padding: 0 2.5rem;
@@ -28,9 +30,11 @@ function getStyles(hasBannerImage) {
 const variants = {
   in: {
     opacity: 1,
+    x: 0,
   },
   out: {
     opacity: 0,
+    x: -50,
   },
 };
 
@@ -54,7 +58,7 @@ const Title = ({
     : null;
   return (
     <motion.div
-      transition={{ duration: 2 }}
+      transition={FRAMER_TRANSITION_EASEOUT}
       initial={'out'}
       animate={'in'}
       exit={'out'}

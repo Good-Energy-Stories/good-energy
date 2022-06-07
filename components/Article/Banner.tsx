@@ -1,18 +1,15 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../utils/imageUrlFor';
 import { PLAYBOOK_NAV_HEIGHT } from '../';
-import { SECONDARY_MENU_HEIGHT } from '../PlaybookHome/SecondaryNavMenu';
+import ImageLoader from '../ImageLoader';
+import { SECONDARY_MENU_HEIGHT } from '../SecondaryNavMenu/SecondaryNavMenu';
 function getStyles(isInPlaylist) {
   return css.resolve`
     div {
       grid-column: 1/5;
       grid-row-start: 1;
       width: 100%;
+      height: auto;
       max-height: 100vh;
       margin-top: -${isInPlaylist ? 0 : SECONDARY_MENU_HEIGHT}px;
     }
@@ -45,13 +42,10 @@ const Banner = ({
   return (
     <motion.div
       transition={{ duration: 2 }}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
       variants={variants}
       className={className}
     >
-      <img alt={image?.caption} src={imageUrlFor(image).width(1920).url()} />
+      <ImageLoader alt={image?.caption} width={1920} src={image} />
 
       <style jsx>{`
         img {

@@ -4,11 +4,11 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { BANNER_HEIGHT } from '../PageBanner';
 import {
   MOBILE_PLAYBOOK_NAV_HEIGHT,
   PLAYBOOK_NAV_HEIGHT,
 } from '../StickyNavBar';
+import useBannerHeight from '../../utils/hooks/useBannerHeight';
 
 const { className, styles } = css.resolve`
   div {

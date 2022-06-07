@@ -8,6 +8,9 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   experimental: {
     removeConsole: {
       exclude: ['error'],

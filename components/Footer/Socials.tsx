@@ -1,29 +1,41 @@
 import { LinkColumn } from './';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-import { FiTwitter, FiInstagram } from 'react-icons/fi';
+import { FiTwitter, FiInstagram, FiFacebook } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 const Socials = observer(() => {
   const store = useStore();
   const {
     dataStore: {
-      socials: { twitter, instagram },
+      socials: { twitter, instagram, facebook },
     },
   } = store;
   return (
     <div className="container">
-      <motion.div whileHover={{ opacity: 0.4 }} whileTap={{ scale: 0.98 }}>
-        <a href={twitter} target="_blank" rel="noopener noreferrer">
-          <FiTwitter />
-        </a>
-      </motion.div>
+      {twitter !== null && (
+        <motion.div whileHover={{ opacity: 0.4 }} whileTap={{ scale: 0.98 }}>
+          <a href={twitter} target="_blank" rel="noopener noreferrer">
+            <FiTwitter />
+          </a>
+        </motion.div>
+      )}
       <div className="spacer" />
-      <motion.div whileHover={{ opacity: 0.4 }} whileTap={{ scale: 0.98 }}>
-        <a href={instagram} target="_blank" rel="noopener noreferrer">
-          <FiInstagram />
-        </a>
-      </motion.div>
+      {instagram !== null && (
+        <motion.div whileHover={{ opacity: 0.4 }} whileTap={{ scale: 0.98 }}>
+          <a href={instagram} target="_blank" rel="noopener noreferrer">
+            <FiInstagram />
+          </a>
+        </motion.div>
+      )}
+      <div className="spacer" />
+      {facebook !== null && (
+        <motion.div whileHover={{ opacity: 0.4 }} whileTap={{ scale: 0.98 }}>
+          <a href={facebook} target="_blank" rel="noopener noreferrer">
+            <FiFacebook />
+          </a>
+        </motion.div>
+      )}
       <style jsx>{`
         .container {
           height: 100%;

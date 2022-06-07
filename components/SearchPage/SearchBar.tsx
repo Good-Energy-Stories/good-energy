@@ -16,49 +16,58 @@ const SearchBar = observer(
     const {
       dataStore: {
         playbookSearchQuery,
+        setPlaybookSearchLoading,
         setPlaybookSearchQuery,
         setPlaybookSearchResults,
         setPlaybookLastSearchedQuery,
       },
     } = store;
 
-    const search = useCallback(async (query) => {
-      ga.event({
-        action: 'search',
-        params: {
-          search_term: query,
-        },
-      });
-      setPlaybookLastSearchedQuery(query);
-      const params = { query: `${query}*` };
-      const articleSearchResults = await getClient().fetch(
-        queries.searchArticlesQuery,
-        params,
-      );
-      const characterProfileSearchResults = await getClient().fetch(
-        queries.searchCharacterProfilesQuery,
-        params,
-      );
+    const search = useCallback(
+      async (query) => {
+        setPlaybookSearchLoading(true);
+        ga.event({
+          action: 'search',
+          params: {
+            search_term: query,
+          },
+        });
+        setPlaybookLastSearchedQuery(query);
+        const params = { query: `${query}*` };
+        const articleSearchResults = await getClient().fetch(
+          queries.searchArticlesQuery,
+          params,
+        );
+        const characterProfileSearchResults = await getClient().fetch(
+          queries.searchCharacterProfilesQuery,
+          params,
+        );
 
-      const expertProfileSearchResults = await getClient().fetch(
-        queries.searchExpertProfilesQuery,
-        params,
-      );
-      const featuredVoicesSearchResults = await getClient().fetch(
-        queries.searchFeaturedVoicesQuery,
-        params,
-      );
-      const results = [
-        ...articleSearchResults,
-        ...characterProfileSearchResults,
-        ...expertProfileSearchResults,
-        ...featuredVoicesSearchResults,
-      ]
-        .map((value) => ({ value, sort: Math.random() }))
-        .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value);
-      setPlaybookSearchResults(results);
-    }, []);
+        const expertProfileSearchResults = await getClient().fetch(
+          queries.searchExpertProfilesQuery,
+          params,
+        );
+        const featuredVoicesSearchResults = await getClient().fetch(
+          queries.searchFeaturedVoicesQuery,
+          params,
+        );
+        const results = [
+          ...articleSearchResults,
+          ...characterProfileSearchResults,
+          ...expertProfileSearchResults,
+          ...featuredVoicesSearchResults,
+        ]
+          .map((value) => ({ value, sort: Math.random() }))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({ value }) => value);
+        setPlaybookSearchResults(results);
+      },
+      [
+        setPlaybookSearchLoading,
+        setPlaybookSearchResults,
+        setPlaybookLastSearchedQuery,
+      ],
+    );
 
     useEffect(() => {
       if (query) {

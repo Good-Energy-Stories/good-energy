@@ -73,6 +73,9 @@ input:focus {
   display: grid;
   grid-template-columns: var(--grid-col);
 }
+img {
+  transition: 0.5s ease-in;
+}
 @media only screen and (max-width: 768px) {
   body {
     border: 0;

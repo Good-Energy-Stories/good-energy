@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import { useInView } from 'react-intersection-observer';
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
@@ -26,19 +28,24 @@ const { className, styles } = css.resolve`
 const variants = {
   in: {
     opacity: 1,
+    scale: 1,
   },
   out: {
     opacity: 0,
+    scale: 0.8,
   },
 };
 
 const Illustration = ({ data }: { data: any }) => {
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+
   if (!data) return null;
   return (
     <motion.div
-      transition={{ duration: 2 }}
+      ref={ref}
+      transition={{ ...FRAMER_TRANSITION_EASEOUT, duration: 2 }}
       initial={'out'}
-      animate={'in'}
+      animate={inView ? 'in' : 'out'}
       exit={'out'}
       variants={variants}
       className={className}

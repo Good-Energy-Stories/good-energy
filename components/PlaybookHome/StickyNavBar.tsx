@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { SearchButton } from '../Landing';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { SecondaryNavMenu } from './';
+import { SecondaryNavMenu } from '../SecondaryNavMenu';
 import NavDropdownButton from './NavDropdownButton';
 import { motion } from 'framer-motion';
 import * as ga from '../../lib/ga';

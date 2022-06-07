@@ -20,9 +20,12 @@ class DataStore {
     },
   };
 
+  @observable playbookSearchLoading = false;
+
   @observable socials = {
-    instagram: '',
-    twitter: '',
+    instagram: null,
+    twitter: null,
+    facebook: null,
   };
 
   @observable playbookSections = [];
@@ -32,7 +35,7 @@ class DataStore {
   @observable playbookNavTableOfContents = null;
   @observable playbookSearchQuery = '';
   @observable playbookLastSearchedQuery = '';
-  @observable playbookSearchResults = [];
+  @observable playbookSearchResults = null;
   @observable playbookSearchContentFilter = null;
   @observable playbookSearchTagFilter = null;
 
@@ -78,6 +81,10 @@ class DataStore {
     );
   }
 
+  @action.bound setPlaybookSearchLoading(loading) {
+    this.playbookSearchLoading = loading;
+  }
+
   @action.bound setLibraryOfExpertsResults(results) {
     this.libraryOfExpertsResults = results;
   }
@@ -102,6 +109,9 @@ class DataStore {
 
   @action.bound setInstagramLink(link) {
     this.socials.instagram = link;
+  }
+  @action.bound setFacebookLink(link) {
+    this.socials.facebook = link;
   }
 
   @action.bound clearRouteVariablesData() {
@@ -181,6 +191,7 @@ class DataStore {
   }
   @action.bound setPlaybookSearchResults(results) {
     this.playbookSearchResults = results;
+    this.playbookSearchLoading = false;
   }
   @action.bound setPlaybookSearchContentFilter(filter) {
     this.playbookSearchContentFilter = filter;
@@ -191,39 +202,44 @@ class DataStore {
 
   @computed get searchResultsTags() {
     const tags = [];
-    this.playbookSearchResults.forEach((result) => {
-      if (result?.tags) {
-        tags.push(...result.tags);
-      }
-    });
+    if (this.playbookSearchResults !== null) {
+      this.playbookSearchResults.forEach((result) => {
+        if (result?.tags) {
+          tags.push(...result.tags);
+        }
+      });
 
-    return [...new Set(tags)];
+      return [...new Set(tags)];
+    }
+    return [];
   }
 
   @computed get filteredSearchResults() {
-    const contentTypeFilteredSearchResults = this.playbookSearchResults.filter(
-      (result) => {
-        if (this.playbookSearchContentFilter !== null) {
-          return result._type === this.playbookSearchContentFilter;
-        }
-        return true;
-      },
-    );
-
-    const tagFilteredSearchResults = contentTypeFilteredSearchResults.filter(
-      (result) => {
-        if (this.playbookSearchTagFilter === null) {
+    if (this.playbookSearchResults !== null) {
+      const contentTypeFilteredSearchResults =
+        this.playbookSearchResults.filter((result) => {
+          if (this.playbookSearchContentFilter !== null) {
+            return result._type === this.playbookSearchContentFilter;
+          }
           return true;
-        }
-        if (this.playbookSearchTagFilter !== null && result?.tags) {
-          return result.tags.includes(this.playbookSearchTagFilter);
-        } else {
-          return false;
-        }
-      },
-    );
+        });
 
-    return tagFilteredSearchResults;
+      const tagFilteredSearchResults = contentTypeFilteredSearchResults.filter(
+        (result) => {
+          if (this.playbookSearchTagFilter === null) {
+            return true;
+          }
+          if (this.playbookSearchTagFilter !== null && result?.tags) {
+            return result.tags.includes(this.playbookSearchTagFilter);
+          } else {
+            return false;
+          }
+        },
+      );
+
+      return tagFilteredSearchResults;
+    }
+    return [];
   }
 }
 

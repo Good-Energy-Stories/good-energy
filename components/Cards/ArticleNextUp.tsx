@@ -6,6 +6,8 @@ import { ArticleCardData } from '.';
 import FeaturedTag from './FeaturedTag';
 import { Tags } from '.';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../stores/store';
 
 const { className, styles } = css.resolve`
   div {
@@ -30,10 +32,14 @@ const variants = {
   },
 };
 
-const NextUpCard = ({ data }) => {
+const NextUpCard = observer(({ data }) => {
   const { title, lede, tags } = data;
+  const store = useStore();
+  const {
+    uiStore: { textColor },
+  } = store;
   return (
-    <div className="article-link">
+    <div className="container">
       <div className="featured-tag">Next Up</div>
 
       <h2>{title} </h2>
@@ -41,6 +47,9 @@ const NextUpCard = ({ data }) => {
 
       {tags && <Tags tags={tags} />}
       <style jsx>{`
+        .container {
+          color: ${textColor};
+        }
         h2 {
           margin: 0;
           margin-bottom: 0.625rem;
@@ -56,7 +65,7 @@ const NextUpCard = ({ data }) => {
       `}</style>
     </div>
   );
-};
+});
 
 const LinkWrapper = ({ slug, children }) => {
   return (

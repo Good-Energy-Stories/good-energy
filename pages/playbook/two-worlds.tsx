@@ -88,7 +88,7 @@ const Project = observer(({ pageData }: { pageData: any }) => {
         <Controls
           activeSide={activeSide}
           setActiveSide={setActiveSide}
-          visible={scrollPosition > 0.02 && scrollPosition < 0.94}
+          visible={scrollPosition > 0.1 && scrollPosition < 0.94}
         />
       </Layout>
       <Footer />

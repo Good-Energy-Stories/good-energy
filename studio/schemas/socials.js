@@ -25,5 +25,10 @@ export default {
       type: 'url',
       description: "A link to Good Energy's Instagram",
     },
+    {
+      name: 'facebook',
+      type: 'url',
+      description: "A link to Good Energy's Facebook",
+    },
   ],
 };

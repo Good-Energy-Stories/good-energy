@@ -29,7 +29,7 @@ import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { AuthorCard } from '../../components/Cards';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { SecondaryNavMenu } from '../../components/PlaybookHome';
+import { SecondaryNavMenu } from '../../components/SecondaryNavMenu';
 
 const Project = observer(
   ({ data, preview }: { data: any; preview: boolean }) => {

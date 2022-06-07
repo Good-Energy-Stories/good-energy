@@ -3,7 +3,7 @@ import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
-import { SECONDARY_MENU_HEIGHT } from './SecondaryNavMenu';
+import { SECONDARY_MENU_HEIGHT } from '../SecondaryNavMenu/SecondaryNavMenu';
 import Device from '../Device/Device';
 
 function getStyles() {
