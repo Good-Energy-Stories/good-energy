@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { BANNER_HEIGHT } from '../PageBanner';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import Card from './Card';

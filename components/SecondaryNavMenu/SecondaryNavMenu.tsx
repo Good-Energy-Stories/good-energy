@@ -1,19 +1,13 @@
 import HamburgerIcon from '../../public/small-hamburger.svg';
-import ArrowIcon from '../../public/arrow.svg';
 
 import SearchIcon from '../../public/small-search.svg';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Link from 'next/link';
-import { SearchButton } from '../Landing';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import css from 'styled-jsx/css';
 import { motion } from 'framer-motion';
-import {
-  MOBILE_PLAYBOOK_NAV_HEIGHT,
-  PLAYBOOK_NAV_HEIGHT,
-} from '../StickyNavBar';
+
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import DropdownMenu from './DropdownMenu';
 import { NavLogo } from '..';

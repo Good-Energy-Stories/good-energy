@@ -2,7 +2,6 @@ import HamburgerIcon from '../../public/hamburger.svg';
 
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-
 import { NavBarStyle } from '../StickyNavBar';
 
 import { motion } from 'framer-motion';

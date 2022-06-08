@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-const NextUpCard = observer(({ data }) => {
+const NextUpCard = observer(({ data }: { data: ArticleCardData }) => {
   const { title, lede, tags } = data;
   const store = useStore();
   const {
