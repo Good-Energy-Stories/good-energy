@@ -18,6 +18,8 @@
   --grid-col-mobile: repeat(1, minmax(0, 1fr));
 }
 
+/*this is a comment*/
+
 html,
 body {
   padding: 0;
