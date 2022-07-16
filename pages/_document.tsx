@@ -1,6 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
+import flush from 'styled-jsx/server';
 class MyDocument extends Document {
+  static async getInitialProps({ renderPage }) {
+    const { html, head } = renderPage();
+    const styles = flush();
+    return { html, head, styles };
+  }
   render() {
     return (
       <Html>

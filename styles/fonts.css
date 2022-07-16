@@ -104,6 +104,7 @@ h3 {
   font-weight: 400;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: uppercase;
+  margin: 0.5rem 0;
 }
 @media not all and (min-resolution: 0.001dpcm) {
   @media {
@@ -428,16 +429,16 @@ h4 {
 }
 .playbook-toc-nav-link-small {
   font-family: var(--flexa);
-  font-size: 18px;
-  line-height: 20px;
-  font-variation-settings: 'wght' 419, 'wdth' 35;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-variation-settings: 'wght' 600, 'wdth' 50;
   color: var(--blueThree);
 }
 .playbook-toc-nav-link-extra-small {
   font-family: var(--flexa);
-  font-size: 14px;
-  line-height: 16px;
-  font-variation-settings: 'wght' 429, 'wdth' 40;
+  font-size: 0.75rem;
+  line-height: 0.5rem;
+  font-variation-settings: 'wght' 450, 'wdth' 50;
   color: var(--blueThree);
 }
 .nav-link-medium {

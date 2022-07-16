@@ -70,14 +70,13 @@ const DropdownSubsection = ({ title, contents }) => {
         .playbook-toc-nav-link-small {
           color: var(--black);
           margin-bottom: 0.3125rem;
-        }
-        .playbook-toc-nav-link-extra-small {
-          color: var(--black);
-
-          padding: 5px 0;
+          padding-top: 3px;
         }
         .playbook-toc-nav-link-small:last-of-type {
           border: 0;
+        }
+        .playbook-toc-nav-link-extra-small {
+          color: var(--black);
         }
         div {
           display: flex;
@@ -170,6 +169,7 @@ const DropdownMenu = observer(
           .playbook-toc-nav-link-small:last-of-type {
             border: 0;
           }
+
           div {
             display: flex;
             align-items: center;
