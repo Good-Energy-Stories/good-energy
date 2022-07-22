@@ -73,7 +73,7 @@ const Header = ({
           grid-column: 1/5;
         }
         .text {
-          grid-column: ${fittedText ? '2/3' : '1/3'};
+          grid-column: ${fittedText ? '2/4' : '1/4'};
         }
         .right {
           width: 66%;
