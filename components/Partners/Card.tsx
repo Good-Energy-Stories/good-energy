@@ -9,24 +9,24 @@ function getStyles(size) {
   switch (size) {
     case 'large':
       gridColumn = 'span 2';
-      padding = '0 2.5rem';
+      padding = '0 2rem';
       paddingMobile = '0 1.25rem';
-      marginTop = '2.5rem';
-      marginBottom = '2.5rem';
+      marginTop = '2rem';
+      marginBottom = '2rem';
       break;
     case 'medium':
       gridColumn = 'span 2';
-      padding = '0 2.5rem';
+      padding = '0 1.5rem';
       paddingMobile = '0 5rem';
-      marginTop = '2.5rem';
-      marginBottom = '2.5rem';
+      marginTop = '1.5rem';
+      marginBottom = '1.5rem';
       break;
     case 'small':
       gridColumn = 'span 1';
       padding = '0';
       paddingMobile = '0 0';
       marginTop = '0';
-      marginBottom = '2.5';
+      marginBottom = '1';
       break;
   }
   return css.resolve`

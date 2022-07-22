@@ -52,9 +52,13 @@ const NextUp = ({ article }: { article }) => {
         />
       </div>
       <style jsx>{`
+        div {
+          border-top: 1px solid var(--blueThree);
+        }
         .next-up-article {
           grid-column: 2/4;
         }
+
         @media only screen and (max-width: 768px) {
           .next-up-article {
             padding-top: 2.5rem;

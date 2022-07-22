@@ -11,7 +11,7 @@ const { className, styles } = css.resolve`
 
     grid-column: span 4;
 
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     margin-top: -1.25rem;
   }
   @media only screen and (max-width: 768px) {

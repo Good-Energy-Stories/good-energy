@@ -11,7 +11,7 @@ const Quote = ({ quote, color }: { quote: string; color: MegaQuoteColor }) => {
         h1::before {
           content: '“';
           position: absolute;
-          margin-left: -45px;
+          margin-left: -35px;
         }
         h1::after {
           content: '”';
@@ -28,6 +28,12 @@ const Quote = ({ quote, color }: { quote: string; color: MegaQuoteColor }) => {
           .quote {
             margin-right: 0;
           }
+        }
+        h1 {
+          text-transform: none;
+          font-size: 3rem;
+          line-height: 3rem;
+          font-variation-settings: 'wght' 650, 'wdth' 80;
         }
       `}</style>
     </>

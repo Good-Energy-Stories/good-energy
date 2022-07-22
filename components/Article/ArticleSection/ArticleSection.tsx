@@ -14,7 +14,7 @@ import DesktopFootnotes from '../DesktopFootnotes';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/5;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -23,6 +23,10 @@ const { className, styles } = css.resolve`
       grid-column: 1/5;
       margin-bottom: 0;
     }
+  }
+
+  h3 {
+    margin-block-end: 0.5rem;
   }
 `;
 
