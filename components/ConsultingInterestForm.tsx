@@ -30,7 +30,6 @@ const ConsultingInterestForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       await fetch('/api/consultingForm', {
         method: 'POST',

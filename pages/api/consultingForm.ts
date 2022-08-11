@@ -14,31 +14,29 @@ export default async function handleRequest(req, res) {
     req.body,
   );
   console.log('name', name);
-  try {
-    base('Consulting Website Form').create(
-      [
-        {
-          fields: {
-            [NAME_ID]: name,
-            [ORGANIZATION_ID]: organization,
-            [EMAIL_ID]: email,
-            [DESCRIPTION_ID]: description,
-            [BUDGET_ID]: budget,
-          },
+
+  base('Consulting Website Form').create(
+    [
+      {
+        fields: {
+          [NAME_ID]: name,
+          [ORGANIZATION_ID]: organization,
+          [EMAIL_ID]: email,
+          [DESCRIPTION_ID]: description,
+          [BUDGET_ID]: budget,
         },
-      ],
-      function (err, records) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        records.forEach(function (record) {
-          console.log(record.getId());
-        });
       },
-    );
-  } catch (err) {
-    return res.status(400).json({ message: "Couldn't Submit" });
-  }
-  return res.status(200).json({ message: 'Email submitted' });
+    ],
+    function (err, records) {
+      if (err) {
+        console.error(err);
+
+        return res.status(400).json({ message: "Couldn't Submit" });
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+      return res.status(200).json({ message: 'Email submitted' });
+    },
+  );
 }
