@@ -5,8 +5,9 @@ import { Header } from '../../components/About';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import ConsultingInterestForm from '../../components/ConsultingInterestForm';
 
-const About = ({ pageData }) => {
+const Consulting = ({ pageData }) => {
   const { headline, description, seo } = pageData;
   return (
     <>
@@ -19,7 +20,10 @@ const About = ({ pageData }) => {
       <StickyNavBar />
       <Layout key="About" paddingHorizontal={'2.5rem'}>
         <Header title={headline} description={description} fittedText />
-        <NextUpPage label={'Consulting'} href={'/about/consulting'} />
+
+        <ConsultingInterestForm />
+
+        <NextUpPage label={'Team'} href={'/about/team'} />
       </Layout>
       <Footer />
     </>
@@ -29,7 +33,7 @@ const About = ({ pageData }) => {
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(
     `
-    *[_type == "aboutPage" ] {
+    *[_type == "consultingPage" ] {
       "id": _id,
       seo {
         ${queries.pageSeo}
@@ -45,4 +49,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default About;
+export default Consulting;

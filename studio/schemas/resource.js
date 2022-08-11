@@ -23,7 +23,8 @@ export default {
         list: [
           { title: 'Playbook', value: '/playbook' },
           { title: 'Library of Experts', value: '/about/library-of-experts' },
-          { title: 'Consulting Practice', value: '/about' },
+          { title: 'About', value: '/about' },
+          { title: 'Consulting Practice', value: '/about/consulting' },
         ],
       },
     },

@@ -3,7 +3,7 @@ import css from 'styled-jsx/css';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 import SubmitButtonInner from './SubmitButtonInner';
 const { className, styles } = css.resolve`
-  div {
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,7 @@ const variants = {
 const SubmitButton = ({ formSubmitted }) => {
   return (
     <>
-      <motion.div
+      <motion.button
         transition={FRAMER_TRANSITION_EASEOUT}
         variants={variants}
         initial={'unsubmitted'}
@@ -38,7 +38,7 @@ const SubmitButton = ({ formSubmitted }) => {
         className={className}
       >
         <SubmitButtonInner formSubmitted={formSubmitted} />
-      </motion.div>
+      </motion.button>
       {styles}
       <style jsx>{`
         .success-message {

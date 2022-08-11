@@ -5,7 +5,7 @@ import {
   BsPersonFill,
   BsFillQuestionCircleFill,
 } from 'react-icons/bs';
-import { FaHome, FaPeopleCarry } from 'react-icons/fa';
+import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
 import { GiLetterBomb } from 'react-icons/gi';
@@ -72,6 +72,15 @@ export const pagesMenu = S.listItem()
               .documentId('partnersPage'),
           )
           .icon(FaPeopleCarry),
+        S.listItem()
+          .title('Consulting Page')
+          .child(
+            S.document()
+              .title('Consulting Page')
+              .schemaType('consultingPage')
+              .documentId('consultingPage'),
+          )
+          .icon(FaSuitcase),
         S.listItem()
           .title('Contact Page')
           .child(
