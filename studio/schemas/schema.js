@@ -47,6 +47,7 @@ import whyClimateTextBlock from './why-climate-text-block';
 import aboutPage from './about-page';
 import pageSeo from './page-seo';
 import standardPagePortableText from './standard-page-portable-text';
+import consultingPage from './consulting-page';
 
 export default createSchema({
   name: 'default',
@@ -62,6 +63,7 @@ export default createSchema({
     author,
     characterProfile,
     characterProfilesPage,
+    consultingPage,
     contactPage,
     emailCapture,
     expertProfile,

@@ -59,6 +59,7 @@ export default () =>
             'characterProfile',
             'characterProfilesPage',
             'contactPage',
+            'consultingPage',
             'expertProfile',
             'featuredVoice',
             'featuredVoicesPage',
