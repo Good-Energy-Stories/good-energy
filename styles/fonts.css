@@ -438,8 +438,8 @@ h4 {
 }
 .playbook-toc-nav-link-small {
   font-family: var(--flexa);
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 0.92rem;
+  line-height: 0.92rem;
   font-variation-settings: 'wght' 600, 'wdth' 50;
   color: var(--blueThree);
 }
@@ -470,13 +470,10 @@ h4 {
   font-variation-settings: 'wght' 305, 'wdth' 69;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1280px) {
   .playbook-toc-nav-link-small {
-    font-family: var(--flexa);
-    font-size: 15px;
-    line-height: 16px;
-    font-variation-settings: 'wght' 429, 'wdth' 40;
-    color: var(--blueThree);
+    font-size: 0.75rem;
+    line-height: 0.75rem;
   }
 }
 
