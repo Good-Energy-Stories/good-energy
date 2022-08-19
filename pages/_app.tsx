@@ -139,7 +139,7 @@ const MyApp = observer(
     }, [updateScrollPosition, updateWindowSize]);
 
     return (
-      <Provider store={store}>
+      <>
         <DefaultSeo {...defaultSEO} />
         <NavOverlay />
         <PlaybookNavOverlay />
@@ -157,7 +157,7 @@ const MyApp = observer(
               background-color 1s ease-in-out;
           }
         `}</style>
-      </Provider>
+      </>
     );
   },
 );

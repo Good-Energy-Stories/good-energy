@@ -2,14 +2,12 @@ import { sanity } from '../../../lib/sanity';
 import { Layout, Meta, PageDivider, StickyNavBar } from '../../../components';
 import { queries } from '../../../data';
 import { Header } from '../../../components/About';
-import { PartnerSection } from '../../../components/Partners';
 import { Footer } from '../../../components/Footer';
-import { Card } from '../../../components/Cards';
 import { Experts, Filters } from '../../../components/LibraryOfExperts';
 import { useEffect } from 'react';
-import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../stores/store';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
+
 const LibraryOfExperts = ({ pageData, expertProfiles }) => {
   const { title, description, seo } = pageData;
   const store = useStore();
@@ -17,9 +15,8 @@ const LibraryOfExperts = ({ pageData, expertProfiles }) => {
     dataStore: { setLibraryOfExpertsResults },
   } = store;
 
-  useEffect(() => {
-    setLibraryOfExpertsResults(expertProfiles);
-  }, [expertProfiles, setLibraryOfExpertsResults]);
+  setLibraryOfExpertsResults(expertProfiles);
+
   return (
     <>
       <Meta

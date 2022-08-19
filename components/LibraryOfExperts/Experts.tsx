@@ -1,16 +1,15 @@
-import { sanity } from '../../lib/sanity';
-import { queries } from '../../data';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import { Card } from '../Cards';
+
 const Experts = observer(() => {
   const store = useStore();
   const {
-    dataStore: { libraryOfExpertsResults, filteredLibraryOfExpertsResults },
+    dataStore: { filteredLibraryOfExpertsResults },
   } = store;
 
   return (
-    <div className="results">
+    <div>
       {filteredLibraryOfExpertsResults.map((e, i) => {
         return (
           <Card
@@ -22,7 +21,7 @@ const Experts = observer(() => {
         );
       })}
       <style jsx>{`
-        .results {
+        div {
           grid-column: 1/5;
           display: flex;
           flex-direction: column;
@@ -30,7 +29,7 @@ const Experts = observer(() => {
           justify-content: center;
         }
         @media only screen and (max-width: 768px) {
-          .results {
+          div {
             padding: 0 1.25rem;
           }
         }

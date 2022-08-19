@@ -1,17 +1,13 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../lib/sanity';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
 import { FRAMER_TRANSITION_EASEOUT } from '../lib/framer/framer-animations';
 import CloseButtonIcon from '../public/close-button.svg';
 import ListArrowIcon from '../public/list-arrow.svg';
 import Link from 'next/link';
 import { Search } from './';
+
 const { className, styles } = css.resolve`
   div {
     height: 100%;
@@ -115,12 +111,6 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
         .arrow {
           margin-right: 12px;
         }
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-          img {
-          }
-        }
       `}</style>
     </>
   );
@@ -155,12 +145,6 @@ const ListItemButton = ({
         }
         .arrow {
           margin-right: 12px;
-        }
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-          img {
-          }
         }
       `}</style>
     </>
