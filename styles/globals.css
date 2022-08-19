@@ -10,6 +10,13 @@
   --blueFour: #2fbdf4;
   --blueBorder: #114a75;
 
+  --spacing-xsmall: 0.3125rem;
+  --spacing-small: 0.625rem;
+  --spacing-medium: 1.25rem;
+  --spacing-large: 2.5rem;
+  --spacing-xlarge: 5rem;
+  --spacing-xxlarge: 10rem;
+
   --flexa: FlexaVar, Pressura, Helvetica Neue, sans-serif;
   --flexa-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
   --pressura: Pressura, Helvetica Neue, sans-serif;

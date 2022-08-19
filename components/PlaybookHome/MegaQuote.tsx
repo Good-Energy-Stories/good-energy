@@ -81,7 +81,7 @@ const MegaQuote = ({
       variants={variants}
       className={className}
     >
-      <div className="layout">
+      <div>
         <Quote quote={quote} color={inverseColor} />
         <Attribution
           attribution={attribution}
@@ -98,7 +98,7 @@ const MegaQuote = ({
       />
 
       <style jsx>{`
-        .layout {
+        div {
           padding: 2.5rem;
         }
       `}</style>
