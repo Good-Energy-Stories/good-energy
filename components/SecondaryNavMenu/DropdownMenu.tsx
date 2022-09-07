@@ -11,7 +11,9 @@ const DROPDOWN_MIN_WIDTH = 240;
 
 function getStyles(offset) {
   return css.resolve`
-    div {
+    ul {
+      padding: 0;
+      margin: 0;
       min-width: ${DROPDOWN_MIN_WIDTH}px;
       position: absolute;
       left: ${offset}px;
@@ -19,15 +21,13 @@ function getStyles(offset) {
       z-index: 1000;
       display: flex;
       flex-direction: column;
-
       background-color: var(--blueFive);
-
       border-bottom: 1px solid var(--black);
       border-left: 1px solid var(--black);
       border-right: 1px solid var(--black);
     }
     @media only screen and (max-width: 768px) {
-      div {
+      ul {
         padding: 0;
       }
     }
@@ -59,20 +59,25 @@ const DropdownMenu = observer(
         : -40;
 
     const { className, styles } = getStyles(menuOffset);
-
+    //if (!expanded) return null;
     return (
-      <>
-        <AnimatePresence>
-          {expanded && (
-            <motion.div className={className}>
-              {articles.map((a) => (
-                <DropdownMenuSerializer key={a.slug} {...a} />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <motion.ul key={'menu'} className={className} role="menu">
+        {articles.map((a) => {
+          if (a.type === 'playbookSubsection') {
+            return (
+              <DropdownSubsection
+                key={a.title}
+                title={a.title}
+                contents={a.contents}
+              />
+            );
+          }
+          return (
+            <SectionLabelLink key={a.title} title={a.title} slug={a.slug} />
+          );
+        })}
         {styles}
-      </>
+      </motion.ul>
     );
   },
 );
