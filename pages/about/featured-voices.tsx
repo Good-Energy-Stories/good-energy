@@ -20,16 +20,9 @@ function chunks(array: any[], n: number): any[] {
   return chunkedArray;
 }
 
-const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
-  const store = useStore();
-  const {
-    uiStore: { windowWidth },
-  } = store;
-  const [activeQuotes, setActiveQuotes] = useState(null);
+const FeaturedVoices = ({ pageData }: { pageData: any }) => {
   const { title, description, featuredVoices, seo } = pageData;
-  const featuredVoicesRows = [
-    ...chunks(featuredVoices, windowWidth < 1080 ? 3 : 4),
-  ];
+  const featuredVoicesRows = chunks(featuredVoices, 4);
 
   return (
     <>
@@ -94,7 +87,7 @@ const FeaturedVoices = observer(({ pageData }: { pageData: any }) => {
       <Footer />
     </>
   );
-});
+};
 
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(
