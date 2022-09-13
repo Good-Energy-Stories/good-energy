@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
-const SectionLabelLink = ({ title, slug, index, ...props }) => {
+const SectionLabelLink = ({ title, slug, ...props }) => {
   return (
     <>
       <Link href={`/playbook/${slug}`} {...props}>
-        <a id={`menu-item-${index}`} className="playbook-toc-nav-link-small">
+        <a id={`menu-item-${title}`} className="playbook-toc-nav-link-small">
           {title}
         </a>
       </Link>
