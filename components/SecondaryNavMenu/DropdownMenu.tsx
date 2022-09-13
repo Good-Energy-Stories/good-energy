@@ -59,7 +59,7 @@ const DropdownMenu = observer(
         : -40;
 
     const { className, styles } = getStyles(menuOffset);
-    //if (!expanded) return null;
+    if (!expanded) return null;
     return (
       <motion.ul key={'menu'} className={className} role="menu">
         {articles.map((a) => {
