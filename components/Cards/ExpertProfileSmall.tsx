@@ -1,27 +1,16 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../../lib/sanity';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { Name, Bio, Portrait } from './CharacterProfileCardComponents';
-import Link from 'next/link';
-import { CharacterProfileData } from './CharacterProfileCard';
+import { Portrait } from './CharacterProfileCardComponents';
 import { PortraitSizes } from './CharacterProfileCardComponents';
-import { Tags } from './';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
-import { PortableText } from '@portabletext/react';
-import PortableTextSerializer from '../PortableTextSerializer';
+
 function getStyles(maxWidth, last) {
   return css.resolve`
     div {
       display: inline-block;
       height: 100%;
       width: 100%;
-      max-width: 228px;
+
       margin-bottom: 1.25rem;
       padding-bottom: 1.25rem;
       text-align: center;
