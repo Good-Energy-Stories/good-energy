@@ -6,6 +6,7 @@ import { SECONDARY_MENU_HEIGHT } from '../SecondaryNavMenu/SecondaryNavMenu';
 function getStyles(isInPlaylist) {
   return css.resolve`
     div {
+      overflow: hidden;
       grid-column: 1/5;
       grid-row-start: 1;
       width: 100%;
