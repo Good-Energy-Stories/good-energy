@@ -85,7 +85,6 @@ const ExpertProfileStandard = ({
         <SmallBorderCTAButton
           label="Read More"
           href={`/about/library-of-experts/spotlight/${slug}`}
-          onClick={() => onActionButtonClicked(slug)}
         />
       </div>
 
