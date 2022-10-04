@@ -14,7 +14,7 @@ const variants = {
   },
 };
 
-const ClimateLensBlock = ({ data }) => {
+const ClimateLensBlock = ({ data }: any) => {
   const { information } = data;
   return (
     <motion.div

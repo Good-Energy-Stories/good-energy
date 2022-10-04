@@ -23,7 +23,7 @@ const Chevron = ({ fill }) => {
 
 const ROOT_LABEL = 'Good Energy';
 
-const Breadcrumbs = ({ className, ...props }) => {
+const Breadcrumbs = ({ className, ...props }: any) => {
   const renderLabels = useCallback((title) => {
     const formattedTitle = title.replaceAll('-', ' ');
     if (title === ROOT_LABEL) {

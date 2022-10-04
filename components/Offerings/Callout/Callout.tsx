@@ -14,7 +14,7 @@ const variants = {
   },
 };
 
-const Callout = ({ data }) => {
+const Callout = ({ data }: any) => {
   const { title, information } = data;
   return (
     <div className={styles.container}>

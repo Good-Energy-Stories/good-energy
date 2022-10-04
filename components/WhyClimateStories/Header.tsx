@@ -1,14 +1,7 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
-import { PortableText } from '@portabletext/react';
-import {
-  MOBILE_PLAYBOOK_NAV_HEIGHT,
-  PLAYBOOK_NAV_HEIGHT,
-} from '../StickyNavBar';
+
+import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import { ScrollDownPrompt } from '../TwoWorlds';
 
 function getStyles() {

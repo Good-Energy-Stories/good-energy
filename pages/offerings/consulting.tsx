@@ -21,8 +21,8 @@ const Consulting = ({ pageData }) => {
       <StickyNavBar />
       <Layout key="About">
         <Header title={title} description={description} />
-        {pageData?.content.map((content) => (
-          <PageContent content={content} />
+        {pageData?.content.map((content, index) => (
+          <PageContent key={index} content={content} />
         ))}
       </Layout>
       <Footer />

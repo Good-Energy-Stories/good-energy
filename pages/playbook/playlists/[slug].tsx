@@ -1,20 +1,11 @@
 import { sanity } from '../../../lib/sanity';
 import { queries } from '../../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  Breadcrumbs,
-  SpotlightBody,
-  PageDivider,
-} from '../../../components';
+import { Layout, StickyNavBar, Meta, PageDivider } from '../../../components';
 
 import { Footer } from '../../../components/Footer';
 import { useStore } from '../../../stores/store';
 import { observer } from 'mobx-react-lite';
-import Related from '../../../components/Related';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
+
 import {
   ActiveIndex,
   CardRow,

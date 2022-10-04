@@ -5,7 +5,6 @@ import {
   StickyNavBar,
   NavBarStyles,
   Meta,
-  Breadcrumbs,
   SpotlightBody,
 } from '../../../../components';
 

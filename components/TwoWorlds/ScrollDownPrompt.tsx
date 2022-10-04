@@ -1,10 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
-import { PortableText } from '@portabletext/react';
 import DownArrowIcon from '../../public/down-arrow.svg';
 
 function getStyles() {
