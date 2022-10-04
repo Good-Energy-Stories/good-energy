@@ -7,7 +7,6 @@ import PageDivider from '../../PageDivider';
 const BoardMembers = ({ description }) => {
   return (
     <>
-      <PageDivider className={styles.divider} />
       <h2 className={styles.title}>Our Board</h2>
       <div className={styles.description}>
         <PortableText value={description} components={PortableTextSerializer} />

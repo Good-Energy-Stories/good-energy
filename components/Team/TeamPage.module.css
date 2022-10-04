@@ -4,6 +4,10 @@
   column-gap: var(--spacing-medium);
   grid-template-columns: repeat(8, minmax(0, 1fr));
 }
+.bigDivider {
+  border-top: 3px solid var(--black);
+  margin-top: var(--spacing-xlarge);
+}
 @media only screen and (max-width: 768px) {
   .layout {
     padding: 0 var(--spacing-medium);

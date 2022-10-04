@@ -43,8 +43,14 @@ const TeamPage = ({ pageData }) => {
           {teamMembers?.map((f, i) => {
             return <TeamMemberCard key={i} data={f} index={i} />;
           })}
+        </div>
+        <PageDivider className={styles.bigDivider} />
+        <div className={styles.layout}>
           {boardDescription && <BoardMembers description={boardDescription} />}
-          {boardMembers && <PageDivider />}
+        </div>
+
+        {boardMembers && <PageDivider />}
+        <div className={styles.layout}>
           {boardMembers?.map((f, i) => {
             return <TeamMemberCard key={i} data={f} index={i} />;
           })}
