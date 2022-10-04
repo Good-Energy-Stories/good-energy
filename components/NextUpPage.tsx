@@ -8,7 +8,7 @@ import Link from 'next/link';
 function getStyles() {
   return css.resolve`
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
       display: grid;
       grid-template-columns: var(--grid-col);
       margin-left: 0rem;
@@ -17,7 +17,7 @@ function getStyles() {
     }
     @media only screen and (max-width: 768px) {
       div {
-        grid-column: 1/5;
+        grid-column: 1/-1;
         padding: 0 1.25rem;
       }
     }
@@ -62,7 +62,7 @@ const NextUp = ({ label, href }: { label: string; href: string }) => {
           margin: 0;
         }
         .next-up-page {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           display: flex;
           justify-content: center;
           margin: 2.5rem 0;
@@ -70,7 +70,7 @@ const NextUp = ({ label, href }: { label: string; href: string }) => {
         @media only screen and (max-width: 768px) {
           .next-up-article {
             padding-top: 2.5rem;
-            grid-column: 1/5;
+            grid-column: 1/-1;
           }
         }
       `}</style>

@@ -6,7 +6,7 @@ import { Card } from './ResourceCard';
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
-    grid-column: 1/5;
+    grid-column: 1/-1;
     width: 100%;
     margin-bottom: 1.25rem;
 

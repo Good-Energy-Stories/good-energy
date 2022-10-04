@@ -14,7 +14,7 @@ function getStyles() {
       flex-direction: column;
       align-items: center;
       position: relative;
-      grid-column: 1/5;
+      grid-column: 1/-1;
       height: 30px;
     }
     @media only screen and (max-width: 768px) {

@@ -17,7 +17,7 @@ import SearchInfo from './SearchResultsFor';
 import SearchResultsFor from './SearchResultsFor';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

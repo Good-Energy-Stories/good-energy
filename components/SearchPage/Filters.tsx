@@ -9,7 +9,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     display: flex;
   }
   @media only screen and (max-width: 768px) {
@@ -69,7 +69,7 @@ const Filters = observer(() => {
       </div>
       <style jsx>{`
         .container {
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
         .spacer {
           height: 0.625rem;

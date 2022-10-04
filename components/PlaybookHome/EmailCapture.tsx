@@ -20,11 +20,12 @@ function getStyles(color) {
       align-items: center;
       justify-content: flex-start;
 
-      grid-column: span 4;
+      grid-column: 1/-1;
       background-color: var(--${color});
       position: relative;
-      padding: 5rem 2.5rem;
-      border-top: 4px solid var(--blueFour);
+      padding: var(--spacing-large) var(--spacing-large);
+
+      overflow: hidden;
     }
     @media only screen and (max-width: 768px) {
       div {
@@ -114,7 +115,7 @@ const EmailCapture = ({
       className={className}
     >
       <div className="layout">
-        {title && <h2 className="title">{title}</h2>}
+        {title && <h1 style={{ color: inverseColor }}>{title}</h1>}
         {subtitle && <div className="subtitle tease-lede">{subtitle}</div>}
         <div className="input-row">
           <input
@@ -133,17 +134,6 @@ const EmailCapture = ({
       <img src="/fern-small.png" alt="Fern" />
 
       <style jsx>{`
-        .title {
-          text-align: left;
-          color: var(--${inverseColor});
-          text-transform: uppercase;
-          font-variation-settings: 'wght' 700, 'wdth' 40;
-          margin-bottom: 0.625rem;
-        }
-
-        h2 {
-          margin: 0;
-        }
         .subtitle {
           text-align: left;
           color: var(--${inverseColor});
@@ -182,8 +172,11 @@ const EmailCapture = ({
           font-weight: 500;
           min-width: 400px;
           background-color: var(
-            --${backgroundColor === 'white' ? 'greyBlue' : 'white'}
+            --${backgroundColor === 'white' ? 'blueFive' : 'white'}
           );
+        }
+        input[type='text']::placeholder {
+          color: var(--blueThree);
         }
         @media only screen and (max-width: 768px) {
           .layout {

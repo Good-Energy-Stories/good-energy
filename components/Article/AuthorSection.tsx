@@ -15,7 +15,7 @@ export const AuthorSection = ({ content }) => {
           grid-template-columns: var(--grid-col);
           margin: 0 2.5rem;
           margin-bottom: 2.5rem;
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
         @media only screen and (max-width: 768px) {
           div {

@@ -1,12 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../lib/sanity';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
+import { Key } from 'react';
+
 function getStyles(paddingHorizontal) {
   return css.resolve`
     div {
@@ -17,10 +13,12 @@ function getStyles(paddingHorizontal) {
       padding: 0 ${paddingHorizontal ?? 0};
       grid-template-rows: auto;
       grid-template-columns: var(--grid-col);
+      column-gap: var(--spacing-medium);
+      row-gap: 0;
     }
     @media only screen and (max-width: 768px) {
       div {
-        padding: 0;
+        padding: 0 var(--spacing-small);
       }
     }
   `;
@@ -41,7 +39,7 @@ const Layout = observer(
     key,
     paddingHorizontal,
   }: {
-    children: ReactChild[];
+    children: any[];
     key: Key;
     paddingHorizontal?: string;
   }) => {

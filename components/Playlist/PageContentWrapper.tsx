@@ -5,7 +5,7 @@ import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 function getStyles() {
   return css.resolve`
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
 
       display: grid;
       grid-template-columns: var(--grid-col);

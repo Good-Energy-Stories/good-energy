@@ -9,7 +9,7 @@ export const Divider = () => {
           width: calc(100% - 5rem);
           margin: 0 2.5rem;
           margin-bottom: 1.25rem;
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
         @media only screen and (max-width: 768px) {
           div {

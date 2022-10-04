@@ -12,11 +12,10 @@ export default {
       type: 'pageSeo',
     },
     {
-      name: 'headline',
-      title: 'Headline',
-      type: 'text',
-      description:
-        "Ex. 'Good Energy is a nonprofit creative consultancy that’s unlocking the power of TV and film to inspire courage in the face of climate change.'",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description: "Ex. 'Consulting Services'",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -25,6 +24,15 @@ export default {
       description: 'Some information about Good Energy',
       type: 'array',
       of: [{ type: 'block' }],
+    },
+    {
+      name: 'content',
+      type: 'array',
+      of: [
+        { type: 'callout' },
+        { type: 'emailCapture' },
+        { type: 'reference', to: [{ type: 'climateLensBlock' }] },
+      ],
     },
   ],
   preview: {},

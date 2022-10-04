@@ -10,17 +10,7 @@ export enum PageDividerLabelSize {
   medium = 'medium',
 }
 
-export const PageDivider = ({
-  label,
-  labelSize = PageDividerLabelSize.medium,
-  size = PageDividerSize.full,
-  marginBottom,
-}: {
-  label?: string;
-  labelSize?: string;
-  size?: PageDividerSize;
-  marginBottom?: string;
-}) => {
+export const PageDivider = ({ label, labelSize, className }) => {
   var pageDividerLabel;
   switch (labelSize) {
     case PageDividerLabelSize.small:
@@ -52,16 +42,12 @@ export const PageDivider = ({
   }
 
   return (
-    <div>
+    <div className={className}>
       {pageDividerLabel}
       <style jsx>{`
         div {
           border-bottom: 1px solid var(--blueThree);
-          width: calc(100% - 2.5rem);
-          margin: 0 1.25rem;
-
-          margin-bottom: ${marginBottom ?? '2.5rem'};
-          grid-column: span ${size};
+          grid-column: 1/5;
         }
         @media only screen and (max-width: 768px) {
           div {

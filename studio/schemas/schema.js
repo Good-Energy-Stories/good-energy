@@ -48,11 +48,15 @@ import aboutPage from './about-page';
 import pageSeo from './page-seo';
 import standardPagePortableText from './standard-page-portable-text';
 import consultingPage from './consulting-page';
+import pressPage from './press-page';
+import press from './press';
+import outlet from './outlet';
+import callout from './callout';
+import climateLensBlock from './climate-lens-block';
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
-    blockContent,
     aboutPage,
     article,
     articleBlockQuote,
@@ -61,36 +65,42 @@ export default createSchema({
     articleSection,
     articleStoryPossibility,
     author,
+    blockContent,
+    callout,
     characterProfile,
     characterProfilesPage,
+    climateLensBlock,
     consultingPage,
     contactPage,
     emailCapture,
     expertProfile,
     featuredVoice,
-    featuredVoicesPage,
     featuredVoiceQuote,
+    featuredVoicesPage,
     individualPartnerFeature,
     landingPage,
     libraryOfExpertsPage,
+    outlet,
     pageSeo,
     partner,
     partnerPage,
     partnerSection,
-    playbookStructure,
     playbookHome,
-    playbookSection,
-    playbookSubsection,
     playbookQuote,
+    playbookSection,
+    playbookStructure,
+    playbookSubsection,
     playbookThreeColumn,
     playlist,
     playlistsPage,
+    press,
+    pressPage,
     quote,
     quoteCollection,
     resource,
     resourceSection,
-    socials,
     seo,
+    socials,
     standardPagePortableText,
     team,
     teamPage,

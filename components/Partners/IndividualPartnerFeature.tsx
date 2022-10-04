@@ -11,7 +11,7 @@ import Card from './Card';
 const { className, styles } = css.resolve`
   div {
     margin-top: 5rem;
-    grid-column: 1/5;
+    grid-column: 1/-1;
     padding: 0 2.5rem;
     background-color: var(--blueFive);
 

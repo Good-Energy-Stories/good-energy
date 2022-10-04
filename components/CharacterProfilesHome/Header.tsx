@@ -3,12 +3,12 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
 import { PortableTextSerializer } from '../';
 import { PortableText } from '@portabletext/react';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     margin-left: 0rem;
     padding: 0 7.5rem;
     padding-bottom: 2rem;

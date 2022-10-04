@@ -64,7 +64,7 @@ const ArticleBody = observer(
         <AuthorSection content={data?.author} />
         <style jsx>{`
           div {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
           }

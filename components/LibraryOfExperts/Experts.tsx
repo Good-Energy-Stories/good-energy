@@ -22,7 +22,7 @@ const Experts = observer(() => {
       })}
       <style jsx>{`
         div {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           display: flex;
           flex-direction: column;
           align-items: center;

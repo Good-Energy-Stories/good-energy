@@ -4,7 +4,7 @@ import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { FaPeopleCarry } from 'react-icons/fa';
 import { RiTeamFill } from 'react-icons/ri';
 
-import { BsFillGridFill } from 'react-icons/bs';
+import { BsFillGridFill, BsNewspaper } from 'react-icons/bs';
 import { MdRecordVoiceOver } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
 export const aboutMenu = S.listItem()
@@ -22,6 +22,10 @@ export const aboutMenu = S.listItem()
           .title('Featured Voices')
           .child(S.documentTypeList('featuredVoice').title('Featured Voices'))
           .icon(MdRecordVoiceOver),
+        S.listItem()
+          .title('Press')
+          .child(S.documentTypeList('press').title('Press'))
+          .icon(BsNewspaper),
         S.listItem()
           .title('Partners')
           .child(S.documentTypeList('partner').title('Partners'))

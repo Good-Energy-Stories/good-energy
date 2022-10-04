@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 function getStyles(hasBannerImage) {
   return css.resolve`
@@ -20,7 +20,7 @@ function getStyles(hasBannerImage) {
     @media only screen and (max-width: 768px) {
       div {
         margin-top: 0;
-        grid-column: 1/5;
+        grid-column: 1/-1;
         padding: 0 1.25rem;
       }
     }
@@ -50,12 +50,7 @@ const Title = ({
   section?: string;
 }) => {
   const { className, styles } = getStyles(hasBannerImage);
-  const path = section
-    ? [
-        { label: 'Playbook', href: '/playbook' },
-        { label: section === 'introduction' ? section : 'foreword' },
-      ]
-    : null;
+
   return (
     <motion.div
       transition={FRAMER_TRANSITION_EASEOUT}
@@ -66,7 +61,7 @@ const Title = ({
       className={className}
     >
       <div className="breadcrumbs">
-        <Breadcrumbs path={path} />
+        <Breadcrumbs omitIndexList={[1]} />
       </div>
       <h1>{title}</h1>
       <div className="subhead">{byline}</div>

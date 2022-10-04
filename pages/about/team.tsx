@@ -1,106 +1,6 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
 import { queries } from '../../data';
-import { Header } from '../../components/About';
-import { Footer } from '../../components/Footer';
-import { TeamMemberCard, TeamMemberCardSmall } from '../../components/Cards';
-import {
-  PageDivider,
-  PageDividerLabelSize,
-} from '../../components/PageDivider';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-
-const Team = ({ pageData }) => {
-  const {
-    heroImage,
-    title,
-    description,
-    featuredTeamMembers,
-    teamMembers,
-    boardMembers,
-    seo,
-  } = pageData;
-
-  return (
-    <>
-      <Meta
-        title={seo?.title}
-        description={seo?.description}
-        slug={'about/team'}
-        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
-      />
-      <StickyNavBar />
-      <Layout key="team" paddingHorizontal={'2.5rem'}>
-        <Header
-          heroImage={heroImage}
-          title={title}
-          description={description}
-          fittedText
-        />
-        <PageDivider />
-        <div className="featured-team">
-          {featuredTeamMembers?.map((f, i) => {
-            return (
-              <TeamMemberCard
-                key={i}
-                data={f}
-                index={i}
-                last={i === featuredTeamMembers?.length - 1}
-              />
-            );
-          })}
-        </div>
-        {teamMembers && (
-          <PageDivider
-            label="Team Members"
-            labelSize={PageDividerLabelSize.small}
-            marginBottom={'2.5rem'}
-          />
-        )}
-        <div className="team">
-          {teamMembers?.map((f, i) => {
-            return <TeamMemberCardSmall key={i} data={f} index={i} />;
-          })}
-        </div>
-        {boardMembers && (
-          <PageDivider
-            label="Board Members"
-            labelSize={PageDividerLabelSize.small}
-            marginBottom={'2.5rem'}
-          />
-        )}
-        <div className="team">
-          {boardMembers?.map((f, i) => {
-            return <TeamMemberCardSmall key={i} data={f} index={i} />;
-          })}
-        </div>
-        <NextUpPage label={'Partners'} href={'/about/partners'} />
-      </Layout>
-      <Footer />
-      <style jsx>{`
-        .featured-team {
-          grid-column: 1/5;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
-        .team {
-          grid-column: 1/5;
-          display: grid;
-
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-        @media only screen and (max-width: 768px) {
-          .team {
-            padding-top: 1.25rem;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-          }
-        }
-      `}</style>
-    </>
-  );
-};
+import TeamPage from '../../components/Team/TeamPage';
 
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(
@@ -121,11 +21,17 @@ export const getStaticProps = async () => {
               }
             }
           },
-          featuredTeamMembers[]-> {
-            ${queries.teamMember}
-          },
           teamMembers[]-> {
             ${queries.teamMember}
+          },
+          boardDescription[]{
+            ...,
+            markDefs[]{
+              ...,
+              _type == "internalLink" => {
+                "slug": @.reference->slug
+              }
+            }
           },
           boardMembers[]-> {
             ${queries.teamMember}
@@ -138,4 +44,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Team;
+export default TeamPage;

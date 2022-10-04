@@ -4,6 +4,7 @@ import {
   BsGlobe,
   BsPersonFill,
   BsFillQuestionCircleFill,
+  BsNewspaper,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
@@ -81,6 +82,15 @@ export const pagesMenu = S.listItem()
               .documentId('consultingPage'),
           )
           .icon(FaSuitcase),
+        S.listItem()
+          .title('Press Page')
+          .child(
+            S.document()
+              .title('Press Page')
+              .schemaType('pressPage')
+              .documentId('pressPage'),
+          )
+          .icon(BsNewspaper),
         S.listItem()
           .title('Contact Page')
           .child(

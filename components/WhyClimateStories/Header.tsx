@@ -14,7 +14,7 @@ import { ScrollDownPrompt } from '../TwoWorlds';
 function getStyles() {
   return css.resolve`
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
       height: calc(100vh - ${PLAYBOOK_NAV_HEIGHT}px);
 
       padding-bottom: 2rem;
@@ -23,7 +23,7 @@ function getStyles() {
     }
     @media only screen and (max-width: 768px) {
       div {
-        grid-column: 1/5;
+        grid-column: 1/-1;
         padding: 0 1.25rem;
         padding-top: 2.5rem;
       }
@@ -64,18 +64,18 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
         h3 {
           max-width: 800px;
-          grid-column: 1/5;
+          grid-column: 1/-1;
           text-align: center;
           margin: 0;
           text-transform: none;
           margin-bottom: 2.5rem;
         }
         h1 {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           text-align: center;
           margin: 0;
           margin-top: 5rem;
@@ -88,7 +88,7 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => {
         }
         @media only screen and (max-width: 768px) {
           .body-italic {
-            grid-column: 1/5;
+            grid-column: 1/-1;
           }
           .titles {
             justify-content: flex-start;

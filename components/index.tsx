@@ -20,7 +20,6 @@ export { default as BorderCTAButton } from './BorderCTAButton';
 export { default as PageBanner } from './PageBanner';
 
 export { default as QuoteCarousel } from './QuoteCarousel/QuoteCarousel';
-export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as NavOverlay } from './NavOverlay';
 export { default as PlaybookNavOverlay } from './PlaybookNavOverlay';
 export { default as Dropdown } from './Dropdown';

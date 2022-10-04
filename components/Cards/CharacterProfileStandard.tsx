@@ -13,7 +13,6 @@ import { CharacterProfileData } from './CharacterProfileCard';
 import { PortraitSizes } from './CharacterProfileCardComponents';
 import { Tags } from './';
 import SmallBorderCTAButton from '../SmallBorderCTAButton';
-import { on } from 'events';
 function getStyles(maxWidth, last) {
   return css.resolve`
     div {

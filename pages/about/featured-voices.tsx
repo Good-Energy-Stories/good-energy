@@ -1,7 +1,7 @@
 import { sanity } from '../../lib/sanity';
 import { Layout, Meta, StickyNavBar } from '../../components';
 import { queries } from '../../data';
-import { Header } from '../../components/About';
+import Header from '../../components/About/Header/Header';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { Card } from '../../components/Cards';
@@ -10,15 +10,7 @@ import { Row } from '../../components/FeaturedVoices';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-
-function chunks(array: any[], n: number): any[] {
-  const chunkedArray = [];
-  for (let i = 0; i < array.length; i += n) {
-    const chunk = array.slice(i, i + n);
-    chunkedArray.push(chunk);
-  }
-  return chunkedArray;
-}
+import chunks from '../../utils/chunks';
 
 const FeaturedVoices = ({ pageData }: { pageData: any }) => {
   const { title, description, featuredVoices, seo } = pageData;
@@ -41,7 +33,7 @@ const FeaturedVoices = ({ pageData }: { pageData: any }) => {
           })}
           <style jsx>{`
             .featured-voices-row {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               display: flex;
               flex-direction: column;
               justify-content: center;
@@ -59,7 +51,7 @@ const FeaturedVoices = ({ pageData }: { pageData: any }) => {
               width: 100%;
             }
             .results {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               display: grid;
               grid-template-columns: repeat(4, minmax(0, 1fr));
             }

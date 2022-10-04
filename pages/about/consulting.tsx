@@ -1,11 +1,11 @@
 import { sanity } from '../../lib/sanity';
 import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
 import { queries } from '../../data';
-import { Header } from '../../components/About';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import ConsultingInterestForm from '../../components/ConsultingInterestForm';
+import Header from '../../components/About/Header/Header';
 
 const Consulting = ({ pageData }) => {
   const { headline, description, seo } = pageData;

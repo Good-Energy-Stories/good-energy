@@ -48,7 +48,7 @@ const Row = ({ featuredVoices }) => {
 
       <style jsx>{`
         .featured-voices-row {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           display: flex;
           flex-direction: column;
           justify-content: center;

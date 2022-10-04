@@ -24,6 +24,5 @@ export { default as ExpertProfileReadMore } from './ExpertProfileReadMore';
 export { default as ExpertProfileNextUp } from './ExpertProfileNextUp';
 
 export { default as AuthorCard } from './AuthorCard';
-export { default as TeamMemberCard } from './TeamMemberCard';
-export { default as TeamMemberCardSmall } from './TeamMemberCardSmall';
+
 export { default as FeaturedVoiceCard } from './FeaturedVoiceCard';

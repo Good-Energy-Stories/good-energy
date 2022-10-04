@@ -87,7 +87,7 @@ const Wordmark = () => {
       />
       <style jsx>{`
         svg {
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
       `}</style>
     </motion.svg>

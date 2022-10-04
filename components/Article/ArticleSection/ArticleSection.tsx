@@ -13,14 +13,14 @@ import Footnote from '../Footnote';
 import DesktopFootnotes from '../DesktopFootnotes';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     margin-bottom: 1rem;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   @media only screen and (max-width: 768px) {
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
       margin-bottom: 0;
     }
   }

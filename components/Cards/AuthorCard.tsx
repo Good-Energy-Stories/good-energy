@@ -28,7 +28,7 @@ function getStyles() {
         width: 100%;
         margin: 0;
         padding: 0px;
-        grid-column: 1/5;
+        grid-column: 1/-1;
       }
     }
   `;

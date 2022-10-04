@@ -1,10 +1,10 @@
 import { sanity } from '../../lib/sanity';
 import { Layout, Meta, StickyNavBar } from '../../components';
 import { ContactForm, Footer } from '../../components/Footer';
-import { Header } from '../../components/About';
 import { dark } from '../../components/Footer/ContactForm';
 import { queries } from '../../data';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import Header from '../../components/About/Header/Header';
 
 const Contact = ({ pageData }) => {
   const { title, description, seo } = pageData;
@@ -26,7 +26,7 @@ const Contact = ({ pageData }) => {
       <Footer includeContactForm={false} />
       <style jsx>{`
         .contact-form {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           padding: 0 1.25rem;
           margin-bottom: 5rem;
         }

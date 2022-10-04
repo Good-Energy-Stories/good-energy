@@ -99,7 +99,7 @@ const LeftColumn = ({
         }
         @media only screen and (max-width: 768px) {
           .three-column-left {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
             margin-bottom: 0;
@@ -148,7 +148,7 @@ const MainColumn = ({
         }
         @media only screen and (max-width: 768px) {
           .container {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
             margin-bottom: 0;
@@ -197,7 +197,7 @@ const RightColumn = ({
         }
         @media only screen and (max-width: 768px) {
           .three-column-right {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             padding: 0 1.25rem;
             margin-top: 1.25rem;
             margin-bottom: 0;

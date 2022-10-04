@@ -1,0 +1,13 @@
+.layout {
+  grid-column: 1/-1;
+  display: grid;
+  column-gap: var(--spacing-medium);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+@media only screen and (max-width: 768px) {
+  .layout {
+    padding: 0 var(--spacing-medium);
+    gap: 0;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

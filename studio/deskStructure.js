@@ -75,6 +75,8 @@ export default () =>
             'playbookSection',
             'playbookSubsection',
             'playlistsPage',
+            'pressPage',
+            'press',
             'quoteCollection',
             'resource',
             'socials',

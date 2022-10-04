@@ -10,7 +10,7 @@ import ExpertTypeToggle from './ExpertTypeToggle';
 import DropdownFilterSection from './DropdownFilterSection';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     display: flex;
   }
   @media only screen and (max-width: 768px) {
@@ -81,7 +81,7 @@ const Filters = observer(() => {
           width: 1.25rem;
         }
         .container {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           padding: 0 1.25rem;
           margin-bottom: 2.5rem;
           display: flex;

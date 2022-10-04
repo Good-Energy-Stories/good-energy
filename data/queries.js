@@ -173,7 +173,7 @@ export const teamMember = `
 _type,
 name,
 pronouns,
-role,
+title,
 links,
 bio,
 portraitImage {

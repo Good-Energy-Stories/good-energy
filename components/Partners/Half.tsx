@@ -15,7 +15,7 @@ const { className, styles } = css.resolve`
       padding: 0 1.25rem;
       display: grid;
 
-      grid-column: span 4;
+      grid-column: 1/-1;
     }
   }
 `;
@@ -87,7 +87,7 @@ const Half = ({
           display: block;
         }
         .cards {
-          grid-column: span 4;
+          grid-column: 1/-1;
           height: 100%;
           width: 100%;
           display: grid;
@@ -100,11 +100,11 @@ const Half = ({
         }
         @media only screen and (max-width: 1080px) {
           .container {
-            grid-column: span 4;
+            grid-column: 1/-1;
           }
           .divider {
             margin: 0;
-            grid-column: span 4;
+            grid-column: 1/-1;
 
             margin: 0 1.25rem;
           }

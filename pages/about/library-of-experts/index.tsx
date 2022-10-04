@@ -1,12 +1,12 @@
 import { sanity } from '../../../lib/sanity';
 import { Layout, Meta, PageDivider, StickyNavBar } from '../../../components';
 import { queries } from '../../../data';
-import { Header } from '../../../components/About';
 import { Footer } from '../../../components/Footer';
 import { Experts, Filters } from '../../../components/LibraryOfExperts';
 import { useEffect } from 'react';
 import { useStore } from '../../../stores/store';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
+import Header from '../../../components/About/Header/Header';
 
 const LibraryOfExperts = ({ pageData, expertProfiles }) => {
   const { title, description, seo } = pageData;

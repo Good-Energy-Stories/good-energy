@@ -9,11 +9,16 @@ import { useRouter } from 'next/router';
 import { signature } from '../utils/signature';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
-import { NavOverlay, PlaybookNavOverlay } from '../components';
+import {
+  NavOverlay,
+  PlaybookNavOverlay,
+  PortableTextSerializer,
+} from '../components';
 import { getClient } from '../lib/sanity/sanity.server';
 import { groq } from 'next-sanity';
 import { queries } from '../data';
 import { observer } from 'mobx-react-lite';
+import { PortableTextComponentsProvider } from '@portabletext/react';
 
 // Console Credits
 if (isBrowser) {
@@ -144,6 +149,7 @@ const MyApp = observer(
         <NavOverlay />
         <PlaybookNavOverlay />
         <Component {...pageProps} />
+
         <style jsx global>{`
           body {
             overflow: ${navOverlayOpen ? 'hidden' : 'auto'};

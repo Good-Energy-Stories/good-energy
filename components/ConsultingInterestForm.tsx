@@ -210,7 +210,7 @@ const ConsultingInterestForm = () => {
           margin-bottom: 1.25rem;
         }
         .form-container {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           padding: 0 1.25rem;
           margin-bottom: 5rem;
         }
@@ -225,7 +225,7 @@ const ConsultingInterestForm = () => {
             font-size: 16px;
           }
           .form-submitted {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             padding: 0 1.25rem;
             margin: 2.5rem 0;
           }

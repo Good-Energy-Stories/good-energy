@@ -176,13 +176,13 @@ const NavButtons = observer(
           }
           @media only screen and (max-width: 1200px) {
             div {
-              grid-column: span 4;
+              grid-column: 1/-1;
             }
           }
 
           @media only screen and (max-width: 1080px) {
             div {
-              grid-column: span 4;
+              grid-column: 1/-1;
             }
             button {
               line-height: 20px;

@@ -1,0 +1,14 @@
+.title {
+  width: 100%;
+}
+.description {
+  width: 100%;
+}
+
+.container {
+  grid-column: 1/5;
+  margin: 0 var(--spacing-large);
+  border-top: 1px solid var(--blueThree);
+  display: flex;
+  gap: var(--spacing-medium);
+}

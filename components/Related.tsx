@@ -5,12 +5,12 @@ const Related = ({ content }: { content: any }) => {
   if (!content) return null;
   return (
     <>
-      <PageDivider
-        label="Related"
-        labelSize={PageDividerLabelSize.small}
-        marginBottom={'1.25rem'}
-      />
       <div className="layout">
+        <PageDivider
+          label="Related"
+          labelSize={PageDividerLabelSize.small}
+          marginBottom={'1.25rem'}
+        />
         {content.map((c, i) => (
           <div key={i} className="card-wrapper">
             <Card
@@ -25,18 +25,15 @@ const Related = ({ content }: { content: any }) => {
       </div>
       <style jsx>{`
         .layout {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           display: grid;
           grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: var(--spacing-small);
           padding: 0 2.5rem;
           overflow: hidden;
           position: relative;
+        }
 
-          padding-top: 1.25rem;
-        }
-        .card-wrapper {
-          margin: 0 0.625rem;
-        }
         @media only screen and (max-width: 1080px) {
           .layout {
             grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -9,7 +9,7 @@ import { PLAYBOOK_NAV_HEIGHT } from '../';
 import { forwardRef } from 'react';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
 
     max-height: 100vh;
     min-height: 70vh;
