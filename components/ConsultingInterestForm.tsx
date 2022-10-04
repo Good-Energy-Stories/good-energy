@@ -211,8 +211,13 @@ const ConsultingInterestForm = () => {
         }
         .form-container {
           grid-column: 1/-1;
-          padding: 0 1.25rem;
+
+          display: flex;
+          justify-content: center;
           margin-bottom: 5rem;
+        }
+        form {
+          max-width: 800px;
         }
         .form-submitted {
           grid-column: 2/4;

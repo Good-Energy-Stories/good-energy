@@ -5,6 +5,7 @@ import {
   BsPersonFill,
   BsFillQuestionCircleFill,
   BsNewspaper,
+  BsHammer,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
@@ -74,12 +75,12 @@ export const pagesMenu = S.listItem()
           )
           .icon(FaPeopleCarry),
         S.listItem()
-          .title('Consulting Page')
+          .title('Consulting Contact Page')
           .child(
             S.document()
-              .title('Consulting Page')
-              .schemaType('consultingPage')
-              .documentId('consultingPage'),
+              .title('Consulting Contact Page')
+              .schemaType('consultingContactPage')
+              .documentId('consultingContactPage'),
           )
           .icon(FaSuitcase),
         S.listItem()
@@ -145,6 +146,10 @@ export const pagesMenu = S.listItem()
               .documentId('libraryOfExpertsPage'),
           )
           .icon(ImBooks),
+        S.listItem()
+          .title('Offerings Pages')
+          .child(S.documentTypeList('offeringsPage').title('Offerings Pages'))
+          .icon(RiTeamFill),
       ]),
   )
   .icon(BsGlobe);

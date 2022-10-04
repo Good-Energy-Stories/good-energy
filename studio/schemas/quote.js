@@ -24,7 +24,7 @@ export default {
     {
       name: 'attribution',
       title: 'Attribution',
-      type: 'string',
+      type: 'attributionIndividual',
     },
   ],
 };

@@ -10,7 +10,7 @@ export enum PageDividerLabelSize {
   medium = 'medium',
 }
 
-export const PageDivider = ({ label, labelSize, className }: any) => {
+export const PageDivider = ({ label, labelSize, className, style }: any) => {
   var pageDividerLabel;
   switch (labelSize) {
     case PageDividerLabelSize.small:
@@ -42,7 +42,7 @@ export const PageDivider = ({ label, labelSize, className }: any) => {
   }
 
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       {pageDividerLabel}
       <style jsx>{`
         div {

@@ -8,7 +8,7 @@ import ConsultingInterestForm from '../../components/ConsultingInterestForm';
 import Header from '../../components/About/Header/Header';
 
 const Consulting = ({ pageData }) => {
-  const { headline, description, seo } = pageData;
+  const { title, description, seo } = pageData;
   return (
     <>
       <Meta
@@ -18,8 +18,8 @@ const Consulting = ({ pageData }) => {
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
       <StickyNavBar />
-      <Layout key="About" paddingHorizontal={'2.5rem'}>
-        <Header title={headline} description={description} fittedText />
+      <Layout paddingHorizontal={'2.5rem'}>
+        <Header title={title} description={description} fittedText />
 
         <ConsultingInterestForm />
 
@@ -33,12 +33,12 @@ const Consulting = ({ pageData }) => {
 export const getStaticProps = async () => {
   const pageData = await sanity.fetch(
     `
-    *[_type == "consultingPage" ] {
+    *[_type == "consultingContactPage" ] {
       "id": _id,
       seo {
         ${queries.pageSeo}
       },
-      headline,
+      title,
       description
     }[0]
   `,

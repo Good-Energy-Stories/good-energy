@@ -3,7 +3,9 @@ import S from '@sanity/desk-tool/structure-builder';
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import { FaPeopleCarry } from 'react-icons/fa';
 import { RiTeamFill } from 'react-icons/ri';
+import { BiWorld } from 'react-icons/bi';
 
+import { GiChatBubble } from 'react-icons/gi';
 import { BsFillGridFill, BsNewspaper } from 'react-icons/bs';
 import { MdRecordVoiceOver } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
@@ -27,6 +29,10 @@ export const aboutMenu = S.listItem()
           .child(S.documentTypeList('press').title('Press'))
           .icon(BsNewspaper),
         S.listItem()
+          .title('Callout Sections')
+          .child(S.documentTypeList('calloutSection').title('Callout Sections'))
+          .icon(BsNewspaper),
+        S.listItem()
           .title('Partners')
           .child(S.documentTypeList('partner').title('Partners'))
           .icon(FaPeopleCarry),
@@ -42,6 +48,10 @@ export const aboutMenu = S.listItem()
             ),
           )
           .icon(BsFillGridFill),
+        S.listItem()
+          .title('Testimonials')
+          .child(S.documentTypeList('testimonial').title('Testimonials'))
+          .icon(GiChatBubble),
         S.listItem()
           .title('Team Members')
           .child(S.documentTypeList('teamMember').title('Team Members'))

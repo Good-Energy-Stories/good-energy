@@ -13,7 +13,6 @@ function getStyles(paddingHorizontal) {
       padding: 0 ${paddingHorizontal ?? 0};
       grid-template-rows: auto;
       grid-template-columns: var(--grid-col);
-      column-gap: var(--spacing-medium);
       row-gap: 0;
     }
     @media only screen and (max-width: 768px) {

@@ -1,14 +1,15 @@
 .container {
-  grid-column: 1/-1;
+  grid-column: 1/9;
   margin-left: 0rem;
-  margin-bottom: var(--spacing-small);
+
   margin: 0 var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-small);
 }
 .inner {
-  grid-column: 1/5;
+  grid-column: 1/9;
 }
 
 .title {

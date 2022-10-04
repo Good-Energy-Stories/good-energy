@@ -79,6 +79,37 @@ h1 {
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
 }
+.quote-lg {
+  font-family: var(--flexa);
+  font-size: 48px;
+  line-height: 49px;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'wght' 645, 'wdth' 55;
+  position: relative;
+}
+.quote-lg::before {
+  content: '“';
+  position: absolute;
+  left: -0.5em;
+}
+.quote-lg::after {
+  content: '”';
+}
+.quote-md {
+  font-family: var(--flexa);
+  font-size: 36px;
+  line-height: 36px;
+  font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
+  position: relative;
+}
+.quote-md::before {
+  content: '“';
+  position: absolute;
+  left: -0.5em;
+}
+.quote-md::after {
+  content: '”';
+}
 .h1-xl {
   font-family: var(--flexa);
   font-size: 172px;
@@ -107,13 +138,28 @@ h2 {
   margin: var(--spacing-small) 0;
 }
 
-h3 {
+h3,
+.h3 {
   font-family: var(--flexa);
   font-size: 36px;
   line-height: 34px;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+}
+.h3-subheading {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 429, 'wdth' 69;
+  color: var(--blueThree);
+}
+.h3-subheading-italic {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 429, 'wdth' 69, 'ital' 100;
+  color: var(--blueThree);
 }
 h4 {
   font-family: var(--flexa);
@@ -122,6 +168,13 @@ h4 {
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+}
+.h4-subheading {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 25px;
+  font-variation-settings: 'wght' 400;
+  text-transform: capitalize;
 }
 @media not all and (min-resolution: 0.001dpcm) {
   @media {

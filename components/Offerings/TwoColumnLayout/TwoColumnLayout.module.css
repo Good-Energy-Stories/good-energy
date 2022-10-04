@@ -1,0 +1,14 @@
+.container {
+  grid-column: 1/9;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+}
+.column {
+  padding: var(--spacing-large) var(--spacing-large);
+}
+.left {
+  grid-column: 1/5;
+}
+.right {
+  grid-column: 5/9;
+}

@@ -1,13 +1,12 @@
-import { Layout, Meta, StickyNavBar } from '../../components';
-import { Footer } from '../../components/Footer';
-import Header from '../../components/Offerings/Header/Header';
-import PageContent from '../../components/Offerings/PageContent';
-import { queries } from '../../data';
-import { consultingPageQuery } from '../../data/queries/offerings';
-import { sanity } from '../../lib/sanity';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import { Footer } from '../Footer';
+import Layout from '../Layout';
+import Meta from '../Meta';
+import StickyNavBar from '../StickyNavBar';
+import Header from './Header/Header';
+import PageContent from './PageContent';
 
-const Consulting = ({ pageData }) => {
+const OfferingsPage = ({ pageData }) => {
   const { title, description, seo } = pageData;
   console.log(pageData);
   return (
@@ -30,12 +29,4 @@ const Consulting = ({ pageData }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(consultingPageQuery);
-
-  return {
-    props: { pageData },
-  };
-};
-
-export default Consulting;
+export default OfferingsPage;

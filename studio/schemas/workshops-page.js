@@ -1,8 +1,8 @@
-import { BsGrid3X2GapFill as icon } from 'react-icons/bs';
+import { BsHammer as icon } from 'react-icons/bs';
 
 export default {
-  name: 'consultingPage',
-  title: 'Consulting Page',
+  name: 'workshopsPage',
+  title: 'Workshops Page',
   type: 'document',
   icon,
   fields: [
@@ -15,7 +15,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: "Ex. 'Consulting Services'",
+      description: "Ex. 'Workshops and Presentations'",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -26,12 +26,16 @@ export default {
       of: [{ type: 'block' }],
     },
     {
+      title: 'Page Content',
       name: 'content',
       type: 'array',
       of: [
-        { type: 'callout' },
         { type: 'emailCapture' },
-        { type: 'reference', to: [{ type: 'climateLensBlock' }] },
+        { type: 'twoColumnLayout' },
+        {
+          type: 'reference',
+          to: [{ type: 'climateLensBlock' }, { type: 'testimonial' }],
+        },
       ],
     },
   ],

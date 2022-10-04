@@ -1,9 +1,13 @@
 import { BiLink } from 'react-icons/bi';
+import { MdOutlineSubject as icon } from 'react-icons/md';
+
 import { CgInternal } from 'react-icons/cg';
+
 export default {
   name: 'standardPagePortableText',
+  icon,
+  title: 'Written Content',
   type: 'array',
-  title: 'Content',
   of: [
     {
       type: 'block',

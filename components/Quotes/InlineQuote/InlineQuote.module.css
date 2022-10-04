@@ -1,0 +1,19 @@
+.container {
+  margin: var(--spacing-medium) 0;
+}
+.quote {
+  padding: var(--spacing-medium) 0;
+  border-top: 4px solid var(--blueFour);
+  border-bottom: 1px solid var(--blueThree);
+  margin-bottom: var(--spacing-medium);
+}
+.attribution {
+  color: var(--blueThree);
+}
+.source {
+  text-transform: uppercase;
+}
+
+.url:hover {
+  text-decoration: underline;
+}

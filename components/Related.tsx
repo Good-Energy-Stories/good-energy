@@ -5,12 +5,15 @@ const Related = ({ content }: { content: any }) => {
   if (!content) return null;
   return (
     <>
+      <PageDivider
+        label="Related"
+        labelSize={PageDividerLabelSize.small}
+        style={{
+          margin: '0 var(--spacing-large)',
+          marginBottom: 'var(--spacing-medium)',
+        }}
+      />
       <div className="layout">
-        <PageDivider
-          label="Related"
-          labelSize={PageDividerLabelSize.small}
-          marginBottom={'1.25rem'}
-        />
         {content.map((c, i) => (
           <div key={i} className="card-wrapper">
             <Card

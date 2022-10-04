@@ -47,12 +47,23 @@ import whyClimateTextBlock from './why-climate-text-block';
 import aboutPage from './about-page';
 import pageSeo from './page-seo';
 import standardPagePortableText from './standard-page-portable-text';
-import consultingPage from './consulting-page';
 import pressPage from './press-page';
 import press from './press';
 import outlet from './outlet';
 import callout from './callout';
 import climateLensBlock from './climate-lens-block';
+import testimonial from './testimonial';
+import calloutSection from './callout-section';
+import workshopsPage from './workshops-page';
+import spotIllustration from './spot-illustration';
+import ctaButton from './cta-button';
+import twoColumnLayout from './two-column-layout';
+import ctaLink from './cta-link';
+import writtenContent from './written-content';
+import attributionIndividual from './attribution-individual';
+import offeringsPage from './offerings-page';
+import source from './source';
+import consultingContactPage from './consulting-contact-page';
 
 export default createSchema({
   name: 'default',
@@ -67,10 +78,11 @@ export default createSchema({
     author,
     blockContent,
     callout,
+    calloutSection,
     characterProfile,
     characterProfilesPage,
     climateLensBlock,
-    consultingPage,
+    consultingContactPage,
     contactPage,
     emailCapture,
     expertProfile,
@@ -102,6 +114,8 @@ export default createSchema({
     seo,
     socials,
     standardPagePortableText,
+    testimonial,
+    attributionIndividual,
     team,
     teamPage,
     twoWorldsArticle,
@@ -109,5 +123,13 @@ export default createSchema({
     twoWorldsSection,
     whyClimateArticle,
     whyClimateTextBlock,
+    workshopsPage,
+    spotIllustration,
+    ctaButton,
+    twoColumnLayout,
+    ctaLink,
+    writtenContent,
+    offeringsPage,
+    source,
   ]),
 });
