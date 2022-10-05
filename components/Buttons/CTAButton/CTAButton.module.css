@@ -3,12 +3,19 @@
   display: inline-block;
   border: 5px solid var(--blueFour);
   padding: 0;
+  margin: var(--spacing-medium) 0;
 }
 .label {
+  position: relative;
+  z-index: 10;
   margin: 0;
   padding: var(--spacing-small) var(--spacing-medium);
   display: block;
 }
+.container[data-theme='black'] {
+  color: var(--white);
+}
+
 .fill {
   background: var(--blueFour);
 }
@@ -17,6 +24,9 @@
 }
 .outline:hover {
   border-color: var(--black);
+}
+.outline:hover[data-theme='black'] {
+  border-color: var(--white);
 }
 
 .container::before {
@@ -31,7 +41,7 @@
   transform: translate3d(0, 0, 0);
   transform: scale3d(0.7, 1, 1);
   background: var(--pink);
-  z-index: -1;
+  z-index: 0;
   transition: 0.3s;
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }

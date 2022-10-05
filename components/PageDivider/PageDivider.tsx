@@ -9,8 +9,11 @@ export enum PageDividerLabelSize {
 }
 
 export const PageDivider = ({ data, className, style }: any) => {
+  const { backgroundColor } = data;
+  console.log('PageDivider', data);
   return (
     <div
+      data-theme={backgroundColor}
       className={cx(
         styles.container,
         data?.labelSize === PageDividerLabelSize.Small &&
@@ -22,7 +25,9 @@ export const PageDivider = ({ data, className, style }: any) => {
       )}
       style={style}
     >
-      {data?.label && <div className={styles.label}> {data.label}</div>}
+      <div className={styles.inner}>
+        {data?.label && <div className={styles.label}> {data.label}</div>}
+      </div>
     </div>
   );
 };

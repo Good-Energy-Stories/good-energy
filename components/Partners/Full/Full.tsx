@@ -7,7 +7,7 @@ import classnames from 'classnames';
 const cx = classnames.bind(styles);
 
 const Full = ({ data, truncate = false, className }: any) => {
-  const { title, partners, showLinkToPartnersPage } = data;
+  const { title, partners, backgroundColor, showLinkToPartnersPage } = data;
   const shouldTruncate = partners.length > 6 && truncate;
   const partnersFormatted = shouldTruncate ? partners.slice(0, 6) : partners;
 
@@ -16,7 +16,10 @@ const Full = ({ data, truncate = false, className }: any) => {
   }, []);
   return (
     <>
-      <div className={cx(styles.container, className)}>
+      <div
+        data-theme={backgroundColor}
+        className={cx(styles.container, className)}
+      >
         {title && (
           <div className={cx('label-medium', styles.title)}>{title}</div>
         )}
@@ -27,6 +30,7 @@ const Full = ({ data, truncate = false, className }: any) => {
               data={{
                 link: '/about/partners',
                 label: 'See Our Full List of partners',
+                backgroundColor,
               }}
               className={styles.button}
             />

@@ -29,6 +29,20 @@ export default {
       },
     },
     {
+      title: 'Background Color',
+      name: 'backgroundColor',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Black', value: 'black' },
+          { title: 'White', value: 'white' },
+        ],
+      },
+    },
+    {
       name: 'showLinkToPartnersPage',
       title: 'Show Link To Partners Page',
       type: 'boolean',

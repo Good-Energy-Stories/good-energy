@@ -3,4 +3,5 @@
   max-height: 500px;
   max-width: 100%;
   object-fit: contain;
+  margin: var(--spacing-small) 0;
 }

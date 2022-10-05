@@ -4,9 +4,11 @@
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
   padding: 0 var(--spacing-large);
+  margin-bottom: var(--spacing-large);
 }
 
 .container[data-theme='black'] {
+  padding: var(--spacing-large);
   background: var(--black);
   color: var(--white);
   margin-bottom: var(--spacing-large);
@@ -15,7 +17,6 @@
   background: var(--white);
 }
 .column {
-  padding: var(--spacing-large) 0;
 }
 .left {
   grid-column: 1/5;
@@ -28,6 +29,9 @@
   .container {
     gap: 0;
     padding: 0 var(--spacing-small);
+  }
+  .container[data-theme='black'] {
+    padding: var(--spacing-medium) var(--spacing-small);
   }
   .column {
     padding: 0;

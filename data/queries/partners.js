@@ -13,6 +13,7 @@ export const partnerSection = `
 title,
 size,
 showLinkToPartnersPage,
+backgroundColor,
 partners[]->{
     ${partner}
 },

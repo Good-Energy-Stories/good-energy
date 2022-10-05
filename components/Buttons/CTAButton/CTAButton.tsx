@@ -9,9 +9,10 @@ enum ButtonType {
 }
 
 const CTAButton = ({ data }: any) => {
-  const { label, type = ButtonType.Outline, link } = data;
+  const { label, type = ButtonType.Outline, link, backgroundColor } = data;
   return (
     <button
+      data-theme={backgroundColor}
       className={cx(
         styles.container,
         type === ButtonType.Fill && styles.fill,

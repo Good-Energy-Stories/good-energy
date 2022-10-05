@@ -313,7 +313,9 @@ h4 {
   font-size: 20px;
   line-height: 27px;
   font-variation-settings: 'wght' 321, 'wdth' 95;
+  margin: var(--spacing-small) 0;
 }
+
 .body-italic {
   font-family: var(--flexa);
   font-size: 20px;

@@ -1,8 +1,17 @@
 .container {
-  border-bottom: 1px solid var(--blueThree);
-
   grid-column: 1/9;
   margin: 0 var(--spacing-large);
+}
+.inner {
+  border-bottom: 1px solid var(--blueThree);
+}
+.container[data-theme='black'] {
+  margin: 0;
+  padding: var(--spacing-large);
+  padding-bottom: 0;
+  margin-bottom: 0;
+  background: var(--black);
+  color: var(--white);
 }
 .smallLabel {
   color: var(--blueThree);
@@ -13,5 +22,10 @@
 @media only screen and (max-width: 768px) {
   .container {
     margin: 0 var(--spacing-small);
+  }
+  .container[data-theme='black'] {
+    padding: var(--spacing-medium);
+    background: var(--black);
+    color: var(--white);
   }
 }

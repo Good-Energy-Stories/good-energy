@@ -9,7 +9,6 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Background Color',
@@ -19,6 +18,7 @@ export default {
       options: {
         layout: 'radio',
         list: [
+          { title: 'None', value: 'none' },
           { title: 'Black', value: 'black' },
           { title: 'White', value: 'white' },
         ],
@@ -32,4 +32,16 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare(selection) {
+      const { title } = selection;
+
+      return {
+        title: title ?? 'Callout Section',
+      };
+    },
+  },
 };

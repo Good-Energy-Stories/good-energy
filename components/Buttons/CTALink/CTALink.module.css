@@ -37,6 +37,7 @@
 .container {
   padding: 0;
   display: inline-block;
+  margin: var(--spacing-medium) 0;
   transition: 0.3s;
 }
 .container:hover {
