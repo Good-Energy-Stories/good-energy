@@ -1,14 +1,24 @@
 .title {
-  width: 100%;
+  grid-column: 1/5;
 }
 .description {
-  width: 100%;
+  grid-column: 5/9;
 }
 
 .container {
-  grid-column: 1/5;
+  grid-column: 1/-1;
   margin: 0 var(--spacing-large);
   border-top: 1px solid var(--blueThree);
-  display: flex;
-  gap: var(--spacing-medium);
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    grid-column: 1/9;
+  }
+  .description {
+    grid-column: 1/9;
+  }
 }

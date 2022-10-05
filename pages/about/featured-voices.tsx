@@ -82,21 +82,7 @@ const FeaturedVoices = ({ pageData }: { pageData: any }) => {
 };
 
 export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "featuredVoicesPage" ] {
-      "id": _id,
-      seo {
-        ${queries.pageSeo}
-      },
-      title,
-      description,
-      featuredVoices[]-> {
-        ${queries.featuredVoice}
-      }
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.featuredVoicesPageQuery);
 
   return {
     props: { pageData },

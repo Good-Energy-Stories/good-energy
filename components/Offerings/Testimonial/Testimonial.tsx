@@ -4,6 +4,7 @@ import { imageUrlFor } from '../../../utils/imageUrlFor';
 import styles from './Testimonial.module.css';
 import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
 import classnames from 'classnames';
+import { useInView } from 'react-intersection-observer';
 const cx = classnames.bind(styles);
 const variants = {
   in: {
@@ -14,17 +15,28 @@ const variants = {
   },
 };
 
+enum TestimonialSize {
+  Small = 'small',
+  Large = 'large',
+}
 const Testimonial = ({ data }: any) => {
-  const { content, attribution } = data;
+  const { content, size, attribution } = data;
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
-    <motion.div
-      transition={FRAMER_TRANSITION_EASEOUT}
-      initial={'out'}
-      animate={'in'}
-      variants={variants}
-      className={styles.container}
-    >
-      <div className={cx('quote-lg', styles.content)}>{content}</div>
+    <div ref={ref} className={styles.container}>
+      <motion.div
+        transition={{ ...FRAMER_TRANSITION_EASEOUT, delay: 0.5 }}
+        initial={'out'}
+        animate={inView ? 'in' : 'out'}
+        variants={variants}
+        className={cx(
+          size === TestimonialSize.Large && 'quote-xl',
+          size === TestimonialSize.Small && 'quote-lg',
+          styles.content,
+        )}
+      >
+        {content}
+      </motion.div>
       <div className={styles.attribution}>
         {attribution?.image && (
           <div className={styles.image}>
@@ -40,7 +52,7 @@ const Testimonial = ({ data }: any) => {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

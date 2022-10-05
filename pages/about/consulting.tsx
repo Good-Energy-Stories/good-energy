@@ -18,7 +18,7 @@ const Consulting = ({ pageData }) => {
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
       <StickyNavBar />
-      <Layout paddingHorizontal={'2.5rem'}>
+      <Layout key="consulting" paddingHorizontal={'2.5rem'}>
         <Header title={title} description={description} fittedText />
 
         <ConsultingInterestForm />
@@ -31,18 +31,7 @@ const Consulting = ({ pageData }) => {
 };
 
 export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "consultingContactPage" ] {
-      "id": _id,
-      seo {
-        ${queries.pageSeo}
-      },
-      title,
-      description
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.consultingPageQuery);
 
   return {
     props: { pageData },

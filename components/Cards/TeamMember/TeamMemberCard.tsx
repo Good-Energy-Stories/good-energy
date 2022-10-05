@@ -10,9 +10,9 @@ import {
   FRAMER_TRANSITION_EASEOUT,
   FRAMER_TRANSITION_FASTEASE,
 } from '../../../lib/framer/framer-animations';
-import DropdownButton from './DropdownButton';
 import { useState } from 'react';
 import Dropdown from './Dropdown';
+import DropdownButton from '../../Buttons/DropdownButton/DropdownButton';
 
 const cx = classnames.bind(styles);
 const variants = {
@@ -72,7 +72,12 @@ const TeamMemberCard = ({
               </div>
             )}
             {title && <h4 className={styles.title}>{title}</h4>}
-            <DropdownButton expanded={expanded} onClick={toggleExpanded} />
+            <DropdownButton
+              expanded={expanded}
+              onClick={toggleExpanded}
+              hiddenLabel={'Show Bio'}
+              expandedLabel={'Hide Bio'}
+            />
             <Dropdown expanded={expanded}>
               <PortableText value={bio} />
             </Dropdown>

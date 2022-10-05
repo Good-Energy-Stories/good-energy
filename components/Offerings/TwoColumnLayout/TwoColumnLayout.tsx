@@ -17,17 +17,16 @@ const variants = {
 };
 
 const TwoColumnLayout = ({ data }: any) => {
-  const { leftColumn, rightColumn } = data;
+  const { leftColumn, rightColumn, backgroundColor } = data;
 
   const renderContent = useCallback((content: any) => {
     return content.map((item, index) => (
       <HalfPageContent key={index} content={item} />
     ));
   }, []);
-  console.log(data);
 
   return (
-    <div className={styles.container}>
+    <div data-theme={backgroundColor} className={styles.container}>
       {leftColumn && (
         <div className={cx(styles.column, styles.left)}>
           {renderContent(leftColumn)}

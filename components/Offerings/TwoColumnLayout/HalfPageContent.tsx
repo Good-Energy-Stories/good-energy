@@ -4,6 +4,8 @@ import CTAButton from '../../Buttons/CTAButton/CTAButton';
 import SpotIllustration from '../../SpotIllustration/SpotIllustration';
 import WrittenContent from '../../WrittenContent/WrittenContent';
 import InlineQuote from '../../Quotes/InlineQuote/InlineQuote';
+import Statement from '../Statement/Statement';
+import ImageCarousel from '../../ImageCarousel/ImageCarousel';
 
 const HalfPageContent = ({ content, index }: any) => {
   const type = content._type;
@@ -18,6 +20,10 @@ const HalfPageContent = ({ content, index }: any) => {
       return <WrittenContent data={content} index={index} />;
     case 'quote':
       return <InlineQuote data={content} index={index} />;
+    case 'statement':
+      return <Statement data={content} index={index} />;
+    case 'imageCarousel':
+      return <ImageCarousel data={content} index={index} />;
     default:
       return null;
   }

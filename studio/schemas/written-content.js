@@ -12,6 +12,13 @@ export default {
       type: 'standardPagePortableText',
       validation: (Rule) => Rule.required(),
     },
+    {
+      title: 'Truncate Content',
+      name: 'truncateContent',
+      type: 'boolean',
+      description:
+        'If the text is very long, you may want to hide some of it initially and give the user the option to expand it to read more.',
+    },
   ],
   preview: {
     prepare(selection) {

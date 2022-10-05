@@ -4,11 +4,13 @@ import classnames from 'classnames';
 const cx = classnames.bind(styles);
 
 const CTALink = ({ data }: any) => {
-  const { label } = data;
+  const { label, link } = data;
 
   return (
     <div className={styles.container}>
-      <div className={cx('.h3', styles.lavel)}>{label}</div>
+      <a href={link} className={cx('h4', styles.label)}>
+        {label}
+      </a>
     </div>
   );
 };

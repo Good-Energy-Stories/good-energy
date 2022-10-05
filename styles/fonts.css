@@ -79,6 +79,22 @@ h1 {
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
 }
+.quote-xl {
+  font-family: var(--flexa);
+  font-size: 72px;
+  line-height: 75px;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'wght' 800, 'wdth' 55, 'ital' 300;
+  position: relative;
+}
+.quote-xl::before {
+  content: '“';
+  position: absolute;
+  left: -0.5em;
+}
+.quote-xl::after {
+  content: '”';
+}
 .quote-lg {
   font-family: var(--flexa);
   font-size: 48px;
@@ -110,6 +126,12 @@ h1 {
 .quote-md::after {
   content: '”';
 }
+.quote-md[data-hide-quote-marks]::before {
+  display: none;
+}
+.quote-md[data-hide-quote-marks]::after {
+  display: none;
+}
 .h1-xl {
   font-family: var(--flexa);
   font-size: 172px;
@@ -128,7 +150,8 @@ h1 {
   content: '”';
 }
 
-h2 {
+h2,
+.h2 {
   font-family: var(--flexa);
   font-size: 48px;
   line-height: 47px;
@@ -161,7 +184,8 @@ h3,
   font-variation-settings: 'wght' 429, 'wdth' 69, 'ital' 100;
   color: var(--blueThree);
 }
-h4 {
+h4,
+.h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 25px;
@@ -540,6 +564,22 @@ h4 {
 }
 
 @media only screen and (max-width: 768px) {
+  .quote-xl {
+    font-family: var(--flexa);
+    font-size: 48px;
+    line-height: 48px;
+    font-variation-settings: 'wght' 604, 'wdth' 69;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .quote-lg {
+    font-family: var(--flexa);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.01em;
+    font-variation-settings: 'wght' 645, 'wdth' 55;
+    position: relative;
+  }
   .h1-xl {
     font-size: 62px;
     line-height: 53px;

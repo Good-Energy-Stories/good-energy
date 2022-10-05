@@ -2,8 +2,13 @@ import styles from './DropdownButton.module.css';
 import classnames from 'classnames';
 import { motion } from 'framer-motion';
 const cx = classnames.bind(styles);
-const DropdownButton = ({ onClick, expanded }) => {
-  const label = expanded ? 'Hide Bio' : 'Show Bio';
+const DropdownButton = ({
+  onClick,
+  expanded,
+  expandedLabel = 'Hide',
+  hiddenLabel = 'Show',
+}) => {
+  const label = expanded ? expandedLabel : hiddenLabel;
   return (
     <button
       aria-expanded={expanded ? 'true' : 'false'}

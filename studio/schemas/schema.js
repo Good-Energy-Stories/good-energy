@@ -64,6 +64,13 @@ import attributionIndividual from './attribution-individual';
 import offeringsPage from './offerings-page';
 import source from './source';
 import consultingContactPage from './consulting-contact-page';
+import page from './page';
+import statement from './statement';
+import halfPageContent from './half-page-content';
+import teamSection from './team-section';
+import fullWidthImage from './full-width-image';
+import pageDivider from './page-divider';
+import imageCarousel from './image-carousel';
 
 export default createSchema({
   name: 'default',
@@ -131,5 +138,12 @@ export default createSchema({
     writtenContent,
     offeringsPage,
     source,
+    page,
+    statement,
+    halfPageContent,
+    teamSection,
+    fullWidthImage,
+    pageDivider,
+    imageCarousel,
   ]),
 });

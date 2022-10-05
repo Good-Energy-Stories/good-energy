@@ -1,12 +1,6 @@
-export const imageMeta = `
-asset,
-caption,
-attribution,
-hotspot,
-"blurHash":asset->.metadata.blurHash,
-"lqip":asset->.metadata.lqip,
-"imageAspect":asset->.metadata.dimensions.aspectRatio,
-`;
+import { partner, partnerSection } from './queries/partners';
+import { imageMeta } from './queries/imageMeta';
+import { pageSeo } from './queries/pageSeo';
 
 export const articlePreview = `
 title,
@@ -18,23 +12,6 @@ heroImage{
   ${imageMeta}
 },
 "heroImageUrl": heroImage.asset->url
-`;
-
-export const partner = `
-title,
-size,
-link,
-logo{
-    ${imageMeta}
-},
-`;
-
-export const partnerSection = `
-title,
-size,
-partners[]->{
-    ${partner}
-},
 `;
 
 export const articleSection = `
@@ -188,13 +165,6 @@ portraitImage{
   ${imageMeta}
 }
 `;
-
-export const pageSeo = `
-title,
-description,
-image {
-  ${imageMeta}
-}`;
 
 export const featureVoiceQuote = `
 quote,
@@ -856,3 +826,80 @@ export const playlistQuery = `*[_type == "playlist" && slug.current == $slug] {
 export const expertProfileQuery = `*[_type == "expertProfile" && slug.current == $slug] {
   ${expertProfile}
 }[0]`;
+
+export const partnersPageQuery = `
+*[_type == "partnersPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+  sections[]->{
+    ${partnerSection}
+  }
+}[0]
+`;
+
+export const consultingPageQuery = `
+*[_type == "consultingContactPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description
+}[0]
+`;
+
+export const contactPageQuery = `
+*[_type == "contactPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+}[0]
+`;
+
+export const featuredVoicesPageQuery = `
+*[_type == "featuredVoicesPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+  featuredVoices[]-> {
+    ${featuredVoice}
+  }
+}[0]
+`;
+
+export const libraryOfExpertsPageQuery = `
+*[_type == "libraryOfExpertsPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+}[0]
+`;
+
+export const playbookHomePageQuery = `
+*[_type == "playbookHome" ] {
+  "id": _id,
+  playbookTableOfContentsInitialState,
+  seo {
+    ${pageSeo}
+  },
+  masthead{
+    ${threeColumnLayout}
+  },
+  content[]{
+      ${playbookSections}
+  },
+}[0]
+`;

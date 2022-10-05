@@ -7,38 +7,29 @@ export default {
   icon,
   fields: [
     {
+      title: 'Background Color',
+      name: 'backgroundColor',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Black', value: 'black' },
+          { title: 'White', value: 'white' },
+        ],
+      },
+    },
+    {
       name: 'leftColumn',
       title: 'Left Column',
-      type: 'array',
-      of: [
-        { type: 'writtenContent' },
-        { type: 'quote' },
-        { type: 'ctaButton' },
-        { type: 'ctaLink' },
-        { type: 'spotIllustration' },
-        {
-          type: 'reference',
-          to: [{ type: 'testimonial' }],
-        },
-      ],
-
+      type: 'halfPageContent',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'rightColumn',
       title: 'Right Column',
-      type: 'array',
-      of: [
-        { type: 'writtenContent' },
-        { type: 'quote' },
-        { type: 'ctaButton' },
-        { type: 'ctaLink' },
-        { type: 'spotIllustration' },
-        {
-          type: 'reference',
-          to: [{ type: 'testimonial' }],
-        },
-      ],
+      type: 'halfPageContent',
       validation: (Rule) => Rule.required(),
     },
   ],

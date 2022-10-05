@@ -89,6 +89,8 @@ export default () =>
             'workshopsPage',
             'climateLensBlock',
             'offeringsPage',
+            'consultingContactPage',
+            'page',
           ].includes(listItem.getId()),
       ),
     ]);

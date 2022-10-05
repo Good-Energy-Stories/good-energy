@@ -1,24 +1,14 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
-const Full = dynamic(() => import('./Full'));
-const Half = dynamic(() => import('./Half'));
+const Full = dynamic(() => import('./Full/Full'));
+const Half = dynamic(() => import('./Half/Half'));
 
-export const PartnerSection = ({
-  index,
-  data,
-  truncate = false,
-}: {
-  data: any;
-  index: number;
-  truncate?: boolean;
-}) => {
+export const PartnerSection = ({ data, truncate = false, className }: any) => {
   const size = data.size;
   switch (size) {
     case 'full':
-      return <Full data={data} truncate={truncate} />;
+      return <Full data={data} truncate={truncate} className={className} />;
     case 'half':
-      return <Half data={data} truncate={truncate} />;
-
+      return <Half data={data} />;
     default:
       return null;
   }

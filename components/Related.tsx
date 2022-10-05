@@ -1,5 +1,5 @@
 import { Card, ArticleCardStyle, CharacterProfileCardStyle } from './Cards';
-import PageDivider, { PageDividerLabelSize } from './PageDivider';
+import PageDivider from './PageDivider/PageDivider';
 
 const Related = ({ content }: { content: any }) => {
   if (!content) return null;
@@ -7,7 +7,7 @@ const Related = ({ content }: { content: any }) => {
     <>
       <PageDivider
         label="Related"
-        labelSize={PageDividerLabelSize.small}
+        labelSize="small"
         style={{
           margin: '0 var(--spacing-large)',
           marginBottom: 'var(--spacing-medium)',

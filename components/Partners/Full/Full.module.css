@@ -1,0 +1,29 @@
+.container {
+  grid-column: 1/-1;
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin: 0 var(--spacing-large);
+  padding-bottom: var(--spacing-small);
+  color: var(--blueThree);
+}
+.buttonRow {
+  grid-column: span 4;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    padding: 0 1.25rem;
+    margin-top: 0;
+  }
+}

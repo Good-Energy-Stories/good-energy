@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import PageDivider from '../PageDivider';
+import PageDivider from '../PageDivider/PageDivider';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import Link from 'next/link';
 import * as ga from '../../lib/ga';
@@ -35,6 +35,7 @@ function getStyles(size) {
       justify-content: center;
       align-items: center;
       position: relative;
+      flex: 0 0 calc(25% - var(--spacing-small));
       width: 100%;
       margin-top: ${marginBottom};
       margin-bottom: ${marginBottom};
@@ -42,8 +43,7 @@ function getStyles(size) {
     }
     @media only screen and (max-width: 1080px) {
       div {
-        grid-column: 1/-1;
-        padding: ${paddingMobile};
+        flex: 0 0 calc(100% - var(--spacing-small));
       }
     }
   `;
@@ -115,23 +115,22 @@ const LogoImage = ({
   }
 
   return (
-    <>
+    <div>
       {logo && <img alt={logo?.caption} src={imageUrlFor(logo).url()} />}
       {!logo && <LogoPlaceholder title={title} />}
       <style jsx>{`
+        div {
+          height: 200px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
         img {
           width: 100%;
         }
-        @media only screen and (max-width: 1080px) {
-          img {
-          }
-        }
-        @media only screen and (max-width: 768px) {
-          img {
-          }
-        }
       `}</style>
-    </>
+    </div>
   );
 };
 

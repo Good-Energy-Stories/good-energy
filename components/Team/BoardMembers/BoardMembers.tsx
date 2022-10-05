@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './BoardMembers.module.css';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../../PortableTextSerializer';
-import PageDivider from '../../PageDivider';
 
 const BoardMembers = ({ description }) => {
   return (

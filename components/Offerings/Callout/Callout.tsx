@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { PortableTextSerializer } from '../..';
 import { PortableText } from '@portabletext/react';
 
-import PageDivider from '../../PageDivider';
 import styles from './Callout.module.css';
-
+import classnames from 'classnames';
+import { useInView } from 'react-intersection-observer';
+import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
+const cx = classnames.bind(styles);
 const variants = {
   in: {
     opacity: 1,
@@ -14,14 +16,20 @@ const variants = {
   },
 };
 
-const Callout = ({ data }: any) => {
+const Callout = ({ data, className }: any) => {
   const { title, information } = data;
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   return (
-    <div className={styles.container}>
+    <div ref={ref} className={cx(styles.container, className)}>
       <h3 className={styles.title}>{title}</h3>
-      <div className={styles.description}>
+      <motion.div
+        variants={variants}
+        animate={inView ? 'in' : 'out'}
+        transition={FRAMER_TRANSITION_EASEOUT}
+        className={styles.description}
+      >
         <PortableText value={information} components={PortableTextSerializer} />
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,0 +1,37 @@
+.container {
+}
+.inner {
+  margin: 0 auto;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.dots {
+  margin: var(--spacing-medium) 0;
+  display: flex;
+  justify-content: center;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blueThree);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.dot.active {
+  background: var(--blueFour);
+}
+.image {
+  position: absolute;
+  object-fit: fill;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  max-height: 400px;
+  transition: 0.3s ease;
+}
+.image[data-hidden='true'] {
+  clip-path: polygon(0% 0, 0% 0%, 0% 100%, 0 0%);
+}

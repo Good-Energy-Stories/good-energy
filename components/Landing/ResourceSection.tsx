@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import PageDivider from '../PageDivider';
+import PageDivider from '../PageDivider/PageDivider';
 import { Card } from './ResourceCard';
 
 const { className, styles } = css.resolve`

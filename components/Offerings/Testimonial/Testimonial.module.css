@@ -20,3 +20,12 @@
 .title {
   color: var(--blueFour);
 }
+
+@media only screen and (max-width: 768px) {
+  .content {
+    grid-column: 1/9;
+  }
+  .attribution {
+    grid-column: 1/9;
+  }
+}

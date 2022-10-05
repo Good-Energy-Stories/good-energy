@@ -26,22 +26,24 @@ const InlineQuote = ({ data }: any) => {
   if (!quote) return null;
   return (
     <div className={cx(styles.container)}>
-      <div className={cx('quote-md', styles.quote)}>{quote}</div>
-      <div className={styles.attribution}>
-        {attribution?.name && (
-          <div className={cx('h3', styles.name)}>{attribution.name}</div>
-        )}
-        {attribution?.title && (
-          <div className={cx('h3-subheading', styles.name)}>
-            {attribution.title}
-            {attribution?.source && (
-              <span className={cx('h3-subheading-italic', styles.source)}>
-                {`, `}
-                <SourceLink data={attribution.source} />
-              </span>
-            )}
-          </div>
-        )}
+      <div className={cx(styles.inner)}>
+        <div className={cx('quote-md', styles.quote)}>{quote}</div>
+        <div className={styles.attribution}>
+          {attribution?.name && (
+            <div className={cx('h3', styles.name)}>{attribution.name}</div>
+          )}
+          {attribution?.title && (
+            <div className={cx('h3-subheading', styles.name)}>
+              {attribution.title}
+              {attribution?.source && (
+                <span className={cx('h3-subheading-italic', styles.source)}>
+                  {`, `}
+                  <SourceLink data={attribution.source} />
+                </span>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

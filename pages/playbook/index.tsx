@@ -54,23 +54,7 @@ const Root = ({ pageData }) => {
 };
 
 export async function getStaticProps({ preview, previewData }) {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "playbookHome" ] {
-      "id": _id,
-      playbookTableOfContentsInitialState,
-      seo {
-        ${queries.pageSeo}
-      },
-      masthead{
-        ${queries.threeColumnLayout}
-      },
-      content[]{
-          ${queries.playbookSections}
-      },
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.playbookHomePageQuery);
 
   return { props: { pageData } };
 }

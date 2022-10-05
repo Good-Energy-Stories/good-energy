@@ -30,21 +30,7 @@ const Partners = ({ pageData }) => {
 };
 
 export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "partnersPage" ] {
-      "id": _id,
-      seo {
-        ${queries.pageSeo}
-      },
-      title,
-      description,
-      sections[]->{
-        ${queries.partnerSection}
-      }
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.partnersPageQuery);
 
   return {
     props: { pageData },

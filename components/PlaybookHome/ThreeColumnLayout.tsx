@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic';
 import { Card } from '../Cards';
 import { ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
 import { FEATURED_TAG_LINE_HEIGHT } from '../Cards/FeaturedTag';
-import PageDivider from '../PageDivider';
 import { SECONDARY_MENU_HEIGHT } from '../SecondaryNavMenu/SecondaryNavMenu';
+import PageDivider from '../PageDivider/PageDivider';
 
 const SHIFTED_TOP_SECONDARY = `calc(${FEATURED_TAG_LINE_HEIGHT}px + ${SECONDARY_MENU_HEIGHT}px)`;
 const TOP_OFFSET = `calc(0.625rem + ${SECONDARY_MENU_HEIGHT}px)`;

@@ -1,0 +1,17 @@
+.container {
+  border-bottom: 1px solid var(--blueThree);
+
+  grid-column: 1/9;
+  margin: 0 var(--spacing-large);
+}
+.smallLabel {
+  color: var(--blueThree);
+}
+.label {
+  margin-bottom: var(--spacing-small);
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 0 var(--spacing-small);
+  }
+}

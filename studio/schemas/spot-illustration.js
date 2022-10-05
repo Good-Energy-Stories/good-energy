@@ -2,7 +2,7 @@ import { BsCardImage as icon } from 'react-icons/bs';
 
 export default {
   name: 'spotIllustration',
-  title: 'Spot Illustration',
+  title: 'Image or Spot Illustration',
   type: 'object',
   icon,
   fields: [

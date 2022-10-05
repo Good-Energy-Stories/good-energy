@@ -1,5 +1,6 @@
 import { imageMeta } from './imageMeta';
 import { pageSeo } from './pageSeo';
+import { partnerSection } from './partners';
 
 export const calloutFragment = `
 title, 
@@ -25,6 +26,16 @@ _type == 'reference' => @->{
         image {
             ${imageMeta}
         }
+    },
+    _type == 'imageCarousel' => {
+        _type,
+        content[] {
+            ${imageMeta}
+        }
+    },
+    _type == 'statement' => {
+        _type,
+       ...
     },
     _type == 'ctaButton' => {
       _type,
@@ -52,6 +63,7 @@ _type == 'reference' => @->{
 `;
 
 export const twoColumnLayoutFragment = `
+backgroundColor,
 leftColumn[] {
     ${halfColumnPageContentFragment}
 },
@@ -69,7 +81,15 @@ export const offeringsPageContentFragment = `
     _type == 'testimonial' => {
         _type,
        ...
-      },
+    },
+    _type == 'partnerSection' => {
+        _type,
+       ${partnerSection}
+    },
+    _type == 'calloutSection' => {
+        _type,
+       ...
+    },
   },
   _type != 'reference' => {
     _type == 'twoColumnLayout' => {
@@ -80,6 +100,16 @@ export const offeringsPageContentFragment = `
       _type,
      ${calloutFragment}
     },
+    _type == 'fullWidthImage' => {
+        _type,
+        image {
+            ${imageMeta}
+        }
+    },
+    _type == 'pageDivider' => {
+        _type,
+        ...
+    },
     _type == 'emailCapture' => {
       _type,
       title,
@@ -89,15 +119,24 @@ export const offeringsPageContentFragment = `
   },
 `;
 
+export const pageFragment = `
+"id": _id,
+seo {
+  ${pageSeo}
+},
+title,
+description,
+content[] {
+    ${offeringsPageContentFragment}
+}
+`;
+
 export const offeringsPagePathsQuery = `*[_type == "offeringsPage"] { slug }`;
 export const offeringsPageQuery = `*[_type == "offeringsPage" && slug.current == $slug] {
-    "id": _id,
-    seo {
-      ${pageSeo}
-    },
-    title,
-    description,
-    content[] {
-        ${offeringsPageContentFragment}
-    }
+    ${pageFragment}
+}[0]`;
+
+export const aboutPagePathsQuery = `*[_type == "aboutPage"] { slug }`;
+export const aboutPageQuery = `*[_type == "aboutPage" && slug.current == $slug] {
+   ${pageFragment}
 }[0]`;

@@ -1,6 +1,6 @@
 import { sanity } from '../../../lib/sanity';
 import { queries } from '../../../data';
-import { Layout, StickyNavBar, Meta, PageDivider } from '../../../components';
+import { Layout, StickyNavBar, Meta } from '../../../components';
 
 import { Footer } from '../../../components/Footer';
 import { useStore } from '../../../stores/store';
@@ -16,6 +16,7 @@ import {
 } from '../../../components/Playlist';
 import { useEffect, useState } from 'react';
 import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
+import PageDivider from '../../../components/PageDivider/PageDivider';
 
 const Project = observer(({ playlist }: { playlist: any }) => {
   const [activeSlug, setActiveSlug] = useState(null);

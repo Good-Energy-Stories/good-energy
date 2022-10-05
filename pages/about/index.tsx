@@ -31,9 +31,7 @@ export const getStaticProps = async () => {
     `
     *[_type == "aboutPage" ] {
       "id": _id,
-      seo {
-        ${queries.pageSeo}
-      },
+     
       headline,
       description
     }[0]

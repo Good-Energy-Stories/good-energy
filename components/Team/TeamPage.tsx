@@ -5,7 +5,7 @@ import TeamMemberCard from '../Cards/TeamMember/TeamMemberCard';
 import { Footer } from '../Footer';
 import Layout from '../Layout';
 import Meta from '../Meta';
-import PageDivider from '../PageDivider';
+import PageDivider from '../PageDivider/PageDivider';
 import StickyNavBar from '../StickyNavBar';
 import BoardMembers from './BoardMembers/BoardMembers';
 import styles from './TeamPage.module.css';

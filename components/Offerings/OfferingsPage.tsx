@@ -8,7 +8,7 @@ import PageContent from './PageContent';
 
 const OfferingsPage = ({ pageData }) => {
   const { title, description, seo } = pageData;
-  console.log(pageData);
+
   return (
     <>
       <Meta

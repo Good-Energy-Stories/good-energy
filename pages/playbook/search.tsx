@@ -7,13 +7,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../../stores/store';
 
 import { queries } from '../../data';
-import {
-  Layout,
-  Masthead,
-  Meta,
-  PageDivider,
-  StickyNavBar,
-} from '../../components';
+import { Layout, Masthead, Meta, StickyNavBar } from '../../components';
 import { Header, Characters } from '../../components/CharacterProfilesHome';
 import { Footer } from '../../components/Footer';
 import Related from '../../components/Related';

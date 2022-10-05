@@ -7,9 +7,7 @@ export const getStaticProps = async () => {
     `
         *[_type == "teamPage" ] {
           "id": _id,
-          seo {
-            ${queries.pageSeo}
-          },
+          
           heroImage,
           title,
           description[]{

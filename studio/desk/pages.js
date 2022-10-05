@@ -150,6 +150,10 @@ export const pagesMenu = S.listItem()
           .title('Offerings Pages')
           .child(S.documentTypeList('offeringsPage').title('Offerings Pages'))
           .icon(RiTeamFill),
+        S.listItem()
+          .title('About Pages')
+          .child(S.documentTypeList('aboutPage').title('About Pages'))
+          .icon(BsFillQuestionCircleFill),
       ]),
   )
   .icon(BsGlobe);

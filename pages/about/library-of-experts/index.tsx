@@ -1,5 +1,5 @@
 import { sanity } from '../../../lib/sanity';
-import { Layout, Meta, PageDivider, StickyNavBar } from '../../../components';
+import { Layout, Meta, StickyNavBar } from '../../../components';
 import { queries } from '../../../data';
 import { Footer } from '../../../components/Footer';
 import { Experts, Filters } from '../../../components/LibraryOfExperts';
@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useStore } from '../../../stores/store';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import Header from '../../../components/About/Header/Header';
+import PageDivider from '../../../components/PageDivider/PageDivider';
 
 const LibraryOfExperts = ({ pageData, expertProfiles }) => {
   const { title, description, seo } = pageData;
@@ -38,18 +39,7 @@ const LibraryOfExperts = ({ pageData, expertProfiles }) => {
 };
 
 export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(
-    `
-    *[_type == "libraryOfExpertsPage" ] {
-      "id": _id,
-      seo {
-        ${queries.pageSeo}
-      },
-      title,
-      description,
-    }[0]
-  `,
-  );
+  const pageData = await sanity.fetch(queries.libraryOfExpertsPageQuery);
   const expertProfiles = await sanity.fetch(
     `
     *[_type == "expertProfile" ] {

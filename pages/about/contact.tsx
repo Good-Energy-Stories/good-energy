@@ -36,18 +36,7 @@ const Contact = ({ pageData }) => {
 };
 
 export const getStaticProps = async () => {
-  const pageData = await sanity.fetch(
-    `
-        *[_type == "contactPage" ] {
-          "id": _id,
-          seo {
-            ${queries.pageSeo}
-          },
-          title,
-          description,
-        }[0]
-      `,
-  );
+  const pageData = await sanity.fetch(queries.contactPageQuery);
   return {
     props: { pageData },
   };
