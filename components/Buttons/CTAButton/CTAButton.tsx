@@ -9,19 +9,32 @@ enum ButtonType {
 }
 
 const CTAButton = ({ data }: any) => {
-  const { label, type = ButtonType.Outline, link, backgroundColor } = data;
+  const {
+    label,
+    type = ButtonType.Outline,
+    link,
+    backgroundColor,
+    onClick,
+  } = data;
+
   return (
     <button
+      type={type}
       data-theme={backgroundColor}
       className={cx(
         styles.container,
         type === ButtonType.Fill && styles.fill,
         type === ButtonType.Outline && styles.outline,
       )}
+      onClick={onClick && onClick}
     >
-      <a href={link} className={cx('h3', styles.label)}>
-        {label}
-      </a>
+      {link ? (
+        <a href={link} className={cx('h3', styles.label)}>
+          {label}
+        </a>
+      ) : (
+        <div className={cx('h3', styles.label)}> {label}</div>
+      )}
     </button>
   );
 };

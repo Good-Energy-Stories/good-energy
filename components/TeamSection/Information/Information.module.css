@@ -1,3 +1,12 @@
+.container {
+  grid-column: 1/-1;
+  padding: 0 var(--spacing-large);
+}
+.inner {
+  border-top: 3px solid var(--black);
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+}
 .title {
   grid-column: 1/3;
   margin-bottom: var(--spacing-large);

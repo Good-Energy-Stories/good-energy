@@ -1,5 +1,5 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
+import { Layout, Meta, StickyNavBar } from '../../components';
 import { queries } from '../../data';
 import Header from '../../components/About/Header/Header';
 import { PartnerSection } from '../../components/Partners';

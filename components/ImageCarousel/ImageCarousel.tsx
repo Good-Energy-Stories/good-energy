@@ -38,7 +38,6 @@ const ImageCarousel = ({ data }: any) => {
   const renderImages = (content) => {
     return content.map((image, index) => {
       const active = index <= activeIndex;
-      console.log(activeIndex, index, active);
       const src = imageUrlFor(image).width(800).url();
       return (
         <motion.img

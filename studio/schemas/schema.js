@@ -71,6 +71,7 @@ import teamSection from './team-section';
 import fullWidthImage from './full-width-image';
 import pageDivider from './page-divider';
 import imageCarousel from './image-carousel';
+import contactForm from './contact-form';
 
 export default createSchema({
   name: 'default',
@@ -145,5 +146,6 @@ export default createSchema({
     fullWidthImage,
     pageDivider,
     imageCarousel,
+    contactForm,
   ]),
 });

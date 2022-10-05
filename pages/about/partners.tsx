@@ -1,10 +1,11 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
+import { Layout, Meta, StickyNavBar } from '../../components';
 import { queries } from '../../data';
 import Header from '../../components/About/Header/Header';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import NextUp from '../../components/NextUp/NextUp';
 
 const Partners = ({ pageData }) => {
   const { title, description, seo } = pageData;
@@ -22,7 +23,7 @@ const Partners = ({ pageData }) => {
         {pageData.sections.map((p, i) => (
           <PartnerSection key={i} index={i} data={p} />
         ))}
-        <NextUpPage label={'Contact'} href={'/about/contact'} />
+        <NextUp label={'Contact'} href={'/about/contact'} />
       </Layout>
       <Footer />
     </>

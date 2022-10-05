@@ -16,11 +16,11 @@ const variants = {
 };
 
 const Header = ({
-  heroImage,
+  bannerImage,
   title,
   description,
 }: {
-  heroImage?: any;
+  bannerImage?: any;
   title: string;
   description: any;
   fittedText?: boolean;
@@ -35,11 +35,11 @@ const Header = ({
     >
       <div className={styles.inner}>
         <Breadcrumbs className={styles.breadcrumbs} />
-        {heroImage && (
+        {bannerImage && (
           <img
             className={styles.image}
-            alt={heroImage?.caption}
-            src={imageUrlFor(heroImage).width(1080).url()}
+            alt={bannerImage?.caption}
+            src={imageUrlFor(bannerImage).width(1080).url()}
           />
         )}
       </div>

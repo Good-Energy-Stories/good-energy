@@ -1,23 +1,27 @@
 import dynamic from 'next/dynamic';
 import PageDivider from '../PageDivider/PageDivider';
 import { PartnerSection } from '../Partners';
-import CalloutSection from './CalloutSection/CalloutSection';
+import CalloutSection from '../Offerings/CalloutSection/CalloutSection';
+import TeamSection from '../TeamSection/TeamSection';
+import ContactForm from '../ContactForm/ContactForm';
 
-const Callout = dynamic(() => import('./Callout/Callout'));
+const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
 const ClimateLensBlock = dynamic(
-  () => import('./ClimateLensBlock/ClimateLensBlock'),
+  () => import('../Offerings/ClimateLensBlock/ClimateLensBlock'),
 );
 const TwoColumnLayout = dynamic(
-  () => import('./TwoColumnLayout/TwoColumnLayout'),
+  () => import('../Offerings/TwoColumnLayout/TwoColumnLayout'),
 );
 const FullWidthImage = dynamic(
   () => import('../FullWidthImage/FullWidthImage'),
 );
-const Testimonial = dynamic(() => import('./Testimonial/Testimonial'));
+const Testimonial = dynamic(
+  () => import('../Offerings/Testimonial/Testimonial'),
+);
 const PageContent = ({ content, index }: any) => {
   const type = content._type;
-  console.log(content);
+
   switch (type) {
     case 'callout':
       return <Callout data={content} index={index} />;
@@ -37,6 +41,10 @@ const PageContent = ({ content, index }: any) => {
       return <PartnerSection data={content} index={index} />;
     case 'calloutSection':
       return <CalloutSection data={content} index={index} />;
+    case 'teamSection':
+      return <TeamSection data={content} index={index} />;
+    case 'contactForm':
+      return <ContactForm data={content} index={index} />;
     default:
       return null;
   }

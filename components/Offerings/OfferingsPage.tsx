@@ -1,30 +1,12 @@
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { Footer } from '../Footer';
-import Layout from '../Layout';
-import Meta from '../Meta';
-import StickyNavBar from '../StickyNavBar';
 import Header from './Header/Header';
-import PageContent from './PageContent';
+import Page from '../Page/Page';
 
 const OfferingsPage = ({ pageData }) => {
-  const { title, description, seo } = pageData;
-
+  const { title, description } = pageData;
+  const header = <Header title={title} description={description} />;
   return (
     <>
-      <Meta
-        title={seo?.title}
-        description={seo?.description}
-        slug={'about'}
-        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
-      />
-      <StickyNavBar />
-      <Layout key="About">
-        <Header title={title} description={description} />
-        {pageData?.content.map((content, index) => (
-          <PageContent key={index} content={content} />
-        ))}
-      </Layout>
-      <Footer />
+      <Page pageData={pageData} header={header} />
     </>
   );
 };

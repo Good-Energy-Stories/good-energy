@@ -1,6 +1,7 @@
 import { imageMeta } from './imageMeta';
 import { pageSeo } from './pageSeo';
 import { partnerSection } from './partners';
+import { teamSection } from './team';
 
 export const calloutFragment = `
 title, 
@@ -19,6 +20,7 @@ _type == 'reference' => @->{
       _type,
      ...
     },
+   
   },
   _type != 'reference' => {
     _type == 'spotIllustration' => {
@@ -78,6 +80,10 @@ export const offeringsPageContentFragment = `
       _type,
      ${climateLensBlockFragment}
     },
+    _type == 'teamSection' => {
+      _type,
+      ${teamSection},
+    },
     _type == 'testimonial' => {
         _type,
        ...
@@ -110,6 +116,10 @@ export const offeringsPageContentFragment = `
         _type,
         ...
     },
+    _type == 'contactForm' => {
+      _type,
+      form
+    },
     _type == 'emailCapture' => {
       _type,
       title,
@@ -123,6 +133,13 @@ export const pageFragment = `
 "id": _id,
 seo {
   ${pageSeo}
+},
+bannerImage {
+  ${imageMeta}
+},
+nextUp->{
+  title,
+  slug
 },
 title,
 description,

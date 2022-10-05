@@ -1,10 +1,11 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta, NextUpPage, StickyNavBar } from '../../components';
+import { Layout, Meta, StickyNavBar } from '../../components';
 import { queries } from '../../data';
 import Header from '../../components/About/Header/Header';
 import { PartnerSection } from '../../components/Partners';
 import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import NextUp from '../../components/NextUp/NextUp';
 
 const About = ({ pageData }) => {
   const { headline, description, seo } = pageData;
@@ -19,7 +20,7 @@ const About = ({ pageData }) => {
       <StickyNavBar />
       <Layout key="About" paddingHorizontal={'2.5rem'}>
         <Header title={headline} description={description} fittedText />
-        <NextUpPage label={'Consulting'} href={'/about/consulting'} />
+        <NextUp label={'Consulting'} href={'/about/consulting'} />
       </Layout>
       <Footer />
     </>

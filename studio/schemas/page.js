@@ -18,6 +18,30 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: 'Banner Image',
+      name: 'bannerImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          description: 'This will be used as the alt text for the image.',
+          options: {
+            isHighlighted: true,
+          },
+        },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
+    },
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -44,6 +68,12 @@ export default {
       of: [{ type: 'block' }],
     },
     {
+      title: 'Next Up',
+      name: 'nextUp',
+      type: 'reference',
+      to: [{ type: 'aboutPage' }],
+    },
+    {
       title: 'Page Content',
       description: 'This is the content that will appear on the page',
       name: 'content',
@@ -55,6 +85,7 @@ export default {
         { type: 'callout' },
         { type: 'fullWidthImage' },
         { type: 'pageDivider' },
+        { type: 'contactForm' },
         {
           type: 'reference',
           to: [

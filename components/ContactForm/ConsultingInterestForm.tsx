@@ -1,11 +1,11 @@
 import SearchIcon from '../../public/search.svg';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { SubmitButton } from './Footer';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../stores/store';
+
 import { useState } from 'react';
 import * as ga from '../lib/ga';
+import CTAButton from '../Buttons/CTAButton/CTAButton';
+import SubmitButton from '../Buttons/SubmitButton/SubmitButton';
 export const light: ContactFormStyle = {
   backgroundColor: 'transparent',
   textColor: 'var(--white)',
@@ -85,7 +85,7 @@ const ConsultingInterestForm = () => {
             </div>
 
             <div className="row submit-row">
-              <SubmitButton formSubmitted={formSubmitted} />
+              <SubmitButton label="Submit" type="submit" />
             </div>
           </form>
         </div>

@@ -1,5 +1,6 @@
 export const imageMeta = `
 asset,
+asset->{url},
 caption,
 attribution,
 hotspot,

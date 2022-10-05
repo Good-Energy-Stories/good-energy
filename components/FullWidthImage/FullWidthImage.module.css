@@ -1,6 +1,7 @@
 .container {
   grid-column: 1/9;
   padding: 0 var(--spacing-large);
+  margin-bottom: var(--spacing-large);
 }
 
 .image {

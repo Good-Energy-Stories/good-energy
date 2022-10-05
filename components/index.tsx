@@ -25,5 +25,4 @@ export { default as Dropdown } from './Dropdown';
 
 export { default as Search } from './Search';
 export { default as ExitPreviewButton } from './ExitPreviewButton';
-export { default as NextUpPage } from './NextUpPage';
 export { default as FootnoteNumber } from './FootnoteNumber';

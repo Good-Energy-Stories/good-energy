@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
 }
 .content {
   grid-column: 1/7;

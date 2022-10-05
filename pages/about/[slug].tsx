@@ -1,8 +1,8 @@
-import OfferingsPage from '../../components/Offerings/OfferingsPage';
+import AboutPage from '../../components/About/AboutPage';
 import { queries } from '../../data';
 import { sanity } from '../../lib/sanity';
 
-export default OfferingsPage;
+export default AboutPage;
 
 export const getStaticProps = async ({ params }) => {
   const pageData = await sanity.fetch(queries.aboutPageQuery, {

@@ -11,7 +11,7 @@ export default {
       title: 'Title',
       type: 'string',
       description: "Ex. 'Team'",
-      validation: (Rule) => Rule.required(),
+      description: 'This is optional',
     },
     {
       name: 'description',
