@@ -567,7 +567,7 @@ h4 {
   .quote-xl {
     font-family: var(--flexa);
     font-size: 48px;
-    line-height: 48px;
+    line-height: 46px;
     font-variation-settings: 'wght' 604, 'wdth' 69;
     letter-spacing: -0.01em;
     position: relative;

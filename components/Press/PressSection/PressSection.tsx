@@ -4,6 +4,7 @@ import PressCard, { PressCardType } from '../Cards/PressCard';
 import PaginationControls from './PaginationControls';
 
 const PAGE_SIZE = 12;
+
 const PressSection = ({ data }) => {
   const [activePageIndex, setActivePageIndex] = useState(0);
 

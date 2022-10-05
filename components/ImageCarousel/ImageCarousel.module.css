@@ -1,8 +1,6 @@
-.container {
-}
 .inner {
   margin: 0 auto;
-  min-height: 350px;
+  padding-bottom: 56.25%;
   position: relative;
   overflow: hidden;
 }

@@ -22,6 +22,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .container {
+    margin-bottom: var(--spacing-large);
+  }
   .content {
     grid-column: 1/9;
   }
