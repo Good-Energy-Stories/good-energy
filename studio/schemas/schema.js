@@ -75,6 +75,7 @@ import contactForm from './contact-form';
 import fullWidthStatement from './full-width-statement';
 import accordion from './accordion';
 import dataVisualization from './data-visualization';
+import landAcknowledgment from './land-acknowledgment';
 
 export default createSchema({
   name: 'default',
@@ -153,5 +154,6 @@ export default createSchema({
     fullWidthStatement,
     accordion,
     dataVisualization,
+    landAcknowledgment,
   ]),
 });

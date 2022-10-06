@@ -88,6 +88,9 @@ export default {
         { type: 'pageDivider' },
         { type: 'contactForm' },
         { type: 'accordion' },
+        { type: 'landAcknowledgment' },
+        { type: 'individualPartnerFeature' },
+        { type: 'resourceSection' },
         {
           type: 'reference',
           to: [

@@ -8,9 +8,22 @@ export default {
   icon,
   fields: [
     {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      description: "Ex. 'Consulting'",
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'buttonLabel',
+      title: 'Button Label',
+      type: 'string',
+      description:
+        "Label on the CTA button that will link to the resource. Ex. 'Work With Us'",
     },
     {
       title: 'Slug',
@@ -39,22 +52,8 @@ export default {
       ],
     },
     {
-      title: 'Style',
-      name: 'style',
-      type: 'string',
-      description:
-        'A featured resource will have a more prominent card than one with a standard style.',
-      options: {
-        layout: 'radio',
-        list: [
-          { title: 'Featured', value: 'featured' },
-          { title: 'Standard', value: 'standard' },
-        ],
-      },
-    },
-    {
-      title: 'Resource Hero Image',
-      name: 'heroImage',
+      title: 'Image',
+      name: 'image',
       type: 'image',
       options: {
         hotspot: true,

@@ -15,7 +15,7 @@ export default {
     { type: 'dataVisualization' },
     {
       type: 'reference',
-      to: [{ type: 'testimonial' }],
+      to: [{ type: 'testimonial' }, { type: 'press' }],
     },
   ],
 };

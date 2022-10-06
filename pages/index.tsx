@@ -15,11 +15,12 @@ import {
   PageBanner,
   NavBarStyles,
 } from '../components';
-import { PageContent, StickyNavBar, Header } from '../components/Landing';
+import { PageContent, StickyNavBar } from '../components/Landing';
 import { queries } from '../data';
 import { Footer } from '../components/Footer';
 import { observer } from 'mobx-react-lite';
 import { imageUrlFor } from '../utils/imageUrlFor';
+import Header from '../components/Landing/Header/Header';
 
 const Root = observer(
   ({

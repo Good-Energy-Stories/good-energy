@@ -8,7 +8,7 @@ enum ButtonType {
   Outline = 'outline',
 }
 
-const CTAButton = ({ data }: any) => {
+const CTAButton = ({ data, className }: any) => {
   const {
     label,
     type = ButtonType.Outline,
@@ -16,7 +16,7 @@ const CTAButton = ({ data }: any) => {
     backgroundColor,
     onClick,
   } = data;
-
+  if (!label) return null;
   return (
     <button
       type={type}
@@ -25,6 +25,7 @@ const CTAButton = ({ data }: any) => {
         styles.container,
         type === ButtonType.Fill && styles.fill,
         type === ButtonType.Outline && styles.outline,
+        className,
       )}
       onClick={onClick && onClick}
     >

@@ -4,19 +4,17 @@ import classnames from 'classnames';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { useCallback, useState } from 'react';
 import useInterval from '../../utils/useInterval';
-import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 
 const cx = classnames.bind(styles);
 
 const variants = {
   active: {
-    clipPath: 'polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)',
+    opacity: 1,
+    transition: { duration: 1, ease: 'linear' },
   },
   inactive: {
-    clipPath: [
-      'polygon(0% 100%,0% 0%,100% 0%,0% 100%)',
-      'polygon(0% 100%,0% 0%,0% 0%,0% 100%)',
-    ],
+    opacity: 0,
+    transition: { delay: 1, duration: 1, ease: 'linear' },
   },
 };
 
@@ -26,7 +24,7 @@ const ImageCarousel = ({ data }: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [skipNextInterval, setSkipNextInterval] = useState(false);
 
-  const SLIDE_DURATION = 4;
+  const SLIDE_DURATION = 5;
   useInterval(() => {
     if (skipNextInterval) {
       setSkipNextInterval(false);
@@ -37,14 +35,13 @@ const ImageCarousel = ({ data }: any) => {
 
   const renderImages = (content) => {
     return content.map((image, index) => {
-      const active = index <= activeIndex;
+      const active = index === activeIndex;
       const src = imageUrlFor(image).width(800).url();
       return (
         <motion.img
           key={src}
           variants={variants}
           animate={active ? 'active' : 'inactive'}
-          transition={FRAMER_TRANSITION_EASEOUT}
           className={styles.image}
           src={src}
         />

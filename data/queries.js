@@ -45,10 +45,12 @@ initialState
 
 export const resource = `
 title,
+name,
 slug,
 description,
+buttonLabel,
 style,
-heroImage{
+image {
   ${imageMeta}
 },
 `;
