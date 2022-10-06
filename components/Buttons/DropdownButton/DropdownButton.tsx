@@ -8,7 +8,7 @@ const DropdownButton = ({
   expandedLabel = 'Hide',
   hiddenLabel = 'Show',
   className,
-}) => {
+}: any) => {
   const label = expanded ? expandedLabel : hiddenLabel;
   return (
     <button

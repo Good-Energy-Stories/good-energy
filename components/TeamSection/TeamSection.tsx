@@ -2,7 +2,7 @@ import TeamMemberCard from '../Cards/TeamMember/TeamMemberCard';
 import Information from './Information/Information';
 
 import styles from './TeamSection.module.css';
-const TeamSection = ({ data }) => {
+const TeamSection = ({ data }: any) => {
   const { teamMembers } = data;
   console.log('heree', data);
   const renderTeamCards = (content) => {

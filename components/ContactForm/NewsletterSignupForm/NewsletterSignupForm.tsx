@@ -62,7 +62,6 @@ const BasicContactForm = observer(() => {
       });
 
       reset();
-      setFormSubmitted(true);
     } catch (err) {
       formData.errors.email = err;
     }

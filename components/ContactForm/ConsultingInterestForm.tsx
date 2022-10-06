@@ -1,10 +1,7 @@
-import SearchIcon from '../../public/search.svg';
-import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 
 import { useState } from 'react';
-import * as ga from '../lib/ga';
-import CTAButton from '../Buttons/CTAButton/CTAButton';
+
 import SubmitButton from '../Buttons/SubmitButton/SubmitButton';
 export const light: ContactFormStyle = {
   backgroundColor: 'transparent',
