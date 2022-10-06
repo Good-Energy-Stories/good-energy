@@ -9,6 +9,9 @@ const PortableTextSerializer: Partial<PortableTextReactComponents> = {
     bullet: ({ children }) => <li className="body">{children}</li>,
   },
   marks: {
+    highlight: ({ children }) => (
+      <span style={{ color: 'var(--blueFour)' }}>{children}</span>
+    ),
     strong: ({ children }) => <span className="body-bold">{children}</span>,
     internalLink: ({ value, children }) => {
       const { slug = {} } = value;

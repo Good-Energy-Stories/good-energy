@@ -185,7 +185,7 @@ const ContactForm = observer(({ inFooter }: { inFooter?: boolean }) => {
           width: 100%;
           background-color: transparent;
           color: var(--black);
-          border: 2px solid var(--black);
+          border: 2px solid var(--white);
           margin-bottom: 1.25rem;
         }
         ::placeholder {

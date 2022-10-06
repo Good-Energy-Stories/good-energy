@@ -21,4 +21,8 @@
   .description {
     grid-column: 1/9;
   }
+  .container {
+    margin: 0 var(--spacing-small);
+    gap: 0;
+  }
 }

@@ -12,6 +12,7 @@ export default {
       type: 'standardPagePortableText',
       validation: (Rule) => Rule.required(),
     },
+
     {
       title: 'Truncate Content',
       name: 'truncateContent',

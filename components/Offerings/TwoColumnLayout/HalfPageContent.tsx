@@ -6,6 +6,7 @@ import WrittenContent from '../../WrittenContent/WrittenContent';
 import InlineQuote from '../../Quotes/InlineQuote/InlineQuote';
 import Statement from '../Statement/Statement';
 import ImageCarousel from '../../ImageCarousel/ImageCarousel';
+import DataVisualization from '../../DataVisualization/DataVisualization';
 
 const HalfPageContent = ({ content, index }: any) => {
   const type = content._type;
@@ -24,6 +25,8 @@ const HalfPageContent = ({ content, index }: any) => {
       return <Statement data={content} index={index} />;
     case 'imageCarousel':
       return <ImageCarousel data={content} index={index} />;
+    case 'dataVisualization':
+      return <DataVisualization data={content} index={index} />;
     default:
       return null;
   }

@@ -12,6 +12,7 @@ export default {
     { type: 'ctaLink' },
     { type: 'spotIllustration' },
     { type: 'imageCarousel' },
+    { type: 'dataVisualization' },
     {
       type: 'reference',
       to: [{ type: 'testimonial' }],

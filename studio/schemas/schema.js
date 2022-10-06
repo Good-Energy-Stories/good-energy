@@ -72,6 +72,9 @@ import fullWidthImage from './full-width-image';
 import pageDivider from './page-divider';
 import imageCarousel from './image-carousel';
 import contactForm from './contact-form';
+import fullWidthStatement from './full-width-statement';
+import accordion from './accordion';
+import dataVisualization from './data-visualization';
 
 export default createSchema({
   name: 'default',
@@ -147,5 +150,8 @@ export default createSchema({
     pageDivider,
     imageCarousel,
     contactForm,
+    fullWidthStatement,
+    accordion,
+    dataVisualization,
   ]),
 });

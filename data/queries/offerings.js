@@ -35,6 +35,13 @@ _type == 'reference' => @->{
             ${imageMeta}
         }
     },
+    _type == 'dataVisualization' => {
+      _type,
+      title,
+      image {
+          ${imageMeta}
+      }
+    },
     _type == 'statement' => {
         _type,
        ...
@@ -66,6 +73,7 @@ _type == 'reference' => @->{
 
 export const twoColumnLayoutFragment = `
 backgroundColor,
+marginBottom,
 leftColumn[] {
     ${halfColumnPageContentFragment}
 },
@@ -96,6 +104,10 @@ export const offeringsPageContentFragment = `
         _type,
        ...
     },
+    _type == 'quote' => {
+      _type,
+     ...
+    },
   },
   _type != 'reference' => {
     _type == 'twoColumnLayout' => {
@@ -115,6 +127,14 @@ export const offeringsPageContentFragment = `
     _type == 'pageDivider' => {
         _type,
         ...
+    },
+    _type == 'accordion' => {
+      _type,
+      ...
+    },
+    _type == 'fullWidthStatement' => {
+      _type,
+      ...
     },
     _type == 'contactForm' => {
       _type,

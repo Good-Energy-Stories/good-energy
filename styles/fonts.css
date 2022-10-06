@@ -95,6 +95,12 @@ h1 {
 .quote-xl::after {
   content: '”';
 }
+.quote-xl[data-hide-quote-marks]::before {
+  display: none;
+}
+.quote-xl[data-hide-quote-marks]::after {
+  display: none;
+}
 .quote-lg {
   font-family: var(--flexa);
   font-size: 48px;
@@ -570,7 +576,7 @@ h4 {
     font-family: var(--flexa);
     font-size: 48px;
     line-height: 46px;
-    font-variation-settings: 'wght' 604, 'wdth' 69;
+    font-variation-settings: 'wght' 744, 'wdth' 69;
     letter-spacing: -0.01em;
     position: relative;
   }

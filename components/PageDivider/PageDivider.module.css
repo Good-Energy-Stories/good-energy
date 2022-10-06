@@ -3,12 +3,15 @@
   margin: 0 var(--spacing-large);
   margin-bottom: var(--spacing-large);
 }
+.padding {
+  padding-top: var(--spacing-large);
+}
 .inner {
   border-bottom: 1px solid var(--blueThree);
 }
 .container[data-theme='black'] {
   margin: 0;
-  padding: var(--spacing-large);
+  padding: 0 var(--spacing-large);
   padding-bottom: 0;
   margin-bottom: 0;
   background: var(--black);

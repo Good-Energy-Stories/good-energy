@@ -4,6 +4,9 @@ import { PartnerSection } from '../Partners';
 import CalloutSection from '../Offerings/CalloutSection/CalloutSection';
 import TeamSection from '../TeamSection/TeamSection';
 import ContactForm from '../ContactForm/ContactForm';
+import FullWidthQuote from '../FullWidthQuote/FullWidthQuote';
+import FullWidthStatement from '../FullWidthStatement/FullWidthStatement';
+import Accordion from '../Accordion/Accordion';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
@@ -45,6 +48,12 @@ const PageContent = ({ content, index }: any) => {
       return <TeamSection data={content} index={index} />;
     case 'contactForm':
       return <ContactForm data={content} index={index} />;
+    case 'quote':
+      return <FullWidthQuote data={content} index={index} />;
+    case 'fullWidthStatement':
+      return <FullWidthStatement data={content} index={index} />;
+    case 'accordion':
+      return <Accordion data={content} index={index} />;
     default:
       return null;
   }

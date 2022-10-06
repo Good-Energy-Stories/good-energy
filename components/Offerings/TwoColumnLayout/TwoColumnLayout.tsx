@@ -17,7 +17,8 @@ const variants = {
 };
 
 const TwoColumnLayout = ({ data }: any) => {
-  const { leftColumn, rightColumn, backgroundColor } = data;
+  const { leftColumn, rightColumn, backgroundColor, marginBottom, noPadding } =
+    data;
 
   const renderContent = useCallback((content: any) => {
     return content.map((item, index) => (
@@ -26,7 +27,14 @@ const TwoColumnLayout = ({ data }: any) => {
   }, []);
 
   return (
-    <div data-theme={backgroundColor} className={styles.container}>
+    <div
+      data-theme={backgroundColor}
+      className={cx(
+        styles.container,
+        !noPadding && styles.padding,
+        marginBottom && styles.marginBottom,
+      )}
+    >
       {leftColumn && (
         <div className={cx(styles.column, styles.left)}>
           {renderContent(leftColumn)}

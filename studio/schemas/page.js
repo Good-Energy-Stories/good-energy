@@ -84,8 +84,10 @@ export default {
         { type: 'quote' },
         { type: 'callout' },
         { type: 'fullWidthImage' },
+        { type: 'fullWidthStatement' },
         { type: 'pageDivider' },
         { type: 'contactForm' },
+        { type: 'accordion' },
         {
           type: 'reference',
           to: [

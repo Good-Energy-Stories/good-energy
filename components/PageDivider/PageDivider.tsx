@@ -18,12 +18,11 @@ export const PageDivider = ({ data, className, style }: any) => {
           cx('label-medium', styles.smallLabel),
         data?.labelSize === PageDividerLabelSize.Medium && 'h4',
         data?.labelSize === PageDividerLabelSize.Large && 'h2',
-
         className,
       )}
       style={style}
     >
-      <div className={styles.inner}>
+      <div className={cx(styles.inner, data?.label && styles.padding)}>
         {data?.label && <div className={styles.label}> {data.label}</div>}
       </div>
     </div>

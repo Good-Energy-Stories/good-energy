@@ -1,0 +1,26 @@
+.container {
+  grid-column: 1/-1;
+
+  padding: 0 var(--spacing-large);
+  text-decoration: underline;
+}
+
+.container[data-theme='black'] {
+  padding: var(--spacing-small) var(--spacing-large);
+
+  background: var(--black);
+  color: var(--white);
+  text-decoration-color: var(--blueFour);
+}
+.marginBottom {
+  margin-bottom: var(--spacing-large);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-small);
+  }
+  .container[data-theme='black'] {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+}

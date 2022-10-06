@@ -23,7 +23,6 @@ export interface ContactFormStyle {
 }
 
 const BasicContactForm = observer(() => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const store = useStore();
   const {
     dataStore: {

@@ -1,0 +1,11 @@
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin-bottom: var(--spacing-medium);
+}
+
+.imageContainer {
+}
+.image {
+  max-width: 100%;
+  min-width: 100%;
+}

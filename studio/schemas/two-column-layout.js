@@ -21,16 +21,20 @@ export default {
       },
     },
     {
+      name: 'marginBottom',
+      title: 'Margin Bottom',
+      type: 'boolean',
+      description: 'Should this section add margin below. Defaults to true.',
+    },
+    {
       name: 'leftColumn',
       title: 'Left Column',
       type: 'halfPageContent',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'rightColumn',
       title: 'Right Column',
       type: 'halfPageContent',
-      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {

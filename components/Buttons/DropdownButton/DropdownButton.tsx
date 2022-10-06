@@ -7,13 +7,14 @@ const DropdownButton = ({
   expanded,
   expandedLabel = 'Hide',
   hiddenLabel = 'Show',
+  className,
 }) => {
   const label = expanded ? expandedLabel : hiddenLabel;
   return (
     <button
       aria-expanded={expanded ? 'true' : 'false'}
       onClick={onClick}
-      className={cx('label-medium', styles.button)}
+      className={cx('label-medium', styles.button, className)}
     >
       {label}
       <motion.svg
