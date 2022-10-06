@@ -5,10 +5,8 @@ import PortableTextSerializer from '../PortableTextSerializer';
 import classname from 'classnames';
 import CTAButton from '../Buttons/CTAButton/CTAButton';
 const cx = classname.bind(styles);
-const Resource = ({ data }: any) => {
+const Resource = ({ data, backgroundColor }: any) => {
   const { title, name, description, buttonLabel, slug, image } = data;
-  console.log(data);
-
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -20,7 +18,7 @@ const Resource = ({ data }: any) => {
             components={PortableTextSerializer}
           />
         </div>
-        <CTAButton data={{ label: buttonLabel, link: slug }} />
+        <CTAButton data={{ label: buttonLabel, link: slug, backgroundColor }} />
       </div>
       <div className={styles.imageContainer}>
         {image && (

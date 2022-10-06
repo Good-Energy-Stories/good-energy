@@ -3,12 +3,14 @@ import chunks from '../../../utils/chunks';
 import PressCard, { PressCardType } from '../Cards/PressCard';
 import PaginationControls from './PaginationControls';
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 8;
 
-const PressSection = ({ data }) => {
+const PressSection = ({ data }: any) => {
+  const { content } = data;
+
   const [activePageIndex, setActivePageIndex] = useState(0);
 
-  const pressPages = chunks(data, PAGE_SIZE);
+  const pressPages = chunks(content, PAGE_SIZE);
 
   const handleNextClick = () => {
     if (activePageIndex < pressPages.length - 1) {

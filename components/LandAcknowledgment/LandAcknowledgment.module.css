@@ -1,0 +1,27 @@
+.container {
+  grid-column: 1/-1;
+  padding: var(--spacing-large);
+
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+}
+.title {
+  margin-bottom: var(--spacing-large);
+}
+.statement {
+}
+.textContainer {
+  position: relative;
+  grid-column: 1/7;
+}
+.image {
+  z-index: -1;
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  max-height: 100%;
+}

@@ -57,6 +57,7 @@ image {
 
 export const resourceSection = `
 title,
+backgroundColor,
 resources[] -> {
   ${resource}
 },
@@ -523,26 +524,6 @@ export const playbookSections = `
     }
   },
   
-`;
-
-export const landingPageQuery = `
-*[_type == "landingPage" ] {
-  "id": _id,
-  seo {
-    ${pageSeo}
-  },
-  title,
-  subtitle,
-  showBanner,
-  donateLink,
-  bannerCopy,
-  bannerImage{
-    ${imageMeta}
-  },
-  content[]{
-      ${playbookSections}
-  },
-}[0]
 `;
 
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 

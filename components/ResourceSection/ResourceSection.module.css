@@ -7,6 +7,13 @@
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
   padding: 0 var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+}
+.container[data-theme='black'] {
+  padding: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+  background: var(--black);
+  color: var(--white);
 }
 .title {
   grid-column: 1/9;

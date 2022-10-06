@@ -14,6 +14,20 @@ export default {
       description: "Ex. 'Featured Resource', 'More of what we do'",
     },
     {
+      title: 'Background Color',
+      name: 'backgroundColor',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Black', value: 'black' },
+          { title: 'White', value: 'white' },
+        ],
+      },
+    },
+    {
       title: 'Resources',
       name: 'resources',
       description: 'You can add any number of resources to a section.',

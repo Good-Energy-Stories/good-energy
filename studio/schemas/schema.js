@@ -76,6 +76,9 @@ import fullWidthStatement from './full-width-statement';
 import accordion from './accordion';
 import dataVisualization from './data-visualization';
 import landAcknowledgment from './land-acknowledgment';
+import pageContent from './page-content';
+import aboutBlock from './about-block';
+import pressSection from './press-section';
 
 export default createSchema({
   name: 'default',
@@ -155,5 +158,7 @@ export default createSchema({
     accordion,
     dataVisualization,
     landAcknowledgment,
+    aboutBlock,
+    pressSection,
   ]),
 });

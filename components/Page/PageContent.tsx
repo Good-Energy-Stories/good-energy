@@ -7,6 +7,11 @@ import ContactForm from '../ContactForm/ContactForm';
 import FullWidthQuote from '../FullWidthQuote/FullWidthQuote';
 import FullWidthStatement from '../FullWidthStatement/FullWidthStatement';
 import Accordion from '../Accordion/Accordion';
+import ResourceSection from '../ResourceSection/ResourceSection';
+import IndividualPartnerFeature from '../IndividualPartnerFeature/IndividualPartnerFeature';
+import LandAcknowledgment from '../LandAcknowledgment/LandAcknowledgment';
+import AboutBlock from '../AboutBlock/AboutBlock';
+import PressSection from '../Press/PressSection/PressSection';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
@@ -54,6 +59,16 @@ const PageContent = ({ content, index }: any) => {
       return <FullWidthStatement data={content} index={index} />;
     case 'accordion':
       return <Accordion data={content} index={index} />;
+    case 'resourceSection':
+      return <ResourceSection data={content} index={index} />;
+    case 'individualPartnerFeature':
+      return <IndividualPartnerFeature data={content} index={index} />;
+    case 'landAcknowledgment':
+      return <LandAcknowledgment data={content} index={index} />;
+    case 'aboutBlock':
+      return <AboutBlock data={content} index={index} />;
+    case 'pressSection':
+      return <PressSection data={content} index={index} />;
     default:
       return null;
   }

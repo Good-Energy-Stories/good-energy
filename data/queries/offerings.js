@@ -1,7 +1,9 @@
 import { imageMeta } from './imageMeta';
 import { pageSeo } from './pageSeo';
-import { partnerSection } from './partners';
+import { partner, partnerSection } from './partners';
 import { teamSection } from './team';
+import { resourceSection } from './resource';
+import { pressSection } from './press';
 
 export const calloutFragment = `
 title, 
@@ -82,7 +84,7 @@ rightColumn[] {
 }
 `;
 
-export const offeringsPageContentFragment = `
+export const pageContentFragment = `
   _type == 'reference' => @->{
     _type == 'climateLensBlock' => {
       _type,
@@ -104,15 +106,22 @@ export const offeringsPageContentFragment = `
         _type,
        ...
     },
-    _type == 'quote' => {
+    _type == 'pressSection' => {
       _type,
-     ...
+      ${pressSection}
     },
   },
   _type != 'reference' => {
     _type == 'twoColumnLayout' => {
         _type,
        ${twoColumnLayoutFragment}
+    },
+    _type == 'individualPartnerFeature' => {
+      _type,
+      description,
+      partner -> {
+        ${partner}
+      }
     },
     _type == 'callout' => {
       _type,
@@ -128,6 +137,10 @@ export const offeringsPageContentFragment = `
         _type,
         ...
     },
+    _type == 'landAcknowledgment' => {
+      _type,
+      ...
+    },
     _type == 'accordion' => {
       _type,
       ...
@@ -140,12 +153,20 @@ export const offeringsPageContentFragment = `
       _type,
       form
     },
+    _type == 'aboutBlock' => {
+      _type,
+      ...
+    },
     _type == 'emailCapture' => {
       _type,
       title,
       subtitle,
       backgroundColor
     },
+    _type == 'resourceSection' => {
+      _type,
+      ${resourceSection}
+    }
   },
 `;
 
@@ -164,9 +185,14 @@ nextUp->{
 title,
 description,
 content[] {
-    ${offeringsPageContentFragment}
+    ${pageContentFragment}
 }
 `;
+
+export const pressPageQuery = `
+*[_type == "pressPage" ] {
+  ${pageFragment}
+}[0]`;
 
 export const offeringsPagePathsQuery = `*[_type == "offeringsPage"] { slug }`;
 export const offeringsPageQuery = `*[_type == "offeringsPage" && slug.current == $slug] {

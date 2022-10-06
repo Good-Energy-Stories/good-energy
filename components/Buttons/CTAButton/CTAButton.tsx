@@ -16,6 +16,7 @@ const CTAButton = ({ data, className }: any) => {
     backgroundColor,
     onClick,
   } = data;
+
   if (!label) return null;
   return (
     <button

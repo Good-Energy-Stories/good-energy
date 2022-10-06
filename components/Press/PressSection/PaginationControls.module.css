@@ -3,8 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   border-top: 1px solid var(--blueThree);
-  padding: var(--spacing-medium) 0;
+  padding: var(--spacing-medium) var(--spacing-large);
+  margin-top: var(--spacing-large);
 }
 .button {
   height: 50px;

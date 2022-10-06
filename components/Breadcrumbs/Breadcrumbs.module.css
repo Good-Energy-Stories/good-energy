@@ -33,6 +33,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+  }
   .chevron {
     height: 20px;
   }

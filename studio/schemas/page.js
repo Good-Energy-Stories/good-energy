@@ -1,4 +1,5 @@
 import { BsWindow as icon } from 'react-icons/bs';
+import pageContent from './page-content';
 
 export default {
   name: 'page',
@@ -78,30 +79,7 @@ export default {
       description: 'This is the content that will appear on the page',
       name: 'content',
       type: 'array',
-      of: [
-        { type: 'emailCapture' },
-        { type: 'twoColumnLayout' },
-        { type: 'quote' },
-        { type: 'callout' },
-        { type: 'fullWidthImage' },
-        { type: 'fullWidthStatement' },
-        { type: 'pageDivider' },
-        { type: 'contactForm' },
-        { type: 'accordion' },
-        { type: 'landAcknowledgment' },
-        { type: 'individualPartnerFeature' },
-        { type: 'resourceSection' },
-        {
-          type: 'reference',
-          to: [
-            { type: 'climateLensBlock' },
-            { type: 'testimonial' },
-            { type: 'teamSection' },
-            { type: 'calloutSection' },
-            { type: 'partnerSection' },
-          ],
-        },
-      ],
+      of: pageContent,
     },
   ],
 };

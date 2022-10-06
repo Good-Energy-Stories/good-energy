@@ -1,4 +1,5 @@
 import { BsGrid3X2GapFill as icon } from 'react-icons/bs';
+import pageContent from './page-content';
 
 export default {
   name: 'pressPage',
@@ -19,17 +20,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Press',
+      title: 'Page Content',
+      description: 'This is the content that will appear on the page',
       name: 'content',
-      description:
-        'This is where you select the order of the press links as they should show up on the page.',
       type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'press' }],
-        },
-      ],
+      of: pageContent,
     },
   ],
   preview: {},

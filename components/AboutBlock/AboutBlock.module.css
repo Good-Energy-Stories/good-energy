@@ -1,0 +1,32 @@
+.container {
+  grid-column: 1/-1;
+  padding: var(--spacing-large);
+
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+
+  border-top: 4px solid var(--blueFour);
+  border-bottom: 4px solid var(--blueFour);
+  background: var(--white);
+  overflow: hidden;
+}
+.title {
+  margin-bottom: var(--spacing-medium);
+}
+
+.textContainer {
+  position: relative;
+  z-index: 1;
+  grid-column: 1/7;
+}
+.image {
+  z-index: 0;
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+  height: 700px;
+  max-height: 300%;
+  bottom: -50%;
+}

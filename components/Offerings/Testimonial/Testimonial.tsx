@@ -25,7 +25,7 @@ const Testimonial = ({ data }: any) => {
   return (
     <div ref={ref} className={styles.container}>
       <motion.div
-        transition={{ ...FRAMER_TRANSITION_EASEOUT, delay: 0.5 }}
+        transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={inView ? 'in' : 'out'}
         variants={variants}

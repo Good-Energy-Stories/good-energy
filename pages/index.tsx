@@ -21,6 +21,7 @@ import { Footer } from '../components/Footer';
 import { observer } from 'mobx-react-lite';
 import { imageUrlFor } from '../utils/imageUrlFor';
 import Header from '../components/Landing/Header/Header';
+import Page from '../components/Page/Page';
 
 const Root = observer(
   ({
@@ -60,28 +61,14 @@ const Root = observer(
 
     const navMode =
       scrollPosition > 0.001 ? NavBarStyles.dark : NavBarStyles.light;
+
+    const header = (
+      <Header title={title} subtitle={subtitle} image={bannerImage} />
+    );
+
     return (
       <>
-        <Meta
-          title={seo?.title}
-          description={seo?.description}
-          slug={''}
-          image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
-        />
-
-        <StickyNavBar
-          showBanner={showBanner}
-          mode={navMode}
-          donateLink={donateLink}
-        />
-        {showBanner && <PageBanner copy={bannerCopy} />}
-        <Header title={title} subtitle={subtitle} image={bannerImage} />
-        <Layout key="home">
-          {content.map((c, i) => (
-            <PageContent key={i} index={i} content={c} />
-          ))}
-        </Layout>
-        <Footer />
+        <Page pageData={pageData} header={header} />
       </>
     );
   },

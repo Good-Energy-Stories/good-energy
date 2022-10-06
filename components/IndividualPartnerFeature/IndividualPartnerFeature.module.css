@@ -1,6 +1,6 @@
 .container {
   grid-column: 1/-1;
-  padding: var(--spacing-medium) var(--spacing-large);
+  padding: var(--spacing-large);
   background-color: var(--blueFive);
 
   display: grid;
@@ -16,6 +16,10 @@
   grid-column: 5/9;
   margin: 0;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media only screen and (max-width: 768px) {
   .logo {

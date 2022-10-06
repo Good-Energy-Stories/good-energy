@@ -1,10 +1,11 @@
 .container {
   display: inline-block;
-  width: 100%;
-  grid-row: span 1;
-  border-top: 4px solid var(--black);
-  border-bottom: 1px solid var(--blueThree);
-  padding: var(--spacing-medium) 0;
+
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+
   position: relative;
   margin-bottom: var(--spacing-medium);
   transition: 0.3s ease;
@@ -12,27 +13,52 @@
 .container:hover {
   opacity: 0.6;
 }
+.inner {
+  padding: var(--spacing-medium) 0;
+  border-top: 4px solid var(--black);
+  border-bottom: 1px solid var(--blueThree);
+  grid-column: 2/8;
+  display: grid;
+  grid-template-columns: var(--grid-col-6);
+  gap: var(--spacing-large);
+  row-gap: 0;
+}
 .attribution {
   color: var(--blueThree);
+}
+.textContainer {
+  grid-column: 1/5;
 }
 .title {
   margin-bottom: var(--spacing-medium);
 }
 .logoContainer {
-  border-top: 1px solid var(--blueThree);
+  grid-column: 5/7;
 
   display: flex;
   justify-content: center;
   padding: var(--spacing-small) 0;
+  background: var(--white);
+  padding: var(--spacing-medium);
+  min-height: 165px;
 }
-@media only screen and (max-width: 1080px) {
-  .container {
-    grid-column: span 2;
-  }
+.image {
+  max-width: 100%;
 }
+
 @media only screen and (max-width: 768px) {
   .container {
+    gap: 0;
+    margin: 0 var(--spacing-small);
+  }
+  .inner {
+    gap: 0;
     grid-column: 1/-1;
-    max-width: none;
+  }
+  .textContainer {
+    grid-column: 1/9;
+  }
+  .logoContainer {
+    grid-column: 1/9;
   }
 }

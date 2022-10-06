@@ -3,7 +3,7 @@ import PortableTextSerializer from '../PortableTextSerializer';
 import Card from '../Partners/Card';
 import styles from './IndividualPartnerFeature.module.css';
 
-const IndividualPartnerFeature = ({ data }: { data: any }) => {
+const IndividualPartnerFeature = ({ data }: any) => {
   const { description, partner } = data;
   return (
     <div className={styles.container}>

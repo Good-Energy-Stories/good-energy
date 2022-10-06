@@ -1,5 +1,5 @@
 import { imageMeta } from './imageMeta';
-import { pageSeo } from './pageSeo';
+
 export const outletFragment = `
 title,
 logo {
@@ -14,15 +14,9 @@ outlet {
 }
 `;
 
-export const pressPageQuery = `
-*[_type == "pressPage" ] {
-    "id": _id,
-    seo {
-      ${pageSeo}
-    },
-    title,
-    content[]->{
-      ${pressFragment}
-    }
-  }[0]
+export const pressSection = `
+title,
+content[]->{
+    ${pressFragment}
+},
 `;
