@@ -1,7 +1,5 @@
 import { useCallback } from 'react';
-import { Card } from '..';
 import CTAButton from '../../Buttons/CTAButton/CTAButton';
-import PageDivider from '../../PageDivider/PageDivider';
 import styles from './Full.module.css';
 import classnames from 'classnames';
 import Partner from '../Partner/Partner';

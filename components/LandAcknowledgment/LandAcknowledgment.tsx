@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
-import Card from '../Partners/Card';
 import styles from './LandAcknowledgment.module.css';
 
 const LandAcknowledgment = ({ data }: any) => {

@@ -1,7 +1,3 @@
-import { motion } from 'framer-motion';
-import css from 'styled-jsx/css';
-import PageDivider from '../../PageDivider/PageDivider';
-import { Card } from '..';
 import styles from './Half.module.css';
 import { useCallback } from 'react';
 import Partner from '../Partner/Partner';

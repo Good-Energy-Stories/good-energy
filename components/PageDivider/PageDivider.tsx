@@ -9,7 +9,6 @@ export enum PageDividerLabelSize {
 }
 
 export const PageDivider = ({ data, className, style }: any) => {
-  const { marginBottom } = data;
   return (
     <div
       data-theme={data?.backgroundColor}
@@ -20,7 +19,7 @@ export const PageDivider = ({ data, className, style }: any) => {
         data?.labelSize === PageDividerLabelSize.Medium && 'h4',
         data?.labelSize === PageDividerLabelSize.Large && 'h2',
         className,
-        marginBottom && styles.marginBottom,
+        data?.marginBottom && styles.marginBottom,
       )}
       style={style}
     >
