@@ -1,11 +1,15 @@
 .container {
   grid-column: 1/-1;
-  padding: var(--spacing-large);
+  padding: 0 var(--spacing-large);
   margin: var(--spacing-medium) 0;
+}
+.inner {
+  border-top: 4px solid var(--black);
+  padding: 0;
 }
 .quote {
   padding: var(--spacing-medium) 0;
-  border-top: 4px solid var(--black);
+
   margin-bottom: var(--spacing-small);
 }
 .attribution {
@@ -19,6 +23,9 @@
   text-decoration: underline;
 }
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-small);
+  }
   .inner {
     padding: 0 var(--spacing-medium);
   }
