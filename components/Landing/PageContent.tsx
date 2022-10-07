@@ -6,7 +6,7 @@ import ResourceSection from '../ResourceSection/ResourceSection';
 const ThreeColumnLayout = dynamic(
   () => import('../PlaybookHome/ThreeColumnLayout'),
 );
-const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
+const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'));
 const MegaQuote = dynamic(() => import('../PlaybookHome/MegaQuote'));
 const Playlist = dynamic(() => import('../PlaybookHome/Playlist'));
 const PartnerSection = dynamic(() => import('../Partners/PartnerSection'));

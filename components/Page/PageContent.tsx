@@ -16,7 +16,7 @@ import DownloadsSection from '../DownloadsSection/DownloadsSection';
 import IndividualPressFeature from '../Press/IndividualPressFeature/IndividualPressFeature';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
-const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
+const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'));
 const ClimateLensBlock = dynamic(
   () => import('../Offerings/ClimateLensBlock/ClimateLensBlock'),
 );

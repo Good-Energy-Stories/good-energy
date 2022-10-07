@@ -23,7 +23,13 @@ const Testimonial = ({ data }: any) => {
   const { content, size, attribution } = data;
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
-    <div ref={ref} className={styles.container}>
+    <div
+      ref={ref}
+      className={cx(
+        styles.container,
+        data?.marginBottom && styles.marginBottom,
+      )}
+    >
       <motion.div
         transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
@@ -33,7 +39,6 @@ const Testimonial = ({ data }: any) => {
           size === TestimonialSize.Large && 'quote-xl',
           size === TestimonialSize.Small && 'quote-lg',
           styles.content,
-          data?.marginBottom && styles.marginBottom,
         )}
       >
         {content}

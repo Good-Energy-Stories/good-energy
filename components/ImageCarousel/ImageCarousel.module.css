@@ -1,9 +1,14 @@
+.container {
+  width: 100%;
+}
 .inner {
   margin: 0 auto;
   padding-bottom: 56.25%;
   position: relative;
   overflow: hidden;
   background: var(--greyBlue);
+  width: 100%;
+  min-width: 100%;
 }
 .dots {
   margin: var(--spacing-medium) 0;
