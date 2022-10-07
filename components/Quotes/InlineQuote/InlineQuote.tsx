@@ -30,7 +30,7 @@ const variants = {
 const InlineQuote = ({ data }: any) => {
   const { quote, attribution } = data;
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   if (!quote) return null;
   return (
     <div ref={ref} className={cx(styles.container)}>

@@ -14,7 +14,7 @@ const List = (props) => {
     },
   };
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const { children } = props;
 
   return (
