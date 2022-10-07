@@ -64,12 +64,6 @@ _type == 'reference' => @->{
         _type,
        ...
     },
-    _type == 'emailCapture' => {
-      _type,
-      title,
-      subtitle,
-      backgroundColor
-    },
   },
 `;
 
@@ -178,9 +172,7 @@ export const pageContentFragment = `
     },
     _type == 'emailCapture' => {
       _type,
-      title,
-      subtitle,
-      backgroundColor
+     ...
     },
     _type == 'resourceSection' => {
       _type,

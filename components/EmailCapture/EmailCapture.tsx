@@ -7,6 +7,8 @@ import EmailCaptureSubmitButton from './EmailCaptureSubmitButton';
 import * as ga from '../../lib/ga';
 
 import styles from './EmailCapture.module.css';
+import classnames from 'classnames';
+const cx = classnames.bind(styles);
 
 export const EMAIL_CAPTURE_INPUT_HEIGHT = 72;
 
@@ -16,7 +18,7 @@ const EmailCapture = ({ data, index }: any) => {
   const [emailError, setEmailError] = useState(null);
 
   const [submitted, setSubmiited] = useState(false);
-  const { title, subtitle, backgroundColor } = data;
+  const { title, subtitle, backgroundColor, marginBottom } = data;
 
   const onSubmit = async () => {
     try {
@@ -55,7 +57,10 @@ const EmailCapture = ({ data, index }: any) => {
   };
 
   return (
-    <div data-theme={backgroundColor} className={styles.container}>
+    <div
+      data-theme={backgroundColor}
+      className={cx(styles.container, marginBottom && styles.marginBottom)}
+    >
       <div className={styles.inner}>
         {title && <h1>{title}</h1>}
         {subtitle && <div className="subtitle tease-lede">{subtitle}</div>}

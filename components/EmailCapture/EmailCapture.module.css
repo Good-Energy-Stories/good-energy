@@ -10,6 +10,9 @@
 
   overflow: hidden;
 }
+.marginBottom {
+  margin-bottom: var(--spacing-large);
+}
 .container[data-theme='white'] {
   background: var(--white);
 }
