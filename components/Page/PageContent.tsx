@@ -30,7 +30,7 @@ const Testimonial = dynamic(
 );
 const PageContent = ({ content, index }: any) => {
   const type = content._type;
-
+  console.log(content);
   switch (type) {
     case 'callout':
       return <Callout data={content} index={index} />;

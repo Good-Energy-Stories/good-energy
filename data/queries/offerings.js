@@ -141,6 +141,10 @@ export const pageContentFragment = `
         _type,
         ...
     },
+    _type == 'quote' => {
+      _type,
+      ...
+    },
     _type == 'landAcknowledgment' => {
       _type,
       ...
