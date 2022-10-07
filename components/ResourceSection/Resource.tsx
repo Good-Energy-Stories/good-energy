@@ -3,7 +3,7 @@ import styles from './Resource.module.css';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import classname from 'classnames';
-import CTAButton from '../Buttons/CTAButton/CTAButton';
+import CTAButton, { ButtonLabelSize } from '../Buttons/CTAButton/CTAButton';
 const cx = classname.bind(styles);
 const Resource = ({ data, backgroundColor }: any) => {
   const { title, name, description, buttonLabel, slug, image } = data;
@@ -18,7 +18,14 @@ const Resource = ({ data, backgroundColor }: any) => {
             components={PortableTextSerializer}
           />
         </div>
-        <CTAButton data={{ label: buttonLabel, link: slug, backgroundColor }} />
+        <CTAButton
+          data={{
+            label: buttonLabel,
+            labelSize: ButtonLabelSize.Small,
+            link: slug,
+            backgroundColor,
+          }}
+        />
       </div>
       <div className={styles.imageContainer}>
         {image && (

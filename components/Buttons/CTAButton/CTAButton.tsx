@@ -8,9 +8,27 @@ enum ButtonType {
   Outline = 'outline',
 }
 
+export enum ButtonLabelSize {
+  Small = 'small',
+
+  Large = 'large',
+}
+
+const Label = ({ size, label }) => {
+  switch (size) {
+    case ButtonLabelSize.Small:
+      return <div className={cx('h4', styles.label)}>{label}</div>;
+    case ButtonLabelSize.Large:
+      return <div className={cx('h3', styles.label)}>{label}</div>;
+    default:
+      return null;
+  }
+};
+
 const CTAButton = ({ data, className }: any) => {
   const {
     label,
+    labelSize = ButtonLabelSize.Large,
     type = ButtonType.Outline,
     link,
     backgroundColor,
@@ -20,9 +38,9 @@ const CTAButton = ({ data, className }: any) => {
 
   if (!label) return null;
 
-  const labelComponent = (
+  const LabelComponent = (
     <span>
-      {label}
+      {<Label size={labelSize} label={label} />}
       {icon && <img className={styles.icon} src={icon} />}
     </span>
   );
@@ -38,13 +56,7 @@ const CTAButton = ({ data, className }: any) => {
       )}
       onClick={onClick && onClick}
     >
-      {link ? (
-        <a href={link} className={cx('h3', styles.label)}>
-          {labelComponent}
-        </a>
-      ) : (
-        <div className={cx('h3', styles.label)}> {labelComponent}</div>
-      )}
+      {link ? <a href={link}>{LabelComponent}</a> : LabelComponent}
     </button>
   );
 };

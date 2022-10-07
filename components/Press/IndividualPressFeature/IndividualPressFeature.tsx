@@ -3,12 +3,11 @@ import classnames from 'classnames';
 import PressCard, { PressCardType } from '../Cards/PressCard';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../../PortableTextSerializer';
-import CTAButton from '../../Buttons/CTAButton/CTAButton';
+import CTAButton, { ButtonLabelSize } from '../../Buttons/CTAButton/CTAButton';
 const cx = classnames.bind(styles);
 
 const IndividualPressFeature = ({ data }: any) => {
   const { title, description, press } = data;
-  console.log('oyyy', press);
 
   return (
     <article className={styles.container}>
@@ -20,7 +19,13 @@ const IndividualPressFeature = ({ data }: any) => {
             components={PortableTextSerializer}
           />
         </div>
-        <CTAButton data={{ label: 'See More Press', link: '/about/press' }} />
+        <CTAButton
+          data={{
+            label: 'See More Press',
+            labelSize: ButtonLabelSize.Small,
+            link: '/about/press',
+          }}
+        />
       </div>
       <div className={styles.pressContainer}>
         <PressCard type={PressCardType.Half} data={press} />

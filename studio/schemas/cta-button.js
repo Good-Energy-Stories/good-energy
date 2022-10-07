@@ -13,6 +13,19 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: 'Label Size',
+      name: 'labelSize',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Small', value: 'small' },
+          { title: 'Large', value: 'large' },
+        ],
+      },
+    },
+    {
       name: 'link',
       title: 'Link',
       type: 'string',

@@ -1,7 +1,7 @@
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import styles from './Header.module.css';
 import classnames from 'classnames';
-import CTAButton from '../../Buttons/CTAButton/CTAButton';
+import CTAButton, { ButtonLabelSize } from '../../Buttons/CTAButton/CTAButton';
 const cx = classnames.bind(styles);
 
 const Header = ({
@@ -28,11 +28,19 @@ const Header = ({
         <div className={styles.buttonContainer}>
           <CTAButton
             className={styles.button}
-            data={{ label: 'Work With Us', type: 'fill' }}
+            data={{
+              label: 'Work With Us',
+              labelSize: ButtonLabelSize.Small,
+              type: 'fill',
+            }}
           />
           <CTAButton
             className={styles.button}
-            data={{ label: 'Donate', backgroundColor: 'black' }}
+            data={{
+              label: 'Donate',
+              labelSize: ButtonLabelSize.Small,
+              backgroundColor: 'black',
+            }}
           />
         </div>
       </div>
