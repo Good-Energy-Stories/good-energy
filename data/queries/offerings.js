@@ -3,7 +3,7 @@ import { pageSeo } from './pageSeo';
 import { partner, partnerSection } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
-import { pressSection } from './press';
+import { pressFragment, pressSection } from './press';
 
 export const calloutFragment = `
 title, 
@@ -140,6 +140,14 @@ export const pageContentFragment = `
     _type == 'pageDivider' => {
         _type,
         ...
+    },
+    _type == 'individualPressFeature' => {
+      _type,
+      title,
+      description,
+      press->{
+        ${pressFragment}
+      }
     },
     _type == 'quote' => {
       _type,

@@ -25,3 +25,15 @@
   object-fit: cover;
   max-height: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: var(--spacing-small);
+  }
+  .image {
+    display: none;
+  }
+  .textContainer {
+    grid-column: 1/-1;
+  }
+}

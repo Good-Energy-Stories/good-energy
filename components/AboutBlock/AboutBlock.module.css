@@ -30,3 +30,16 @@
   max-height: 300%;
   bottom: -50%;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: var(--spacing-medium);
+  }
+
+  .image {
+    display: none;
+  }
+  .textContainer {
+    grid-column: 1/-1;
+  }
+}

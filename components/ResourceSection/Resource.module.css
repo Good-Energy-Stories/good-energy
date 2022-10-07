@@ -25,5 +25,15 @@
 }
 @media only screen and (max-width: 768px) {
   .container {
+    gap: 0;
+  }
+  .textContainer {
+    grid-column: 1/9;
+    margin: 0;
+    padding: 0;
+  }
+  .imageContainer {
+    grid-column: 1/9;
+    margin-bottom: var(--spacing-medium);
   }
 }

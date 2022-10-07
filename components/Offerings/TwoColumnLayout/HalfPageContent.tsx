@@ -7,6 +7,7 @@ import InlineQuote from '../../Quotes/InlineQuote/InlineQuote';
 import Statement from '../Statement/Statement';
 import ImageCarousel from '../../ImageCarousel/ImageCarousel';
 import DataVisualization from '../../DataVisualization/DataVisualization';
+import PressCard, { PressCardType } from '../../Press/Cards/PressCard';
 
 const HalfPageContent = ({ content, index }: any) => {
   const type = content._type;
@@ -27,6 +28,10 @@ const HalfPageContent = ({ content, index }: any) => {
       return <ImageCarousel data={content} index={index} />;
     case 'dataVisualization':
       return <DataVisualization data={content} index={index} />;
+    case 'press':
+      return (
+        <PressCard type={PressCardType.Half} data={content} index={index} />
+      );
     default:
       return null;
   }

@@ -22,6 +22,10 @@
   justify-content: center;
 }
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: var(--spacing-medium) var(--spacing-small);
+    gap: 0;
+  }
   .logo {
     grid-column: 1/9;
   }

@@ -13,6 +13,7 @@ import LandAcknowledgment from '../LandAcknowledgment/LandAcknowledgment';
 import AboutBlock from '../AboutBlock/AboutBlock';
 import PressSection from '../Press/PressSection/PressSection';
 import DownloadsSection from '../DownloadsSection/DownloadsSection';
+import IndividualPressFeature from '../Press/IndividualPressFeature/IndividualPressFeature';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
@@ -72,6 +73,8 @@ const PageContent = ({ content, index }: any) => {
       return <PressSection data={content} index={index} />;
     case 'downloadsSection':
       return <DownloadsSection data={content} index={index} />;
+    case 'individualPressFeature':
+      return <IndividualPressFeature data={content} index={index} />;
     default:
       return null;
   }

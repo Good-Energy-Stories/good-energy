@@ -13,6 +13,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'marginBottom',
+      title: 'Margin Bottom',
+      type: 'boolean',
+      description: 'Should this section add margin below. Defaults to true.',
+    },
+    {
       title: 'Size',
       name: 'size',
       type: 'string',

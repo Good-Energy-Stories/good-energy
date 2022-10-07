@@ -33,6 +33,7 @@ const Testimonial = ({ data }: any) => {
           size === TestimonialSize.Large && 'quote-xl',
           size === TestimonialSize.Small && 'quote-lg',
           styles.content,
+          data?.marginBottom && styles.marginBottom,
         )}
       >
         {content}

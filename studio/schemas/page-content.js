@@ -16,6 +16,7 @@ export default [
   { type: 'aboutBlock' },
   { type: 'partnerSection' },
   { type: 'downloadsSection' },
+  { type: 'individualPressFeature' },
   {
     type: 'reference',
     to: [

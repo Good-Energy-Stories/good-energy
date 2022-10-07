@@ -20,6 +20,14 @@
   border-bottom: 4px solid var(--blueFour);
 }
 @media only screen and (max-width: 768px) {
+  .title {
+    margin-bottom: var(--spacing-large);
+  }
   .container {
+    padding: 0 var(--spacing-small);
+    gap: 0;
+  }
+  .container[data-theme='black'] {
+    padding: var(--spacing-large) var(--spacing-small);
   }
 }

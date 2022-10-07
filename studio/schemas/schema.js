@@ -80,6 +80,7 @@ import pageContent from './page-content';
 import aboutBlock from './about-block';
 import pressSection from './press-section';
 import downloadsSection from './downloads-section';
+import individualPressFeature from './individual-press-feature';
 
 export default createSchema({
   name: 'default',
@@ -162,5 +163,6 @@ export default createSchema({
     aboutBlock,
     pressSection,
     downloadsSection,
+    individualPressFeature,
   ]),
 });
