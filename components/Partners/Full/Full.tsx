@@ -23,8 +23,9 @@ const Full = ({ data, truncate = false, className }: any) => {
           <div className={cx('label-medium', styles.title)}>{title}</div>
         )}
         <div className={styles.inner}>{renderPartners(partnersFormatted)}</div>
-        <div className={styles.buttonRow}>
-          {showLinkToPartnersPage && (
+
+        {showLinkToPartnersPage && (
+          <div className={styles.buttonRow}>
             <CTAButton
               data={{
                 link: '/about/partners',
@@ -33,8 +34,8 @@ const Full = ({ data, truncate = false, className }: any) => {
               }}
               className={styles.button}
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </>
   );

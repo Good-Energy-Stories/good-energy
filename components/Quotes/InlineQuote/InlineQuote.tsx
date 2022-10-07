@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import styles from './InlineQuote.module.css';
 import classnames from 'classnames';
+import { useRef } from 'react';
+import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 const cx = classnames.bind(styles);
 
 const SourceLink = ({ data }: any) => {
@@ -21,13 +23,28 @@ const SourceLink = ({ data }: any) => {
   return data.title;
 };
 
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 const InlineQuote = ({ data }: any) => {
   const { quote, attribution } = data;
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   if (!quote) return null;
   return (
-    <div className={cx(styles.container)}>
+    <div ref={ref} className={cx(styles.container)}>
       <div className={cx(styles.inner)}>
-        <div className={cx('quote-md', styles.quote)}>{quote}</div>
+        <div className={cx('quote-md', styles.quote)}>
+          <motion.span
+            variants={variants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            transition={FRAMER_TRANSITION_FASTEASE}
+          >
+            {quote}
+          </motion.span>
+        </div>
         <div className={styles.attribution}>
           {attribution?.name && (
             <div className={cx('h3', styles.name)}>{attribution.name}</div>

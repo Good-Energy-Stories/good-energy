@@ -5,6 +5,9 @@
   padding: 0;
   margin: var(--spacing-medium) 0;
 }
+.container:last-of-type {
+  margin-top: auto;
+}
 .label {
   position: relative;
   z-index: 10;

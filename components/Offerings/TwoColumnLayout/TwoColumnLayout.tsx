@@ -17,15 +17,21 @@ const variants = {
 };
 
 const TwoColumnLayout = ({ data }: any) => {
-  const { leftColumn, rightColumn, backgroundColor, marginBottom, noPadding } =
-    data;
+  const {
+    leftColumn,
+    rightColumn,
+    backgroundColor,
+    marginBottom,
+    noPadding,
+    backgroundImage,
+  } = data;
 
   const renderContent = useCallback((content: any) => {
     return content.map((item, index) => (
       <HalfPageContent key={index} content={item} />
     ));
   }, []);
-
+  console.log('tttoooowwwww', data);
   return (
     <div
       data-theme={backgroundColor}
@@ -44,6 +50,12 @@ const TwoColumnLayout = ({ data }: any) => {
         <div className={cx(styles.column, styles.right)}>
           {renderContent(rightColumn)}
         </div>
+      )}
+      {backgroundImage && (
+        <img
+          className={cx(styles.image)}
+          src={imageUrlFor(backgroundImage).width(1080).url()}
+        />
       )}
     </div>
   );

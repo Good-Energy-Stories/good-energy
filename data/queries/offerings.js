@@ -76,6 +76,9 @@ _type == 'reference' => @->{
 export const twoColumnLayoutFragment = `
 backgroundColor,
 marginBottom,
+backgroundImage {
+    ${imageMeta}
+},
 leftColumn[] {
     ${halfColumnPageContentFragment}
 },
