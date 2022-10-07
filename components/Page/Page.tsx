@@ -20,12 +20,7 @@ const Page = ({ pageData, header }: any) => {
       />
       <StickyNavBar />
       <Layout key="About">
-        <Header
-          title={title}
-          description={description}
-          bannerImage={bannerImage}
-          showHeader={showHeader}
-        />
+        {header}
 
         {pageData?.content.map((content, index) => (
           <PageContent key={index} content={content} />

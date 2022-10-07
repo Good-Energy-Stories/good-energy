@@ -16,7 +16,7 @@
   min-width: 100%;
   max-width: 100%;
 }
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 768px) {
   .container {
     flex: 0 0 calc(100% - var(--spacing-small));
   }

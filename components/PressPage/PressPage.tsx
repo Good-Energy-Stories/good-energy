@@ -7,7 +7,6 @@ const PressPage = ({ pageData }) => {
   const header = (
     <Header title={title} description={description} bannerImage={bannerImage} />
   );
-  console.log(pageData);
 
   return (
     <>
