@@ -4,11 +4,12 @@ import Layout from '../Layout';
 import Meta from '../Meta';
 import NextUp from '../NextUp/NextUp';
 import StickyNavBar from '../StickyNavBar';
+import Header from './Header/Header';
 import PageContent from './PageContent';
 
 const Page = ({ pageData, header }) => {
-  const { seo, nextUp } = pageData;
-  console.log(nextUp);
+  const { seo, nextUp, title, description, bannerImage, showHeader } = pageData;
+
   return (
     <>
       <Meta
@@ -19,7 +20,13 @@ const Page = ({ pageData, header }) => {
       />
       <StickyNavBar />
       <Layout key="About">
-        {header}
+        <Header
+          title={title}
+          description={description}
+          bannerImage={bannerImage}
+          showHeader={showHeader}
+        />
+
         {pageData?.content.map((content, index) => (
           <PageContent key={index} content={content} />
         ))}

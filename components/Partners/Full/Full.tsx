@@ -4,6 +4,7 @@ import CTAButton from '../../Buttons/CTAButton/CTAButton';
 import PageDivider from '../../PageDivider/PageDivider';
 import styles from './Full.module.css';
 import classnames from 'classnames';
+import Partner from '../Partner/Partner';
 const cx = classnames.bind(styles);
 
 const Full = ({ data, truncate = false, className }: any) => {
@@ -12,7 +13,7 @@ const Full = ({ data, truncate = false, className }: any) => {
   const partnersFormatted = shouldTruncate ? partners.slice(0, 6) : partners;
 
   const renderPartners = useCallback((content) => {
-    return content.map((item, index) => <Card key={index} data={item} />);
+    return content.map((item, index) => <Partner key={index} data={item} />);
   }, []);
   return (
     <>

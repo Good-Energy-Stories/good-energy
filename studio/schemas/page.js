@@ -19,6 +19,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'showHeader',
+      title: 'Show Header',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       title: 'Banner Image',
       name: 'bannerImage',
       type: 'image',

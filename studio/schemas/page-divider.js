@@ -13,6 +13,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: 'Margin Bottom',
+      name: 'marginBottom',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       title: 'Label',
       name: 'label',
       type: 'string',

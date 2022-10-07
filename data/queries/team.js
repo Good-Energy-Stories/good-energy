@@ -14,6 +14,7 @@ portraitImage {
 export const teamSection = `
 title,
 description,
+image,
 teamMembers[]->{
     ${teamMember}
 }

@@ -66,15 +66,6 @@ export const pagesMenu = S.listItem()
           )
           .icon(BsFillQuestionCircleFill),
         S.listItem()
-          .title('Partners Page')
-          .child(
-            S.document()
-              .title('Partners Page')
-              .schemaType('partnersPage')
-              .documentId('partnersPage'),
-          )
-          .icon(FaPeopleCarry),
-        S.listItem()
           .title('Consulting Contact Page')
           .child(
             S.document()
@@ -101,15 +92,7 @@ export const pagesMenu = S.listItem()
               .documentId('contactPage'),
           )
           .icon(GiLetterBomb),
-        S.listItem()
-          .title('Team Page')
-          .child(
-            S.document()
-              .title('Team Page')
-              .schemaType('teamPage')
-              .documentId('teamPage'),
-          )
-          .icon(RiTeamFill),
+
         S.listItem()
           .title('Character Profiles Page')
           .child(

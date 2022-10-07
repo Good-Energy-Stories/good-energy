@@ -14,6 +14,8 @@ export default [
   { type: 'individualPartnerFeature' },
   { type: 'resourceSection' },
   { type: 'aboutBlock' },
+  { type: 'partnerSection' },
+  { type: 'downloadsSection' },
   {
     type: 'reference',
     to: [
@@ -21,7 +23,6 @@ export default [
       { type: 'testimonial' },
       { type: 'teamSection' },
       { type: 'calloutSection' },
-      { type: 'partnerSection' },
       { type: 'pressSection' },
     ],
   },

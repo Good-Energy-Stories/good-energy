@@ -13,7 +13,13 @@ const TeamSection = ({ data }: any) => {
 
   return (
     <>
-      {data?.description && <Information description={data.description} />}
+      {data?.description && (
+        <Information
+          title={data.title}
+          description={data.description}
+          image={data.image}
+        />
+      )}
       <div className={styles.container}>{renderTeamCards(teamMembers)}</div>
     </>
   );

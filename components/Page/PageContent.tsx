@@ -12,6 +12,7 @@ import IndividualPartnerFeature from '../IndividualPartnerFeature/IndividualPart
 import LandAcknowledgment from '../LandAcknowledgment/LandAcknowledgment';
 import AboutBlock from '../AboutBlock/AboutBlock';
 import PressSection from '../Press/PressSection/PressSection';
+import DownloadsSection from '../DownloadsSection/DownloadsSection';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../PlaybookHome/EmailCapture'));
@@ -69,6 +70,8 @@ const PageContent = ({ content, index }: any) => {
       return <AboutBlock data={content} index={index} />;
     case 'pressSection':
       return <PressSection data={content} index={index} />;
+    case 'downloadsSection':
+      return <DownloadsSection data={content} index={index} />;
     default:
       return null;
   }

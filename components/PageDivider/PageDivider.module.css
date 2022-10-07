@@ -1,6 +1,8 @@
 .container {
   grid-column: 1/9;
   margin: 0 var(--spacing-large);
+}
+.marginBottom {
   margin-bottom: var(--spacing-large);
 }
 .padding {

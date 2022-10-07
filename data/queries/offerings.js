@@ -98,10 +98,6 @@ export const pageContentFragment = `
         _type,
        ...
     },
-    _type == 'partnerSection' => {
-        _type,
-       ${partnerSection}
-    },
     _type == 'calloutSection' => {
         _type,
        ...
@@ -113,8 +109,12 @@ export const pageContentFragment = `
   },
   _type != 'reference' => {
     _type == 'twoColumnLayout' => {
-        _type,
+       _type,
        ${twoColumnLayoutFragment}
+    },
+    _type == 'partnerSection' => {
+       _type,
+       ${partnerSection}
     },
     _type == 'individualPartnerFeature' => {
       _type,
@@ -126,6 +126,10 @@ export const pageContentFragment = `
     _type == 'callout' => {
       _type,
      ${calloutFragment}
+    },
+    _type == 'downloadsSection' => {
+      _type,
+     ...
     },
     _type == 'fullWidthImage' => {
         _type,
@@ -175,6 +179,7 @@ export const pageFragment = `
 seo {
   ${pageSeo}
 },
+showHeader,
 bannerImage {
   ${imageMeta}
 },

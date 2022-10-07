@@ -11,11 +11,19 @@
   justify-content: space-evenly;
   justify-items: center;
 }
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin: 0 var(--spacing-large);
+  padding-bottom: var(--spacing-small);
+  color: var(--blueThree);
+}
+
 @media only screen and (max-width: 768px) {
+  .title {
+    margin: 0;
+  }
   .container {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    padding: 0 1.25rem;
+    margin: 0 var(--spacing-small);
     display: grid;
 
     grid-column: 1/-1;

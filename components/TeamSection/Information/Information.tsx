@@ -2,12 +2,17 @@ import React from 'react';
 import styles from './Information.module.css';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../../PortableTextSerializer';
-
-const Information = ({ description }) => {
+import { imageUrlFor } from '../../../utils/imageUrlFor';
+import classnames from 'classnames';
+const cx = classnames.bind(styles);
+const Information = ({ title, description, image }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.inner}>
-        <h2 className={styles.title}>Our Board</h2>
+      <div className={cx(styles.inner, !image && styles.showBorder)}>
+        {image && (
+          <img className={styles.image} src={imageUrlFor(image).url()} />
+        )}
+        <h2 className={styles.title}>{title}</h2>
         <div className={styles.description}>
           <PortableText
             value={description}

@@ -28,6 +28,11 @@
 .outline:hover[data-theme='black'] {
   border-color: var(--white);
 }
+.icon {
+  position: relative;
+  top: 0.1em;
+  left: 0.3em;
+}
 
 .container::before {
   content: '';

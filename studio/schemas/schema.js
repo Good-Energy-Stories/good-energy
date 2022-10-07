@@ -79,6 +79,7 @@ import landAcknowledgment from './land-acknowledgment';
 import pageContent from './page-content';
 import aboutBlock from './about-block';
 import pressSection from './press-section';
+import downloadsSection from './downloads-section';
 
 export default createSchema({
   name: 'default',
@@ -160,5 +161,6 @@ export default createSchema({
     landAcknowledgment,
     aboutBlock,
     pressSection,
+    downloadsSection,
   ]),
 });

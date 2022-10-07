@@ -15,9 +15,17 @@ const CTAButton = ({ data, className }: any) => {
     link,
     backgroundColor,
     onClick,
+    icon,
   } = data;
 
   if (!label) return null;
+
+  const labelComponent = (
+    <span>
+      {label}
+      {icon && <img className={styles.icon} src={icon} />}
+    </span>
+  );
   return (
     <button
       type={type}
@@ -32,10 +40,10 @@ const CTAButton = ({ data, className }: any) => {
     >
       {link ? (
         <a href={link} className={cx('h3', styles.label)}>
-          {label}
+          {labelComponent}
         </a>
       ) : (
-        <div className={cx('h3', styles.label)}> {label}</div>
+        <div className={cx('h3', styles.label)}> {labelComponent}</div>
       )}
     </button>
   );
