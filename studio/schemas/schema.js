@@ -81,6 +81,9 @@ import aboutBlock from './about-block';
 import pressSection from './press-section';
 import downloadsSection from './downloads-section';
 import individualPressFeature from './individual-press-feature';
+import logline from './logline';
+import thirdPageContent from './third-page-content';
+import threeColumnLayout from './three-column-layout';
 
 export default createSchema({
   name: 'default',
@@ -164,5 +167,8 @@ export default createSchema({
     pressSection,
     downloadsSection,
     individualPressFeature,
+    logline,
+    thirdPageContent,
+    threeColumnLayout,
   ]),
 });

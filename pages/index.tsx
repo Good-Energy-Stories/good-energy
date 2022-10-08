@@ -1,25 +1,10 @@
-import { sanity } from '../lib/sanity';
-import styles from '../styles/Home.module.css';
-
-import Link from 'next/link';
 import { getClient } from '../lib/sanity/sanity.server';
 import { groq } from 'next-sanity';
 import { usePreviewSubscription } from '../lib/sanity/sanity';
-
-import { useRef, useEffect, useState, useCallback } from 'react';
 import { useStore } from '../stores/store';
-import {
-  Layout,
-  Masthead,
-  Meta,
-  PageBanner,
-  NavBarStyles,
-} from '../components';
-import { PageContent, StickyNavBar } from '../components/Landing';
+import { NavBarStyles } from '../components';
 import { queries } from '../data';
-import { Footer } from '../components/Footer';
 import { observer } from 'mobx-react-lite';
-import { imageUrlFor } from '../utils/imageUrlFor';
 import Header from '../components/Landing/Header/Header';
 import Page from '../components/Page/Page';
 
@@ -48,16 +33,7 @@ const Root = observer(
 
     if (!pageData) return null;
 
-    const {
-      title,
-      subtitle,
-      content,
-      bannerImage,
-      showBanner,
-      bannerCopy,
-      donateLink,
-      seo,
-    } = pageData;
+    const { title, subtitle, bannerImage } = pageData;
 
     const navMode =
       scrollPosition > 0.001 ? NavBarStyles.dark : NavBarStyles.light;

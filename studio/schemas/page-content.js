@@ -3,6 +3,7 @@ import { BsWindow as icon } from 'react-icons/bs';
 export default [
   { type: 'emailCapture' },
   { type: 'twoColumnLayout' },
+  { type: 'threeColumnLayout' },
   { type: 'quote' },
   { type: 'callout' },
   { type: 'fullWidthImage' },
@@ -17,6 +18,7 @@ export default [
   { type: 'partnerSection' },
   { type: 'downloadsSection' },
   { type: 'individualPressFeature' },
+  { type: 'logline' },
   {
     type: 'reference',
     to: [

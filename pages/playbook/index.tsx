@@ -1,5 +1,5 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Masthead, Meta } from '../../components';
+import { Layout, Meta } from '../../components';
 import {
   PlaybookAnimatedSpacer,
   StickyNavBar,
@@ -12,19 +12,16 @@ import {
 } from '../../components/PlaybookHome';
 import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import Masthead from '../../components/Playbook/Masthead/Masthead';
 
 const Root = ({ pageData }) => {
-  const { masthead, content, seo, playbookTableOfContentsInitialState } =
-    pageData;
-
-  const clearCookie = async () => {
-    await fetch('/api/logout', {
-      method: 'post',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    window.location.reload();
-  };
+  const {
+    masthead,
+    content,
+    seo,
+    playbookTableOfContentsInitialState,
+    description,
+  } = pageData;
 
   return (
     <>
@@ -34,7 +31,7 @@ const Root = ({ pageData }) => {
         slug={'playbook'}
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
-      <Masthead />
+      <Masthead description={description} />
       <StickyNavBar
         secondaryMenuInitial={playbookTableOfContentsInitialState}
       />

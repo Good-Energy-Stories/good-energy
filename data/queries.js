@@ -878,6 +878,7 @@ export const playbookHomePageQuery = `
   seo {
     ${pageSeo}
   },
+  description,
   masthead{
     ${threeColumnLayout}
   },

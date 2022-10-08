@@ -31,6 +31,13 @@ export default {
       name: 'masthead',
       type: 'playbookThreeColumn',
     },
+    {
+      name: 'description',
+      title: 'Description',
+      description:
+        'Some information about this page. This will appear in the masthead.',
+      type: 'text',
+    },
 
     {
       title: 'Content',

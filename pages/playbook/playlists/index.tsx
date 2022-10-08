@@ -1,16 +1,9 @@
 import { sanity } from '../../../lib/sanity';
-import styles from '../styles/Home.module.css';
-
-import Link from 'next/link';
-
-import { useRef, useEffect, useState, useCallback } from 'react';
-import { useStore } from '../../../stores/store';
-
+import { useState } from 'react';
 import { queries } from '../../../data';
-import { Layout, Masthead, Meta, StickyNavBar } from '../../../components';
-import { Header, Characters } from '../../../components/CharacterProfilesHome';
+import { Layout, Meta, StickyNavBar } from '../../../components';
+import { Header } from '../../../components/CharacterProfilesHome';
 import { Footer } from '../../../components/Footer';
-import Related from '../../../components/Related';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import { Playlist } from '../../../components/PlaybookHome';
 
