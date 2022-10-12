@@ -25,6 +25,7 @@ export default {
       title: 'Subtitle',
       type: 'string',
     },
+
     {
       name: 'donateLink',
       title: 'Donate Link',

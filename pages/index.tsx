@@ -30,10 +30,15 @@ const Root = observer(
 
     if (!pageData) return null;
 
-    const { title, subtitle, bannerImage } = pageData;
+    const { title, subtitle, donateLink, bannerImage } = pageData;
 
     const header = (
-      <Header title={title} subtitle={subtitle} image={bannerImage} />
+      <Header
+        title={title}
+        subtitle={subtitle}
+        image={bannerImage}
+        donateLink={donateLink}
+      />
     );
 
     return (

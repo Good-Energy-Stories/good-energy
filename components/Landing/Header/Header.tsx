@@ -8,10 +8,12 @@ const Header = ({
   title,
   subtitle,
   image,
+  donateLink,
 }: {
   title: string;
   subtitle: string;
   image: any;
+  donateLink: string;
 }) => {
   return (
     <div className={styles.container}>
@@ -39,7 +41,9 @@ const Header = ({
             className={styles.button}
             data={{
               label: 'Donate',
-              link: 'https://creativevisions.networkforgood.com/projects/54417-creative-visions-fiscal-sponsorship-good-energy',
+              link:
+                donateLink ??
+                'https://creativevisions.networkforgood.com/projects/54417-creative-visions-fiscal-sponsorship-good-energy',
               labelSize: ButtonLabelSize.Small,
               backgroundColor: 'black',
             }}
