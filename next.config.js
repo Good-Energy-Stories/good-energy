@@ -23,6 +23,11 @@ module.exports = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/research',
+        destination: '/offerings/research',
+        permanent: true,
+      },
     ];
   },
   experimental: {
