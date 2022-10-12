@@ -49,3 +49,10 @@
   max-width: 48px;
   max-height: 48px;
 }
+
+@media (max-width: 768px) {
+  .ul,
+  .li {
+    max-width: 100%;
+  }
+}
