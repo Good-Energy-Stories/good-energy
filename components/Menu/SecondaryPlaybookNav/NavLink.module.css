@@ -1,0 +1,17 @@
+.container {
+  margin: 0;
+
+  padding: var(--spacing-small) 0;
+  border-bottom: 1px solid var(--blueThree);
+}
+.link {
+  padding: var(--spacing-xsmall) 0;
+  height: 100%;
+}
+.container:last-of-type {
+  border: 0;
+  padding-bottom: 0;
+}
+.link:hover {
+  text-decoration: underline;
+}

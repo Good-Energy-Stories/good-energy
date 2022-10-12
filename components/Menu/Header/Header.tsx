@@ -8,7 +8,7 @@ import NavLogo from './NavLogo';
 import SearchBar from './SearchBar';
 import { useIsSmall } from '../../../utils/useMediaQuery';
 
-const Header = observer(() => {
+const Header = observer(({ children }: any) => {
   const store = useStore();
   const {
     uiStore: { playbookNavOverlayOpen, navOverlayOpen },
@@ -30,9 +30,12 @@ const Header = observer(() => {
       className={styles.container}
       transition={FRAMER_TRANSITION_FASTEASE}
     >
-      <MenuButton />
-      <SearchBar />
-      <NavLogo />
+      <div className={styles.inner}>
+        <MenuButton />
+        <SearchBar />
+        <NavLogo />
+      </div>
+      {children}
     </motion.header>
   );
 });

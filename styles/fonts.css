@@ -564,6 +564,18 @@ h4 {
   line-height: 24px;
   font-variation-settings: 'wght' 337, 'wdth' 69;
 }
+.sub-nav-link-md {
+  font-family: var(--flexa);
+  font-size: 19px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 737, 'wdth' 17;
+}
+.sub-nav-link-sm {
+  font-family: var(--flexa);
+  font-size: 16px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 337, 'wdth' 59;
+}
 .playbook-toc-nav-link {
   font-family: var(--flexa);
   font-size: 18px;

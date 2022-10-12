@@ -60,6 +60,7 @@
     padding-bottom: 0;
   }
   .inner {
+    width: 100%;
     max-width: 100%;
   }
   .inputRow {

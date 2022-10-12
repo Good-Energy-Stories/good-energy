@@ -8,6 +8,7 @@ import { observer } from 'mobx-react-lite';
 import { FRAMER_TRANSITION_FASTEASE } from '../../lib/framer/framer-animations';
 import Header from './Header/Header';
 import { useIsSmall } from '../../utils/useMediaQuery';
+import SecondaryPlaybookNav from './SecondaryPlaybookNav/SecondaryPlaybookNav';
 
 const MotionPlaybookNav = motion(PlaybookNav);
 
@@ -59,8 +60,9 @@ const Menu = observer(({ navigation }: any) => {
   return (
     <>
       <div className={styles.container}>
-        <Header />
-
+        <Header>
+          <SecondaryPlaybookNav data={navigation?.playbook} />
+        </Header>
         <motion.div
           variants={isSmall ? mobileVariants.nav : desktopVariants.nav}
           initial={'closed'}

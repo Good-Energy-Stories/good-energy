@@ -5,11 +5,14 @@
   left: var(--page-border-width);
   background: var(--greyBlue);
   z-index: 10;
+
+  height: var(--header-height);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.inner {
   display: flex;
   align-items: center;
   gap: var(--spacing-medium);
   justify-content: space-between;
-  height: var(--header-height);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
 }

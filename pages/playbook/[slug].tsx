@@ -1,20 +1,12 @@
 import { queries } from '../../data';
 import {
   Layout,
-  StickyNavBar,
   NavBarStyles,
   Meta,
   ExitPreviewButton,
 } from '../../components';
 import {
-  Header,
-  Divider,
-  TOC,
   SectionRefLookup,
-  Body,
-  Introduction,
-  Banner,
-  AuthorSection,
   NextUp,
   MobileFootnotes,
   Article,
@@ -43,32 +35,21 @@ const Project = observer(
 
     const {
       title,
-      byline,
+
       lede,
       slug,
-      seo,
-      introduction,
+
       body,
       heroImage,
-      section,
-      footnotes,
-      relatedSubsection,
-    } = article;
-    const sectionsRef = useRef<SectionRefLookup>({});
 
-    const sectionsTOC = body
-      ?.filter((e) => e._type === 'articleSection')
-      .map((e) => ({ key: e._key, title: e.title }));
+      footnotes,
+    } = article;
 
     const store = useStore();
     const {
       uiStore: { scrollPosition },
     } = store;
 
-    const navMode =
-      heroImage && scrollPosition < 0.05
-        ? NavBarStyles.light
-        : NavBarStyles.dark;
     return (
       <>
         <Meta
