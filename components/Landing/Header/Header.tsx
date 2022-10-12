@@ -30,6 +30,7 @@ const Header = ({
             className={styles.button}
             data={{
               label: 'Work With Us',
+              link: '/offerings/consulting',
               labelSize: ButtonLabelSize.Small,
               type: 'fill',
             }}
