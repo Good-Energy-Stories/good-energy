@@ -7,6 +7,7 @@ import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import styles from './ArticleStandard.module.css';
 import classnames from 'classnames';
+import { imageUrlFor } from '../../../../utils/imageUrlFor';
 const cx = classnames.bind(styles);
 const variants = {
   in: {
@@ -20,14 +21,11 @@ const variants = {
 const Small = observer(
   ({
     data,
-    last,
     maxWidth,
-    onActionButtonClicked,
   }: {
     data: ArticleCardData;
-    last?: boolean;
+
     maxWidth?: number;
-    onActionButtonClicked?: (slug: string) => void;
   }) => {
     const { title, lede, tags, slug, heroImage, section } = data;
 
@@ -39,7 +37,6 @@ const Small = observer(
     return (
       <motion.div
         style={{ maxWidth: maxWidth ?? '100%', color: textColor }}
-        whileHover={{ opacity: 0.8, transition: { duration: 0.4 } }}
         transition={{ duration: 2 }}
         initial={'out'}
         animate={'in'}
@@ -49,18 +46,26 @@ const Small = observer(
       >
         <Link href={`/playbook/${slug}`} passHref>
           <a>
-            <div className="container">
-              {heroImage && <Banner image={heroImage} />}
-              {!heroImage && <div className={styles.line} />}
-              {section?.title && (
-                <div className={cx('label-small', styles.sectionLabel)}>
-                  {section.title}
-                </div>
-              )}
-              <Title title={title} />
-              {lede && <Lede lede={lede} />}
-              {tags && <Tags tags={tags} />}
-            </div>
+            {heroImage && (
+              <img
+                className={styles.image}
+                alt={heroImage?.caption}
+                src={imageUrlFor(heroImage).width(768).url()}
+              />
+            )}
+            {!heroImage && <div className={styles.line} />}
+            {section?.title && (
+              <div className={cx('label-small', styles.sectionLabel)}>
+                {section.title}
+              </div>
+            )}
+            <h3 className={styles.title}>
+              <span>{title}</span>
+            </h3>
+            {lede && (
+              <div className={cx('tease-lede-small', styles.lede)}>{lede}</div>
+            )}
+            {tags && <Tags tags={tags} />}
           </a>
         </Link>
       </motion.div>
