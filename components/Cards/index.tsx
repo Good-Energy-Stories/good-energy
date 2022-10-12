@@ -1,16 +1,12 @@
 export { default as Card } from './Card';
-export { default as ArticleCard } from './ArticleCard';
-export type { ArticleCardData } from './ArticleCard';
+export { default as ArticleCard } from './Article/ArticleCard';
+export type { ArticleCardData } from './Article/ArticleCard';
 export { CharacterProfileCardStyle } from './CharacterProfileCard';
-export { ArticleCardStyle } from './ArticleCard';
+export { ArticleCardStyle } from './Article/ArticleCard';
 export { default as CharacterProfileCard } from './CharacterProfileCard';
-export { default as ArticleStandard } from './ArticleStandard';
-export { default as ArticleSmall } from './ArticleSmall';
-export { default as ArticleFeatured } from './ArticleFeatured';
-export { default as ArticleFeaturedSecondary } from './ArticleFeaturedSecondary';
-export { default as ArticleNextUp } from './ArticleNextUp';
+
 export { default as FeaturedTag } from './FeaturedTag';
-export { default as ArticleReadMore } from './ArticleReadMore';
+
 export { default as CharacterProfileFeaturedSecondary } from './CharacterProfileFeaturedSecondary';
 export { default as CharacterProfileReadMore } from './CharacterProfileReadMore';
 export { default as CharacterProfileNextUp } from './CharacterProfileNextUp';

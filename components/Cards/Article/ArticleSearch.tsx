@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Banner, Title, Lede } from './ArticleCardComponents';
 import Link from 'next/link';
-import { ArticleCardData, FeaturedTag } from '.';
-import { Tags } from './';
+import { ArticleCardData } from '../';
+import { Tags } from '../';
 
 function getStyles(wide) {
   return css.resolve`
@@ -48,7 +48,6 @@ const Featured = ({
 
   return (
     <motion.div
-      whileHover={{ opacity: 0.8, transition: { duration: 0.4 } }}
       transition={{ duration: 2 }}
       initial={'out'}
       animate={'in'}
@@ -60,10 +59,10 @@ const Featured = ({
         <a>
           <div className="layout">
             <div className="left">
-              <FeaturedTag />
+              <div className="label-small">Article</div>
               <Title title={title} />
               {lede && <Lede lede={lede} />}
-              {tags && <Tags tags={tags} />}
+              {tags && <Tags tags={tags} truncateTags={false} />}
             </div>
             {heroImage && (
               <div className="right">
@@ -75,6 +74,10 @@ const Featured = ({
       </Link>
 
       <style jsx>{`
+        .label-small {
+          color: var(--blueThree);
+          text-transform: uppercase;
+        }
         .layout {
           margin-top: 1.25rem;
           display: grid;

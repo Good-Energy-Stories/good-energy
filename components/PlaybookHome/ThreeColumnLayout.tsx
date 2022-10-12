@@ -66,7 +66,6 @@ const LeftColumn = ({
   data: any;
   style: ThreeColumnLayoutStyle;
 }) => {
-  console.log(data);
   const leftColumnCardStyle = getSecondaryColumnCardStyle(style);
   const leftColumnCharacterProfileCardStyle =
     getSecondaryColumnCharacterProfileCardStyle(style);

@@ -1,22 +1,24 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Banner, Title, Lede } from './ArticleCardComponents';
-import Link from 'next/link';
-import { ArticleCardData } from '.';
-import FeaturedTag from './FeaturedTag';
-import { Tags } from './';
+import { ArticleCardData } from '../';
+import { SmallBorderCTAButton } from '../../';
 
 const { className, styles } = css.resolve`
   div {
     display: inline-block;
-
-    width: 100%;
+    max-width: 228px;
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--blueThree);
+    height: 100%;
   }
   @media only screen and (max-width: 768px) {
     div {
+      padding: 0px;
+      display: grid;
+
+      grid-column-gap: 0;
     }
   }
 `;
@@ -30,12 +32,12 @@ const variants = {
   },
 };
 
-const Featured = ({
+const Small = ({
   data,
-  index,
+  onActionButtonClicked,
 }: {
   data: ArticleCardData;
-  index: number;
+  onActionButtonClicked: (slug: string) => void;
 }) => {
   const { title, lede, tags, slug, heroImage } = data;
 
@@ -49,27 +51,18 @@ const Featured = ({
       variants={variants}
       className={className}
     >
-      <Link href={`/playbook/${slug}`}>
-        <a>
-          <div className="article-link">
-            {index !== 0 && (
-              <div className="featured-tag">
-                <FeaturedTag />
-              </div>
-            )}
-            {heroImage && <Banner image={heroImage} />}
-            {!heroImage && <div className="line" />}
-            <Title title={title} />
-            {lede && <Lede lede={lede} />}
-            {tags && <Tags tags={tags} />}
-          </div>
-        </a>
-      </Link>
+      <div className="article-link">
+        {heroImage && <Banner image={heroImage} />}
+        {!heroImage && <div className="line" />}
+        <Title title={title} />
+        <SmallBorderCTAButton
+          label="Read More"
+          href={`/playbook/${slug}`}
+          onClick={() => onActionButtonClicked(slug)}
+        />
+      </div>
 
       <style jsx>{`
-        .featured-tag {
-          margin-bottom: 0.625rem;
-        }
         .article-link {
         }
 
@@ -83,4 +76,4 @@ const Featured = ({
   );
 };
 
-export default Featured;
+export default Small;

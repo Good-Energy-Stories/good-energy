@@ -63,7 +63,6 @@ const App = observer(({ Component, pageProps, pageData }: any) => {
       window.removeEventListener('resize', updateWindowSize);
     };
   }, [updateScrollPosition, updateWindowSize]);
-  console.log('data', pageData);
 
   return (
     <>

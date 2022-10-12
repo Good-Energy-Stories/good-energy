@@ -16,7 +16,6 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   const aboutPagePaths = await sanity.fetch(queries.aboutPagePathsQuery);
-  console.log(aboutPagePaths);
   const paths = aboutPagePaths.map((page) => ({
     params: { slug: page.slug.current },
   }));

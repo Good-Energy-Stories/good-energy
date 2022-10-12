@@ -7,7 +7,6 @@ const FeaturedVoicesRow = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleClick = (index) => {
-    console.log('index', index);
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {

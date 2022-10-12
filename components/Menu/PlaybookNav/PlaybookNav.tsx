@@ -12,7 +12,6 @@ const PlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
   const [showAll, setShowAll] = useState(false);
   const toggleShowAll = () => setShowAll(!showAll);
   const isSmall = useIsSmall();
-  console.log('isSmall', data);
   return (
     <>
       <nav

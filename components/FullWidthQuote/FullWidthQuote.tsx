@@ -22,7 +22,6 @@ const SourceLink = ({ data }: any) => {
 
 const FullWidthQuote = ({ data }: any) => {
   const { quote, attribution } = data;
-  console.log('hree', data);
   if (!quote) return null;
   return (
     <div className={cx(styles.container)}>

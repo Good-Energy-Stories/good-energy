@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Banner, Title, Lede } from './ArticleCardComponents';
 import Link from 'next/link';
-import { ArticleCardData } from '.';
-import { Tags } from './';
-import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
-import { useStore } from '../../stores/store';
+import { ArticleCardData } from '..';
+import { Tags } from '..';
+import { useStore } from '../../../stores/store';
 import { observer } from 'mobx-react-lite';
 function getStyles(maxWidth, last) {
   return css.resolve`

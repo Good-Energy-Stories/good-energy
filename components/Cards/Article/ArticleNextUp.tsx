@@ -2,12 +2,11 @@ import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { Banner, Title, Lede } from './ArticleCardComponents';
 import Link from 'next/link';
-import { ArticleCardData } from '.';
-import FeaturedTag from './FeaturedTag';
-import { Tags } from '.';
-import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import { ArticleCardData } from '../';
+import { Tags } from '../';
+import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
+import { useStore } from '../../../stores/store';
 
 const { className, styles } = css.resolve`
   div {

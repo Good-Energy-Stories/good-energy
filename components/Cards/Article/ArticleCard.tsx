@@ -2,10 +2,7 @@ import dynamic from 'next/dynamic';
 
 const ArticleStandard = dynamic(() => import('./ArticleStandard'));
 const ArticleSmall = dynamic(() => import('./ArticleSmall'));
-const ArticleFeatured = dynamic(() => import('./ArticleFeatured'));
-const ArticleFeaturedSecondary = dynamic(
-  () => import('./ArticleFeaturedSecondary'),
-);
+
 const ArticleNextUp = dynamic(() => import('./ArticleNextUp'));
 const ArticleSearch = dynamic(() => import('./ArticleSearch'));
 
@@ -63,8 +60,7 @@ const ArticleCard = ({
           onActionButtonClicked={onActionButtonClicked}
         />
       );
-    case ArticleCardStyle.featured:
-      return <ArticleFeatured data={data} index={index} />;
+
     case ArticleCardStyle.nextUp:
       return (
         <ArticleNextUp
@@ -74,13 +70,7 @@ const ArticleCard = ({
       );
     case ArticleCardStyle.search:
       return <ArticleSearch data={data} />;
-    case ArticleCardStyle.featuredSecondary:
-      return (
-        <ArticleFeaturedSecondary
-          data={data}
-          wide={shouldUseExpandedStyles && index === 0}
-        />
-      );
+
     default:
       return <ArticleStandard data={data} />;
   }

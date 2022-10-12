@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
+import { imageUrlFor } from '../../../../utils/imageUrlFor';
 
 const { className, styles } = css.resolve`
   div {

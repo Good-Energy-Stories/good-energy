@@ -85,7 +85,6 @@ const SecondaryNavMenu = observer(
       dataStore: { playbookSections },
     } = store;
 
-    console.log(playbookSections);
     return (
       <motion.div
         style={{ marginTop: -2 }}

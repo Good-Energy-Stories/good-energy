@@ -43,7 +43,6 @@ const variants = {
 };
 
 const Accordion = ({ data }: any) => {
-  console.log(data);
   const { title, content, marginBottom } = data;
   const [expanded, setExpanded] = useState(false);
 

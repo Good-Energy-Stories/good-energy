@@ -4,7 +4,6 @@ import Information from './Information/Information';
 import styles from './TeamSection.module.css';
 const TeamSection = ({ data }: any) => {
   const { teamMembers } = data;
-  console.log('heree', data);
   const renderTeamCards = (content) => {
     return content?.map((f, i) => {
       return <TeamMemberCard key={i} data={f} index={i} />;

@@ -5,7 +5,7 @@ import { ExpertProfileCardStyle } from './ExpertProfileCard';
 import CharacterProfilePageCarousel from './CharacterProfilePageCarousel';
 import ArticleList from '../ThreeColumnLayout/ArticleList/ArticleList';
 import InlineQuote from '../TwoColumnLayout/InlineQuote/InlineQuote';
-const ArticleCard = dynamic(() => import('./ArticleCard'));
+const ArticleCard = dynamic(() => import('./Article/ArticleCard'));
 const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
 const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
 const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));

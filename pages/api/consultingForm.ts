@@ -13,7 +13,6 @@ export default async function handleRequest(req, res) {
   const { name, email, organization, description, budget } = JSON.parse(
     req.body,
   );
-  console.log('name', name);
 
   base('Consulting Website Form').create(
     [
