@@ -1,5 +1,5 @@
 import { ArticleCardData } from '../';
-import ArticleStandard from './ArticleStandard';
+import ArticleStandard from './ArticleStandard/ArticleStandard';
 const ArticleSmall = ({
   data,
   last,

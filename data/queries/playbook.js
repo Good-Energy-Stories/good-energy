@@ -9,6 +9,7 @@ tags[],
 heroImage{
   ${imageMeta}
 },
+"section": *[_type=='playbookSection' && references(^._id)]{title}[0],
 "heroImageUrl": heroImage.asset->url
 `;
 

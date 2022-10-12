@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic';
 
-const ArticleStandard = dynamic(() => import('./ArticleStandard'));
+const ArticleStandard = dynamic(
+  () => import('./ArticleStandard/ArticleStandard'),
+);
 const ArticleSmall = dynamic(() => import('./ArticleSmall'));
 
 const ArticleNextUp = dynamic(() => import('./ArticleNextUp'));
@@ -15,6 +17,7 @@ export interface ArticleCardData {
   slug: string;
   heroImage: any;
   heroImageUrl: string;
+  section: { title: string } | null;
 }
 
 export enum ArticleCardStyle {
