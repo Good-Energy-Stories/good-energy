@@ -37,7 +37,7 @@ export default {
           { title: 'Playbook', value: '/playbook' },
           { title: 'Library of Experts', value: '/about/library-of-experts' },
           { title: 'About', value: '/about/story-of-us' },
-          { title: 'Consulting Practice', value: '/about/consulting' },
+          { title: 'Consulting Practice', value: '/offerings/consulting' },
           { title: 'Research', value: '/offerings/research' },
         ],
       },

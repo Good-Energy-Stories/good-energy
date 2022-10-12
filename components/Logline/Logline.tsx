@@ -34,7 +34,10 @@ const Logline = ({ data, className }: any) => {
           />
           <CTALink
             className={styles.button}
-            data={{ label: 'Read More Climate Loglines', link: article?.slug }}
+            data={{
+              label: 'Read More Fictional Climate Loglines',
+              link: article?.slug,
+            }}
           />
         </div>
         <div className={cx(styles.imageContainer)}>
