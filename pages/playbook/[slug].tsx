@@ -77,7 +77,6 @@ const Project = observer(
           slug={slug}
           description={lede}
         />
-        <StickyNavBar hideOnDesktop />
         <SecondaryNavMenu position={'sticky'} includeNavItems top={0} />
         <Layout key={article.slug}>
           <Article data={article} />

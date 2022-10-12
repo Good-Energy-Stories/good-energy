@@ -3,7 +3,7 @@ export {
   NavBarStyles,
   PLAYBOOK_NAV_HEIGHT,
 } from './StickyNavBar';
-export { default as NavLogo } from './NavLogo';
+export { default as NavLogo } from './Menu/Header/NavLogo';
 export { default as Meta } from './Meta';
 export { default as PortableTextSerializer } from './PortableTextSerializer';
 export { default as SpotlightBody } from './SpotlightBody';

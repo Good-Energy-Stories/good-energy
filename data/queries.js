@@ -45,19 +45,16 @@ initialState
 
 export const resource = `
 title,
-name,
 slug,
 description,
-buttonLabel,
 style,
-image {
+heroImage{
   ${imageMeta}
 },
 `;
 
 export const resourceSection = `
 title,
-backgroundColor,
 resources[] -> {
   ${resource}
 },
@@ -375,7 +372,14 @@ contents[]-> {
 `;
 export const playbookSection = `
 title,
-contents[]-> {
+contents[] {
+  _type != 'reference' => {
+    _type == 'playbookSection' => {
+      _type,
+      ...
+    },
+  },
+  _type == 'reference' => {
   _type == 'article' => {
     _type,
     ${articlePreview}
@@ -385,15 +389,18 @@ contents[]-> {
     title,
     "slug": "why-climate-stories",
   },
-  _type == 'playbookSubsection' => {
+  _type == 'twoWorldsArticle' => {
     _type,
-    ${playbookSubsection}
+    title,
+    "slug": "two-worlds",
   },
+ 
   _type == 'characterProfilesPage' => {
     _type,
     "title": "Character Profiles",
     "slug": "characters",
-  },
+  }
+}
 }
 `;
 
@@ -413,6 +420,13 @@ export const contentReferences = `
 `;
 
 export const contentPreviewReferences = `
+_type != 'reference' => {
+  _type == 'playbookSection' => {
+    _type,
+    ${playbookSection}
+  }
+},
+_type == 'reference' => {
   _type == 'article' => {
     _type,
     ${articlePreview}
@@ -444,18 +458,12 @@ export const contentPreviewReferences = `
     _type,
     ${expertProfilePreview}
   },
-  _type == 'quoteCollection' => {
-    _type,
-    ${quoteCollection}
-  },
   _type == 'characterProfilesPage' => {
     _type,
     ${characterProfilePagePreview}
   },
-  _type == 'playbookSection' => {
-    _type,
-    ${playbookSection}
-  }
+  
+}
  
 `;
 
@@ -526,19 +534,108 @@ export const playbookSections = `
   
 `;
 
+export const landingPageQuery = `
+*[_type == "landingPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  subtitle,
+  showBanner,
+  donateLink,
+  bannerCopy,
+  bannerImage{
+    ${imageMeta}
+  },
+  content[]{
+      ${playbookSections}
+  },
+}[0]
+`;
+
+export const playbookSectionFragment = `
+_type == 'article' => {
+  _type,
+  title,
+  "slug": slug.current,
+},
+_type == 'twoWorldsArticle' => {
+  _type,
+  title,
+  "slug": "two-worlds",
+},
+_type == 'whyClimateArticle' => {
+  _type,
+  title,
+  "slug": "why-climate-stories",
+},
+_type == 'characterProfilesPage' => {
+  _type,
+  title,
+  "slug": "characters",
+},
+`;
+
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
-  introduction[]->{
-    ${contentPreviewReferences}
+  navigation[] {
+    _type == 'reference' => @->{
+      ${playbookSectionFragment}
+    },
+    _type != 'reference' => {
+      _type == 'playbookSection' => {
+        _type,
+        title,
+        contents[] {
+        _type == 'reference' => @->{
+          ${playbookSectionFragment}
+        },
+        _type != 'reference' => {
+          _type == 'playbookSection' => {
+            _type,
+            title,
+            contents[] {
+              _type == 'reference' => @->{
+                  ${playbookSectionFragment}
+              },
+              _type != 'reference' => {
+                _type != 'reference' => {
+                  _type == 'playbookSection' => {
+                  _type,
+                  title,
+                  contents[] {
+                    _type == 'reference' => @-> {
+                      ${playbookSectionFragment}
+                    },
+                  }
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}[0].navigation`;
+
+export const navigationQuery = `*[_type == "navigation"] {
+  offerings[] {
+    _type == 'reference' => @->{
+      _type,
+      "title": navigationTitle,
+      "slug": "offerings/" + slug.current,
+    }
   },
-  why[]->{
-    ${contentPreviewReferences}
+  about[] {
+    _type == 'reference' => @->{
+      _type,
+      "title": navigationTitle,
+      "slug": "about/" + slug.current,
+    }
   },
-  climateStorytelling[]->{
-    ${contentPreviewReferences}
-  },
-  whatsNext[]->{
-    ${contentPreviewReferences}
-  },
+  "playbook": ${playbookStructureQuery}
 }[0]`;
 
 export const climateStorytellingSections = `
@@ -593,44 +690,6 @@ title,
     "slug": "characters",
   },
 }
-`;
-
-export const structureSectionsFirstArticle = `*[_type == "playbookStructure"] { 
-introduction[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-why[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-climateStorytelling[]->{
-  _type == 'playbookSection' => {
-    _type,
-  ${climateStorytellingSections}
-  },
-},
-whatsNext[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-credits-> {
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-}
-}[0]
 `;
 
 export const sectionsFirstArticle = `*[_type == "playbookSection"] { 
@@ -868,22 +927,5 @@ export const libraryOfExpertsPageQuery = `
   },
   title,
   description,
-}[0]
-`;
-
-export const playbookHomePageQuery = `
-*[_type == "playbookHome" ] {
-  "id": _id,
-  playbookTableOfContentsInitialState,
-  seo {
-    ${pageSeo}
-  },
-  description,
-  masthead{
-    ${threeColumnLayout}
-  },
-  content[]{
-      ${playbookSections}
-  },
 }[0]
 `;

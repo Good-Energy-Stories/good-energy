@@ -14,67 +14,72 @@ import AboutBlock from '../AboutBlock/AboutBlock';
 import PressSection from '../Press/PressSection/PressSection';
 import DownloadsSection from '../DownloadsSection/DownloadsSection';
 import IndividualPressFeature from '../Press/IndividualPressFeature/IndividualPressFeature';
+import ThreeColumnLayout from '../ThreeColumnLayout/ThreeColumnLayout';
+import Logline from '../Logline/Logline';
+import FeaturedVoicesSection from '../FeaturedVoicesSection/FeaturedVoicesSection';
+import LibraryOfExpertsSection from '../LibraryOfExpertsSection/LibraryOfExpertsSection';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'));
-const ClimateLensBlock = dynamic(
-  () => import('../Offerings/ClimateLensBlock/ClimateLensBlock'),
-);
+
 const TwoColumnLayout = dynamic(
-  () => import('../Offerings/TwoColumnLayout/TwoColumnLayout'),
+  () => import('../TwoColumnLayout/TwoColumnLayout'),
 );
 const FullWidthImage = dynamic(
   () => import('../FullWidthImage/FullWidthImage'),
 );
-const Testimonial = dynamic(
-  () => import('../Offerings/Testimonial/Testimonial'),
-);
+const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
 const PageContent = ({ content, index }: any) => {
   const type = content._type;
-  console.log(content);
   switch (type) {
     case 'callout':
-      return <Callout data={content} index={index} />;
+      return <Callout data={content} />;
     case 'emailCapture':
-      return <EmailCapture data={content} index={index} />;
-    case 'climateLensBlock':
-      return <ClimateLensBlock data={content} index={index} />;
+      return <EmailCapture data={content} />;
     case 'testimonial':
-      return <Testimonial data={content} index={index} />;
+      return <Testimonial data={content} />;
     case 'twoColumnLayout':
-      return <TwoColumnLayout data={content} index={index} />;
+      return <TwoColumnLayout data={content} />;
     case 'fullWidthImage':
-      return <FullWidthImage data={content} index={index} />;
+      return <FullWidthImage data={content} />;
     case 'pageDivider':
-      return <PageDivider data={content} index={index} />;
+      return <PageDivider data={content} />;
     case 'partnerSection':
-      return <PartnerSection data={content} index={index} />;
+      return <PartnerSection data={content} />;
     case 'calloutSection':
-      return <CalloutSection data={content} index={index} />;
+      return <CalloutSection data={content} />;
     case 'teamSection':
-      return <TeamSection data={content} index={index} />;
+      return <TeamSection data={content} />;
     case 'contactForm':
-      return <ContactForm data={content} index={index} />;
+      return <ContactForm data={content} />;
     case 'quote':
-      return <FullWidthQuote data={content} index={index} />;
+      return <FullWidthQuote data={content} />;
     case 'fullWidthStatement':
-      return <FullWidthStatement data={content} index={index} />;
+      return <FullWidthStatement data={content} />;
     case 'accordion':
-      return <Accordion data={content} index={index} />;
+      return <Accordion data={content} />;
     case 'resourceSection':
-      return <ResourceSection data={content} index={index} />;
+      return <ResourceSection data={content} />;
     case 'individualPartnerFeature':
-      return <IndividualPartnerFeature data={content} index={index} />;
+      return <IndividualPartnerFeature data={content} />;
     case 'landAcknowledgment':
-      return <LandAcknowledgment data={content} index={index} />;
+      return <LandAcknowledgment data={content} />;
     case 'aboutBlock':
-      return <AboutBlock data={content} index={index} />;
+      return <AboutBlock data={content} />;
     case 'pressSection':
-      return <PressSection data={content} index={index} />;
+      return <PressSection data={content} />;
     case 'downloadsSection':
-      return <DownloadsSection data={content} index={index} />;
+      return <DownloadsSection data={content} />;
     case 'individualPressFeature':
-      return <IndividualPressFeature data={content} index={index} />;
+      return <IndividualPressFeature data={content} />;
+    case 'threeColumnLayout':
+      return <ThreeColumnLayout data={content} />;
+    case 'logline':
+      return <Logline data={content} />;
+    case 'featuredVoicesSection':
+      return <FeaturedVoicesSection data={content} />;
+    case 'libraryOfExpertsSection':
+      return <LibraryOfExpertsSection data={content} />;
     default:
       return null;
   }

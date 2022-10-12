@@ -1,12 +1,10 @@
 import HamburgerIcon from '../public/hamburger-playbook.svg';
 import SearchIcon from '../public/search-playbook.svg';
-import LogoLightIcon from '../public/logo-light.svg';
 import Link from 'next/link';
-import Logo from './Logo';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import NavLogo from './NavLogo';
+import NavLogo from './Menu/Header/NavLogo';
 
 export const light: NavBarStyle = {
   backgroundColor: 'transparent',

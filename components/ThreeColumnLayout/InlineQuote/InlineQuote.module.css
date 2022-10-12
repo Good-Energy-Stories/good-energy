@@ -1,0 +1,26 @@
+.container {
+  margin: var(--spacing-medium) 0;
+}
+.inner {
+  background: var(--white);
+  padding: var(--spacing-medium);
+  border-top: 4px solid var(--black);
+}
+.quote {
+  margin-bottom: var(--spacing-medium);
+}
+.attribution {
+  color: var(--blueThree);
+}
+.source {
+  text-transform: uppercase;
+}
+
+.url:hover {
+  text-decoration: underline;
+}
+@media only screen and (max-width: 768px) {
+  .inner {
+    padding: 0 var(--spacing-medium);
+  }
+}

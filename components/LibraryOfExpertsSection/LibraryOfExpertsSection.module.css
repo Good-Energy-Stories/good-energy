@@ -1,0 +1,14 @@
+.container {
+  margin: 0 var(--spacing-large);
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    gap: 0;
+    margin: var(--spacing-large) var(--spacing-small);
+  }
+}

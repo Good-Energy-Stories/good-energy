@@ -193,7 +193,6 @@ const TOCSerializer = ({ content, index }) => {
       return <TOCSubsection content={content} />;
     case 'playbookSubsection':
       return <TOCSubsubsection content={content} />;
-
     case 'characterProfilePage':
       return null;
     default:

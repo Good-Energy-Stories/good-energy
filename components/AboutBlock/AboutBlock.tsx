@@ -4,9 +4,9 @@ import CTALink from '../Buttons/CTALink/CTALink';
 const cx = classnames.bind(styles);
 
 const AboutBlock = ({ data }: any) => {
-  const { content } = data;
+  const { content, backgroundColor } = data;
   return (
-    <div className={styles.container}>
+    <div data-theme={backgroundColor} className={styles.container}>
       <div className={styles.textContainer}>
         <div className={cx('quote-lg', styles.title)}>{content}</div>
         <CTALink

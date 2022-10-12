@@ -1,14 +1,12 @@
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { Footer } from '../Footer';
 import Layout from '../Layout';
 import Meta from '../Meta';
 import NextUp from '../NextUp/NextUp';
-import StickyNavBar from '../StickyNavBar';
-import Header from './Header/Header';
+
 import PageContent from './PageContent';
 
 const Page = ({ pageData, header }: any) => {
-  const { seo, nextUp, title, description, bannerImage, showHeader } = pageData;
+  const { seo, nextUp } = pageData;
 
   return (
     <>
@@ -18,7 +16,7 @@ const Page = ({ pageData, header }: any) => {
         slug={'about'}
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
-      <StickyNavBar />
+
       <Layout key="About">
         {header}
 
@@ -27,7 +25,6 @@ const Page = ({ pageData, header }: any) => {
         ))}
         {nextUp && <NextUp label={nextUp?.title} href={nextUp?.slug.current} />}
       </Layout>
-      <Footer />
     </>
   );
 };

@@ -12,6 +12,9 @@
   --blueBorder: #114a75;
   --blueOne: #183051;
 
+  --page-border-width: 12px;
+  --header-height: 80px;
+
   --spacing-xxsmall: 0.15625rem;
   --spacing-xsmall: 0.3125rem;
   --spacing-small: 0.625rem;

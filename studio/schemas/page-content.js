@@ -19,10 +19,11 @@ export default [
   { type: 'downloadsSection' },
   { type: 'individualPressFeature' },
   { type: 'logline' },
+  { type: 'featuredVoicesSection' },
+  { type: 'libraryOfExpertsSection' },
   {
     type: 'reference',
     to: [
-      { type: 'climateLensBlock' },
       { type: 'testimonial' },
       { type: 'teamSection' },
       { type: 'calloutSection' },

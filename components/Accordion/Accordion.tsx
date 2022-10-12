@@ -6,7 +6,7 @@ import PortableTextSerializer from '../PortableTextSerializer';
 import DropdownButton from '../Buttons/DropdownButton/DropdownButton';
 import { useState } from 'react';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
-import TwoColumnLayout from '../Offerings/TwoColumnLayout/TwoColumnLayout';
+import TwoColumnLayout from '../TwoColumnLayout/TwoColumnLayout';
 
 const cx = classnames.bind(styles);
 

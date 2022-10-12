@@ -17,7 +17,7 @@ const About = ({ pageData }) => {
         slug={'about'}
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
-      <StickyNavBar />
+
       <Layout key="About" paddingHorizontal={'2.5rem'}>
         <Header title={headline} description={description} fittedText />
         <NextUp label={'Consulting'} href={'/about/consulting'} />

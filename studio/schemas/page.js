@@ -16,6 +16,14 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'This is the title that will appear at the top of the page.',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'navigationTitle',
+      title: 'Navigation Title',
+      type: 'string',
+      description: 'This is the title that will appear in the navigation',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -23,6 +31,12 @@ export default {
       title: 'Show Header',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'showHeaderBorder',
+      title: 'Show Header Border',
+      description: 'Should the header have a border underneath it.',
+      type: 'boolean',
     },
     {
       title: 'Banner Image',

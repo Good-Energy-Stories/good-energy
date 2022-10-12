@@ -2,8 +2,9 @@
   position: relative;
   display: inline-block;
   border: 5px solid var(--blueFour);
-  padding: 0;
+  padding: var(--spacing-small) var(--spacing-small);
   margin: var(--spacing-medium) 0;
+  white-space: nowrap;
 }
 .container:last-of-type {
   margin-top: auto;
@@ -12,8 +13,8 @@
   position: relative;
   z-index: 10;
   margin: 0;
-  padding: var(--spacing-small) var(--spacing-medium);
-  display: block;
+
+  display: flex;
 }
 .container[data-theme='black'] {
   color: var(--white);

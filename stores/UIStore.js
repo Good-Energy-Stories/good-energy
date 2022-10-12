@@ -15,7 +15,7 @@ class UIStore {
   @observable textColor = 'var(--black)';
   @observable backgroundColor = 'var(--blueFive)';
 
-  @observable playbookSecondaryNavOpen = true;
+  @observable playbookSecondaryNavOpen = false;
   @observable navOverlayOpen = false;
   @observable playbookNavOverlayOpen = false;
 
@@ -43,11 +43,20 @@ class UIStore {
   @action.bound setPlaybookSecondaryNavOpen(open) {
     this.playbookSecondaryNavOpen = open;
   }
+  @action.bound toggleNavOverlayOpen() {
+    this.navOverlayOpen = !this.navOverlayOpen;
+  }
+  @action.bound setNavOverlayOpen(status) {
+    this.navOverlayOpen = status;
+  }
   @action.bound closeNavOverlay() {
     this.navOverlayOpen = false;
   }
   @action.bound openNavOverlay() {
     this.navOverlayOpen = true;
+  }
+  @action.bound togglePlaybookNavOverlay() {
+    this.playbookNavOverlayOpen = !this.playbookNavOverlayOpen;
   }
   @action.bound closePlaybookNavOverlay() {
     this.playbookNavOverlayOpen = false;

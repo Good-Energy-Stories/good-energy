@@ -1,51 +1,17 @@
 import { sanity } from '../../lib/sanity';
-import { Layout, Meta } from '../../components';
-import {
-  PlaybookAnimatedSpacer,
-  StickyNavBar,
-} from '../../components/PlaybookHome';
+
 import { queries } from '../../data';
-import {
-  PageContent,
-  ThreeColumnLayout,
-  ThreeColumnLayoutStyle,
-} from '../../components/PlaybookHome';
-import { Footer } from '../../components/Footer';
-import { imageUrlFor } from '../../utils/imageUrlFor';
+
 import Masthead from '../../components/Playbook/Masthead/Masthead';
+import Page from '../../components/Page/Page';
 
 const Root = ({ pageData }) => {
-  const {
-    masthead,
-    content,
-    seo,
-    playbookTableOfContentsInitialState,
-    description,
-  } = pageData;
-
+  const { description } = pageData;
+  console.log('dataaa', pageData);
+  const header = <Masthead description={description} />;
   return (
     <>
-      <Meta
-        title={seo?.title}
-        description={seo?.description}
-        slug={'playbook'}
-        image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
-      />
-      <Masthead description={description} />
-      <StickyNavBar
-        secondaryMenuInitial={playbookTableOfContentsInitialState}
-      />
-
-      <Layout key="playbookHome">
-        <ThreeColumnLayout
-          data={masthead}
-          style={ThreeColumnLayoutStyle.primary}
-        />
-        {content.map((c, i) => (
-          <PageContent key={i} index={i} content={c} />
-        ))}
-      </Layout>
-      <Footer />
+      <Page header={header} pageData={pageData} />
     </>
   );
 };

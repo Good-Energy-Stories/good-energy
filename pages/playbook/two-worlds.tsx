@@ -68,7 +68,7 @@ const Project = observer(({ pageData }: { pageData: any }) => {
   return (
     <>
       <Meta />
-      <StickyNavBar mode={NavBarStyles.light} />
+
       <Layout key="two-worlds">
         <Header title={pageData?.title} smallTitle={pageData?.smallTitle} />
         <SingleSection data={{ body: pageData?.description }} />

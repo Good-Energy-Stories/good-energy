@@ -13,6 +13,7 @@ function getStyles(paddingHorizontal) {
       min-height: 60vh;
       display: grid;
       padding: 0 ${paddingHorizontal ?? 0};
+      padding-top: var(--header-height);
       grid-template-rows: auto;
       grid-template-columns: var(--grid-col);
       row-gap: 0;

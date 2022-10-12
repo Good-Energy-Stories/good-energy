@@ -288,9 +288,9 @@ const StickyNavBar = observer(
       uiStore: { playbookSecondaryNavOpen, setPlaybookSecondaryNavOpen },
     } = store;
 
-    useEffect(() => {
-      setPlaybookSecondaryNavOpen(secondaryMenuInitial);
-    }, [secondaryMenuInitial, setPlaybookSecondaryNavOpen]);
+    // useEffect(() => {
+    //   setPlaybookSecondaryNavOpen(secondaryMenuInitial);
+    // }, [secondaryMenuInitial, setPlaybookSecondaryNavOpen]);
     return (
       <>
         <div>

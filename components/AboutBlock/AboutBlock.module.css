@@ -11,6 +11,13 @@
   background: var(--white);
   overflow: hidden;
 }
+.container[data-theme='black'] {
+  background: var(--black);
+  color: var(--white);
+}
+.container[data-theme='black'] .image {
+  display: none;
+}
 .title {
   margin-bottom: var(--spacing-medium);
 }

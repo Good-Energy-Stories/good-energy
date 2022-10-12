@@ -1,0 +1,8 @@
+.container {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  padding-bottom: 0;
+}

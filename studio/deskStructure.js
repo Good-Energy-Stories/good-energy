@@ -5,7 +5,7 @@ import { aboutMenu } from './desk/about';
 import SeoPane from 'sanity-plugin-seo-pane';
 import resolveProductionUrl from './resolveProductionUrl';
 import SocialPreview from 'part:social-preview/component';
-import { BiLinkAlt } from 'react-icons/bi';
+import { BiLinkAlt, BiNavigation } from 'react-icons/bi';
 
 export const getDefaultDocumentNode = ({ schemaType }) => {
   if (['article'].includes(schemaType)) {
@@ -35,6 +35,16 @@ export default () =>
   S.list()
     .title('Base')
     .items([
+      S.listItem()
+        .title('Navigation')
+        .child(
+          S.document()
+            .title('Navigation')
+            .schemaType('navigation')
+            .documentId('navigation'),
+        )
+        .icon(BiNavigation),
+      S.divider(),
       pagesMenu,
       S.divider(),
       playbookMenu,
@@ -91,6 +101,11 @@ export default () =>
             'offeringsPage',
             'consultingContactPage',
             'page',
+            'teamSection',
+            'individualPressFeature',
+            'libraryOfExpertsSection',
+            'pressSection',
+            'navigation',
           ].includes(listItem.getId()),
       ),
     ]);

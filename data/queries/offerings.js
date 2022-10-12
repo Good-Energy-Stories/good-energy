@@ -4,6 +4,8 @@ import { partner, partnerSection } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
 import { pressFragment, pressSection } from './press';
+import { featuredVoice } from './featuredVoices';
+import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
 export const calloutFragment = `
 title, 
@@ -18,10 +20,6 @@ showLinkToBookAConsultation
 
 export const halfColumnPageContentFragment = `
 _type == 'reference' => @->{
-    _type == 'testimonial' => {
-      _type,
-     ...
-    },
    
   },
   _type != 'reference' => {
@@ -81,6 +79,19 @@ rightColumn[] {
 }
 `;
 
+export const threeColumnLayoutFragment = `
+    leftColumn[]{
+      ${thirdColumnPageContentFragment}
+    },
+    mainColumn[]{
+      ${thirdColumnPageContentFragment}
+    },
+    rightColumn[]{
+      ${thirdColumnPageContentFragment}
+    }
+  
+`;
+
 export const pageContentFragment = `
   _type == 'reference' => @->{
     _type == 'climateLensBlock' => {
@@ -93,7 +104,8 @@ export const pageContentFragment = `
     },
     _type == 'testimonial' => {
         _type,
-       ...
+       
+        ...
     },
     _type == 'calloutSection' => {
         _type,
@@ -108,6 +120,10 @@ export const pageContentFragment = `
     _type == 'twoColumnLayout' => {
        _type,
        ${twoColumnLayoutFragment}
+    },
+    _type == 'threeColumnLayout' => {
+      _type,
+      ${threeColumnLayoutFragment}
     },
     _type == 'partnerSection' => {
        _type,
@@ -174,9 +190,23 @@ export const pageContentFragment = `
       _type,
      ...
     },
+    _type == 'logline' => {
+      _type,
+     ${loglineFragment}
+    },
     _type == 'resourceSection' => {
       _type,
       ${resourceSection}
+    },
+    _type == 'featuredVoicesSection' => {
+      _type,
+      "content": featuredVoices[]-> {
+        ${featuredVoice}
+      }
+    },
+    _type == 'libraryOfExpertsSection' => {
+      _type,
+      ...
     }
   },
 `;
@@ -187,6 +217,7 @@ seo {
   ${pageSeo}
 },
 showHeader,
+showHeaderBorder,
 bannerImage {
   ${imageMeta}
 },
@@ -205,6 +236,12 @@ export const pressPageQuery = `
 *[_type == "pressPage" ] {
   ${pageFragment}
 }[0]`;
+
+export const playbookHomePageQuery = `
+*[_type == "playbookHome" ] {
+  ${pageFragment}
+}[0]
+`;
 
 export const offeringsPagePathsQuery = `*[_type == "offeringsPage"] { slug }`;
 export const offeringsPageQuery = `*[_type == "offeringsPage" && slug.current == $slug] {

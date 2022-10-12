@@ -54,7 +54,6 @@ const Project = observer(({ playlist }: { playlist: any }) => {
         slug={`playbook/playlists/${slug}`}
         description={description}
       />
-      <StickyNavBar label="Playbook Contents" />
       <Layout key={playlist.slug}>
         <Header title={title} description={description} />
         <PageDivider />

@@ -12,14 +12,22 @@ const Header = ({
   title,
   description,
   showHeader,
+  showHeaderBorder,
 }: {
   bannerImage?: any;
   title: string;
   description: any;
   showHeader?: boolean;
+  showHeaderBorder?: boolean;
 }) => {
   return (
-    <div className={cx(styles.container, showHeader && styles.marginBottom)}>
+    <div
+      className={cx(
+        styles.container,
+        showHeader && styles.marginBottom,
+        showHeaderBorder && styles.borderBottom,
+      )}
+    >
       <div className={styles.inner}>
         <Breadcrumbs className={styles.breadcrumbs} />
         {showHeader && bannerImage && (

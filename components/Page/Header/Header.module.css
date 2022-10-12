@@ -12,6 +12,10 @@
 .marginBottom {
   margin-bottom: var(--spacing-large);
 }
+.borderBottom {
+  padding-bottom: var(--spacing-large);
+  border-bottom: 1px solid var(--blueThree);
+}
 .inner {
   grid-column: 1/-1;
 }

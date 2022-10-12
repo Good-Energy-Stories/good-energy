@@ -11,7 +11,7 @@ import Page from '../components/Page/Page';
 const Root = observer(
   ({
     data,
-    playbookStructure,
+
     preview,
   }: {
     data: any;
@@ -27,16 +27,10 @@ const Root = observer(
     );
 
     const store = useStore();
-    const {
-      uiStore: { scrollPosition },
-    } = store;
 
     if (!pageData) return null;
 
     const { title, subtitle, bannerImage } = pageData;
-
-    const navMode =
-      scrollPosition > 0.001 ? NavBarStyles.dark : NavBarStyles.light;
 
     const header = (
       <Header title={title} subtitle={subtitle} image={bannerImage} />

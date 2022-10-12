@@ -1,4 +1,4 @@
-import Logo from '../Logo';
+import Logo from '../Menu/Header/Logo';
 import Link from 'next/link';
 import { NavBarStyle, PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 

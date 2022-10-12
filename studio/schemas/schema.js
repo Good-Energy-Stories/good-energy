@@ -84,6 +84,10 @@ import individualPressFeature from './individual-press-feature';
 import logline from './logline';
 import thirdPageContent from './third-page-content';
 import threeColumnLayout from './three-column-layout';
+import articleList from './article-list';
+import featuredVoicesSection from './featured-voices-section';
+import libraryOfExpertsSection from './library-of-experts-section';
+import navigation from './navigation';
 
 export default createSchema({
   name: 'default',
@@ -170,5 +174,9 @@ export default createSchema({
     logline,
     thirdPageContent,
     threeColumnLayout,
+    articleList,
+    featuredVoicesSection,
+    libraryOfExpertsSection,
+    navigation,
   ]),
 });

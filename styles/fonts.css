@@ -19,7 +19,7 @@
   font-family: var(--flexa);
   font-variation-settings: 'wght' 800, 'wdth' 40;
   color: var(--black);
-  text-transform: uppercase;
+
   letter-spacing: -2px;
 }
 
@@ -138,6 +138,41 @@ h1,
 }
 .quote-md[data-hide-quote-marks]::after {
   display: none;
+}
+.quote-sm {
+  font-family: var(--flexa);
+  font-size: 30px;
+  line-height: 30px;
+  font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
+  position: relative;
+}
+.quote-sm::before {
+  content: '“';
+  position: absolute;
+  left: -0.5em;
+}
+.quote-sm::after {
+  content: '”';
+}
+.quote-sm[data-hide-quote-marks]::before {
+  display: none;
+}
+.quote-sm[data-hide-quote-marks]::after {
+  display: none;
+}
+.press-quote-attribution {
+  font-family: var(--flexa);
+  font-size: 24px;
+  line-height: 24px;
+  font-variation-settings: 'wght' 573, 'wdth' 69;
+  color: var(--blueThree);
+}
+.press-quote-source {
+  font-family: var(--flexa);
+  font-size: 18px;
+  line-height: 20px;
+  font-variation-settings: 'wght' 429, 'wdth' 69;
+  color: var(--blueThree);
 }
 .h1-xl {
   font-family: var(--flexa);
@@ -517,12 +552,17 @@ h4 {
   line-height: 18px;
   font-variation-settings: 'wght' 429, 'wdth' 69;
 }
-.nav-link-large {
+.nav-link-lg {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 15px;
   font-variation-settings: 'wght' 388, 'wdth' 95;
-  text-transform: uppercase;
+}
+.nav-link-md {
+  font-family: var(--flexa);
+  font-size: 20px;
+  line-height: 24px;
+  font-variation-settings: 'wght' 337, 'wdth' 69;
 }
 .playbook-toc-nav-link {
   font-family: var(--flexa);

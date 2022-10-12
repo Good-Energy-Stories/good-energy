@@ -5,6 +5,8 @@ export default {
   title: 'Half Page Content',
   type: 'array',
   of: [
+    { type: 'articleList' },
+    { type: 'quote' },
     {
       type: 'reference',
       to: [

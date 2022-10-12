@@ -1,7 +1,10 @@
 .container {
+  grid-column: 1/-1;
   display: flex;
   justify-content: space-between;
-  padding: var(--spacing-small) var(--spacing-large);
+  padding: var(--spacing-small) 0;
+  margin: 0 var(--spacing-large);
+  border-bottom: 4px solid var(--blueFour);
 }
 
 .image {

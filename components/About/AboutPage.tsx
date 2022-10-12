@@ -2,7 +2,8 @@ import Header from '../Page/Header/Header';
 import Page from '../Page/Page';
 
 const AboutPage = ({ pageData }) => {
-  const { title, description, bannerImage, showHeader } = pageData;
+  const { title, description, bannerImage, showHeader, showHeaderBorder } =
+    pageData;
 
   const header = (
     <Header
@@ -10,6 +11,7 @@ const AboutPage = ({ pageData }) => {
       description={description}
       bannerImage={bannerImage}
       showHeader={showHeader}
+      showHeaderBorder={showHeaderBorder}
     />
   );
   return (

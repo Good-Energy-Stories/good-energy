@@ -19,8 +19,6 @@ const Root = ({ pageData }) => {
         image={seo?.image ? imageUrlFor(seo?.image).width(500).url() : null}
       />
 
-      <StickyNavBar label="Playbook Contents" />
-
       <Layout key="characterProfiles">
         <Header title={title} description={description} />
         <PageDivider />

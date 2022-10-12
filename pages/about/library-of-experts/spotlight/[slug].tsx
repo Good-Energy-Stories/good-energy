@@ -34,7 +34,7 @@ const Project = observer(({ expertProfile }: { expertProfile: any }) => {
         slug={`about/library-of-experts/spotlight/${slug}`}
         description={shortBio}
       />
-      <StickyNavBar mode={navMode} />
+
       <Layout key={expertProfile.slug}>
         <SpotlightBody
           name={expertProfile?.name}

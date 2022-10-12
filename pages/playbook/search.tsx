@@ -13,8 +13,6 @@ const Root = ({ pageData }) => {
     <>
       <Meta />
 
-      <StickyNavBar />
-
       <Layout key="search" paddingHorizontal={'7.5rem'}>
         <SearchBar />
         <SearchInformation />
