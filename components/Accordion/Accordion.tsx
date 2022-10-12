@@ -5,7 +5,10 @@ import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import DropdownButton from '../Buttons/DropdownButton/DropdownButton';
 import { useState } from 'react';
-import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import {
+  FRAMER_TRANSITION_EASEOUT,
+  FRAMER_TRANSITION_FASTEASE,
+} from '../../lib/framer/framer-animations';
 import TwoColumnLayout from '../TwoColumnLayout/TwoColumnLayout';
 
 const cx = classnames.bind(styles);
@@ -16,11 +19,11 @@ const variants = {
     opacity: 0,
     transition: {
       opacity: {
-        ...FRAMER_TRANSITION_EASEOUT,
+        ...FRAMER_TRANSITION_FASTEASE,
       },
       height: {
-        ...FRAMER_TRANSITION_EASEOUT,
-        delay: FRAMER_TRANSITION_EASEOUT.duration,
+        ...FRAMER_TRANSITION_FASTEASE,
+        delay: FRAMER_TRANSITION_FASTEASE.duration,
       },
     },
   },
@@ -29,11 +32,11 @@ const variants = {
     opacity: 1,
     transition: {
       opacity: {
-        ...FRAMER_TRANSITION_EASEOUT,
-        delay: FRAMER_TRANSITION_EASEOUT.duration,
+        ...FRAMER_TRANSITION_FASTEASE,
+        delay: FRAMER_TRANSITION_FASTEASE.duration,
       },
       height: {
-        ...FRAMER_TRANSITION_EASEOUT,
+        ...FRAMER_TRANSITION_FASTEASE,
       },
     },
   },
