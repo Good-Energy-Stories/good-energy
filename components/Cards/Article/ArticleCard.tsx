@@ -47,7 +47,7 @@ const ArticleCard = ({
 }) => {
   switch (style) {
     case ArticleCardStyle.standard:
-      return <ArticleStandard data={data} last={last} />;
+      return <ArticleStandard data={data} />;
     case ArticleCardStyle.small:
       return (
         <ArticleSmall

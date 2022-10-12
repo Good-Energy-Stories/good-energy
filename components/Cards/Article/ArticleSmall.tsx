@@ -9,14 +9,7 @@ const ArticleSmall = ({
   last?: boolean;
   onActionButtonClicked?: (slug: string) => void;
 }) => {
-  return (
-    <ArticleStandard
-      data={data}
-      last={last}
-      maxWidth={228}
-      onActionButtonClicked={onActionButtonClicked}
-    />
-  );
+  return <ArticleStandard data={data} maxWidth={228} />;
 };
 
 export default ArticleSmall;
