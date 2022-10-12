@@ -26,8 +26,6 @@ const Root = observer(
       },
     );
 
-    const store = useStore();
-
     if (!pageData) return null;
 
     const { title, subtitle, donateLink, bannerImage } = pageData;

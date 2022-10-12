@@ -1,14 +1,9 @@
-import SearchIcon from '../../public/search.svg';
-import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-import { useCallback } from 'react';
-import { sanity } from '../../lib/sanity';
-import { queries } from '../../data';
-import { getClient } from '../../lib/sanity/sanity.server';
-import { ThreeColumnLayout } from '../PlaybookHome';
+
 import { ArticleCardStyle, Card, CharacterProfileCardStyle } from '../Cards';
 import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
+import styles from './SearchResults.module.css';
 
 const SearchResults = observer(() => {
   const store = useStore();
@@ -18,7 +13,7 @@ const SearchResults = observer(() => {
 
   return (
     <>
-      <div>
+      <div className={styles.container}>
         {filteredSearchResults.map((c, i) => (
           <Card
             key={i}
@@ -31,22 +26,8 @@ const SearchResults = observer(() => {
             }
             expertProfileCardStyle={ExpertProfileCardStyle.search}
           />
-        ))}{' '}
+        ))}
       </div>
-      <style jsx>{`
-        div {
-          margin: 0 -5rem;
-          margin-top: 2.5rem;
-          grid-column: 2/4;
-        }
-
-        @media only screen and (max-width: 768px) {
-          div {
-            grid-column: 1/-1;
-            margin: 0 1.25rem;
-          }
-        }
-      `}</style>
     </>
   );
 });

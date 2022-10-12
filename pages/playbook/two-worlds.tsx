@@ -1,30 +1,13 @@
 import { queries } from '../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  ExitPreviewButton,
-} from '../../components';
-import {
-  Divider,
-  TOC,
-  SectionRefLookup,
-  Body,
-  Introduction,
-  Banner,
-  AuthorSection,
-  NextUp,
-} from '../../components/Article';
+import { Meta } from '../../components';
+import { AuthorSection, NextUp } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../components/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
-import { usePreviewSubscription } from '../../lib/sanity/sanity';
-import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
-import { AuthorCard } from '../../components/Cards';
+
 import {
   PageContent,
   Header,
@@ -33,6 +16,7 @@ import {
   Controls,
 } from '../../components/TwoWorlds';
 import { useState } from 'react';
+import Layout from '../../components/Layout/Layout';
 
 export enum ActiveSide {
   rise = 'rise',

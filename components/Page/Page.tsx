@@ -1,5 +1,5 @@
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import Layout from '../Layout';
+import Layout from '../Layout/Layout';
 import Meta from '../Meta';
 import NextUp from '../NextUp/NextUp';
 

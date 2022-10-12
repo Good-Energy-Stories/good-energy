@@ -1,18 +1,12 @@
 import { sanity } from '../../../../lib/sanity';
 import { queries } from '../../../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  SpotlightBody,
-} from '../../../../components';
-
+import { Meta, SpotlightBody } from '../../../../components';
 import { Footer } from '../../../../components/Footer';
 import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../../../components/Related';
 import { imageUrlFor } from '../../../../utils/imageUrlFor';
+import Layout from '../../../../components/Layout/Layout';
 
 const Project = observer(({ characterProfile }: { characterProfile: any }) => {
   const { related, name, shortBio, slug, portraitImage } = characterProfile;
@@ -20,8 +14,7 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
   const {
     uiStore: { scrollPosition },
   } = store;
-  const navMode =
-    scrollPosition > 0.05 ? NavBarStyles.dark : NavBarStyles.light;
+
   return (
     <>
       <Meta

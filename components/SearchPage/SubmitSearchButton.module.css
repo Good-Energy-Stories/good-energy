@@ -1,0 +1,35 @@
+.button {
+  color: var(--black);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--blueFour);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-small);
+  padding: 0 var(--spacing-medium);
+  border: 2px solid var(--black);
+  transition: 0.3s ease;
+}
+
+.button svg {
+  fill: var(--black);
+  transition: 0.3s ease;
+}
+.button:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.button:hover svg {
+  fill: var(--white);
+}
+
+@media only screen and (max-width: 768px) {
+  .button span {
+    display: none;
+  }
+}

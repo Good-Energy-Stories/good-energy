@@ -1,85 +1,27 @@
-import SearchIcon from '../../public/search.svg';
-import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../stores/store';
-import { useCallback, useEffect } from 'react';
-import { sanity } from '../../lib/sanity';
-import { queries } from '../../data';
-import { getClient } from '../../lib/sanity/sanity.server';
-import { useRouter } from 'next/router';
-import * as ga from '../../lib/ga';
-import { useState } from 'react';
+import styles from './SubmitSearchButton.module.css';
+import classnames from 'classnames';
 
-export const BIG_SEARCH_BUTTON_WIDTH = 160;
+const cx = classnames.bind(styles);
 
 const SearchBar = observer(({ onClick }: { onClick: () => void }) => {
-  const [hovered, setHovered] = useState(false);
   return (
     <>
-      <div
-        className="submit-search-button"
-        onClick={onClick}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <div className="search-icon ">
-          <motion.span
-            animate={{
-              transform: hovered
-                ? 'matrix(1.20,-0.20,0.20,1.20,-2,2)'
-                : 'matrix(1,0,0,1,0,2)',
-            }}
+      <div className={styles.container} onClick={onClick}>
+        <button className={cx('label-medium', styles.button)}>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <SearchIcon fill="var(--black);" />
-          </motion.span>
-          <div className="search-button-label nav-link-xl">
-            <motion.div
-              animate={{ scale: hovered ? 0.95 : 1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Search
-            </motion.div>
-          </div>
-        </div>
+            <path d="M13.1296 11.8796H12.4712L12.2379 11.6546C13.0546 10.7046 13.5462 9.47122 13.5462 8.12956C13.5462 5.13789 11.1212 2.71289 8.12956 2.71289C5.13789 2.71289 2.71289 5.13789 2.71289 8.12956C2.71289 11.1212 5.13789 13.5462 8.12956 13.5462C9.47122 13.5462 10.7046 13.0546 11.6546 12.2379L11.8796 12.4712V13.1296L16.0462 17.2879L17.2879 16.0462L13.1296 11.8796ZM8.12956 11.8796C6.05456 11.8796 4.37956 10.2046 4.37956 8.12956C4.37956 6.05456 6.05456 4.37956 8.12956 4.37956C10.2046 4.37956 11.8796 6.05456 11.8796 8.12956C11.8796 10.2046 10.2046 11.8796 8.12956 11.8796Z" />
+          </svg>
+
+          <span>Search</span>
+        </button>
       </div>
-
-      <style jsx>{`
-        .search-icon {
-          display: flex;
-          align-items: center;
-        }
-        .search-button-label {
-          padding-top: 1px;
-          margin-left: 10px;
-          text-transform: uppercase;
-        }
-        .submit-search-button {
-          width: ${BIG_SEARCH_BUTTON_WIDTH}px;
-          cursor: pointer;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          background-color: var(--blueFour);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 1.25rem;
-          border-left: 2px solid var(--black);
-        }
-        span {
-          margin-right: 5px;
-        }
-
-        @media only screen and (max-width: 768px) {
-          .search-icon {
-            margin-right: 0;
-          }
-          .search-button-label {
-            display: none;
-          }
-        }
-      `}</style>
     </>
   );
 });

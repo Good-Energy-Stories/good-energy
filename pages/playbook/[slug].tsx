@@ -1,27 +1,16 @@
 import { queries } from '../../data';
-import {
-  Layout,
-  NavBarStyles,
-  Meta,
-  ExitPreviewButton,
-} from '../../components';
-import {
-  SectionRefLookup,
-  NextUp,
-  MobileFootnotes,
-  Article,
-} from '../../components/Article';
+import { Meta, ExitPreviewButton } from '../../components';
+import { NextUp, MobileFootnotes, Article } from '../../components/Article';
 import { Footer } from '../../components/Footer';
-import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../components/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
-import { AuthorCard } from '../../components/Cards';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import { SecondaryNavMenu } from '../../components/SecondaryNavMenu';
+import Layout from '../../components/Layout/Layout';
 
 const Project = observer(
   ({ data, preview }: { data: any; preview: boolean }) => {

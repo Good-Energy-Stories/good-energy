@@ -1,7 +1,6 @@
 import { sanity } from '../../../../lib/sanity';
 import { queries } from '../../../../data';
 import {
-  Layout,
   StickyNavBar,
   NavBarStyles,
   Meta,
@@ -13,6 +12,7 @@ import { useStore } from '../../../../stores/store';
 import { observer } from 'mobx-react-lite';
 import Related from '../../../../components/Related';
 import { imageUrlFor } from '../../../../utils/imageUrlFor';
+import Layout from '../../../../components/Layout/Layout';
 
 const Project = observer(({ expertProfile }: { expertProfile: any }) => {
   const { name, shortBio, slug, fullSizePortraitImage } = expertProfile;

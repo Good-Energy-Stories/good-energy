@@ -672,6 +672,12 @@ h4 {
     font-size: 30px;
     line-height: 32px;
   }
+  .nav-link-xl {
+    font-family: var(--flexa);
+    font-size: 18px;
+    line-height: 16px;
+    font-variation-settings: 'wght' 429, 'wdth' 69;
+  }
   .subhead {
     font-size: 26px;
     line-height: 28px;

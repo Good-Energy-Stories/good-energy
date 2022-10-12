@@ -1,12 +1,13 @@
 import { sanity } from '../../../lib/sanity';
 
 import { queries } from '../../../data';
-import { Layout, Meta, StickyNavBar } from '../../../components';
+import { Meta } from '../../../components';
 import { Header, Characters } from '../../../components/CharacterProfilesHome';
 import { Footer } from '../../../components/Footer';
 import Related from '../../../components/Related';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import PageDivider from '../../../components/PageDivider/PageDivider';
+import Layout from '../../../components/Layout/Layout';
 
 const Root = ({ pageData }) => {
   const { title, description, related, characterProfiles, seo } = pageData;

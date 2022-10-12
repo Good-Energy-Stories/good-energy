@@ -1,21 +1,6 @@
 import { queries } from '../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  ExitPreviewButton,
-} from '../../components';
-import {
-  Divider,
-  TOC,
-  SectionRefLookup,
-  Body,
-  Introduction,
-  Banner,
-  AuthorSection,
-  NextUp,
-} from '../../components/Article';
+import { Meta } from '../../components';
+import { AuthorSection, NextUp } from '../../components/Article';
 import { Footer } from '../../components/Footer';
 import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
@@ -24,6 +9,7 @@ import Related from '../../components/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 
 import { Header, PageContent } from '../../components/WhyClimateStories';
+import Layout from '../../components/Layout/Layout';
 
 const Project = observer(({ pageData }: { pageData: any }) => {
   const store = useStore();

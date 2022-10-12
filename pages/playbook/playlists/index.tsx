@@ -1,11 +1,12 @@
 import { sanity } from '../../../lib/sanity';
 import { useState } from 'react';
 import { queries } from '../../../data';
-import { Layout, Meta, StickyNavBar } from '../../../components';
+import { Meta } from '../../../components';
 import { Header } from '../../../components/CharacterProfilesHome';
 import { Footer } from '../../../components/Footer';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import { Playlist } from '../../../components/PlaybookHome';
+import Layout from '../../../components/Layout/Layout';
 
 const Root = ({ pageData }) => {
   const [activeArticleSlug, setActiveArticleSlug] = useState(null);

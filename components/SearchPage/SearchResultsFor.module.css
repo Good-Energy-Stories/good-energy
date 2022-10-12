@@ -1,0 +1,12 @@
+.container {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-medium);
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-small);
+  }
+}

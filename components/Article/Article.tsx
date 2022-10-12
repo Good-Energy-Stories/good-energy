@@ -1,11 +1,3 @@
-import { queries } from '../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  ExitPreviewButton,
-} from '..';
 import {
   Header,
   Divider,
@@ -15,29 +7,15 @@ import {
   Introduction,
   Banner,
   AuthorSection,
-  NextUp,
-  MobileFootnotes,
 } from '.';
-import { Footer } from '../Footer';
+
 import { useRef } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
 const ArticleBody = observer(
   ({ data, isInPlaylist }: { data: any; isInPlaylist?: boolean }) => {
-    const {
-      title,
-      byline,
-      lede,
-      slug,
-      seo,
-      introduction,
-      body,
-      heroImage,
-      section,
-      footnotes,
-      relatedSubsection,
-    } = data;
+    const { title, byline, body, heroImage, section } = data;
     const sectionsRef = useRef<SectionRefLookup>({});
 
     const sectionsTOC = body

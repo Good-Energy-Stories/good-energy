@@ -1,32 +1,11 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
-import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { PLAYBOOK_NAV_HEIGHT } from '..';
+import { motion } from 'framer-motion';
+
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import Filters from './Filters';
-import SearchLoader from './SearchLoader';
-import {
-  FRAMER_TRANSITION_EASEOUT,
-  FRAMER_TRANSITION_FASTEREASE,
-} from '../../lib/framer/framer-animations';
-const { className, styles } = css.resolve`
-  div {
-    grid-column: 1/-1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 5rem;
-  }
-  @media only screen and (max-width: 768px) {
-    div {
-      margin: 0 1.25rem;
-    }
-  }
-`;
+
+import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import styles from './SearchResultsFor.module.css';
 
 const variants = {
   in: {
@@ -51,16 +30,10 @@ const SearchResultsFor = observer(() => {
       animate={'in'}
       exit={'out'}
       variants={variants}
-      className={className}
+      className={styles.container}
     >
       <h1>{`${status} for “${playbookLastSearchedQuery}”`}</h1>
       {playbookSearchResults.length !== 0 && <Filters />}
-      <style jsx>{`
-        h1 {
-          margin-bottom: 1.25rem;
-        }
-      `}</style>
-      {styles}
     </motion.div>
   );
 });
