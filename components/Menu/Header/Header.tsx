@@ -6,6 +6,7 @@ import MenuButton from './MenuButton';
 import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 import NavLogo from './NavLogo';
 import SearchBar from './SearchBar';
+import { useIsSmall } from '../../../utils/useMediaQuery';
 
 const Header = observer(() => {
   const store = useStore();
@@ -19,11 +20,13 @@ const Header = observer(() => {
   const { scrollY } = useScroll();
 
   const y = useTransform(scrollY, [0, 12], [0, -12]);
+
+  const isSmall = useIsSmall();
   return (
     <motion.header
       style={{ y }}
       initial={{ paddingLeft: 0 }}
-      animate={{ paddingLeft }}
+      animate={{ paddingLeft: isSmall ? 0 : paddingLeft }}
       className={styles.container}
       transition={FRAMER_TRANSITION_FASTEASE}
     >
