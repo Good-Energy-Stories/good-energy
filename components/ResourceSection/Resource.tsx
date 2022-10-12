@@ -7,6 +7,7 @@ import CTAButton, { ButtonLabelSize } from '../Buttons/CTAButton/CTAButton';
 const cx = classname.bind(styles);
 const Resource = ({ data, backgroundColor }: any) => {
   const { title, name, description, buttonLabel, slug, image } = data;
+  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
