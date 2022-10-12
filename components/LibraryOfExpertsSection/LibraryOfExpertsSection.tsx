@@ -8,8 +8,6 @@ import Filters from './Filters';
 import styles from './LibraryOfExpertsSection.module.css';
 
 const LibraryOfExpertsSection = ({ data }) => {
-  console.log('data', data);
-
   const store = useStore();
   const {
     dataStore: { setLibraryOfExpertsResults },

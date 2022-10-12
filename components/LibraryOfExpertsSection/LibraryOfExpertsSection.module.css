@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
+  padding-bottom: var(--spacing-large);
 }
 
 @media only screen and (max-width: 768px) {
