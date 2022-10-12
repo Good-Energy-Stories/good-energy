@@ -1,22 +1,22 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../lib/sanity';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
+import { Key } from 'react';
+import { FRAMER_TRANSITION_EASEOUT } from '../lib/framer/framer-animations';
+
 function getStyles(paddingHorizontal) {
   return css.resolve`
     div {
       width: 100%;
       height: 100%;
+
       min-height: 60vh;
       display: grid;
       padding: 0 ${paddingHorizontal ?? 0};
+      padding-top: var(--header-height);
       grid-template-rows: auto;
       grid-template-columns: var(--grid-col);
+      row-gap: 0;
     }
     @media only screen and (max-width: 768px) {
       div {
@@ -41,7 +41,7 @@ const Layout = observer(
     key,
     paddingHorizontal,
   }: {
-    children: ReactChild[];
+    children: any[];
     key: Key;
     paddingHorizontal?: string;
   }) => {
@@ -50,7 +50,7 @@ const Layout = observer(
     return (
       <motion.div
         key={key}
-        transition={{ duration: 2 }}
+        transition={FRAMER_TRANSITION_EASEOUT}
         initial={'out'}
         animate={'in'}
         exit={'out'}

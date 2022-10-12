@@ -34,7 +34,7 @@ const Right = ({
       {includeContactForm && (
         <>
           <h4 className="title">Stay in Touch</h4>
-          <ContactForm mode={light} inFooter />
+          <ContactForm inFooter />
         </>
       )}
       <RightBottom />

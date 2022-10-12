@@ -1,4 +1,5 @@
 import { BsGrid3X2GapFill as icon } from 'react-icons/bs';
+import pageContent from './page-content';
 
 export default {
   name: 'landingPage',
@@ -79,28 +80,7 @@ export default {
       description:
         'This is where you change the rest of the body content on the landing page.',
       type: 'array',
-      of: [
-        {
-          type: 'playbookThreeColumn',
-        },
-        {
-          type: 'emailCapture',
-        },
-        {
-          type: 'playbookQuote',
-        },
-        {
-          type: 'resourceSection',
-        },
-        {
-          type: 'reference',
-          to: [
-            { type: 'playlist' },
-            { type: 'partnerSection' },
-            { type: 'individualPartnerFeature' },
-          ],
-        },
-      ],
+      of: pageContent,
     },
   ],
   preview: {},

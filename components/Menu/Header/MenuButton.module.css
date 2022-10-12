@@ -1,0 +1,26 @@
+.button {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  border: 1px solid var(--blueThree);
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  margin-left: var(--spacing-medium);
+  background: var(--white);
+  white-space: nowrap;
+  height: calc(var(--header-height) / 2);
+  transition: 0.3s ease;
+}
+.button:hover {
+  background: var(--greyBlue);
+  color: var(--black);
+  border: 1px solid var(--black);
+  font-variation-settings: 'wght' 650;
+}
+.button:hover > .icon {
+  fill: var(--black);
+}
+.labelText {
+  position: relative;
+  top: 0.085em;
+}

@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
 
     max-height: 100vh;
 

@@ -1,20 +1,12 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
-import { PortableText } from '@portabletext/react';
-import {
-  MOBILE_PLAYBOOK_NAV_HEIGHT,
-  PLAYBOOK_NAV_HEIGHT,
-} from '../StickyNavBar';
+import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import { ScrollDownPrompt } from '.';
 
 function getStyles() {
   return css.resolve`
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
       height: calc(100vh - ${PLAYBOOK_NAV_HEIGHT}px);
 
       padding-bottom: 2rem;
@@ -23,7 +15,7 @@ function getStyles() {
     }
     @media only screen and (max-width: 768px) {
       div {
-        grid-column: 1/5;
+        grid-column: 1/-1;
         padding: 2.5rem 1.25rem;
 
         height: auto;
@@ -71,17 +63,17 @@ const Header = ({
           display: flex;
           flex-direction: column;
           justify-content: center;
-          grid-column: 1/5;
+          grid-column: 1/-1;
         }
         h3 {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           text-align: center;
           margin: 0;
 
           margin-bottom: 2.5rem;
         }
         h1 {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           text-align: center;
           margin: 0;
         }
@@ -92,7 +84,7 @@ const Header = ({
         }
         @media only screen and (max-width: 768px) {
           .body-italic {
-            grid-column: 1/5;
+            grid-column: 1/-1;
           }
         }
       `}</style>

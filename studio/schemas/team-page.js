@@ -49,8 +49,8 @@ export default {
       type: 'standardPagePortableText',
     },
     {
-      title: 'Featured Team Members',
-      name: 'featuredTeamMembers',
+      title: 'Team Members',
+      name: 'teamMembers',
       description:
         'This is where you select the order of the featured team members',
       type: 'array',
@@ -62,17 +62,10 @@ export default {
       ],
     },
     {
-      title: 'Team Members',
-      name: 'teamMembers',
-      description:
-        'This is where you select the order of the rest of the team members',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'teamMember' }],
-        },
-      ],
+      name: 'boardDescription',
+      title: 'Board Description',
+      description: 'Some optional information about the board',
+      type: 'standardPagePortableText',
     },
     {
       title: 'Board Members',

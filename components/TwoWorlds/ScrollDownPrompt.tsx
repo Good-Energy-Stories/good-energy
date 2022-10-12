@@ -1,10 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { Breadcrumbs } from '..';
-import { PortableText } from '@portabletext/react';
 import DownArrowIcon from '../../public/down-arrow.svg';
 
 function getStyles() {
@@ -14,7 +9,7 @@ function getStyles() {
       flex-direction: column;
       align-items: center;
       position: relative;
-      grid-column: 1/5;
+      grid-column: 1/-1;
       height: 30px;
     }
     @media only screen and (max-width: 768px) {

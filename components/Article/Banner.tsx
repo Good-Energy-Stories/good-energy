@@ -7,7 +7,7 @@ function getStyles(isInPlaylist) {
   return css.resolve`
     div {
       overflow: hidden;
-      grid-column: 1/5;
+      grid-column: 1/-1;
       grid-row-start: 1;
       width: 100%;
       height: auto;

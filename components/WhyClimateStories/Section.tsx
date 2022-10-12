@@ -25,7 +25,7 @@ const { className, styles } = css.resolve`
   @media only screen and (max-width: 768px) {
     div {
       padding: 0 1.25rem;
-      grid-column: 1/5;
+      grid-column: 1/-1;
       margin-bottom: 0;
     }
   }

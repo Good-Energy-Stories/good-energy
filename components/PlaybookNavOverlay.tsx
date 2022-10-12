@@ -1,17 +1,11 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { sanity } from '../lib/sanity';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../stores/store';
 import { motion } from 'framer-motion';
-import { getRandomColor } from '../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
 import { FRAMER_TRANSITION_EASEOUT } from '../lib/framer/framer-animations';
 import CloseButtonIcon from '../public/close-button.svg';
-import ListArrowIcon from '../public/list-arrow.svg';
 import Link from 'next/link';
-import { Search } from '.';
+
 const { className, styles } = css.resolve`
   div {
     height: calc(100vh - 0rem);
@@ -49,15 +43,6 @@ const variants = {
   },
 };
 
-const mobileVariants = {
-  in: {
-    x: '0',
-  },
-  out: {
-    x: 'calc(-100% - 10rem)',
-  },
-};
-
 const CloseNavButton = observer(() => {
   const store = useStore();
   const {
@@ -81,13 +66,6 @@ const CloseNavButton = observer(() => {
           top: 1.25rem;
           right: 1.25rem;
           cursor: pointer;
-        }
-
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-          img {
-          }
         }
       `}</style>
     </>
@@ -113,17 +91,10 @@ const ListItemLink = ({ label, href }: { label: string; href: string }) => {
       <style jsx>{`
         div {
           color: var(--white);
-
           margin-bottom: 10px;
         }
         .arrow {
           margin-right: 12px;
-        }
-        @media only screen and (max-width: 768px) {
-          div {
-          }
-          img {
-          }
         }
       `}</style>
     </>
@@ -222,7 +193,6 @@ const TOCSerializer = ({ content, index }) => {
       return <TOCSubsection content={content} />;
     case 'playbookSubsection':
       return <TOCSubsubsection content={content} />;
-
     case 'characterProfilePage':
       return null;
     default:
@@ -435,15 +405,15 @@ const PlaybookNavOverlay = observer(() => {
               opacity: 0.4;
             }
             .introduction {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               grid-row-start: 2;
             }
             .why {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               grid-row-start: 3;
             }
             .climate-storytelling {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               grid-row-start: 4;
               overflow: visible;
               padding-bottom: 0;
@@ -471,7 +441,7 @@ const PlaybookNavOverlay = observer(() => {
             }
             .resources-mobile {
               display: block;
-              grid-column: 1/5;
+              grid-column: 1/-1;
               grid-row-start: 5;
             }
             .container {

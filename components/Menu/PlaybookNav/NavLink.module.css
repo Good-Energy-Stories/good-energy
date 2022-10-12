@@ -1,0 +1,13 @@
+.container {
+  margin: 0;
+
+  padding: var(--spacing-small) 0;
+  border-bottom: 1px solid var(--blueThree);
+}
+.link {
+  padding: var(--spacing-small) 0;
+  height: 100%;
+}
+.link:hover {
+  text-decoration: underline;
+}

@@ -18,12 +18,12 @@ export default {
       name: 'pronouns',
       title: 'Prounouns',
       type: 'string',
-      description: 'The individuals pronouns',
     },
     {
-      name: 'role',
-      title: 'Role',
+      name: 'title',
+      title: 'Title',
       type: 'string',
+      description: "The individual's professional title",
     },
     {
       name: 'links',

@@ -1,0 +1,32 @@
+.container {
+  grid-column: 1/-1;
+  padding: 0 var(--spacing-large);
+  margin: var(--spacing-medium) 0;
+}
+.inner {
+  border-top: 4px solid var(--black);
+  padding: 0;
+}
+.quote {
+  padding: var(--spacing-medium) 0;
+
+  margin-bottom: var(--spacing-small);
+}
+.attribution {
+  color: var(--blueThree);
+}
+.source {
+  text-transform: uppercase;
+}
+
+.url:hover {
+  text-decoration: underline;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-small);
+  }
+  .inner {
+    padding: 0 var(--spacing-medium);
+  }
+}

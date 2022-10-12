@@ -4,7 +4,7 @@ import { FaRegListAlt as icon } from 'react-icons/fa';
 export default {
   name: 'playbookSection',
   title: 'Playbook Section',
-  type: 'document',
+  type: 'object',
   icon,
   fields: [
     {
@@ -19,13 +19,14 @@ export default {
       description: 'You can add either articles or subsections to a section.',
       type: 'array',
       of: [
+        { type: 'playbookSection' },
         {
           type: 'reference',
           to: [
             { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
             { type: 'article' },
             { type: 'characterProfilesPage' },
-            { type: 'playbookSubsection' },
           ],
         },
       ],

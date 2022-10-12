@@ -20,7 +20,7 @@ import {
 } from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     margin-bottom: 2.5rem;
     padding: 0 2.5rem;
     padding-bottom: 1.25rem;
@@ -34,7 +34,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
       margin-bottom: 0;
       padding-top: 2.5rem;
       overflow: hidden;

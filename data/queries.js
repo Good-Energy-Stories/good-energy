@@ -1,12 +1,6 @@
-export const imageMeta = `
-asset,
-caption,
-attribution,
-hotspot,
-"blurHash":asset->.metadata.blurHash,
-"lqip":asset->.metadata.lqip,
-"imageAspect":asset->.metadata.dimensions.aspectRatio,
-`;
+import { partner, partnerSection } from './queries/partners';
+import { imageMeta } from './queries/imageMeta';
+import { pageSeo } from './queries/pageSeo';
 
 export const articlePreview = `
 title,
@@ -18,23 +12,6 @@ heroImage{
   ${imageMeta}
 },
 "heroImageUrl": heroImage.asset->url
-`;
-
-export const partner = `
-title,
-size,
-link,
-logo{
-    ${imageMeta}
-},
-`;
-
-export const partnerSection = `
-title,
-size,
-partners[]->{
-    ${partner}
-},
 `;
 
 export const articleSection = `
@@ -173,7 +150,7 @@ export const teamMember = `
 _type,
 name,
 pronouns,
-role,
+title,
 links,
 bio,
 portraitImage {
@@ -188,13 +165,6 @@ portraitImage{
   ${imageMeta}
 }
 `;
-
-export const pageSeo = `
-title,
-description,
-image {
-  ${imageMeta}
-}`;
 
 export const featureVoiceQuote = `
 quote,
@@ -402,7 +372,14 @@ contents[]-> {
 `;
 export const playbookSection = `
 title,
-contents[]-> {
+contents[] {
+  _type != 'reference' => {
+    _type == 'playbookSection' => {
+      _type,
+      ...
+    },
+  },
+  _type == 'reference' => {
   _type == 'article' => {
     _type,
     ${articlePreview}
@@ -412,15 +389,18 @@ contents[]-> {
     title,
     "slug": "why-climate-stories",
   },
-  _type == 'playbookSubsection' => {
+  _type == 'twoWorldsArticle' => {
     _type,
-    ${playbookSubsection}
+    title,
+    "slug": "two-worlds",
   },
+ 
   _type == 'characterProfilesPage' => {
     _type,
     "title": "Character Profiles",
     "slug": "characters",
-  },
+  }
+}
 }
 `;
 
@@ -440,6 +420,13 @@ export const contentReferences = `
 `;
 
 export const contentPreviewReferences = `
+_type != 'reference' => {
+  _type == 'playbookSection' => {
+    _type,
+    ${playbookSection}
+  }
+},
+_type == 'reference' => {
   _type == 'article' => {
     _type,
     ${articlePreview}
@@ -471,18 +458,12 @@ export const contentPreviewReferences = `
     _type,
     ${expertProfilePreview}
   },
-  _type == 'quoteCollection' => {
-    _type,
-    ${quoteCollection}
-  },
   _type == 'characterProfilesPage' => {
     _type,
     ${characterProfilePagePreview}
   },
-  _type == 'playbookSection' => {
-    _type,
-    ${playbookSection}
-  }
+  
+}
  
 `;
 
@@ -573,19 +554,88 @@ export const landingPageQuery = `
 }[0]
 `;
 
+export const playbookSectionFragment = `
+_type == 'article' => {
+  _type,
+  title,
+  "slug": slug.current,
+},
+_type == 'twoWorldsArticle' => {
+  _type,
+  title,
+  "slug": "two-worlds",
+},
+_type == 'whyClimateArticle' => {
+  _type,
+  title,
+  "slug": "why-climate-stories",
+},
+_type == 'characterProfilesPage' => {
+  _type,
+  title,
+  "slug": "characters",
+},
+`;
+
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
-  introduction[]->{
-    ${contentPreviewReferences}
+  navigation[] {
+    _type == 'reference' => @->{
+      ${playbookSectionFragment}
+    },
+    _type != 'reference' => {
+      _type == 'playbookSection' => {
+        _type,
+        title,
+        contents[] {
+        _type == 'reference' => @->{
+          ${playbookSectionFragment}
+        },
+        _type != 'reference' => {
+          _type == 'playbookSection' => {
+            _type,
+            title,
+            contents[] {
+              _type == 'reference' => @->{
+                  ${playbookSectionFragment}
+              },
+              _type != 'reference' => {
+                _type != 'reference' => {
+                  _type == 'playbookSection' => {
+                  _type,
+                  title,
+                  contents[] {
+                    _type == 'reference' => @-> {
+                      ${playbookSectionFragment}
+                    },
+                  }
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}[0].navigation`;
+
+export const navigationQuery = `*[_type == "navigation"] {
+  offerings[] {
+    _type == 'reference' => @->{
+      _type,
+      "title": navigationTitle,
+      "slug": "offerings/" + slug.current,
+    }
   },
-  why[]->{
-    ${contentPreviewReferences}
+  about[] {
+    _type == 'reference' => @->{
+      _type,
+      "title": navigationTitle,
+      "slug": "about/" + slug.current,
+    }
   },
-  climateStorytelling[]->{
-    ${contentPreviewReferences}
-  },
-  whatsNext[]->{
-    ${contentPreviewReferences}
-  },
+  "playbook": ${playbookStructureQuery}
 }[0]`;
 
 export const climateStorytellingSections = `
@@ -640,44 +690,6 @@ title,
     "slug": "characters",
   },
 }
-`;
-
-export const structureSectionsFirstArticle = `*[_type == "playbookStructure"] { 
-introduction[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-why[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-climateStorytelling[]->{
-  _type == 'playbookSection' => {
-    _type,
-  ${climateStorytellingSections}
-  },
-},
-whatsNext[]->{
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-},
-credits-> {
-  _type == 'article' => {
-    _type,
-    title,
-    "slug": slug.current,
-  },
-}
-}[0]
 `;
 
 export const sectionsFirstArticle = `*[_type == "playbookSection"] { 
@@ -856,3 +868,64 @@ export const playlistQuery = `*[_type == "playlist" && slug.current == $slug] {
 export const expertProfileQuery = `*[_type == "expertProfile" && slug.current == $slug] {
   ${expertProfile}
 }[0]`;
+
+export const partnersPageQuery = `
+*[_type == "partnersPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+  sections[]->{
+    ${partnerSection}
+  }
+}[0]
+`;
+
+export const consultingPageQuery = `
+*[_type == "consultingContactPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description
+}[0]
+`;
+
+export const contactPageQuery = `
+*[_type == "contactPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+}[0]
+`;
+
+export const featuredVoicesPageQuery = `
+*[_type == "featuredVoicesPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+  featuredVoices[]-> {
+    ${featuredVoice}
+  }
+}[0]
+`;
+
+export const libraryOfExpertsPageQuery = `
+*[_type == "libraryOfExpertsPage" ] {
+  "id": _id,
+  seo {
+    ${pageSeo}
+  },
+  title,
+  description,
+}[0]
+`;

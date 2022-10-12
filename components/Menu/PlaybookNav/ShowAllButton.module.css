@@ -1,0 +1,23 @@
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--blueThree);
+
+  margin: 0;
+  padding: var(--spacing-xxsmall) var(--spacing-small);
+
+  text-decoration: none;
+  color: var(--white);
+
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-bottom: var(--spacing-medium);
+  transition: 0.3s ease;
+}
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

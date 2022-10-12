@@ -1,0 +1,31 @@
+.container {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  grid-column: span 2;
+}
+.inner {
+  grid-column: 1/-1;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: space-evenly;
+  justify-items: center;
+}
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin: 0 var(--spacing-large);
+  padding-bottom: var(--spacing-small);
+  color: var(--blueThree);
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    margin: 0;
+  }
+  .container {
+    margin: 0 var(--spacing-small);
+    display: grid;
+
+    grid-column: 1/-1;
+  }
+}

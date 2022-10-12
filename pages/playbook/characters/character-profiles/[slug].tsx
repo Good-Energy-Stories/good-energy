@@ -5,7 +5,6 @@ import {
   StickyNavBar,
   NavBarStyles,
   Meta,
-  Breadcrumbs,
   SpotlightBody,
 } from '../../../../components';
 
@@ -33,7 +32,6 @@ const Project = observer(({ characterProfile }: { characterProfile: any }) => {
         slug={`playbook/characters/spotlight/${slug}`}
         description={shortBio}
       />
-      <StickyNavBar mode={navMode} />
       <Layout key={characterProfile.slug}>
         <SpotlightBody
           name={characterProfile?.name}

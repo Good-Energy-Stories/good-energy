@@ -50,7 +50,7 @@ const Project = observer(({ pageData }: { pageData: any }) => {
   return (
     <>
       <Meta />
-      <StickyNavBar mode={NavBarStyles.light} />
+
       <Layout key="two-worlds">
         <Header title={pageData?.title} subtitle={pageData?.subtitle} />
         {pageData?.content?.map((c, i) => {

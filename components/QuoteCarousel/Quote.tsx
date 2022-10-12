@@ -6,7 +6,6 @@ import { useStore } from '../../stores/store';
 import { motion } from 'framer-motion';
 import { getRandomColor } from '../../utils/getRandomColor';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
 import { QuoteType } from './';
 const { className, styles } = css.resolve`
   div {
@@ -36,11 +35,7 @@ const Quote = ({ quote, attribution }: QuoteType) => {
   return (
     <motion.div className={className} variants={variants}>
       <span>
-        {isLongQuote ? (
-          <h4 className="h4-quote">{quote}</h4>
-        ) : (
-          <div className="pull-quote">{quote}</div>
-        )}
+        <div className={isLongQuote ? 'quote-md' : 'quote-xl'}>{quote}</div>
 
         <div className="attribution quote-attribution">{attribution}</div>
       </span>

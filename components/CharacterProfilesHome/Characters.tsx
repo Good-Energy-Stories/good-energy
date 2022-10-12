@@ -20,7 +20,7 @@ const Characters = ({ content }: { content: any }) => {
       </div>
       <style jsx>{`
         .layout {
-          grid-column: 1/5;
+          grid-column: 1/-1;
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
 

@@ -22,7 +22,6 @@ function getStyles(maxWidth) {
       div {
         padding: 0px;
         display: grid;
-
         grid-column-gap: 0;
       }
     }

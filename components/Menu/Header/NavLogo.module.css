@@ -1,0 +1,6 @@
+.container {
+  pointer-events: auto;
+  display: flex;
+  justify-content: flex-end;
+  max-height: 100%;
+}

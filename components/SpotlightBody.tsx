@@ -5,7 +5,6 @@ import { FRAMER_TRANSITION_EASEOUT } from '../lib/framer/framer-animations';
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from './PortableTextSerializer';
 import { Banner } from './Spotlight';
-import Breadcrumbs from './Breadcrumbs';
 import {
   ArticleCardStyle,
   Card,
@@ -14,6 +13,7 @@ import {
   CharacterProfileFeaturedSecondary,
 } from './Cards';
 import { PLAYBOOK_NAV_HEIGHT } from './StickyNavBar';
+import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;
@@ -93,7 +93,7 @@ const Spotlight = ({
         )}
         <div className="right">
           <div className="breadcrumbs">
-            <Breadcrumbs dropCurrent />
+            <Breadcrumbs />
           </div>
           <h1>{name}</h1>
           <div className="spotlight-intro-graf">{shortBio}</div>
@@ -134,7 +134,7 @@ const Spotlight = ({
               padding-right: 0;
             }
             .left {
-              grid-column: 1/5;
+              grid-column: 1/-1;
               grid-row-start: 1;
 
               height: 500px;

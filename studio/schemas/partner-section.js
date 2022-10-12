@@ -29,6 +29,27 @@ export default {
       },
     },
     {
+      title: 'Background Color',
+      name: 'backgroundColor',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Black', value: 'black' },
+          { title: 'White', value: 'white' },
+        ],
+      },
+    },
+    {
+      name: 'showLinkToPartnersPage',
+      title: 'Show Link To Partners Page',
+      type: 'boolean',
+      description:
+        'If this is toggled on, a CTA button that links to the partners page will be appended to the bottom of the section',
+    },
+    {
       title: 'Partners',
       name: 'partners',
       description: 'You can add any number of partners to a section.',
@@ -50,7 +71,7 @@ export default {
       const { title, byline } = selection;
 
       return {
-        title,
+        title: title ?? 'Partner Section',
         subtitle: byline,
       };
     },

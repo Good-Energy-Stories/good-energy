@@ -1,6 +1,7 @@
 :root {
   --white: #fff;
   --black: #131314;
+  --blackTransparent: rgba(0, 0, 0, 0.8);
   --grey: #c4c4c4;
   --blueThree: #187bad;
   --pink: #f47cf7;
@@ -9,6 +10,10 @@
   --blueFive: #eaf2f5;
   --blueFour: #2fbdf4;
   --blueBorder: #114a75;
+  --blueOne: #183051;
+
+  --page-border-width: 12px;
+  --header-height: 80px;
 
   --spacing-xxsmall: 0.15625rem;
   --spacing-xsmall: 0.3125rem;
@@ -18,11 +23,19 @@
   --spacing-xlarge: 5rem;
   --spacing-xxlarge: 10rem;
 
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
+
+  --max-readable-width: 1300px;
+
   --flexa: FlexaVar, Pressura, Helvetica Neue, sans-serif;
   --flexa-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
   --pressura: Pressura, Helvetica Neue, sans-serif;
 
   --grid-col: repeat(4, minmax(0, 1fr));
+  --grid-col-6: repeat(6, minmax(0, 1fr));
+  --grid-col-8: repeat(8, minmax(0, 1fr));
   --grid-col-mobile: repeat(1, minmax(0, 1fr));
 }
 
@@ -36,6 +49,8 @@ body {
   font-style: normal;
   font-size: 20px;
   line-height: 24px;
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
   font-family: Pressura, Helvetica Neue, sans-serif;
 }
 

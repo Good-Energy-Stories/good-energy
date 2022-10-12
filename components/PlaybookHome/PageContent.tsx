@@ -4,7 +4,9 @@ import { ThreeColumnLayoutStyle } from './';
 const ThreeColumnLayout = dynamic(() => import('./ThreeColumnLayout'), {
   ssr: false,
 });
-const EmailCapture = dynamic(() => import('./EmailCapture'), { ssr: false });
+const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'), {
+  ssr: false,
+});
 const MegaQuote = dynamic(() => import('./MegaQuote'), { ssr: false });
 const Playlist = dynamic(() => import('./Playlist'), { ssr: false });
 

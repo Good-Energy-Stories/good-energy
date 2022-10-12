@@ -42,7 +42,7 @@ const SearchResults = observer(() => {
 
         @media only screen and (max-width: 768px) {
           div {
-            grid-column: 1/5;
+            grid-column: 1/-1;
             margin: 0 1.25rem;
           }
         }

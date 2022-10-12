@@ -47,12 +47,51 @@ import whyClimateTextBlock from './why-climate-text-block';
 import aboutPage from './about-page';
 import pageSeo from './page-seo';
 import standardPagePortableText from './standard-page-portable-text';
-import consultingPage from './consulting-page';
+import pressPage from './press-page';
+import press from './press';
+import outlet from './outlet';
+import callout from './callout';
+import climateLensBlock from './climate-lens-block';
+import testimonial from './testimonial';
+import calloutSection from './callout-section';
+import workshopsPage from './workshops-page';
+import spotIllustration from './spot-illustration';
+import ctaButton from './cta-button';
+import twoColumnLayout from './two-column-layout';
+import ctaLink from './cta-link';
+import writtenContent from './written-content';
+import attributionIndividual from './attribution-individual';
+import offeringsPage from './offerings-page';
+import source from './source';
+import consultingContactPage from './consulting-contact-page';
+import page from './page';
+import statement from './statement';
+import halfPageContent from './half-page-content';
+import teamSection from './team-section';
+import fullWidthImage from './full-width-image';
+import pageDivider from './page-divider';
+import imageCarousel from './image-carousel';
+import contactForm from './contact-form';
+import fullWidthStatement from './full-width-statement';
+import accordion from './accordion';
+import dataVisualization from './data-visualization';
+import landAcknowledgment from './land-acknowledgment';
+import pageContent from './page-content';
+import aboutBlock from './about-block';
+import pressSection from './press-section';
+import downloadsSection from './downloads-section';
+import individualPressFeature from './individual-press-feature';
+import logline from './logline';
+import thirdPageContent from './third-page-content';
+import threeColumnLayout from './three-column-layout';
+import articleList from './article-list';
+import featuredVoicesSection from './featured-voices-section';
+import libraryOfExpertsSection from './library-of-experts-section';
+import navigation from './navigation';
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
-    blockContent,
     aboutPage,
     article,
     articleBlockQuote,
@@ -61,37 +100,46 @@ export default createSchema({
     articleSection,
     articleStoryPossibility,
     author,
+    blockContent,
+    callout,
+    calloutSection,
     characterProfile,
     characterProfilesPage,
-    consultingPage,
+    climateLensBlock,
+    consultingContactPage,
     contactPage,
     emailCapture,
     expertProfile,
     featuredVoice,
-    featuredVoicesPage,
     featuredVoiceQuote,
+    featuredVoicesPage,
     individualPartnerFeature,
     landingPage,
     libraryOfExpertsPage,
+    outlet,
     pageSeo,
     partner,
     partnerPage,
     partnerSection,
-    playbookStructure,
     playbookHome,
-    playbookSection,
-    playbookSubsection,
     playbookQuote,
+    playbookSection,
+    playbookStructure,
+    playbookSubsection,
     playbookThreeColumn,
     playlist,
     playlistsPage,
+    press,
+    pressPage,
     quote,
     quoteCollection,
     resource,
     resourceSection,
-    socials,
     seo,
+    socials,
     standardPagePortableText,
+    testimonial,
+    attributionIndividual,
     team,
     teamPage,
     twoWorldsArticle,
@@ -99,5 +147,36 @@ export default createSchema({
     twoWorldsSection,
     whyClimateArticle,
     whyClimateTextBlock,
+    workshopsPage,
+    spotIllustration,
+    ctaButton,
+    twoColumnLayout,
+    ctaLink,
+    writtenContent,
+    offeringsPage,
+    source,
+    page,
+    statement,
+    halfPageContent,
+    teamSection,
+    fullWidthImage,
+    pageDivider,
+    imageCarousel,
+    contactForm,
+    fullWidthStatement,
+    accordion,
+    dataVisualization,
+    landAcknowledgment,
+    aboutBlock,
+    pressSection,
+    downloadsSection,
+    individualPressFeature,
+    logline,
+    thirdPageContent,
+    threeColumnLayout,
+    articleList,
+    featuredVoicesSection,
+    libraryOfExpertsSection,
+    navigation,
   ]),
 });

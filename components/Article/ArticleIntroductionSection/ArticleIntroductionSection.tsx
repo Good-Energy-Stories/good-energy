@@ -13,7 +13,7 @@ const { className, styles } = css.resolve`
   }
   @media only screen and (max-width: 768px) {
     div {
-      grid-column: 1/5;
+      grid-column: 1/-1;
     }
   }
 `;

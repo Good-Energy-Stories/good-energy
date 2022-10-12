@@ -1,20 +1,11 @@
 import { sanity } from '../../../lib/sanity';
 import { queries } from '../../../data';
-import {
-  Layout,
-  StickyNavBar,
-  NavBarStyles,
-  Meta,
-  Breadcrumbs,
-  SpotlightBody,
-  PageDivider,
-} from '../../../components';
+import { Layout, StickyNavBar, Meta } from '../../../components';
 
 import { Footer } from '../../../components/Footer';
 import { useStore } from '../../../stores/store';
 import { observer } from 'mobx-react-lite';
-import Related from '../../../components/Related';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
+
 import {
   ActiveIndex,
   CardRow,
@@ -25,6 +16,7 @@ import {
 } from '../../../components/Playlist';
 import { useEffect, useState } from 'react';
 import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
+import PageDivider from '../../../components/PageDivider/PageDivider';
 
 const Project = observer(({ playlist }: { playlist: any }) => {
   const [activeSlug, setActiveSlug] = useState(null);
@@ -62,7 +54,6 @@ const Project = observer(({ playlist }: { playlist: any }) => {
         slug={`playbook/playlists/${slug}`}
         description={description}
       />
-      <StickyNavBar label="Playbook Contents" />
       <Layout key={playlist.slug}>
         <Header title={title} description={description} />
         <PageDivider />

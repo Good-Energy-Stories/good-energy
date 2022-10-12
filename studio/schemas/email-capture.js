@@ -17,6 +17,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'marginBottom',
+      title: 'Margin Bottom',
+      type: 'boolean',
+      description: 'Should this section add margin below. Defaults to true.',
+    },
+    {
       title: 'Background Color',
       name: 'backgroundColor',
       type: 'string',

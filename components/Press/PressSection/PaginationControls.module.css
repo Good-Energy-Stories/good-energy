@@ -1,0 +1,40 @@
+.container {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid var(--blueThree);
+  padding: var(--spacing-medium) var(--spacing-large);
+  margin-top: var(--spacing-large);
+}
+.button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+  color: var(--blueThree);
+  text-decoration: underline;
+  padding: 0;
+  transition: 0.3s ease;
+}
+.button:hover {
+  opacity: 0.6;
+}
+
+.button:disabled,
+.button[disabled] {
+  text-decoration: none;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.caret {
+  height: 24px;
+  fill: var(--blueThree);
+}
+
+@media only screen and (max-width: 768px) {
+  .status {
+  }
+}

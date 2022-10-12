@@ -36,7 +36,7 @@ const MobileFootnotes = ({ footnotes }: { footnotes: any }) => {
           .footnotes {
             background-color: var(--greyBlue);
             display: block;
-            grid-column: 1/5;
+            grid-column: 1/-1;
             padding: 2.5rem 1.25rem;
           }
         }

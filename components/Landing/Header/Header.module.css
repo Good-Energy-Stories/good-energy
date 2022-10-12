@@ -1,0 +1,67 @@
+.container {
+  grid-column: 1/-1;
+  background-color: var(--blueFive);
+  position: relative;
+  overflow: hidden;
+}
+.textContainer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  padding: 0 var(--spacing-medium);
+  padding-bottom: var(--spacing-medium);
+  padding-top: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.buttonContainer {
+  padding-top: var(--spacing-medium);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+.image {
+  z-index: 0;
+  min-height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  object-fit: contain;
+
+  min-width: 100%;
+}
+
+.title {
+  max-width: 1000px;
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: var(--spacing-small);
+}
+.subtitle {
+  max-width: 400px;
+  text-transform: none;
+  color: var(--white);
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding-top: 30%;
+    min-height: 100%;
+  }
+  .title {
+    max-width: 100%;
+  }
+  .buttonContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+  .button {
+    margin: var(--spacing-small) 0;
+  }
+}

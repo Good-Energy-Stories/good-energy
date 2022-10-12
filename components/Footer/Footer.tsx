@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import Left from './Left';
+import Nav from './Nav';
 import Right from './Right';
 
 const { className, styles } = css.resolve`
@@ -22,33 +21,13 @@ const { className, styles } = css.resolve`
   }
 `;
 
-const variants = {
-  in: {
-    opacity: 1,
-  },
-  out: {
-    opacity: 0,
-  },
-};
-
-const Footer = ({
-  includeContactForm = true,
-}: {
-  includeContactForm?: boolean;
-}) => {
+const Footer = ({ navigation }: any) => {
   return (
-    <motion.div
-      transition={{ duration: 2 }}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
-      variants={variants}
-      className={className}
-    >
-      <Left />
-      <Right includeContactForm={includeContactForm} />
+    <div className={className}>
+      <Nav data={navigation} />
+      <Right includeContactForm />
       {styles}
-    </motion.div>
+    </div>
   );
 };
 

@@ -7,10 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import { useStore } from '../../../stores/store';
-import {
-  FRAMER_TRANSITION_EASEOUT,
-  FRAMER_TRANSITION_FASTEASE,
-} from '../../../lib/framer/framer-animations';
+import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 
 function getStyles(sticky) {
   return css.resolve`

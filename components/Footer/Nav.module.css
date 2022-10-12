@@ -1,0 +1,5 @@
+.container {
+  display: flex;
+  gap: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+}

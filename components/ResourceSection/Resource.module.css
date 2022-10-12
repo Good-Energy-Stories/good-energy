@@ -1,0 +1,39 @@
+.container {
+  grid-column: 1/-1;
+
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+}
+.textContainer {
+  grid-column: 1/5;
+  margin: 0;
+  padding: 0;
+}
+.imageContainer {
+  grid-column: 5/9;
+  margin: 0;
+  padding: 0;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.name {
+  color: var(--blueFour);
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    gap: 0;
+  }
+  .textContainer {
+    grid-column: 1/9;
+    margin: 0;
+    padding: 0;
+  }
+  .imageContainer {
+    grid-column: 1/9;
+    margin-bottom: var(--spacing-medium);
+  }
+}

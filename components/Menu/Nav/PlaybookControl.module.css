@@ -1,0 +1,10 @@
+.label {
+  padding: var(--spacing-small) 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+.link:hover {
+  text-decoration: underline;
+}

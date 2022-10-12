@@ -16,7 +16,7 @@ function getStyles(includeDropCap) {
     }
     @media only screen and (max-width: 768px) {
       div {
-        grid-column: 1/5;
+        grid-column: 1/-1;
         margin-bottom: 0;
       }
     }

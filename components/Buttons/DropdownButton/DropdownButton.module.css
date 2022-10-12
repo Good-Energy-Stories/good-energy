@@ -1,0 +1,25 @@
+.button {
+  border: 1px solid var(--blueThree);
+  color: var(--blueThree);
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  display: flex;
+  gap: var(--spacing-xsmall);
+  background: var(--blueFive);
+  align-items: center;
+  transition: 0.3s ease;
+}
+.button:hover {
+  background: var(--greyBlue);
+  color: var(--black);
+  border: 1px solid var(--black);
+  font-variation-settings: 'wght' 650;
+}
+.button:hover > .icon {
+  fill: var(--black);
+}
+.icon {
+  fill: var(--blueThree);
+  position: relative;
+  top: -0.05em;
+  transition: 0.3s ease;
+}

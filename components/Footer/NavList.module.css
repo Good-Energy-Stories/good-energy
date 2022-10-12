@@ -1,0 +1,34 @@
+.container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--blueThree);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.titleContainer:hover .title {
+  opacity: 0.6;
+}
+.titleContainer[data-disabled='true'] {
+  cursor: default;
+}
+.titleContainer[data-disabled='true'] .title {
+  opacity: 1;
+}
+.title {
+  margin: 0;
+
+  padding: var(--spacing-medium) 0;
+  display: inline-block;
+}
+.icon {
+  height: 24px;
+  width: 24px;
+  border: 1px solid var(--blueThree);
+}

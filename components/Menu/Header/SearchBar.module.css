@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+.input {
+  height: calc(var(--header-height) / 2);
+  width: 100%;
+  pointer-events: auto;
+  border: 1px solid var(--blueThree);
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  padding-left: calc(var(--spacing-small) + 16px);
+  padding-top: 8px;
+}
+
+.iconContainer {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-xsmall);
+}
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}

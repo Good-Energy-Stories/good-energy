@@ -7,7 +7,7 @@ import PageBannerText from './PageBannerText';
 const { className, styles } = css.resolve`
   div {
     width: calc(100% - 24px);
-    background-color: var(--black);
+    background-color: var(--blueOne);
     text-align: center;
     display: flex;
     justify-content: center;

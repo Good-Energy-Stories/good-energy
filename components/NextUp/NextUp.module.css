@@ -1,0 +1,30 @@
+.container {
+  grid-column: 1/-1;
+
+  padding: 0 var(--spacing-large);
+}
+.inner {
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  border-top: 1px solid var(--blueThree);
+}
+
+.link {
+  grid-column: 5/9;
+  margin-top: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+  transition: 0.3s ease;
+}
+.link:hover > .title {
+  text-decoration: underline;
+}
+.label {
+  color: var(--blueThree);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-column: 1/-1;
+    padding: 0 1.25rem;
+  }
+}

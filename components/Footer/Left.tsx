@@ -1,10 +1,8 @@
-import { Links } from './';
 import { Search } from '../';
 
 const Left = () => {
   return (
     <div>
-      <Links />
       <Search />
       <style jsx>{`
         div {

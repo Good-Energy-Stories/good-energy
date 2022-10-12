@@ -1,0 +1,34 @@
+.container {
+  grid-column: 1/-1;
+}
+.container[data-theme='black'] {
+  padding: var(--spacing-large);
+  background: var(--black);
+  color: var(--white);
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin: 0 var(--spacing-large);
+  padding-bottom: var(--spacing-small);
+  color: var(--blueThree);
+}
+.buttonRow {
+  grid-column: span 4;
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-large) 0;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 0 var(--spacing-small);
+  }
+  .title {
+    margin: 0;
+  }
+}
