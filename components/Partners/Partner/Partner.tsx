@@ -5,6 +5,7 @@ import * as ga from '../../../lib/ga';
 import styles from './Partner.module.css';
 
 const Logo = ({ logo, link }: any) => {
+  if (!logo) return null;
   if (link) {
     return (
       <a
