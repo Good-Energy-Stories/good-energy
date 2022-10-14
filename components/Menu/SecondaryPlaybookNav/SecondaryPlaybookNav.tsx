@@ -12,12 +12,13 @@ const SecondaryPlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
     <>
       <nav ref={ref} className={styles.container}>
         <HomeButton />
-
-        <ul className={styles.inner}>
-          {data?.map((item, index) => (
-            <NavItem key={index} data={item} depth={0} />
-          ))}
-        </ul>
+        <div className={styles.main}>
+          <ul className={styles.inner}>
+            {data?.map((item, index) => (
+              <NavItem key={index} data={item} depth={0} />
+            ))}
+          </ul>
+        </div>
       </nav>
     </>
   );

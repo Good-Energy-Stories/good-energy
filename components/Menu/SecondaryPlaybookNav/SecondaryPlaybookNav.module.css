@@ -1,5 +1,6 @@
 .container {
   position: absolute;
+  z-index: 10;
   top: calc(var(--header-height));
   right: 0;
   left: 0;
@@ -14,21 +15,31 @@
   height: var(--secondary-header-height);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  padding: 0 var(--spacing-medium);
+  padding-left: var(--spacing-medium);
   pointer-events: auto;
   border-bottom: 1px solid var(--black);
 }
-.inner {
+.main {
   position: relative;
+  height: 100%;
+  width: 100%;
+}
+.inner {
+  position: absolute;
+  left: 0;
+
+  z-index: 100000;
 
   margin: 0;
   padding: 0;
   list-style: none;
-  height: 100%;
+  height: calc(100vh - var(--header-height));
   width: 100%;
   display: flex;
   justify-content: flex-start;
   gap: var(--spacing-small);
+  overflow-y: visible;
+  overflow-x: auto;
 }
 
 @media (max-width: 768px) {

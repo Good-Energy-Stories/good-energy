@@ -19,24 +19,28 @@ const NavSection = ({ data, depth }) => {
   const isNested = depth > 0;
   return (
     <>
-      <div
-        onMouseEnter={() => setExpanded(true)}
-        onMouseLeave={() => setExpanded(false)}
-        aria-haspopup="true"
-        className={styles.container}
-      >
+      <li className={styles.container} onMouseLeave={() => setExpanded(false)}>
         <div
+          aria-haspopup="true"
           className={cx(
             'sub-nav-link-md',
             styles.title,
             isNested ? styles.nested : styles.topLevel,
           )}
+          data-expanded={expanded}
+          onMouseEnter={() => setExpanded(true)}
         >
           <span>{title}</span>
         </div>
 
         {(isNested || expanded) && (
-          <ul ref={ref} className={styles.list}>
+          <ul
+            ref={ref}
+            className={cx(
+              styles.list,
+              isNested ? styles.nestedList : styles.topLevelList,
+            )}
+          >
             <motion.div
               style={{
                 left: extendedPastWindow ? 'auto' : '0%',
@@ -53,7 +57,7 @@ const NavSection = ({ data, depth }) => {
             </motion.div>
           </ul>
         )}
-      </div>
+      </li>
     </>
   );
 };
