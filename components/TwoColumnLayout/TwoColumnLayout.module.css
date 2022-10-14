@@ -4,6 +4,7 @@
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
   position: relative;
+  overflow: hidden;
 }
 .padding {
   padding: 0 var(--spacing-large);

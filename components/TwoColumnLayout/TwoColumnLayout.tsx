@@ -44,6 +44,7 @@ const TwoColumnLayout = ({ data }: any) => {
         <img
           className={cx(styles.image)}
           src={imageUrlFor(backgroundImage).width(1080).url()}
+          alt="Collage of animals and plants."
         />
       )}
     </div>
