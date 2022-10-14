@@ -5,8 +5,16 @@
   align-items: flex-end;
   flex-direction: column;
 }
+@media only screen and (max-width: 1080px) {
+  .container {
+    grid-column: 5/9;
+    margin-bottom: var(--spacing-medium);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .container {
+    row-gap: var(--spacing-medium);
     grid-column: 1/-1;
   }
 }

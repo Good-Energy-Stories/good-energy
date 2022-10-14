@@ -6,6 +6,7 @@
   padding-bottom: var(--spacing-small);
 }
 .image {
+  min-width: 100%;
   max-width: 100%;
   transition: 0.3s ease-in-out;
 }

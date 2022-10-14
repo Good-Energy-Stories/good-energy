@@ -1,6 +1,14 @@
 .container {
   grid-column: 3/7;
 }
+@media only screen and (max-width: 1080px) {
+  .container {
+    grid-column: 1/-1;
+    grid-row-start: 1;
+    margin-bottom: var(--spacing-medium);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     grid-column: 1/-1;
