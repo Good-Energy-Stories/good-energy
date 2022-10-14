@@ -7,7 +7,7 @@ const DataVisualization = ({ data }: any) => {
   const { title, image } = data;
   return (
     <div className={cx(styles.container)}>
-      <h4 className={styles.title}>{title}</h4>
+      {title && <h4 className={styles.title}>{title}</h4>}
       <div className={cx(styles.imageContainer)}>
         {image && (
           <img className={cx(styles.image)} src={imageUrlFor(image).url()} />

@@ -8,6 +8,8 @@ import { observer } from 'mobx-react-lite';
 import styles from './ArticleStandard.module.css';
 import classnames from 'classnames';
 import { imageUrlFor } from '../../../../utils/imageUrlFor';
+import { FRAMER_TRANSITION_EASEOUT } from '../../../../lib/framer/framer-animations';
+import Photo from '../../../Photo/Photo';
 const cx = classnames.bind(styles);
 const variants = {
   in: {
@@ -36,22 +38,16 @@ const Small = observer(
     return (
       <motion.div
         style={{ maxWidth: maxWidth ?? '100%', color: textColor }}
-        transition={{ duration: 2 }}
         initial={'out'}
         animate={'in'}
         exit={'out'}
         variants={variants}
+        transition={FRAMER_TRANSITION_EASEOUT}
         className={styles.container}
       >
         <Link href={`/playbook/${slug}`} passHref>
           <a>
-            {heroImage && (
-              <img
-                className={styles.image}
-                alt={heroImage?.caption}
-                src={imageUrlFor(heroImage).width(768).url()}
-              />
-            )}
+            {heroImage && <Photo className={styles.image} photo={heroImage} />}
             {!heroImage && <div className={styles.line} />}
             {section?.title && (
               <div className={cx('label-small', styles.sectionLabel)}>

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
+import Photo from '../Photo/Photo';
 
 const Video = ({ data, className }: any) => {
   const [playing, setPlaying] = useState(false);
@@ -30,11 +31,10 @@ const Video = ({ data, className }: any) => {
 };
 
 const Media = ({ data, className }: any) => {
-  console.log(data);
   const { _type } = data;
   switch (_type) {
     case 'image':
-      return <img className={className} src={imageUrlFor(data).url()} />;
+      return <Photo className={className} photo={data} />;
     case 'video':
       return <Video data={data} className={className} />;
     default:

@@ -1,0 +1,42 @@
+.figure {
+  margin: 0;
+  overflow: hidden;
+}
+.layout {
+  position: relative;
+}
+.picture {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.image {
+  opacity: 0;
+  min-width: 100%;
+  max-width: 100%;
+  transition: opacity 0.3s;
+}
+.image.loaded {
+  opacity: 1;
+}
+.placeholder {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  filter: blur(10px);
+}
+.placeholderImage {
+  opacity: 1;
+  min-width: 100%;
+  transition-delay: 0.3s;
+  transition: opacity 0.3s ease;
+}
+.placeholderImage.loaded {
+  opacity: 0;
+}

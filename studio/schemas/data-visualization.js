@@ -10,7 +10,8 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      description:
+        'This is optional, only if your chart should have a small title right above it.',
     },
     {
       title: 'Graphic',
@@ -46,7 +47,7 @@ export default {
       const { title } = selection;
 
       return {
-        title: title,
+        title: title ?? 'Data Visualization',
       };
     },
   },
