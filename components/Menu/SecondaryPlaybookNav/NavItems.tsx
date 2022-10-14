@@ -5,12 +5,17 @@ import { useState } from 'react';
 import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 import classnames from 'classnames';
 
-const NavItems = ({ data, depth }) => {
+const NavItems = ({ data, depth, setSubmenuExpanded }) => {
   const { contents } = data;
   return (
     <>
       {contents?.map((item, index) => (
-        <NavItem key={index} data={item} depth={depth} />
+        <NavItem
+          key={index}
+          data={item}
+          depth={depth}
+          setSubmenuExpanded={setSubmenuExpanded}
+        />
       ))}
     </>
   );

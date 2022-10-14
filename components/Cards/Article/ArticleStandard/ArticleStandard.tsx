@@ -33,7 +33,6 @@ const Small = observer(
     const {
       uiStore: { textColor },
     } = store;
-    console.log('textColor', data);
     return (
       <motion.div
         style={{ maxWidth: maxWidth ?? '100%', color: textColor }}

@@ -9,7 +9,7 @@ import useDimensions from '../../../utils/useDimenions';
 
 const cx = classnames.bind(styles);
 
-const NavSection = ({ data, depth }) => {
+const NavSection = ({ data, depth, setSubmenuExpanded }) => {
   const { title, contents } = data;
   const windowDimensions = useWindowDimensions();
   const [ref, { x, width }] = useDimensions();
@@ -19,7 +19,21 @@ const NavSection = ({ data, depth }) => {
   const isNested = depth > 0;
   return (
     <>
-      <li className={styles.container} onMouseLeave={() => setExpanded(false)}>
+      <li
+        className={styles.container}
+        onMouseEnter={() => {
+          if (!isNested) {
+            setSubmenuExpanded(true);
+            setExpanded(true);
+          }
+        }}
+        onMouseLeave={() => {
+          if (!isNested) {
+            setSubmenuExpanded(false);
+            setExpanded(false);
+          }
+        }}
+      >
         <div
           aria-haspopup="true"
           className={cx(
@@ -28,7 +42,6 @@ const NavSection = ({ data, depth }) => {
             isNested ? styles.nested : styles.topLevel,
           )}
           data-expanded={expanded}
-          onMouseEnter={() => setExpanded(true)}
         >
           <span>{title}</span>
         </div>

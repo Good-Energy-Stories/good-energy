@@ -555,6 +555,7 @@ export const landingPageQuery = `
 `;
 
 export const playbookSectionFragment = `
+_id,
 _type == 'article' => {
   _type,
   title,
@@ -584,6 +585,7 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
     },
     _type != 'reference' => {
       _type == 'playbookSection' => {
+        _key,
         _type,
         title,
         contents[] {
@@ -592,6 +594,7 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
         },
         _type != 'reference' => {
           _type == 'playbookSection' => {
+            _key,
             _type,
             title,
             contents[] {
@@ -601,6 +604,7 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
               _type != 'reference' => {
                 _type != 'reference' => {
                   _type == 'playbookSection' => {
+                  _key,
                   _type,
                   title,
                   contents[] {

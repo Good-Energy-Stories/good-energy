@@ -2,16 +2,28 @@ import NavSection from './NavSection';
 import NavLink from './NavLink';
 import NavItems from './NavItems';
 
-const NavItem = ({ data, depth }: any) => {
+const NavItem = ({ data, depth, submenuExpanded, setSubmenuExpanded }: any) => {
   const { _type } = data;
 
   switch (_type) {
     case 'playbookSection':
       switch (data.title) {
         case 'Climate Storytelling':
-          return <NavItems data={data} depth={depth} />;
+          return (
+            <NavItems
+              data={data}
+              depth={depth}
+              setSubmenuExpanded={setSubmenuExpanded}
+            />
+          );
         default:
-          return <NavSection data={data} depth={depth} />;
+          return (
+            <NavSection
+              data={data}
+              depth={depth}
+              setSubmenuExpanded={setSubmenuExpanded}
+            />
+          );
       }
 
     case 'article':
