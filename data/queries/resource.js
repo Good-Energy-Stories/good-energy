@@ -7,9 +7,26 @@ slug,
 description,
 buttonLabel,
 style,
-image {
-  ${imageMeta}
-},
+media[] {
+  _type != 'reference' =>{
+    _type == 'image' => {
+      _type,
+      ${imageMeta}
+    },
+    _type == 'video' => {
+      _type,
+      video {
+        asset->{...}
+      },
+      thumbnail {
+        _type,
+        ${imageMeta}
+      },
+      caption
+    }
+  },
+}
+
 `;
 
 export const resourceSection = `

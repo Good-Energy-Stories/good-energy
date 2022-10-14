@@ -102,6 +102,24 @@ input:focus {
 img {
   transition: 0.5s ease-in;
 }
+.video {
+  position: relative;
+}
+.video[data-playing='false']::after {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  content: url('/play-button.svg');
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     border: 0;

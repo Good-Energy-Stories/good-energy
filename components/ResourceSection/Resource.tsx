@@ -4,9 +4,11 @@ import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import classname from 'classnames';
 import CTAButton, { ButtonLabelSize } from '../Buttons/CTAButton/CTAButton';
+import Media from './Media';
 const cx = classname.bind(styles);
 const Resource = ({ data, backgroundColor }: any) => {
-  const { title, name, description, buttonLabel, slug, image } = data;
+  console.log(data);
+  const { title, name, description, buttonLabel, slug, media } = data;
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -28,9 +30,9 @@ const Resource = ({ data, backgroundColor }: any) => {
         />
       </div>
       <div className={styles.imageContainer}>
-        {image && (
-          <img className={styles.image} src={imageUrlFor(image).url()} />
-        )}
+        {media?.map((item, index) => {
+          return <Media className={styles.media} key={index} data={item} />;
+        })}
       </div>
     </div>
   );

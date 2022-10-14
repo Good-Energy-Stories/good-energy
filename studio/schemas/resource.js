@@ -1,5 +1,9 @@
 import React from 'react';
-import { BsFillLightbulbFill as icon } from 'react-icons/bs';
+import {
+  BsFillLightbulbFill as icon,
+  BsFillImageFill,
+  BsFillCameraVideoFill,
+} from 'react-icons/bs';
 
 export default {
   name: 'resource',
@@ -53,26 +57,57 @@ export default {
       ],
     },
     {
-      title: 'Image',
-      name: 'image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
+      title: 'Media',
+      name: 'media',
+      type: 'array',
+      validation: (Rule) => Rule.max(1).warning('Can only have one media item'),
+      of: [
         {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          description: 'This will be used as the alt text for the image.',
+          title: 'Image',
+          name: 'image',
+          type: 'image',
+          icon: BsFillImageFill,
           options: {
-            isHighlighted: true,
+            hotspot: true,
           },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description: 'This will be used as the alt text for the image.',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {
+              name: 'attribution',
+              type: 'string',
+              title: 'Attribution',
+            },
+          ],
         },
         {
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
+          title: 'Video',
+          name: 'video',
+          type: 'object',
+          icon: BsFillCameraVideoFill,
+          fields: [
+            {
+              title: 'Video',
+              name: 'video',
+              type: 'file',
+              validation: (Rule) => Rule.required(),
+              options: { accept: 'video/*' },
+            },
+            {
+              title: 'Thumbail',
+              name: 'thumbnail',
+              type: 'image',
+              validation: (Rule) => Rule.required(),
+            },
+            { title: 'Caption', name: 'caption', type: 'string' },
+          ],
         },
       ],
     },
