@@ -38,11 +38,11 @@
 }
 .image {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  min-height: 100%;
   min-width: 100%;
+  bottom: 0;
   z-index: 0;
+  object-fit: fill;
   pointer-events: none;
 }
 @media only screen and (max-width: 768px) {
