@@ -18,7 +18,7 @@ function getStyles(sticky) {
       margin-right: 1.25rem;
       max-width: 228px;
       position: ${sticky ? 'sticky' : 'relative'};
-      top: ${sticky ? PLAYBOOK_NAV_HEIGHT : 0}px;
+      top: calc(var(--header-height) + var(--secondary-header-height));
     }
     @media only screen and (max-width: 768px) {
       div {
