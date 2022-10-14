@@ -19,7 +19,7 @@ const Layout = observer(({ children, key }: { children: any[]; key: Key }) => {
 
   return (
     <motion.div
-      data-is-playback={isPlaybook ? 'true' : 'false'}
+      data-is-playbook={isPlaybook}
       key={key}
       transition={FRAMER_TRANSITION_EASEOUT}
       initial={'out'}
