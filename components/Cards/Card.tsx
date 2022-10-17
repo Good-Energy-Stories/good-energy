@@ -1,109 +1,78 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { ArticleCardStyle, CharacterProfileCardStyle } from './';
-import { ExpertProfileCardStyle } from './ExpertProfileCard';
-import CharacterProfilePageCarousel from './CharacterProfilePageCarousel';
+import { ArticleCardStyle } from './';
+import { ExpertProfileCardStyle } from './ExpertProfile/ExpertProfileCard';
+import { CharacterProfileCardStyle } from './CharacterProfile/CharacterProfileCard';
 
 const ArticleCard = dynamic(() => import('./Article/ArticleCard'));
-const CharacterProfileCard = dynamic(() => import('./CharacterProfileCard'));
-const ExpertProfileCard = dynamic(() => import('./ExpertProfileCard'));
-const QuoteCarousel = dynamic(() => import('../QuoteCarousel/QuoteCarousel'));
-const FeaturedVoiceCard = dynamic(() => import('./FeaturedVoiceCard'));
+const CharacterProfileCard = dynamic(
+  () => import('./CharacterProfile/CharacterProfileCard'),
+);
+const ExpertProfileCard = dynamic(
+  () => import('./ExpertProfile/ExpertProfileCard'),
+);
 
-export const Card = ({
-  index,
-  last,
-  content,
-  shouldUseExpandedStyles = true,
-  articleCardStyle = ArticleCardStyle.standard,
-  characterProfileCardStyle = CharacterProfileCardStyle.standard,
-  expertProfileCardStyle = ExpertProfileCardStyle.standard,
-  marginBottom,
-  active,
-  onActionButtonClicked,
-}: {
-  index?: number;
-  last?: boolean;
+interface CardProps {
   content: any;
-  shouldUseExpandedStyles?: boolean;
+  index?: number;
   articleCardStyle?: ArticleCardStyle;
   characterProfileCardStyle?: CharacterProfileCardStyle;
   expertProfileCardStyle?: ExpertProfileCardStyle;
-  marginBottom?: string;
-  active?: boolean;
-  onActionButtonClicked?: (slug: string) => void;
-}) => {
+  className?: string;
+  imageClassName?: string;
+}
+
+export enum CardType {
+  twoWorldsArticle = 'twoWorldsArticle',
+  whyClimateArticle = 'whyClimateArticle',
+  characterProfilesPage = 'characterProfilesPage',
+  article = 'article',
+  characterProfile = 'characterProfile',
+  expertProfile = 'expertProfile',
+}
+
+export const Card = ({
+  content,
+  index,
+  articleCardStyle = ArticleCardStyle.standard,
+  characterProfileCardStyle = CharacterProfileCardStyle.standard,
+  expertProfileCardStyle = ExpertProfileCardStyle.standard,
+  className,
+  imageClassName,
+}: CardProps) => {
   if (!content) return null;
   const type = content._type;
+
   switch (type) {
-    case 'twoWorldsArticle':
-    case 'whyClimateArticle':
-    case 'article':
+    case CardType.twoWorldsArticle:
+    case CardType.whyClimateArticle:
+    case CardType.characterProfilesPage:
+    case CardType.article:
       return (
         <ArticleCard
-          index={index}
-          last={last}
           data={content}
           style={articleCardStyle}
-          shouldUseExpandedStyles={shouldUseExpandedStyles}
-          onActionButtonClicked={onActionButtonClicked}
+          className={className}
         />
       );
-    case 'characterProfilesPage':
-      if (content.cardStyle == 'standard') {
-        return (
-          <ArticleCard
-            index={index}
-            last={last}
-            data={content}
-            style={articleCardStyle}
-            shouldUseExpandedStyles={shouldUseExpandedStyles}
-            onActionButtonClicked={onActionButtonClicked}
-          />
-        );
-      } else if (content.cardStyle == 'carousel') {
-        return (
-          <CharacterProfilePageCarousel
-            index={index}
-            data={content}
-            last={last}
-          />
-        );
-      }
-    case 'quoteCollection':
-      return <QuoteCarousel index={index} data={content} />;
-    case 'characterProfile':
+    case CardType.characterProfile:
       return (
         <CharacterProfileCard
-          index={index}
-          last={last}
           data={content}
           style={characterProfileCardStyle}
-          shouldUseExpandedStyles={shouldUseExpandedStyles}
-          onActionButtonClicked={onActionButtonClicked}
+          className={className}
+          imageClassName={imageClassName}
         />
       );
-    case 'expertProfile':
+    case CardType.expertProfile:
       return (
         <ExpertProfileCard
           index={index}
-          last={last}
           data={content}
           style={expertProfileCardStyle}
-          onActionButtonClicked={onActionButtonClicked}
+          className={className}
         />
       );
-    case 'featuredVoice':
-      return (
-        <FeaturedVoiceCard
-          index={index}
-          last={last}
-          data={content}
-          active={active}
-          onActionButtonClicked={onActionButtonClicked}
-        />
-      );
-
     default:
       return null;
   }

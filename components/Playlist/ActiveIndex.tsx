@@ -1,11 +1,4 @@
-import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { useState } from 'react';
-import { CTAButton, BorderCTAButton } from '../';
-import { PortableText } from '@portabletext/react';
-import { Card, ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
-import { ShadowOverlay } from './';
-import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
 
 function getStyles() {
   return css.resolve`

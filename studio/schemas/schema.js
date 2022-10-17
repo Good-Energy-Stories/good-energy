@@ -88,6 +88,9 @@ import articleList from './article-list';
 import featuredVoicesSection from './featured-voices-section';
 import libraryOfExpertsSection from './library-of-experts-section';
 import navigation from './navigation';
+import characterProfilesTeaseSection from './character-profiles-tease-section';
+import playbookPage from './playbook-page';
+import characterProfilesSection from './character-profiles-section';
 
 export default createSchema({
   name: 'default',
@@ -178,5 +181,8 @@ export default createSchema({
     featuredVoicesSection,
     libraryOfExpertsSection,
     navigation,
+    characterProfilesTeaseSection,
+    playbookPage,
+    characterProfilesSection,
   ]),
 });

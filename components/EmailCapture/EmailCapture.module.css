@@ -15,6 +15,7 @@
 }
 .container[data-theme='white'] {
   background: var(--white);
+  color: var(--black);
 }
 
 .container[data-theme='black'] {

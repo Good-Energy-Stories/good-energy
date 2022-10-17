@@ -1,16 +1,10 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../utils/imageUrlFor';
-import { PLAYBOOK_NAV_HEIGHT } from '../';
 function getStyles(isInPlaylist) {
   return css.resolve`
     div {
       max-width: 100%;
-      margin-top: -${isInPlaylist ? 0 : PLAYBOOK_NAV_HEIGHT}px;
     }
     @media only screen and (max-width: 768px) {
       div {

@@ -1,9 +1,6 @@
-import { Search } from '../';
-
 const Left = () => {
   return (
     <div>
-      <Search />
       <style jsx>{`
         div {
           grid-column-start: 1;

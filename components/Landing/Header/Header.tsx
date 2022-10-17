@@ -21,7 +21,7 @@ const Header = ({
         <img
           className={styles.image}
           alt={image?.caption}
-          src={imageUrlFor(image).url()}
+          src={imageUrlFor(image).width(1200).url()}
         />
       )}
       <div className={styles.textContainer}>

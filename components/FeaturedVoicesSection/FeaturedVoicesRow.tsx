@@ -22,14 +22,12 @@ const FeaturedVoicesRow = ({ data }) => {
         {data.map((item, index) => {
           const active = activeIndex === index;
           return (
-            <>
-              <FeaturedVoice
-                key={index}
-                data={item}
-                active={active}
-                onClick={() => handleClick(index)}
-              />
-            </>
+            <FeaturedVoice
+              key={index}
+              data={item}
+              active={active}
+              onClick={() => handleClick(index)}
+            />
           );
         })}
       </div>

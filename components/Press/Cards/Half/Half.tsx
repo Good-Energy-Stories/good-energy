@@ -13,7 +13,9 @@ const Half = ({ data }) => {
           <div className={cx('label-small', styles.attribution)}>
             {outlet.title}
           </div>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 className={styles.title}>
+            <span>{title}</span>
+          </h3>
         </div>
         <div className={styles.logoContainer}>
           <img

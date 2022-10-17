@@ -7,9 +7,7 @@
   margin-bottom: var(--spacing-medium);
   transition: 0.3s ease;
 }
-.container:hover {
-  opacity: 0.6;
-}
+
 .inner {
   padding: var(--spacing-medium) 0;
   border-top: 4px solid var(--black);
@@ -21,6 +19,7 @@
 }
 .attribution {
   color: var(--blueThree);
+  transition: 0.3s ease-in-out;
 }
 .textContainer {
   grid-column: 1/5;
@@ -40,6 +39,22 @@
 }
 .image {
   max-width: 100%;
+  transition: 0.3s ease-in-out;
+}
+.container:hover .attribution {
+  opacity: 0.7;
+}
+.container:hover .image {
+  opacity: 0.4;
+}
+.title span {
+  background: no-repeat 0 100%;
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 0% 3px;
+  transition: background-size 0.3s ease-in-out;
+}
+.container:hover .title span {
+  background-size: 100% 3px;
 }
 
 @media only screen and (max-width: 1080px) {

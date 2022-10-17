@@ -33,9 +33,6 @@ const App = observer(({ Component, pageProps, pageData }: any) => {
       clearRouteVariables,
       updateScrollPosition,
       updateWindowSize,
-      borderColor,
-      textColor,
-      backgroundColor,
     },
   } = store;
 
@@ -64,6 +61,16 @@ const App = observer(({ Component, pageProps, pageData }: any) => {
     };
   }, [updateScrollPosition, updateWindowSize]);
 
+  useEffect(() => {
+    switch (router.asPath) {
+      case '/playbook/two-worlds':
+        document.body.dataset.theme = 'dark';
+        break;
+      default:
+        document.body.dataset.theme = 'light';
+    }
+  }, [router.asPath]);
+
   return (
     <>
       <DefaultSeo {...defaultSEO} />
@@ -73,14 +80,6 @@ const App = observer(({ Component, pageProps, pageData }: any) => {
       <style jsx global>{`
         body {
           overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
-          border-width: var(--page-border-width);
-          border-style: solid;
-          border-color: ${borderColor};
-          color: ${textColor};
-          background-color: ${backgroundColor};
-          transition-delay: 2s;
-          transition: border-color, background-color,
-            background-color 1s ease-in-out;
         }
       `}</style>
     </>

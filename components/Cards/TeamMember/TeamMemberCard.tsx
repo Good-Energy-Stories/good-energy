@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import styles from './TeamMemberCard.module.css';
-import { Name, Bio, Portrait, Links } from '../ExpertProfileCardComponents';
-import { PortraitSizes } from '../CharacterProfileCardComponents';
 
 import { PortableText } from '@portabletext/react';
 import classnames from 'classnames';
@@ -13,6 +11,7 @@ import {
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 import DropdownButton from '../../Buttons/DropdownButton/DropdownButton';
+import Portrait, { PortraitSizes } from './TeamMemberCardComponents/Portrait';
 
 const cx = classnames.bind(styles);
 const variants = {

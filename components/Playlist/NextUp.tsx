@@ -2,8 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 
 import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
-import { ArticleCardStyle, Card, CharacterProfileCardStyle } from '../Cards';
-import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
+import { ArticleCardStyle, Card } from '../Cards';
+import { CharacterProfileCardStyle } from '../Cards/CharacterProfile/CharacterProfileCard';
+import { ExpertProfileCardStyle } from '../Cards/ExpertProfile/ExpertProfileCard';
 
 const { className, styles } = css.resolve`
   div {
@@ -47,13 +48,7 @@ const NextUp = ({ data, onClick }: { data: any; onClick: () => void }) => {
         variants={variants}
         className={className}
       >
-        <Card
-          content={data}
-          onActionButtonClicked={onClick}
-          articleCardStyle={ArticleCardStyle.nextUp}
-          characterProfileCardStyle={CharacterProfileCardStyle.nextUp}
-          expertProfileCardStyle={ExpertProfileCardStyle.nextUp}
-        />
+        <Card content={data} />
 
         <style jsx>{`
           h2 {

@@ -1,53 +1,5 @@
-import { motion } from 'framer-motion';
-import css from 'styled-jsx/css';
-import { useState } from 'react';
-import { CTAButton, BorderCTAButton } from '../';
-import { PortableText } from '@portabletext/react';
-import { Card, ArticleCardStyle, CharacterProfileCardStyle } from '../Cards';
+import { Card } from '../Cards';
 import { ShadowOverlay } from './';
-import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
-
-function getStyles() {
-  return css.resolve`
-    div {
-      display: inline-block;
-      background-color: var(--white);
-      min-width: 100%;
-      position: relative;
-      border-top: 4px solid var(--black);
-      grid-column: 1/-1;
-      display: grid;
-      grid-template-columns: var(--grid-col);
-      padding: 1.25rem 2.5rem;
-      padding-bottom: 2.5rem;
-      overflow: hidden;
-    }
-    @media only screen and (max-width: 768px) {
-      div {
-        padding: 0px;
-        display: grid;
-
-        grid-column-gap: 0;
-      }
-    }
-  `;
-}
-
-const variants = {
-  in: {
-    opacity: 1,
-  },
-  out: {
-    opacity: 0,
-  },
-};
-
-interface PlaylistData {
-  title: string;
-  byline: string;
-  description: any;
-  playlist: any;
-}
 
 const CardRow = ({
   playlist,
@@ -65,14 +17,7 @@ const CardRow = ({
         <ShadowOverlay active={shadowActive} />
         {playlist.map((c, i) => (
           <div key={i} className="card-wrapper">
-            <Card
-              index={i}
-              content={c}
-              onActionButtonClicked={onActionButtonClicked}
-              articleCardStyle={ArticleCardStyle.readMore}
-              expertProfileCardStyle={ExpertProfileCardStyle.readMore}
-              characterProfileCardStyle={CharacterProfileCardStyle.readMore}
-            />
+            <Card index={i} content={c} />
           </div>
         ))}
       </div>

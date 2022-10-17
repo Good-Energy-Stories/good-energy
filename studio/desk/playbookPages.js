@@ -57,6 +57,10 @@ export const playbookPagesMenu = S.listItem()
               .documentId('characterProfilesPage'),
           )
           .icon(BsPersonFill),
+        S.listItem()
+          .title('Playbook Pages')
+          .child(S.documentTypeList('playbookPage').title('Playbook Pages'))
+          .icon(BsFillQuestionCircleFill),
       ]),
   )
   .icon(BsGlobe);

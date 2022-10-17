@@ -1,8 +1,6 @@
 import { getClient } from '../lib/sanity/sanity.server';
 import { groq } from 'next-sanity';
 import { usePreviewSubscription } from '../lib/sanity/sanity';
-import { useStore } from '../stores/store';
-import { NavBarStyles } from '../components';
 import { queries } from '../data';
 import { observer } from 'mobx-react-lite';
 import Header from '../components/Landing/Header/Header';

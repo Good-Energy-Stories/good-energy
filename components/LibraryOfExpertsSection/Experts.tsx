@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 import { Card } from '../Cards';
+import { ExpertProfileCardStyle } from '../Cards/ExpertProfile/ExpertProfileCard';
 import styles from './Experts.module.css';
 const Experts = observer(() => {
   const store = useStore();
@@ -10,13 +11,13 @@ const Experts = observer(() => {
 
   return (
     <main className={styles.container}>
-      {filteredLibraryOfExpertsResults.map((e, i) => {
+      {filteredLibraryOfExpertsResults.map((e, index) => {
         return (
           <Card
             key={e._id}
-            index={i}
+            index={index}
             content={e}
-            last={i === filteredLibraryOfExpertsResults.length - 1}
+            expertProfileCardStyle={ExpertProfileCardStyle.library}
           />
         );
       })}

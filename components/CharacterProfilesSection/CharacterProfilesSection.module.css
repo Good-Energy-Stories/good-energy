@@ -1,0 +1,24 @@
+.container {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  padding-bottom: 0;
+  margin-bottom: var(--spacing-large);
+}
+.card {
+  grid-column: span 2;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-column: 1/-1;
+    gap: 0;
+    row-gap: var(--spacing-large);
+    padding: 0 var(--spacing-small);
+  }
+  .card {
+    grid-column: 1/-1;
+  }
+}

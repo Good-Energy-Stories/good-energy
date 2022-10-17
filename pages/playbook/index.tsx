@@ -7,7 +7,7 @@ import Page from '../../components/Page/Page';
 
 const Root = ({ pageData }) => {
   const { description } = pageData;
-  console.log('dataaa', pageData);
+
   const header = <Masthead description={description} />;
   return (
     <>

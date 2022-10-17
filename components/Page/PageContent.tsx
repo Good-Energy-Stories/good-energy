@@ -18,6 +18,8 @@ import ThreeColumnLayout from '../ThreeColumnLayout/ThreeColumnLayout';
 import Logline from '../Logline/Logline';
 import FeaturedVoicesSection from '../FeaturedVoicesSection/FeaturedVoicesSection';
 import LibraryOfExpertsSection from '../LibraryOfExpertsSection/LibraryOfExpertsSection';
+import CharacterProfilesTeaseSection from '../CharacterProfilesTeaseSection/CharacterProfilesTeaseSection';
+import CharacterProfilesSection from '../CharacterProfilesSection/CharacterProfilesSection';
 
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'));
@@ -31,6 +33,7 @@ const FullWidthImage = dynamic(
 const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
 const PageContent = ({ content, index }: any) => {
   const type = content._type;
+
   switch (type) {
     case 'callout':
       return <Callout data={content} />;
@@ -80,6 +83,10 @@ const PageContent = ({ content, index }: any) => {
       return <FeaturedVoicesSection data={content} />;
     case 'libraryOfExpertsSection':
       return <LibraryOfExpertsSection data={content} />;
+    case 'characterProfilesTeaseSection':
+      return <CharacterProfilesTeaseSection data={content} />;
+    case 'characterProfilesSection':
+      return <CharacterProfilesSection data={content} />;
     default:
       return null;
   }

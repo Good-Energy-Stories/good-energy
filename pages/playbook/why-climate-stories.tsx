@@ -5,7 +5,7 @@ import { Footer } from '../../components/Footer';
 import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
-import Related from '../../components/Related';
+import Related from '../../components/Related/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 
 import { Header, PageContent } from '../../components/WhyClimateStories';

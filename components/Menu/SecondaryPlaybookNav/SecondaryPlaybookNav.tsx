@@ -16,7 +16,6 @@ const SecondaryPlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
         <div className={styles.main}>
           <ul className={styles.inner} data-expanded={submenuExpanded}>
             {data?.map((item, index) => {
-              console.log(item);
               return (
                 <NavItem
                   key={index}

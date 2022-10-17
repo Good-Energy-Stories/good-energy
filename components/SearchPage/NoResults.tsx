@@ -1,18 +1,9 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key, useMemo, useState, useEffect } from 'react';
-import { imageUrlFor } from '../../utils/imageUrlFor';
-import { PLAYBOOK_NAV_HEIGHT } from '../';
+
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
-import Filters from './Filters';
-import {
-  FRAMER_TRANSITION_EASEOUT,
-  FRAMER_TRANSITION_FASTEASE,
-  FRAMER_TRANSITION_FASTEREASE,
-} from '../../lib/framer/framer-animations';
+import { FRAMER_TRANSITION_FASTEASE } from '../../lib/framer/framer-animations';
 const { className, styles } = css.resolve`
   div {
     grid-column: 1/-1;

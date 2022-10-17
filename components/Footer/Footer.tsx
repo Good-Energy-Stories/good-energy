@@ -12,6 +12,7 @@ const { className, styles } = css.resolve`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 1.25rem 2.5rem;
+    border-top: 1px solid var(--text);
   }
   @media only screen and (max-width: 768px) {
     div {

@@ -2,7 +2,6 @@ import React from 'react';
 import { Section } from './';
 import { SectionRefLookup } from '../';
 import { RefObject } from 'react';
-import { PLAYBOOK_NAV_HEIGHT } from '../../';
 import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';

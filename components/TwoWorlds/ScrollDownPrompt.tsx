@@ -20,27 +20,11 @@ function getStyles() {
   `;
 }
 
-const variants = {
-  in: {
-    opacity: 1,
-  },
-  out: {
-    opacity: 0,
-  },
-};
-
 const ScrollDownPrompt = () => {
   const { className, styles } = getStyles();
 
   return (
-    <motion.div
-      transition={{ duration: 2 }}
-      initial={'out'}
-      animate={'in'}
-      exit={'out'}
-      variants={variants}
-      className={className}
-    >
+    <div className={className}>
       <div className="label-medium">Scroll</div>
       <span className="arrow">
         <DownArrowIcon />
@@ -65,7 +49,7 @@ const ScrollDownPrompt = () => {
         }
       `}</style>
       {styles}
-    </motion.div>
+    </div>
   );
 };
 

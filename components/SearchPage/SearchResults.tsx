@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../stores/store';
 
-import { ArticleCardStyle, Card, CharacterProfileCardStyle } from '../Cards';
-import { ExpertProfileCardStyle } from '../Cards/ExpertProfileCard';
+import { ArticleCardStyle, Card } from '../Cards';
+import { CharacterProfileCardStyle } from '../Cards/CharacterProfile/CharacterProfileCard';
+import { ExpertProfileCardStyle } from '../Cards/ExpertProfile/ExpertProfileCard';
 import styles from './SearchResults.module.css';
 
 const SearchResults = observer(() => {
@@ -18,12 +19,9 @@ const SearchResults = observer(() => {
           <Card
             key={i}
             index={i}
-            last={i === playbookSearchResults.length - 1}
             content={c}
             articleCardStyle={ArticleCardStyle.search}
-            characterProfileCardStyle={
-              CharacterProfileCardStyle.featuredSecondary
-            }
+            characterProfileCardStyle={CharacterProfileCardStyle.search}
             expertProfileCardStyle={ExpertProfileCardStyle.search}
           />
         ))}

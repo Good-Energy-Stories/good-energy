@@ -1,5 +1,6 @@
 .button {
   border: 1px solid var(--blueThree);
+
   color: var(--blueThree);
   padding: var(--spacing-xsmall) var(--spacing-small);
   display: flex;

@@ -1,0 +1,118 @@
+.container {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  padding-right: 0;
+  padding-bottom: 0;
+  background: var(--background);
+  border-top: 4px solid var(--text);
+}
+.textContainer {
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing-medium);
+  height: 100%;
+}
+.characterProfilesContainer {
+  grid-column: 3/9;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: var(--spacing-xlarge);
+}
+.characterProfiles {
+  width: 100vw;
+}
+.characterProfilesInner {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-flow: column;
+  gap: var(--spacing-small);
+}
+.label {
+  color: var(--blueThree);
+  margin-bottom: var(--spacing-medium);
+}
+.link {
+}
+.characterProfile {
+  grid-column: span 1;
+}
+.controls {
+  bottom: var(--spacing-medium);
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  grid-column: 1/-1;
+  display: flex;
+  gap: var(--spacing-medium);
+  justify-content: center;
+}
+.button {
+  background: var(--greyBlue);
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+}
+.button:hover {
+  background: var(--blueFour);
+}
+@media only screen and (max-width: 1080px) {
+  .textContainer {
+    grid-column: 1/5;
+  }
+  .characterProfilesContainer {
+    grid-column: 5/9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .characterProfile {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    gap: 0;
+    padding: 0 var(--spacing-small);
+  }
+  .textContainer {
+    grid-column: 1/-1;
+    padding-bottom: var(--spacing-medium);
+  }
+  .characterProfilesContainer {
+    margin-top: var(--spacing-medium);
+    grid-row-start: 1;
+    grid-column: 1/-1;
+  }
+  .characterProfiles {
+    width: auto;
+    grid-template-columns: var(--grid-col-4);
+  }
+  .characterProfilesInner {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-flow: column;
+    gap: var(--spacing-small);
+  }
+  .characterProfile {
+    grid-column: span 1;
+  }
+  .characterProfileImage {
+    min-width: 228px;
+    min-height: 228px;
+    width: 228px;
+    height: 228px;
+    max-width: 228px;
+    max-height: 228px;
+    border-radius: 50%;
+  }
+}

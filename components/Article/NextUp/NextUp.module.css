@@ -1,0 +1,16 @@
+.container {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+
+  padding: 0 var(--spacing-large);
+}
+.card {
+  grid-column: 2/7;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-column: 1/-1;
+    padding: 0;
+  }
+}

@@ -21,6 +21,8 @@ export default [
   { type: 'logline' },
   { type: 'featuredVoicesSection' },
   { type: 'libraryOfExpertsSection' },
+  { type: 'characterProfilesTeaseSection' },
+  { type: 'characterProfilesSection' },
   {
     type: 'reference',
     to: [

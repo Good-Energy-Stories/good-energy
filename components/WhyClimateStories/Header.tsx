@@ -1,15 +1,12 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 
-import { PLAYBOOK_NAV_HEIGHT } from '../StickyNavBar';
 import { ScrollDownPrompt } from '../TwoWorlds';
 
 function getStyles() {
   return css.resolve`
     div {
       grid-column: 1/-1;
-      height: calc(100vh - ${PLAYBOOK_NAV_HEIGHT}px);
-
       padding-bottom: 2rem;
       display: grid;
       grid-template-columns: var(--grid-col);

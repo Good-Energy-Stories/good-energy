@@ -9,6 +9,8 @@ class UIStore {
     makeObservable(this);
   }
 
+  @observable theme = 'light';
+
   @observable activeFilter = DEFAULT_FILTER;
   lastActiveFilter = DEFAULT_FILTER;
   @observable borderColor = 'var(--pink)';
@@ -30,6 +32,13 @@ class UIStore {
   @observable scrollPositionTotal = 0;
   @observable pageHeight = 0;
   @observable pageWidth = 0;
+
+  @action.bound activateLightTheme() {
+    this.theme = 'light';
+  }
+  @action.bound activateDarkTheme() {
+    this.theme = 'dark';
+  }
 
   @action.bound setBorderColor(color) {
     this.borderColor = color;

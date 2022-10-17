@@ -2,18 +2,12 @@ import Link from 'next/link';
 import Logo from './Logo';
 import styles from './NavLogo.module.css';
 
-import { dark, NavBarStyle } from '../../StickyNavBar';
-
-const NavLogo = ({ theme = dark, height }: any) => {
+const NavLogo = ({ theme, height }: any) => {
   return (
     <div className={styles.container}>
       <Link href="/">
         <a style={{ height }}>
-          <Logo
-            height={height}
-            textColor={theme.logoTextColor}
-            backgroundColor={theme.logoBackgroundColor}
-          />
+          <Logo height={height} />
         </a>
       </Link>
     </div>

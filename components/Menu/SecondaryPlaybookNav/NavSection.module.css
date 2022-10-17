@@ -8,8 +8,8 @@
 .topLevel[data-expanded='true'] {
   opacity: 1;
 
-  background: var(--white);
-  border: 1px solid var(--black);
+  background: var(--background);
+  border: 1px solid var(--text);
   border-bottom: 0;
 }
 
@@ -48,8 +48,8 @@
 }
 
 .menuContainer {
-  background: var(--white);
-  border: 1px solid var(--black);
+  background: var(--background);
+  border: 1px solid var(--text);
 
   position: absolute;
   z-index: 10;

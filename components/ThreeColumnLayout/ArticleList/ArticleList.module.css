@@ -40,7 +40,7 @@
   font-family: var(--flexa);
   font-size: 36px;
   font-variation-settings: 'wght' 614;
-  background: var(--greyBlue);
+  background: var(--sheen);
   border-radius: 50%;
   display: flex;
   align-items: center;

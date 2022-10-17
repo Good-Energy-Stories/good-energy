@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
-  padding: var(--spacing-large);
+  padding: var(--spacing-medium) var(--spacing-large);
   padding-bottom: 0;
 }
 

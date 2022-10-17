@@ -4,6 +4,7 @@ import { imageUrlFor } from '../../utils/imageUrlFor';
 import DropdownButton from '../Buttons/DropdownButton/DropdownButton';
 import ActiveQuoteCard from './ActiveQuoteCard';
 import { useIsSmall } from '../../utils/useMediaQuery';
+import Photo from '../Photo/Photo';
 const cx = classnames.bind(styles);
 const FeaturedVoice = ({ data, active, onClick }) => {
   const { name, credentials, quotes } = data;
@@ -12,14 +13,12 @@ const FeaturedVoice = ({ data, active, onClick }) => {
     <div className={styles.container}>
       {data?.portraitImage && (
         <div className={styles.imageContainer}>
-          <img
-            className={styles.image}
-            src={imageUrlFor(data.portraitImage).width(300).url()}
-          />
+          <Photo className={styles.image} photo={data.portraitImage} />
         </div>
       )}
-      <h2>{name}</h2>
-      <div className={cx('label-medium', styles.title)}>{credentials}</div>
+      <div className={cx('label-small', styles.label)}>Featured Voice</div>
+      <h3>{name}</h3>
+      <div className={cx('tease-lede-small', styles.title)}>{credentials}</div>
       <DropdownButton
         className={styles.button}
         onClick={onClick}

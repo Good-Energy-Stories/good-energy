@@ -3,7 +3,7 @@
   top: var(--page-border-width);
   right: var(--page-border-width);
   left: var(--page-border-width);
-  background: var(--greyBlue);
+  background: var(--nav);
   z-index: 10;
 
   height: var(--header-height);

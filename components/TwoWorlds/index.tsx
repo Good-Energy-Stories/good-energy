@@ -1,7 +1,7 @@
 export { default as Section } from './Section';
 export { default as PageContent } from './PageContent';
 export { default as CompareSection } from './CompareSection';
-export { default as Header } from './Header';
+export { default as Header } from './Header/Header';
 export { default as Illustration } from './Illustration';
 export { default as SingleSection } from './SingleSection';
 export { default as Collapse } from './Collapse';

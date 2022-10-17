@@ -9,6 +9,7 @@
   gap: var(--spacing-large);
   row-gap: 0;
   padding-top: calc(var(--header-height));
+  padding-bottom: var(--spacing-large);
 }
 .container[data-is-playbook='true'] {
   padding-top: calc(var(--header-height) + var(--secondary-header-height));

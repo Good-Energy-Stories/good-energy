@@ -4,6 +4,8 @@ import { partner, partnerSection } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
 import { pressFragment, pressSection } from './press';
+import { characterProfilePreview } from './characterProfiles';
+import { expertProfilePreview } from './expertProfiles';
 import { featuredVoice } from './featuredVoices';
 import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
@@ -190,6 +192,39 @@ export const pageContentFragment = `
       _type,
      ...
     },
+    _type == 'characterProfilesTeaseSection' => {
+      _type,
+      tag,
+      title, 
+      description,
+      "content": characterProfiles[] {
+        _type == 'reference' => @->{
+          _type == 'expertProfile' => {
+            _type,
+            ${expertProfilePreview}
+          },
+          _type == 'characterProfile' => {
+            _type,
+            ${characterProfilePreview}
+          }
+        }
+      }
+    },
+    _type == 'characterProfilesSection' => {
+      _type,
+      "content": characterProfiles[] {
+        _type == 'reference' => @->{
+          _type == 'expertProfile' => {
+            _type,
+            ${expertProfilePreview}
+          },
+          _type == 'characterProfile' => {
+            _type,
+            ${characterProfilePreview}
+          }
+        }
+      }
+    },
     _type == 'logline' => {
       _type,
      ${loglineFragment}
@@ -242,6 +277,9 @@ export const playbookHomePageQuery = `
   ${pageFragment}
 }[0]
 `;
+export const characterProfilesPageQuery = `*[_type == "characterProfilesPage"] { 
+  ${pageFragment}
+}[0]`;
 
 export const offeringsPagePathsQuery = `*[_type == "offeringsPage"] { slug }`;
 export const offeringsPageQuery = `*[_type == "offeringsPage" && slug.current == $slug] {

@@ -14,11 +14,11 @@ const variants = {
   },
 };
 
-const Layout = observer(({ children, key }: { children: any[]; key: Key }) => {
+const Layout = observer(({ children, key }: any) => {
   const isPlaybook = useIsPlaybook();
 
   return (
-    <motion.div
+    <motion.main
       data-is-playbook={isPlaybook}
       key={key}
       transition={FRAMER_TRANSITION_EASEOUT}
@@ -29,7 +29,7 @@ const Layout = observer(({ children, key }: { children: any[]; key: Key }) => {
       className={styles.container}
     >
       {children}
-    </motion.div>
+    </motion.main>
   );
 });
 

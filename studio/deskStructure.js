@@ -106,6 +106,7 @@ export default () =>
             'libraryOfExpertsSection',
             'pressSection',
             'navigation',
+            'playbookPage',
           ].includes(listItem.getId()),
       ),
     ]);

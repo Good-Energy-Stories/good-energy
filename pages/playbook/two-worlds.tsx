@@ -5,7 +5,7 @@ import { Footer } from '../../components/Footer';
 import { useEffect, useRef } from 'react';
 import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
-import Related from '../../components/Related';
+import Related from '../../components/Related/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 
 import {
@@ -26,28 +26,12 @@ export enum ActiveSide {
 const Project = observer(({ pageData }: { pageData: any }) => {
   const store = useStore();
   const {
-    uiStore: {
-      scrollPosition,
-      setBorderColor,
-      setTextColor,
-      setBackgroundColor,
-    },
+    uiStore: { scrollPosition },
   } = store;
 
   const [activeSide, setActiveSide] = useState(
     pageData?.initialSection ?? ActiveSide.rise,
   );
-
-  useEffect(() => {
-    setBorderColor('var(--blueBorder)');
-    setBackgroundColor('var(--black)');
-    setTextColor('var(--white)');
-    return () => {
-      setBorderColor('var(--pink)');
-      setBackgroundColor('var(--blueFive)');
-      setTextColor('var(--black)');
-    };
-  }, [setBorderColor, setBackgroundColor, setTextColor]);
 
   return (
     <>
@@ -75,7 +59,6 @@ const Project = observer(({ pageData }: { pageData: any }) => {
           visible={scrollPosition > 0.1 && scrollPosition < 0.94}
         />
       </Layout>
-      <Footer />
     </>
   );
 });

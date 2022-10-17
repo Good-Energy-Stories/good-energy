@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { PLAYBOOK_NAV_HEIGHT } from '../';
+
 import ImageLoader from '../ImageLoader';
-import { SECONDARY_MENU_HEIGHT } from '../SecondaryNavMenu/SecondaryNavMenu';
 function getStyles(isInPlaylist) {
   return css.resolve`
     div {
@@ -12,11 +11,9 @@ function getStyles(isInPlaylist) {
       width: 100%;
       height: auto;
       max-height: 100vh;
-      margin-top: -${isInPlaylist ? 0 : SECONDARY_MENU_HEIGHT}px;
     }
     @media only screen and (max-width: 1080px) {
       div {
-        margin-top: -${isInPlaylist ? 0 : PLAYBOOK_NAV_HEIGHT}px;
       }
     }
   `;
