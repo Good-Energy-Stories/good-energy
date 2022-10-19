@@ -4,6 +4,7 @@
   border: 5px solid var(--blueFour);
   padding: var(--spacing-small) var(--spacing-small);
   margin: var(--spacing-medium) 0;
+  color: var(--black);
 }
 .container:last-of-type {
   margin-top: auto;
