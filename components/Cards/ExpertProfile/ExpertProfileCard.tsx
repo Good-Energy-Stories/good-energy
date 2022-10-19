@@ -19,14 +19,26 @@ export enum ExpertProfileCardStyle {
   search = 'search',
 }
 
-const ExpertProfileCard = ({ data, index, style, className }: any) => {
+const ExpertProfileCard = ({
+  data,
+  index,
+  style,
+  className,
+  imageClassName,
+}: any) => {
   switch (style) {
     case ExpertProfileCardStyle.library:
       return (
         <ExpertProfileLibrary data={data} index={index} className={className} />
       );
     case ExpertProfileCardStyle.standard:
-      return <ExpertProfileStandard data={data} className={className} />;
+      return (
+        <ExpertProfileStandard
+          data={data}
+          className={className}
+          imageClassName={imageClassName}
+        />
+      );
     case ExpertProfileCardStyle.search:
       return <ExpertProfileSearch data={data} className={className} />;
     default:

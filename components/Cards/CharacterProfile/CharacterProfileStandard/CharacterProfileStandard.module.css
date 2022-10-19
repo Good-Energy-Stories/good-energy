@@ -20,8 +20,7 @@
   transition: 0.3s ease-in-out;
 }
 .image {
-  min-width: 100%;
-
+  width: 100%;
   transition: 0.3s ease-in-out;
 }
 .bio {

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Photo from '../../../Photo/Photo';
 const cx = classnames.bind(styles);
 
-const ExpertProfileStandard = ({ data, className }: any) => {
+const ExpertProfileStandard = ({ data, className, imageClassName }: any) => {
   const { name, shortBio, fullSizePortraitImage, slug } = data;
 
   return (
@@ -12,7 +12,10 @@ const ExpertProfileStandard = ({ data, className }: any) => {
       <a className={cx(styles.container, className)}>
         <article className={cx(styles.inner)}>
           {fullSizePortraitImage && (
-            <Photo className={styles.image} photo={fullSizePortraitImage} />
+            <Photo
+              className={cx(styles.image, imageClassName)}
+              photo={fullSizePortraitImage}
+            />
           )}
           <div className={cx('label-small', styles.label)}>Expert Profile</div>
           <h3>{name}</h3>

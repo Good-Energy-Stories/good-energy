@@ -34,19 +34,6 @@ const ScrollDownPrompt = () => {
         .label-medium {
           position: relative;
         }
-        .arrow {
-          animation: MoveUpDown 3s linear infinite;
-        }
-
-        @keyframes MoveUpDown {
-          0%,
-          100% {
-            padding-top: 15px;
-          }
-          50% {
-            padding-top: 5px;
-          }
-        }
       `}</style>
       {styles}
     </div>

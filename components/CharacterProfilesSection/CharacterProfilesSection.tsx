@@ -11,6 +11,7 @@ const CharacterProfilesSection = ({ data }: any) => {
           key={item._id}
           index={index}
           className={styles.card}
+          imageClassName={styles.cardImage}
           content={item}
         />
       ))}

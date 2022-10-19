@@ -19,7 +19,7 @@ const ExpertProfileLibrary = ({ data, index, className }: any) => {
     includeSpotlightPage,
     expertType,
   } = data;
-  console.log(data);
+
   const getColor = (index) => {
     if (expertType === 'organization') return 'var(--greyBlue)';
     const colors = ['var(--yellow)', 'var(--pink)', 'var(--blueFour)'];

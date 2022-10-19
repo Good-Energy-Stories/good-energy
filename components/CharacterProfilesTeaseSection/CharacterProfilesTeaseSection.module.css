@@ -25,6 +25,7 @@
 .characterProfiles {
   width: 100vw;
 }
+
 .characterProfilesInner {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));

@@ -71,6 +71,7 @@ export const Card = ({
           data={content}
           style={expertProfileCardStyle}
           className={className}
+          imageClassName={imageClassName}
         />
       );
     default:
