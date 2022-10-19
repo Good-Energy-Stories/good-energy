@@ -27,6 +27,9 @@
     padding: 0 var(--spacing-small);
     gap: 0;
   }
+  .callout {
+    margin-bottom: var(--spacing-medium);
+  }
   .container[data-theme='dark'] {
     padding: var(--spacing-large) var(--spacing-small);
   }

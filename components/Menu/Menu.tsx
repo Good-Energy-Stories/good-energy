@@ -72,7 +72,7 @@ const Menu = observer(({ navigation }: any) => {
         >
           <Nav data={navigation} />
           <MotionPlaybookNav
-            style={{ zIndex: isSmall ? 0 : 1 }}
+            style={{ zIndex: isSmall ? 10 : 11 }}
             variants={
               isSmall ? mobileVariants.playbookNav : desktopVariants.playbookNav
             }

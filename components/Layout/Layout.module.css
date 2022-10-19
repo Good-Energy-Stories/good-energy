@@ -16,7 +16,6 @@
 }
 @media only screen and (max-width: 768px) {
   .container {
-    padding: 0;
     gap: 0;
   }
   .container[data-is-playbook='true'] {

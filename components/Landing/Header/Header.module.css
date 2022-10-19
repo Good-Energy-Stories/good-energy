@@ -9,9 +9,8 @@
   z-index: 1;
   text-align: center;
 
-  padding: 0 var(--spacing-medium);
-  padding-bottom: var(--spacing-medium);
-  padding-top: 10%;
+  padding: var(--spacing-large) var(--spacing-medium);
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,7 +50,6 @@
 }
 @media only screen and (max-width: 768px) {
   .container {
-    padding-top: 30%;
     min-height: 100%;
   }
   .title {
