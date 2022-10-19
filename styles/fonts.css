@@ -17,6 +17,7 @@
   font-size: 64px;
   line-height: 62px;
   font-family: var(--flexa);
+  font-stretch: 40%;
   font-variation-settings: 'wght' 800, 'wdth' 40;
   color: var(--black);
 
@@ -25,6 +26,7 @@
 
 .quote-attribution {
   font-family: var(--flexa-mono);
+  font-stretch: 80%;
   font-variation-settings: 'wght' 400, 'wdth' 80;
   font-size: 16px;
   line-height: 22px;
@@ -37,6 +39,7 @@
   font-family: var(--flexa);
   font-size: 96px;
   font-style: normal;
+  font-stretch: 40%;
   font-variation-settings: 'wght' 800, 'wdth' 40;
   line-height: 80px;
   letter-spacing: -0.02em;
@@ -76,6 +79,7 @@ h1,
   font-size: 96px;
   line-height: 97px;
   letter-spacing: -0.02em;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
@@ -85,6 +89,7 @@ h1,
   font-size: 72px;
   line-height: 75px;
   letter-spacing: -0.01em;
+  font-stretch: 55%;
   font-variation-settings: 'wght' 800, 'wdth' 55, 'ital' 300;
   position: relative;
 }
@@ -164,6 +169,7 @@ h1,
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 24px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 573, 'wdth' 69;
   color: var(--blueThree);
 }
@@ -171,12 +177,16 @@ h1,
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
+  font-weight: 429;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
 }
 .h1-xl {
   font-family: var(--flexa);
   font-size: 144px;
+  font-weight: 898;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 898, 'wdth' 42;
   line-height: 127px;
   letter-spacing: -0.01em;
@@ -198,6 +208,8 @@ h2,
   font-size: 48px;
   line-height: 47px;
   letter-spacing: -0.01em;
+  font-weight: 800;
+  font-stretch: 47%;
   font-variation-settings: 'wght' 800, 'wdth' 47;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
@@ -208,6 +220,8 @@ h3,
   font-family: var(--flexa);
   font-size: 36px;
   line-height: 34px;
+  font-weight: 800;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
@@ -216,6 +230,7 @@ h3,
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
 }
@@ -223,6 +238,8 @@ h3,
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
+  font-weight: 429;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69, 'ital' 100;
   color: var(--blueThree);
 }
@@ -231,6 +248,8 @@ h4,
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 25px;
+  font-weight: 800;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
@@ -271,6 +290,7 @@ h4,
   font-size: 36px;
   line-height: 34px;
   letter-spacing: -1px;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
 }
 
@@ -278,6 +298,8 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 26px;
+  font-weight: 800;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
 }
@@ -297,6 +319,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 18px;
   font-style: normal;
+  font-stretch: 80%;
   font-variation-settings: 'wght' 400, 'wdth' 80;
   line-height: 20px;
   letter-spacing: 0em;
@@ -307,6 +330,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   font-style: normal;
+  font-stretch: 25%;
   font-variation-settings: 'wght' 800, 'wdth' 25;
   line-height: 26px;
   letter-spacing: 0em;
@@ -319,6 +343,8 @@ h4 {
   font-size: 30px;
   line-height: 36px;
   letter-spacing: -1px;
+  font-weight: 429;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69, 'ital' 100;
   color: var(--blueThree);
 }
@@ -327,6 +353,7 @@ h4 {
   font-family: var(--flexa-mono);
   font-size: 12px;
   line-height: 15px;
+  font-weight: 400;
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
@@ -334,6 +361,7 @@ h4 {
   font-family: var(--flexa-mono);
   font-size: 18px;
   line-height: 22px;
+  font-weight: 400;
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
@@ -341,6 +369,7 @@ h4 {
   font-family: var(--flexa-mono);
   font-size: 24px;
   line-height: 29px;
+  font-weight: 400;
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
@@ -348,6 +377,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 16px;
   line-height: 21px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 321, 'wdth' 95;
 }
 .body {
@@ -362,18 +392,21 @@ h4 {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 27px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 321, 'wdth' 95, 'ital' 100;
 }
 .body-bold {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 27px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 604, 'wdth' 95;
 }
 .body-link {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 27px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 321, 'wdth' 95;
   text-decoration-line: underline;
   color: var(--blueThree);
@@ -384,24 +417,28 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 31px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 470, 'wdth' 95;
 }
 .author-bio {
   font-family: var(--flexa);
   font-size: 16px;
   line-height: 22px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 305, 'wdth' 69, 'ital' 100;
 }
 .author-bio-bold {
   font-family: var(--flexa);
   font-size: 16px;
   line-height: 22px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
 }
 .author-bio-link {
   font-family: var(--flexa);
   font-size: 16px;
   line-height: 22px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 305, 'wdth' 69, 'ital' 100;
   text-decoration-line: underline;
   color: var(--blueThree);
@@ -411,18 +448,22 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 31px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 470, 'wdth' 95;
 }
 .intro-graf-italic {
   font-family: var(--flexa);
+  font-stretch: 69%;
   font-variation-settings: 'wght' 321, 'wdth' 95, 'ital' 100;
 }
 .intro-graf-bold {
   font-family: var(--flexa);
+  font-stretch: 69%;
   font-variation-settings: 'wght' 604, 'wdth' 95;
 }
 .intro-graf-link {
   font-family: var(--flexa);
+  font-stretch: 69%;
   font-variation-settings: 'wght' 321, 'wdth' 95;
   text-decoration-line: underline;
   color: var(--blueThree);
@@ -443,6 +484,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 31px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 470, 'wdth' 95;
 }
 
@@ -473,12 +515,14 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 27px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
 }
 .tease-lede-small {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
 }
 .drop-cap {
@@ -492,6 +536,7 @@ h4 {
   font-size: 48px;
   line-height: 46px;
   letter-spacing: -1px;
+  font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: uppercase;
 }
@@ -507,6 +552,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 29px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 800, 'wdth' 69;
   text-transform: uppercase;
 }
@@ -514,6 +560,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 22px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 800, 'wdth' 69;
   text-transform: uppercase;
 }
@@ -521,6 +568,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 12px;
   line-height: 15px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 800, 'wdth' 69;
   text-transform: uppercase;
 }
@@ -528,6 +576,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 31px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 470, 'wdth' 95;
 }
 .block-quote::before {
@@ -543,43 +592,49 @@ h4 {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 24px;
-
+  font-stretch: 69%;
   font-variation-settings: 'wght' 604, 'wdth' 69;
 }
 .nav-link-xl {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 18px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
 }
 .nav-link-lg {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 15px;
+  font-stretch: 95%;
   font-variation-settings: 'wght' 388, 'wdth' 95;
 }
 .nav-link-md {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 24px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 337, 'wdth' 69;
 }
 .sub-nav-link-md {
   font-family: var(--flexa);
   font-size: 19px;
   line-height: 20px;
+  font-stretch: 17%;
   font-variation-settings: 'wght' 737, 'wdth' 17;
 }
 .sub-nav-link-sm {
   font-family: var(--flexa);
   font-size: 16px;
   line-height: 20px;
+  font-stretch: 59%;
   font-variation-settings: 'wght' 337, 'wdth' 59;
 }
 .playbook-toc-nav-link {
   font-family: var(--flexa);
   font-size: 18px;
   line-height: 20px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
 }
@@ -587,6 +642,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 0.92rem;
   line-height: 0.92rem;
+  font-stretch: 50%;
   font-variation-settings: 'wght' 600, 'wdth' 50;
   color: var(--blueThree);
 }
@@ -594,6 +650,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 0.75rem;
   line-height: 0.5rem;
+  font-stretch: 50%;
   font-variation-settings: 'wght' 450, 'wdth' 50;
   color: var(--blueThree);
 }
@@ -601,6 +658,7 @@ h4 {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 24px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
 }
@@ -608,12 +666,14 @@ h4 {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 24px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 604, 'wdth' 69;
 }
 .nav-link-small {
   font-family: var(--flexa);
   font-size: 14px;
   line-height: 16px;
+  font-stretch: 69%;
   font-variation-settings: 'wght' 305, 'wdth' 69;
 }
 
@@ -629,6 +689,7 @@ h4 {
     font-family: var(--flexa);
     font-size: 48px;
     line-height: 46px;
+    font-stretch: 69%;
     font-variation-settings: 'wght' 744, 'wdth' 69;
     letter-spacing: -0.01em;
     position: relative;
@@ -638,6 +699,7 @@ h4 {
     font-size: 32px;
     line-height: 36px;
     letter-spacing: -0.01em;
+    font-stretch: 55%;
     font-variation-settings: 'wght' 645, 'wdth' 55;
     position: relative;
   }
@@ -676,6 +738,7 @@ h4 {
     font-family: var(--flexa);
     font-size: 18px;
     line-height: 16px;
+    font-stretch: 69%;
     font-variation-settings: 'wght' 429, 'wdth' 69;
   }
   .subhead {

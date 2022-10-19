@@ -9,7 +9,7 @@
   z-index: 1;
   text-align: center;
 
-  padding: var(--spacing-large) var(--spacing-medium);
+  padding: var(--spacing-xlarge) var(--spacing-medium);
 
   width: 100%;
   display: flex;
