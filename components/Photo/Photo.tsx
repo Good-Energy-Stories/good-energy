@@ -58,7 +58,7 @@ const Photo = ({
   }, [isLoaded, onLoad]);
   if (!photo?.asset) return null;
   return (
-    <figure style={style} className={cx(className ?? null, styles.figure)}>
+    <figure style={style} className={cx(styles.figure, className ?? null)}>
       <div
         className={cx(styles.layout, {
           'has-fill': layout === 'fill' || layout === 'contain',

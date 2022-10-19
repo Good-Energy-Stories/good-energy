@@ -116,5 +116,7 @@
     max-width: 228px;
     max-height: 228px;
     border-radius: 50%;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 }
