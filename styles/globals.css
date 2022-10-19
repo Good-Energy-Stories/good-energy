@@ -48,20 +48,6 @@ body {
   --text: var(--black);
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    --background: var(--blueFive);
-    --text: var(--black);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    --background: var(--black);
-    --text: var(--white);
-  }
-}
-
 body[data-theme='light'] {
   --background: var(--blueFive);
   --secondaryBackground: var(--white);
