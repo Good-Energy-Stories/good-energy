@@ -711,7 +711,8 @@ h4 {
   .h1-xl {
     font-size: 62px;
     line-height: 53px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    font-variation-settings: 'wght' 550, 'wdth' 24;
   }
   .h3-sentence {
     font-size: 30px;
