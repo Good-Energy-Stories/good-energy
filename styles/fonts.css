@@ -1,16 +1,21 @@
 @font-face {
   font-family: 'Pressura';
-  src: url('/fonts/Pressura/PressuraMonoRegular.woff');
+  src: url('/fonts/Pressura/PressuraMonoRegular.woff') format('woff'),
+    url('/fonts/Pressura/PressuraMonoRegular.otf') format('opentype'),
+    url('/fonts/Pressura/PressuraMonoRegular.woff2') format('woff2'),
+    url('/fonts/Pressura/PressuraMonoRegular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: 'FlexaVar';
-  src: url('/fonts/Flexa/FlexaVAR.woff2');
+  src: url('/fonts/Flexa/FlexaVAR.woff2') format('woff2'),
+    url('/fonts/Flexa/FlexaVAR.ttf') format('truetype');
 }
 @font-face {
   font-family: 'FlexaVarMono';
-  src: url('/fonts/Flexa/FlexaMonoVAR.woff2');
+  src: url('/fonts/Flexa/FlexaMonoVAR.woff2') format('woff2'),
+    url('/fonts/Flexa/FlexaMonoVAR.ttf') format('truetype');
 }
 
 .tease-quote-big {
