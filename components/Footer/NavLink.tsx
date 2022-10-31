@@ -8,7 +8,10 @@ const NavLink = ({ data }) => {
   if (!title) return null;
   return (
     <li className={cx('nav-link-md', styles.container)}>
-      <Link href={`/${title === 'Playbook' ? 'playbook' : slug}`} passHref>
+      <Link
+        href={`/${title === 'Playbook' ? 'playbook' : slug.current}`}
+        passHref
+      >
         <a className={styles.link}>
           <svg
             width="29"
