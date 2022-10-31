@@ -21,7 +21,7 @@ const Standard = ({ data }) => {
           <img
             className={styles.image}
             src={imageUrlFor(outlet.logo).url()}
-            alt="arrow"
+            alt={outlet.logo?.caption}
           />
         </div>
       </a>
