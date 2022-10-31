@@ -8,14 +8,14 @@
 }
 .list > li {
   display: inline-block;
-  height: 24px;
+  line-height: 1;
 }
 .list > li > a {
   height: 100%;
 }
 
 .activeItem {
-  color: var(--black);
+  color: var(--text);
 }
 .inactiveItem {
   color: var(--blueThree);
@@ -24,6 +24,7 @@
 .chevron {
   position: relative;
   top: 0.35em;
+  fill: var(--blueThree);
 }
 .label {
   transition: 0.3s ease;

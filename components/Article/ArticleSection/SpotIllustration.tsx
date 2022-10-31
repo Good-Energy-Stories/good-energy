@@ -1,9 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { observer } from 'mobx-react-lite';
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 
 function getStyles(illustrationPosition) {

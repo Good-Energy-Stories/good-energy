@@ -159,6 +159,7 @@ export default {
         { type: 'articleQuote' },
         { type: 'articleBlockQuote' },
         { type: 'articleStoryPossibility' },
+        { type: 'articleSpotIllustration' },
       ],
     },
     {

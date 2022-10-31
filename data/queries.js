@@ -7,7 +7,7 @@ title,
 lede,
 byline,
 tags[],
-"slug": slug.current,
+slug,
 heroImage{
   ${imageMeta}
 },
@@ -80,6 +80,14 @@ _type == 'articleStoryPossibility' => {
   _type,
   _key,
   ${articleStoryPossibility}
+},
+_type == 'articleSpotIllustration' => {
+  _type,
+  _key,
+  size,
+  image {
+    ${imageMeta}
+  }
 },
 `;
 
@@ -250,12 +258,12 @@ nextUp->{
   _type == 'twoWorldsArticle' => {
     _type,
     ${articlePreview},
-    "slug": "two-worlds",
+    "slug": {"current": "two-worlds"},
   },
   _type == 'whyClimateArticle' => {
     _type,
     ${articlePreview},
-    "slug": "why-climate-stories",
+    "slug":{"current":"why-climate-stories"},
   },
   _type == 'article' => {
     _type,
@@ -268,7 +276,7 @@ nextUp->{
     heroImage{
       ${imageMeta}
     },
-    "slug": "characters",
+    "slug": {"current":"characters"},
   },
  
  
@@ -559,23 +567,23 @@ _id,
 _type == 'article' => {
   _type,
   title,
-  "slug": slug.current,
+  slug
 },
 _type == 'twoWorldsArticle' => {
   _type,
   title,
-  "slug": "two-worlds",
+  "slug": {"current": "two-worlds"},
 },
 _type == 'whyClimateArticle' => {
   _type,
   title,
-  "slug": "why-climate-stories",
+  "slug": {"current": "why-climate-stories"},
 },
 _type == 'characterProfilesPage' => {
   _type,
   title,
-  "slug": "characters",
-},
+  "slug": {"current": "characters"},
+}
 `;
 
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
@@ -629,14 +637,14 @@ export const navigationQuery = `*[_type == "navigation"] {
     _type == 'reference' => @->{
       _type,
       "title": navigationTitle,
-      "slug": "offerings/" + slug.current,
+      "slug": {"current": "offerings/" + slug.current},
     }
   },
   about[] {
     _type == 'reference' => @->{
       _type,
       "title": navigationTitle,
-      "slug": "about/" + slug.current,
+      "slug": {"current": "about/" + slug.current},
     }
   },
   "playbook": ${playbookStructureQuery}

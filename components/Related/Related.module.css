@@ -13,7 +13,7 @@
   color: var(--blueThree);
   margin-bottom: var(--spacing-small);
 }
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1300px) {
   .inner {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -21,7 +21,7 @@
 
 @media only screen and (max-width: 768px) {
   .container {
-    padding: 0 var(--spacing-small);
+    padding: 0 var(--spacing-medium);
   }
   .inner {
     grid-template-columns: repeat(1, minmax(0, 1fr));

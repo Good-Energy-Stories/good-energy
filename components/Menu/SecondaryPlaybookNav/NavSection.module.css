@@ -7,12 +7,10 @@
 }
 .topLevel[data-expanded='true'] {
   opacity: 1;
-
-  background: var(--background);
+  background: var(--playbookNavDropdown);
   border: 1px solid var(--text);
   border-bottom: 0;
 }
-
 .list {
   margin: 0;
   padding: 0;
@@ -48,7 +46,7 @@
 }
 
 .menuContainer {
-  background: var(--background);
+  background: var(--playbookNavDropdown);
   border: 1px solid var(--text);
 
   position: absolute;

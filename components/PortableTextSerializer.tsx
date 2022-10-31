@@ -10,7 +10,11 @@ import Bullet from './PortableTextComponents/ListItem/Bullet';
 
 const PortableTextSerializer: Partial<PortableTextReactComponents> = {
   block: {
-    normal: ({ children }) => <p className="body">{children}</p>,
+    normal: ({ children }) => (
+      <p className="body">
+        <span>{children}</span>
+      </p>
+    ),
   },
   list: List,
   listItem: {
@@ -20,7 +24,12 @@ const PortableTextSerializer: Partial<PortableTextReactComponents> = {
     highlight: ({ children }) => (
       <span style={{ color: 'var(--blueFour)' }}>{children}</span>
     ),
-    strong: ({ children }) => <span className="body-bold">{children}</span>,
+    dropcap: ({ children }) => {
+      return <p className="intro-graf">{children}</p>;
+    },
+    strong: ({ children }) => {
+      return <span className="body-bold">{children}</span>;
+    },
     internalLink: ({ value, children }) => {
       const { slug = {} } = value;
       const href = `/${slug.current}`;
@@ -45,6 +54,7 @@ const PortableTextSerializer: Partial<PortableTextReactComponents> = {
         </a>
       );
     },
+
     footnote: ({ value, children }) => (
       <span className="body-footnote">
         {children}

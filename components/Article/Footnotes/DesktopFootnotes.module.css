@@ -1,0 +1,14 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  max-width: 228px;
+  right: 2.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}

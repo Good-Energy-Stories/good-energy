@@ -92,7 +92,7 @@ export default {
       title: 'Next Up',
       name: 'nextUp',
       type: 'reference',
-      to: [{ type: 'aboutPage' }],
+      to: [{ type: 'aboutPage' }, { type: 'article' }],
     },
     {
       title: 'Page Content',

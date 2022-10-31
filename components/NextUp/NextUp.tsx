@@ -4,6 +4,7 @@ import classnames from 'classnames';
 const cx = classnames.bind(styles);
 
 const NextUp = ({ label, href }: { label: string; href: string }) => {
+  if (!label || !href) return null;
   return (
     <div className={styles.container}>
       <div className={styles.inner}>

@@ -1,6 +1,5 @@
 .container {
   grid-column: 1/-1;
-
   padding: 0 var(--spacing-large);
 }
 .inner {
@@ -26,5 +25,8 @@
   .container {
     grid-column: 1/-1;
     padding: 0 1.25rem;
+  }
+  .link {
+    grid-column: 1/-1;
   }
 }

@@ -1,0 +1,7 @@
+.dropcap::first-letter {
+  font-size: 40px;
+  float: left;
+  line-height: 40px;
+  margin: 0em 0.15em 0em 0;
+  padding: 0em;
+}

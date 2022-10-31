@@ -7,7 +7,7 @@ const ArticleList = ({ data }: any) => {
     return content?.map((item: any, index: number) => {
       return (
         <li key={index} className={styles.li}>
-          <Link href={`playbook/${item?.slug}`} passHref>
+          <Link href={`playbook/${item?.slug.current}`} passHref>
             <a className={styles.text}>
               <h4 className={styles.heading}>{item.title}</h4>
             </a>

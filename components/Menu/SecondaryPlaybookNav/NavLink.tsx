@@ -8,7 +8,7 @@ const NavLink = ({ data, parentExpanded }: any) => {
 
   return (
     <li className={cx('sub-nav-link-sm', styles.container)}>
-      <Link href={`/playbook/${slug}`} passHref>
+      <Link href={`/playbook/${slug.current}`} passHref>
         <a
           className={styles.link}
           aria-expanded={parentExpanded ? 'true' : 'false'}

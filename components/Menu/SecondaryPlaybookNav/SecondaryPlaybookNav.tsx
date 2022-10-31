@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router';
 import { forwardRef, useState } from 'react';
-import useIsPlaybook from '../../../utils/useIsSecondMenuActive';
+import useSecondaryPlaybookNav from '../../../utils/useSecondaryPlaybookNav';
 import HomeButton from './HomeButton';
 import NavItem from './NavItem';
 import styles from './SecondaryPlaybookNav.module.css';
 
 const SecondaryPlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
-  const isPlaybook = useIsPlaybook();
+  const active = useSecondaryPlaybookNav();
   const [submenuExpanded, setSubmenuExpanded] = useState(false);
-  if (!isPlaybook) return null;
+
+  if (!active) return null;
   return (
     <>
       <nav ref={ref} className={styles.container}>

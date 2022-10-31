@@ -1,0 +1,6 @@
+.spacer {
+  height: var(--spacing-large);
+}
+.container[data-collapsed='true'] {
+  pointer-events: none;
+}

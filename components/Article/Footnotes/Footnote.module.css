@@ -1,0 +1,19 @@
+.footnoteNumber {
+  border-bottom: 1px solid var(--blueThree);
+  width: 100%;
+  padding-bottom: 0.3125rem;
+}
+.footnote {
+  margin-bottom: 1.25rem;
+  margin-right: 1.25rem;
+  color: var(--blueThree);
+  font-family: var(--flexa);
+  font-variation-settings: 'wght' 220;
+  font-size: 14px;
+  line-height: 18px;
+}
+@media only screen and (max-width: 768px) {
+  .footnote {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,12 @@
+.container {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    background-color: var(--greyBlue);
+    display: block;
+    grid-column: 1/-1;
+    padding: var(--spacing-large) var(--spacing-medium);
+    margin-bottom: calc(-1 * var(--spacing-large));
+  }
+}

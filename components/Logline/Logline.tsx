@@ -36,7 +36,7 @@ const Logline = ({ data, className }: any) => {
             className={styles.button}
             data={{
               label: 'Read More Fictional Climate Loglines',
-              link: article?.slug,
+              link: `/playbook/${article?.slug.current}`,
             }}
           />
         </div>

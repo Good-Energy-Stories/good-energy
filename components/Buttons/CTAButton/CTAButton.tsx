@@ -41,7 +41,7 @@ const CTAButton = ({ data, className }: any) => {
   const LabelComponent = (
     <span className={styles.label}>
       {<Label size={labelSize} label={label} />}
-      {icon && <img className={styles.icon} src={icon} />}
+      {icon}
     </span>
   );
   return (

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
 import DownArrowIcon from '../../public/down-arrow.svg';
 

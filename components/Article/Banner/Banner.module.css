@@ -1,0 +1,28 @@
+.container {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--spacing-large);
+}
+.container[data-width='full'] {
+  grid-column: 1/9;
+}
+.container[data-width='two-thirds'] {
+  grid-column: 3/9;
+}
+.attribution {
+  display: inline-block;
+  margin-top: var(--spacing-medium);
+
+  color: var(--blueThree);
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-column: 1/-1;
+    padding: 0;
+    margin: 0;
+  }
+  .container[data-width='two-thirds'] {
+    grid-column: 1/9;
+  }
+}

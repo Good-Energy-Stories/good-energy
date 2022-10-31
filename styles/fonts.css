@@ -81,10 +81,10 @@ h1,
 .h1 {
   font-family: var(--flexa);
   font-size: 96px;
-  line-height: 97px;
+  line-height: 85px;
   letter-spacing: -0.02em;
   font-stretch: 42%;
-  font-variation-settings: 'wght' 800, 'wdth' 42;
+  font-variation-settings: 'wght' 750, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
 }
@@ -225,9 +225,9 @@ h3 span {
   font-family: var(--flexa);
   font-size: 36px;
   line-height: 34px;
-  font-weight: 800;
-  font-stretch: 42%;
-  font-variation-settings: 'wght' 800, 'wdth' 42;
+  font-weight: 720;
+  font-stretch: 32%;
+  font-variation-settings: 'wght' 720, 'wdth' 32;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
 }
@@ -449,13 +449,7 @@ h4 {
   color: var(--blueThree);
   cursor: pointer;
 }
-.intro-graf {
-  font-family: var(--flexa);
-  font-size: 24px;
-  line-height: 31px;
-  font-stretch: 95%;
-  font-variation-settings: 'wght' 470, 'wdth' 95;
-}
+
 .intro-graf-italic {
   font-family: var(--flexa);
   font-stretch: 69%;
@@ -465,14 +459,6 @@ h4 {
   font-family: var(--flexa);
   font-stretch: 69%;
   font-variation-settings: 'wght' 604, 'wdth' 95;
-}
-.intro-graf-link {
-  font-family: var(--flexa);
-  font-stretch: 69%;
-  font-variation-settings: 'wght' 321, 'wdth' 95;
-  text-decoration-line: underline;
-  color: var(--blueThree);
-  cursor: pointer;
 }
 
 .intro-graf::first-letter {
@@ -558,8 +544,7 @@ h4 {
   font-size: 24px;
   line-height: 29px;
   font-stretch: 69%;
-  font-variation-settings: 'wght' 800, 'wdth' 69;
-  text-transform: uppercase;
+  font-variation-settings: 'wght' 600, 'wdth' 69;
 }
 .button-text {
   font-family: var(--flexa);
@@ -587,7 +572,7 @@ h4 {
 .block-quote::before {
   content: '“';
   position: absolute;
-  margin-left: -9px;
+  margin-left: -12px;
 }
 .block-quote::after {
   content: '”';

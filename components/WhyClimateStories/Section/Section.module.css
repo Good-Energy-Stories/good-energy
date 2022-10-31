@@ -1,0 +1,19 @@
+.container {
+  grid-column: 1/-1;
+  margin-bottom: var(--spacing-medium);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-bottom: var(--spacing-xlarge);
+}
+.inner {
+  max-width: 750px;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-medium);
+    grid-column: 1/-1;
+  }
+}

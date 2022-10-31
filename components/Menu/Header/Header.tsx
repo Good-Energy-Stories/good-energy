@@ -7,18 +7,15 @@ import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animation
 import NavLogo from './NavLogo';
 import SearchBar from './SearchBar';
 import { useIsSmall } from '../../../utils/useMediaQuery';
+import { useUIStore } from '../../../providers/RootStoreProvider';
 
 const Header = observer(({ children }: any) => {
-  const store = useStore();
-  const {
-    uiStore: { playbookNavOverlayOpen, navOverlayOpen },
-  } = store;
+  const { playbookNavOverlayOpen, navOverlayOpen } = useUIStore();
   const navPadding = navOverlayOpen ? 400 : 0;
   const playbookNavPadding = playbookNavOverlayOpen ? 400 : 0;
   const paddingLeft = navPadding + playbookNavPadding;
 
   const { scrollY } = useScroll();
-
   const y = useTransform(scrollY, [0, 12], [0, -12]);
 
   const isSmall = useIsSmall();

@@ -107,6 +107,8 @@ export default () =>
             'pressSection',
             'navigation',
             'playbookPage',
+            'characterProfilesSection',
+            'characterProfilesTeaseSection',
           ].includes(listItem.getId()),
       ),
     ]);

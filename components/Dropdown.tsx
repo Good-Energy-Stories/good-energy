@@ -1,39 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
-import { motion } from 'framer-motion';
-import css from 'styled-jsx/css';
-import { ReactChild, Key } from 'react';
-import { AnimatedUnderline } from './';
-import Link from 'next/link';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-
-function getStyles(color) {
-  return css.resolve`
-    div {
-      display: inline-block;
-      background-color: var(--${color});
-
-      min-width: 100%;
-      position: relative;
-      overflow: hidden;
-      border-top: 4px solid var(--blueFour);
-      grid-column: 1/-1;
-    }
-    @media only screen and (max-width: 768px) {
-      div {
-        padding: 0px;
-        display: grid;
-
-        grid-column-gap: 0;
-      }
-    }
-  `;
-}
-
-const arrowClosed = <span className="arrow-closed" />;
-const arrowOpen = <span className="arrow-open" />;
 
 const variants = {
   in: {
@@ -75,6 +41,7 @@ const GoodEnergyDropdown = ({
           width: 200px;
         }
         .good-energy-control {
+          font-family: var(--flexa-mono);
           border-radius: 0;
           border: 1px solid var(--black);
           background-color: var(--blueFive);

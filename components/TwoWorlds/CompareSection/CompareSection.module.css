@@ -1,0 +1,27 @@
+.imageContainer {
+  grid-column: 1/-1;
+  position: relative;
+  padding: 0 var(--spacing-large);
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  margin-bottom: var(--spacing-large);
+}
+.container {
+  grid-column: 1/-1;
+
+  margin-bottom: 2.5rem;
+  padding: 0 var(--spacing-large);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 768px) {
+  .imageContainer {
+    padding: 0 var(--spacing-small);
+  }
+  .container {
+    grid-column: 1/-1;
+    margin-bottom: 0;
+  }
+}

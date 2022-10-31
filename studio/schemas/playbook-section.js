@@ -23,10 +23,10 @@ export default {
         {
           type: 'reference',
           to: [
-            { type: 'whyClimateArticle' },
-            { type: 'twoWorldsArticle' },
             { type: 'article' },
             { type: 'characterProfilesPage' },
+            { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
           ],
         },
       ],

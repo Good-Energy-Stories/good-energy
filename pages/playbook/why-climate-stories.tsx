@@ -1,62 +1,45 @@
 import { queries } from '../../data';
 import { Meta } from '../../components';
-import { AuthorSection, NextUp } from '../../components/Article';
-import { Footer } from '../../components/Footer';
-import { useEffect, useRef } from 'react';
-import { useStore } from '../../stores/store';
+
 import { observer } from 'mobx-react-lite';
 import Related from '../../components/Related/Related';
 import { getClient } from '../../lib/sanity/sanity.server';
 
-import { Header, PageContent } from '../../components/WhyClimateStories';
 import Layout from '../../components/Layout/Layout';
+import AuthorSection from '../../components/Article/AuthorSection/AuthorSection';
+import NextUp from '../../components/NextUp/NextUp';
+import Header from '../../components/WhyClimateStories/Header/Header';
+import PageContent from '../../components/WhyClimateStories/PageContent';
 
-const Project = observer(({ pageData }: { pageData: any }) => {
-  const store = useStore();
-  const {
-    uiStore: {
-      scrollPosition,
-      setBorderColor,
-      setTextColor,
-      setBackgroundColor,
-    },
-  } = store;
-
-  useEffect(() => {
-    setBorderColor('var(--pink)');
-    setBackgroundColor('var(--black)');
-    setTextColor('var(--white)');
-    return () => {
-      setBorderColor('var(--pink)');
-      setBackgroundColor('var(--blueFive)');
-      setTextColor('var(--black)');
-    };
-  }, [setBorderColor, setBackgroundColor, setTextColor]);
-
+const Project = observer(({ data }: { data: any }) => {
   return (
     <>
       <Meta />
 
       <Layout key="two-worlds">
-        <Header title={pageData?.title} subtitle={pageData?.subtitle} />
-        {pageData?.content?.map((c, i) => {
+        <Header title={data?.title} subtitle={data?.subtitle} />
+        {data?.content?.map((c, i) => {
           return <PageContent key={i} content={c} index={i} />;
         })}
-        <AuthorSection content={pageData?.author} />
-        <NextUp article={pageData?.nextUp} />
-        <Related content={pageData?.related} />
+        <AuthorSection content={data?.author} />
+        {data?.nextUp && (
+          <NextUp
+            label={data?.nextUp?.title}
+            href={data?.nextUp?.slug.current}
+          />
+        )}
+        <Related content={data?.related} />
       </Layout>
-      <Footer />
     </>
   );
 });
 
 export const getStaticProps = async () => {
-  const pageData = await getClient().fetch(queries.whyClimateArticle);
+  const data = await getClient().fetch(queries.whyClimateArticle);
 
   return {
     props: {
-      pageData,
+      data,
     },
   };
 };

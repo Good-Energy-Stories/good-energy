@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const cx = classnames.bind(styles);
 const Related = ({ content }: any) => {
   if (!content) return null;
+
   return (
     <div className={styles.container}>
       <div className={cx('label-small', styles.label)}>Related</div>

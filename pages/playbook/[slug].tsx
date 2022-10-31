@@ -1,14 +1,15 @@
 import { queries } from '../../data';
 import { Meta, ExitPreviewButton } from '../../components';
-import { NextUp, MobileFootnotes, Article } from '../../components/Article';
-import { Footer } from '../../components/Footer';
-import { observer } from 'mobx-react-lite';
+
 import { getClient } from '../../lib/sanity/sanity.server';
 import { usePreviewSubscription } from '../../lib/sanity/sanity';
 import filterDataToSingleItem from '../../utils/filterDataToSingleItem';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import Layout from '../../components/Layout/Layout';
 import Related from '../../components/Related/Related';
+import ArticleBody from '../../components/Article/Article';
+import MobileFootnotes from '../../components/Article/Footnotes/MobileFootnotes';
+import NextUp from '../../components/NextUp/NextUp';
 
 const Project = ({ data, preview }: { data: any; preview: boolean }) => {
   const { data: previewData } = usePreviewSubscription(data?.query, {
@@ -19,17 +20,7 @@ const Project = ({ data, preview }: { data: any; preview: boolean }) => {
 
   const article = filterDataToSingleItem(previewData, preview);
 
-  const {
-    title,
-
-    lede,
-    slug,
-
-    heroImage,
-
-    footnotes,
-  } = article;
-
+  const { title, lede, slug, heroImage, nextUp, footnotes } = article;
   return (
     <>
       <Meta
@@ -39,8 +30,8 @@ const Project = ({ data, preview }: { data: any; preview: boolean }) => {
         description={lede}
       />
       <Layout key={article.slug}>
-        <Article data={article} />
-        <NextUp article={article?.nextUp} />
+        <ArticleBody data={article} />
+        {nextUp && <NextUp label={nextUp?.title} href={nextUp?.slug.current} />}
         <Related content={article?.related} />
         <MobileFootnotes footnotes={footnotes} />
       </Layout>

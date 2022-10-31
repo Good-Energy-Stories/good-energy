@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--spacing-medium) 0;
+  transition: 0.3s ease;
+}
+.container:hover {
+  padding: var(--spacing-medium);
+  background: var(--white);
+  color: var(--secondaryText);
+}
+.icon {
+  fill: var(--text);
+}
+.container:hover .icon {
+  fill: var(--secondaryText);
+}

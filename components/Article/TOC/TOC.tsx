@@ -1,31 +1,9 @@
-import React from 'react';
-import { Section } from './';
-import { SectionRefLookup } from '../';
+import React, { useCallback } from 'react';
 import { RefObject } from 'react';
-import { observer } from 'mobx-react-lite';
-import { motion } from 'framer-motion';
-import css from 'styled-jsx/css';
-import { useStore } from '../../../stores/store';
-import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 
-function getStyles(sticky) {
-  return css.resolve`
-    div {
-      height: 0;
-      grid-row-start: 3;
-      margin-left: 2.5rem;
-      margin-right: 1.25rem;
-      max-width: 228px;
-      position: ${sticky ? 'sticky' : 'relative'};
-      top: calc(var(--header-height) + var(--secondary-header-height));
-    }
-    @media only screen and (max-width: 768px) {
-      div {
-        display: none;
-      }
-    }
-  `;
-}
+import styles from './TOC.module.css';
+import classnames from 'classnames';
+const cx = classnames.bind(styles);
 export interface SectionTOC {
   title: string;
   key: string;
@@ -38,40 +16,36 @@ export const TOC = ({
   sectionsRef,
 }: {
   sections: SectionsTOC;
-  sectionsRef: RefObject<SectionRefLookup>;
+  sectionsRef: RefObject<any>;
 }) => {
-  const store = useStore();
-  const {
-    uiStore: { scrollPosition },
-  } = store;
   const titledSections = sections.filter((s) => s.title !== null);
+
+  const scrollSectionIntoView = useCallback((section: HTMLDivElement) => {
+    section.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    setTimeout(() => {
+      section.setAttribute('data-highlighted', 'true');
+      setTimeout(() => {
+        section.removeAttribute('data-highlighted');
+      }, 1500);
+    }, 750);
+  }, []);
+
   if (!sections || titledSections.length === 0) return null;
-  const scrollIntoView = (section: HTMLDivElement) => {
-    section.scrollIntoView({ behavior: 'smooth' });
-  };
-  const { className, styles } = getStyles(titledSections.length <= 10);
   return (
-    <motion.div
-      transition={FRAMER_TRANSITION_FASTEASE}
-      animate={{ x: scrollPosition < 0.7 ? 0 : -300 }}
-      className={className}
-    >
-      <h3>In this article</h3>
-      {sections.map((e) => (
-        <Section
-          key={e.key}
-          title={e.title}
-          scrollIntoView={() => scrollIntoView(sectionsRef.current[e.key])}
-        />
-      ))}
-      <style jsx>{`
-        h3 {
-          margin-top: 1.25rem;
-          margin-bottom: 1.5rem;
-        }
-      `}</style>
-      {styles}
-    </motion.div>
+    <nav className={styles.container}>
+      <h3 className={styles.title}>Jump To Section</h3>
+      <ul className={styles.ul}>
+        {sections.map(({ key, title }) => (
+          <li
+            key={key}
+            className={cx('nav-link-medium', styles.li)}
+            onClick={() => scrollSectionIntoView(sectionsRef.current[key])}
+          >
+            {title}
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

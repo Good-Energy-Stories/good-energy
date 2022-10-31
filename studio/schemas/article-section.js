@@ -4,6 +4,7 @@ import { GiFootprint } from 'react-icons/gi';
 import { BiLink } from 'react-icons/bi';
 import { FaQuoteLeft } from 'react-icons/fa';
 import toPlainText from '../utils/toPlainText';
+import { dropcapIcon, dropcapRender } from '../components/Dropcap';
 
 export default {
   name: 'articleSection',
@@ -33,9 +34,28 @@ export default {
       of: [
         {
           type: 'block',
-          styles: [],
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H1', value: 'h1' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'H4', value: 'h4' },
+          ],
           lists: [],
           marks: {
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+              { title: 'Code', value: 'code' },
+              {
+                title: 'Dropcap',
+                value: 'dropcap',
+                blockEditor: {
+                  icon: dropcapIcon,
+                  render: dropcapRender,
+                },
+              },
+            ],
             annotations: [
               {
                 title: 'Link',

@@ -9,12 +9,14 @@
   cursor: pointer;
   color: var(--text);
 }
-body[data-theme='dark'] .button {
+body[data-theme='DARK'] .button {
   background: var(--black);
-
   border: 4px solid var(--white);
 }
-.button a {
+body[data-theme='DARK'] .button::before {
+  background: var(--pink);
+}
+.button {
   position: relative;
   z-index: 10;
 }
@@ -22,6 +24,7 @@ body[data-theme='dark'] .button {
 .button::before {
   content: '';
   position: absolute;
+
   top: 0;
   left: 0;
   width: 100%;
@@ -31,7 +34,7 @@ body[data-theme='dark'] .button {
   transform: translate3d(0, 0, 0);
   transform: scale3d(0.7, 1, 1);
   background: var(--blueFour);
-  z-index: 0;
+  z-index: -1;
   transition: 0.3s;
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }

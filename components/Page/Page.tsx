@@ -19,7 +19,6 @@ const Page = ({ pageData, header }: any) => {
 
       <Layout key="About">
         {header}
-
         {pageData?.content.map((content, index) => (
           <PageContent key={index} content={content} />
         ))}

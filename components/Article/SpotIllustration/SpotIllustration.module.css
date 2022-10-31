@@ -1,0 +1,21 @@
+.container {
+  grid-column: 4/6;
+  margin-bottom: var(--spacing-large);
+}
+.container[data-size='small'] {
+  grid-column: 4/6;
+}
+.container[data-size='full'] {
+  grid-column: 3/7;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-column: 1/-1;
+  }
+  .container[data-size='small'] {
+    grid-column: 1/-1;
+  }
+  .container[data-size='full'] {
+    grid-column: 1/-1;
+  }
+}

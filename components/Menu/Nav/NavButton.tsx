@@ -4,13 +4,11 @@ import classnames from 'classnames';
 import { motion } from 'framer-motion';
 import { useStore } from '../../../stores/store';
 import { observer } from 'mobx-react-lite';
+import { useUIStore } from '../../../providers/RootStoreProvider';
 const cx = classnames.bind(styles);
 
 const NavButton = observer(() => {
-  const store = useStore();
-  const {
-    uiStore: { playbookNavOverlayOpen, togglePlaybookNavOverlay },
-  } = store;
+  const { playbookNavOverlayOpen, togglePlaybookNavOverlay } = useUIStore();
   return (
     <button
       aria-expanded={playbookNavOverlayOpen ? 'true' : 'false'}

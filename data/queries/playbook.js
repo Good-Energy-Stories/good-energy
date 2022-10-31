@@ -5,7 +5,7 @@ title,
 lede,
 byline,
 tags[],
-"slug": slug.current,
+slug,
 heroImage{
   ${imageMeta}
 },
@@ -75,7 +75,7 @@ contents[]-> {
   _type == 'twoWorldsArticle' => {
     _type,
     title,
-    "slug": "two-worlds",
+    "slug": {"current": "two-worlds"},
   },
 }
 `;
@@ -89,7 +89,7 @@ contents[]-> {
   _type == 'whyClimateArticle' => {
     _type,
     title,
-    "slug": "why-climate-stories",
+    "slug": {"current":"why-climate-stories"},
   },
   _type == 'playbookSubsection' => {
     _type,
@@ -98,7 +98,7 @@ contents[]-> {
   _type == 'characterProfilesPage' => {
     _type,
     "title": "Character Profiles",
-    "slug": "characters",
+    "slug": {"current":"characters"},
   },
 }
 `;
@@ -126,17 +126,17 @@ _type == 'reference' => @->{
     heroImage{
       ${imageMeta}
     },
-    "slug": "characters",
+    "slug": {"current":"characters"},
   },
   _type == 'twoWorldsArticle' => {
     _type,
     ${articlePreview},
-    "slug": "two-worlds",
+    "slug": {"current":"two-worlds"},
   },
   _type == 'whyClimateArticle' => {
     _type,
     ${articlePreview},
-    "slug": "why-climate-stories",
+    "slug": {"current":"why-climate-stories"},
   },
   _type == 'characterProfile' => {
     _type,

@@ -91,6 +91,7 @@ import navigation from './navigation';
 import characterProfilesTeaseSection from './character-profiles-tease-section';
 import playbookPage from './playbook-page';
 import characterProfilesSection from './character-profiles-section';
+import articleSpotIllustration from './article-spot-illustration';
 
 export default createSchema({
   name: 'default',
@@ -184,5 +185,6 @@ export default createSchema({
     characterProfilesTeaseSection,
     playbookPage,
     characterProfilesSection,
+    articleSpotIllustration,
   ]),
 });

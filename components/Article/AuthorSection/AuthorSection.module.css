@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  padding: 0 var(--spacing-large);
+  gap: var(--spacing-large);
+  grid-column: 1/-1;
+}
+.inner {
+  grid-column: 1/9;
+  border-top: 1px solid var(--blueThree);
+}
+.authorContainer {
+  grid-column: 3/8;
+  display: grid;
+  gap: var(--spacing-large);
+  grid-template-columns: var(--grid-col);
+  column-gap: var(--spacing-large);
+  padding: var(--spacing-large) 0;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-bottom: 1.25rem;
+  }
+}

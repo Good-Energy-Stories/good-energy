@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import styles from './NavSection.module.css';
 import NavItem from './NavItem';
 import { useState } from 'react';
-import { FRAMER_TRANSITION_FASTEASE } from '../../../lib/framer/framer-animations';
 import classnames from 'classnames';
 import useWindowDimensions from '../../../utils/useWindowDimenions';
 import useDimensions from '../../../utils/useDimenions';
@@ -17,6 +16,7 @@ const NavSection = ({ data, depth, setSubmenuExpanded }) => {
   const extendedPastWindow = Math.abs(windowDimensions.width - x + width) < 500;
   const [expanded, setExpanded] = useState(false);
   const isNested = depth > 0;
+
   return (
     <>
       <li

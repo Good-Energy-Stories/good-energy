@@ -2,27 +2,16 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../stores/store';
 import styles from './MenuButton.module.css';
 import classnames from 'classnames';
+import { useUIStore } from '../../../providers/RootStoreProvider';
 const cx = classnames.bind(styles);
 
 const MenuButton = observer(() => {
-  const store = useStore();
-  const {
-    uiStore: {
-      closePlaybookNavOverlay,
-      closeNavOverlay,
-      openNavOverlay,
-      navOverlayOpen,
-    },
-  } = store;
+  const { navOverlayOpen, toggleNavOverlay } = useUIStore();
 
   const handleClick = () => {
-    if (!navOverlayOpen) {
-      openNavOverlay();
-    } else {
-      closeNavOverlay();
-      closePlaybookNavOverlay();
-    }
+    toggleNavOverlay();
   };
+
   const showMenuLabel = (
     <>
       <svg

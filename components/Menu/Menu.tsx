@@ -1,14 +1,13 @@
 import Nav from './Nav/Nav';
 import PlaybookNav from './PlaybookNav/PlaybookNav';
 import styles from './Menu.module.css';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useStore } from '../../stores/store';
 import { observer } from 'mobx-react-lite';
 import { FRAMER_TRANSITION_FASTEASE } from '../../lib/framer/framer-animations';
 import Header from './Header/Header';
 import { useIsSmall } from '../../utils/useMediaQuery';
 import SecondaryPlaybookNav from './SecondaryPlaybookNav/SecondaryPlaybookNav';
+import { useUIStore } from '../../providers/RootStoreProvider';
 
 const MotionPlaybookNav = motion(PlaybookNav);
 
@@ -51,11 +50,8 @@ const mobileVariants = {
 };
 
 const Menu = observer(({ navigation }: any) => {
-  const store = useStore();
-  const {
-    uiStore: { playbookNavOverlayOpen, navOverlayOpen },
-  } = store;
-
+  console.log('Menu render', navigation);
+  const { playbookNavOverlayOpen, navOverlayOpen } = useUIStore();
   const isSmall = useIsSmall();
   return (
     <>

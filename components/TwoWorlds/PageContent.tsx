@@ -1,21 +1,16 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const SingleSection = dynamic(() => import('./SingleSection'));
-const Illustration = dynamic(() => import('./Illustration'));
-const CompareSection = dynamic(() => import('./CompareSection'));
+const CompareSection = dynamic(() => import('./CompareSection/CompareSection'));
+const Section = dynamic(() => import('./Section/Section'));
 
-export const PageContent = ({ index, content, activeSide }) => {
+export const PageContent = ({ content }) => {
   const type = content._type;
   switch (type) {
     case 'twoWorldsCompareSection':
-      return (
-        <CompareSection index={index} data={content} activeSide={activeSide} />
-      );
-
+      return <CompareSection data={content} />;
     case 'twoWorldsSection':
-      return <SingleSection index={index} data={content} />;
-
+      return <Section data={content} />;
     default:
       return null;
   }

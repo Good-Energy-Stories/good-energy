@@ -8,7 +8,7 @@ const NavLink = ({ data }) => {
   if (!title) return null;
   return (
     <li className={cx('nav-link-md', styles.container)}>
-      <Link href={`/${slug}`} passHref>
+      <Link href={`/${slug.current}`} passHref>
         <a className={styles.link}>
           <svg
             width="29"

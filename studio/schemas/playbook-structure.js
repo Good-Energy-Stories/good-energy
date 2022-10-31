@@ -17,7 +17,12 @@ export default {
         { type: 'playbookSection' },
         {
           type: 'reference',
-          to: [{ type: 'article' }],
+          to: [
+            { type: 'article' },
+            { type: 'characterProfilesPage' },
+            { type: 'whyClimateArticle' },
+            { type: 'twoWorldsArticle' },
+          ],
         },
       ],
     },

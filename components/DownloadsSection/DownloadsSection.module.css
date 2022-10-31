@@ -3,7 +3,7 @@
   padding: var(--spacing-large);
   background-color: var(--blueFive);
 
-  background: var(--white);
+  background: var(--background);
 }
 .title {
   border-top: 1px solid var(--blueThree);

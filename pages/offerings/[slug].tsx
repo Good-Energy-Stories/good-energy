@@ -5,7 +5,6 @@ import { sanity } from '../../lib/sanity';
 export default OfferingsPage;
 
 export const getStaticProps = async ({ params }) => {
-  console.log(params);
   const pageData = await sanity.fetch(queries.offeringsPageQuery, {
     slug: params.slug,
   });
@@ -19,7 +18,6 @@ export const getStaticPaths = async () => {
   const offeringsPagePaths = await sanity.fetch(
     queries.offeringsPagePathsQuery,
   );
-  console.log(offeringsPagePaths);
   const paths = offeringsPagePaths.map((page) => ({
     params: { slug: page.slug.current },
   }));

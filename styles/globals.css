@@ -48,10 +48,11 @@ body {
   --text: var(--black);
 }
 
-body[data-theme='light'] {
+body[data-theme='LIGHT'] {
   --background: var(--blueFive);
   --secondaryBackground: var(--white);
   --text: var(--black);
+  --secondaryText: var(--blueThree);
   --borderColor: var(--pink);
   --secondaryBorderColor: var(--blueFive);
   --sheen: var(--greyBlue);
@@ -59,16 +60,18 @@ body[data-theme='light'] {
   --nav: var(--greyBlue);
   --navInputBackground: var(--white);
   --playbookNav: var(--blueFive);
+  --playbookNavDropdown: var(--white);
 
   --inputBackground: var(--white);
   --inputText: var(--black);
   --inputBorder: var(--blueThree);
 }
 
-body[data-theme='dark'] {
+body[data-theme='DARK'] {
   --background: var(--black);
   --secondaryBackground: var(--black);
   --text: var(--white);
+  --secondaryText: var(--blueFour);
   --borderColor: var(--blueSix);
   --secondaryBorderColor: var(--blueOne);
   --sheen: var(--blueFour);
@@ -76,6 +79,7 @@ body[data-theme='dark'] {
   --nav: var(--blueOne);
   --navInputBackground: var(--blueOne);
   --playbookNav: var(--black);
+  --playbookNavDropdown: var(--black);
 
   --inputBackground: var(--black);
   --inputText: var(--white);

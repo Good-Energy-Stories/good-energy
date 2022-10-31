@@ -7,11 +7,13 @@ const cx = classnames.bind(styles);
 const HomeButton = () => {
   return (
     <>
-      <button className={cx('sub-nav-link-md', styles.button)}>
-        <Link href={'/playbook'}>
-          <a>Playbook Home</a>
-        </Link>
-      </button>
+      <Link href={'/playbook'}>
+        <a>
+          <button className={cx('sub-nav-link-md', styles.button)}>
+            Playbook Home
+          </button>
+        </a>
+      </Link>
     </>
   );
 };

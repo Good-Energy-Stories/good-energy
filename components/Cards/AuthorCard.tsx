@@ -12,7 +12,7 @@ function getStyles() {
   return css.resolve`
     div {
       display: block;
-      margin: 0 1.25rem;
+
       grid-column: 2/4;
     }
     @media only screen and (max-width: 768px) {
@@ -129,19 +129,18 @@ const AuthorCard = ({
         }
 
         .layout {
-          margin-top: 1.25rem;
-
           display: grid;
 
-          column-gap: 1.25rem;
+          column-gap: var(--spacing-large);
         }
         .left {
           grid-column: 1/2;
-          margin-top: 1.25rem;
+          display: flex;
+          align-items: center;
         }
         .right {
           grid-column: 2/3;
-          padding-top: 0.625rem;
+
           display: flex;
           flex-direction: column;
           justify-content: center;
