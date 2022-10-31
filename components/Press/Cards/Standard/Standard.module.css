@@ -8,9 +8,8 @@
 
   position: relative;
   margin-bottom: var(--spacing-medium);
-  transition: 0.3s ease;
 }
-.container:hover {
+.inner:hover {
   opacity: 0.6;
 }
 .inner {
@@ -22,6 +21,7 @@
   grid-template-columns: var(--grid-col-6);
   gap: var(--spacing-large);
   row-gap: 0;
+  transition: 0.3s ease;
 }
 .attribution {
   color: var(--blueThree);
@@ -46,7 +46,7 @@
   max-width: 100%;
 }
 
-.container:hover .sectionLabel {
+.inner:hover .sectionLabel {
   opacity: 0.7;
 }
 .title span {
@@ -55,7 +55,7 @@
   background-size: 0% 3px;
   transition: background-size 0.3s ease-in-out;
 }
-.container:hover .title span {
+.inner:hover .title span {
   background-size: 100% 3px;
 }
 
