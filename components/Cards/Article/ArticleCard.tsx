@@ -5,6 +5,7 @@ const ArticleStandard = dynamic(
 );
 const ArticleNextUp = dynamic(() => import('./ArticleNextUp/ArticleNextUp'));
 const ArticleSearch = dynamic(() => import('./ArticleSearch/ArticleSearch'));
+const ArticleSmall = dynamic(() => import('./ArticleSmall/ArticleSmall'));
 
 export interface ArticleCardData {
   title: string;
@@ -21,6 +22,7 @@ export enum ArticleCardStyle {
   standard = 'standard',
   nextUp = 'nextUp',
   search = 'search',
+  small = 'small',
 }
 
 interface ArticleCardProps {
@@ -37,6 +39,8 @@ const ArticleCard = ({ data, style, className }: ArticleCardProps) => {
       return <ArticleNextUp data={data} className={className} />;
     case ArticleCardStyle.search:
       return <ArticleSearch data={data} className={className} />;
+    case ArticleCardStyle.small:
+      return <ArticleSmall data={data} className={className} />;
     default:
       return <ArticleStandard data={data} className={className} />;
   }

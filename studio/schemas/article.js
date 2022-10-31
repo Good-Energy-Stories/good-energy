@@ -22,23 +22,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Section',
-      name: 'section',
-      type: 'string',
-      description:
-        'This is used for the breadcrumbs that will appear above the article title',
-      validation: (Rule) => Rule.required(),
-      options: {
-        layout: 'radio',
-        list: [
-          { title: 'Introduction', value: 'Introduction' },
-          { title: 'The Why', value: 'The Why' },
-          { title: 'Climate Storytelling', value: 'Climate Storytelling' },
-          { title: "What's Next", value: "What's Next" },
-        ],
-      },
-    },
-    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -112,32 +95,6 @@ export default {
           type: 'string',
           title: 'Attribution',
         },
-      ],
-    },
-    {
-      name: 'includeDropCap',
-      title: 'Should Introduction Have a Drop Cap',
-      description:
-        "Including a drop cap means the first letter of the text will be much larger to begin the story. If the text/quote is short (one to two lines), it's usually better to turn this off.",
-      type: 'boolean',
-    },
-    {
-      name: 'introductionNote',
-      type: 'note',
-      options: {
-        headline: 'Introduction Note',
-        message:
-          'This is the introductory of the article. Remember that you can put multiple paragraphs inside of one section. Leaving this section blank will mean the article will begin with the first item in the article body section below.',
-      },
-    },
-    {
-      title: 'Introduction',
-      name: 'introduction',
-      type: 'array',
-      of: [
-        { type: 'articleIntroductionSection' },
-        { type: 'articleQuote' },
-        { type: 'articleBlockQuote' },
       ],
     },
     {

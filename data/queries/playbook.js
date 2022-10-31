@@ -9,6 +9,7 @@ slug,
 heroImage{
   ${imageMeta}
 },
+"s": *[_type=='playbookSection']{title},
 "section": *[_type=='playbookSection' && references(^._id)]{title}[0],
 "heroImageUrl": heroImage.asset->url
 `;

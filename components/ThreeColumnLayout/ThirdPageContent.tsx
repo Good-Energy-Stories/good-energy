@@ -1,9 +1,10 @@
 import dynamic from 'next/dynamic';
-import { Card } from '../Cards';
+import { ArticleCardStyle, Card } from '../Cards';
 import ArticleList from './ArticleList/ArticleList';
 import InlineQuote from './InlineQuote/InlineQuote';
+import { ThreeColumnLayoutStyle } from './ThreeColumnLayout';
 
-const ThirdPageContent = ({ content, index }: any) => {
+const ThirdPageContent = ({ content, style }: any) => {
   const type = content._type;
   switch (type) {
     case 'twoWorldsArticle':
@@ -13,7 +14,11 @@ const ThirdPageContent = ({ content, index }: any) => {
     case 'characterProfile':
     case 'expertProfile':
     case 'featuredVoice':
-      return <Card content={content} />;
+      const articleCardStyle =
+        style === ThreeColumnLayoutStyle.PRIMARY
+          ? ArticleCardStyle.standard
+          : ArticleCardStyle.small;
+      return <Card content={content} articleCardStyle={articleCardStyle} />;
     case 'quote':
       return <InlineQuote data={content} />;
     case 'articleList':

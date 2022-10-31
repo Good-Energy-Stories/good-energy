@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import { Tags } from '../..';
-
-import styles from './ArticleStandard.module.css';
+import styles from './ArticleSmall.module.css';
 import classnames from 'classnames';
-import Photo from '../../../Photo/Photo';
 
+import Photo from '../../../Photo/Photo';
 const cx = classnames.bind(styles);
 
-const ArticleStandard = ({ data, className }: any) => {
+const ArticleSmall = ({ data, className }: any) => {
   const { title, lede, tags, slug, heroImage, section } = data;
-
+  console.log(data);
   return (
     <article className={cx(styles.container, className)}>
       <Link href={`/playbook/${slug.current}`} passHref>
@@ -21,17 +20,13 @@ const ArticleStandard = ({ data, className }: any) => {
               {section.title}
             </div>
           )}
-          <h2 className={styles.title}>
+          <h4 className={styles.title}>
             <span>{title}</span>
-          </h2>
-          {lede && (
-            <div className={cx('tease-lede-small', styles.lede)}>{lede}</div>
-          )}
-          {tags && <Tags tags={tags} />}
+          </h4>
         </a>
       </Link>
     </article>
   );
 };
 
-export default ArticleStandard;
+export default ArticleSmall;

@@ -9,7 +9,9 @@ const ArticleList = ({ data }: any) => {
         <li key={index} className={styles.li}>
           <Link href={`playbook/${item?.slug.current}`} passHref>
             <a className={styles.text}>
-              <h4 className={styles.heading}>{item.title}</h4>
+              <h4 className={styles.heading}>
+                <span>{item.title}</span>
+              </h4>
             </a>
           </Link>
         </li>

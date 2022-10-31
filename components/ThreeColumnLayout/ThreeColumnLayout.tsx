@@ -9,28 +9,30 @@ interface ThreeColumnLayoutData {
 }
 
 export enum ThreeColumnLayoutStyle {
-  primary = 'primary',
-  secondary = 'secondary',
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
 }
 
 export const ThreeColumnLayout = ({
   data,
-  style,
+  style = ThreeColumnLayoutStyle.PRIMARY,
+  secondaryStyle = ThreeColumnLayoutStyle.SECONDARY,
 }: {
   data: ThreeColumnLayoutData;
   style?: ThreeColumnLayoutStyle;
+  secondaryStyle?: ThreeColumnLayoutStyle;
 }) => {
   const { leftColumn, mainColumn, rightColumn } = data;
-
+  const secondaryColumnsEmpty = leftColumn === null && rightColumn === null;
   return (
     <div className={styles.container}>
-      <LeftColumn data={leftColumn} style={style} />
+      <LeftColumn data={leftColumn} style={secondaryStyle} />
       <MainColumn
         data={mainColumn}
         style={style}
-        secondaryColumnsEmpty={leftColumn === null && rightColumn === null}
+        secondaryColumnsEmpty={secondaryColumnsEmpty}
       />
-      <RightColumn data={rightColumn} style={style} />
+      <RightColumn data={rightColumn} style={secondaryStyle} />
     </div>
   );
 };

@@ -35,16 +35,7 @@ export const playbookMenu = S.listItem()
             S.documentTypeList('characterProfile').title('Character Profiles'),
           )
           .icon(BsPersonFill),
-        S.listItem()
-          .title('Authors')
-          .child(S.documentTypeList('author').title('Authors'))
-          .icon(GiQuillInk),
-        S.listItem()
-          .title('Quote Collections')
-          .child(
-            S.documentTypeList('quoteCollection').title('Quote Collections'),
-          )
-          .icon(FaQuoteLeft),
+
         S.listItem()
           .title('Two Worlds Article')
           .child(
@@ -64,17 +55,13 @@ export const playbookMenu = S.listItem()
           )
           .icon(BsThermometerHalf),
         S.listItem()
+          .title('Authors')
+          .child(S.documentTypeList('author').title('Authors'))
+          .icon(GiQuillInk),
+        S.listItem()
           .title('Playbook Sections')
           .child(
             S.documentTypeList('playbookSection').title('Playbook Sections'),
-          )
-          .icon(FaRegListAlt),
-        S.listItem()
-          .title('Playbook Subsections')
-          .child(
-            S.documentTypeList('playbookSubsection').title(
-              'Playbook Subsections',
-            ),
           )
           .icon(FaRegListAlt),
         S.listItem()

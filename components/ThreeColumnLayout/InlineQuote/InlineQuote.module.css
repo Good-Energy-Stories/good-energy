@@ -1,5 +1,5 @@
 .container {
-  margin: var(--spacing-medium) 0;
+  margin-top: var(--spacing-medium);
 }
 .inner {
   background: var(--secondaryBackground);

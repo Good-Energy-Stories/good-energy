@@ -14,10 +14,10 @@ export default {
         "Add the articles and subsections here that make up the playbook's contents.",
       type: 'array',
       of: [
-        { type: 'playbookSection' },
         {
           type: 'reference',
           to: [
+            { type: 'playbookSection' },
             { type: 'article' },
             { type: 'characterProfilesPage' },
             { type: 'whyClimateArticle' },

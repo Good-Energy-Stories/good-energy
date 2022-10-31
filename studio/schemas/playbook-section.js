@@ -19,10 +19,10 @@ export default {
       description: 'You can add either articles or subsections to a section.',
       type: 'array',
       of: [
-        { type: 'playbookSection' },
         {
           type: 'reference',
           to: [
+            { type: 'playbookSection' },
             { type: 'article' },
             { type: 'characterProfilesPage' },
             { type: 'whyClimateArticle' },

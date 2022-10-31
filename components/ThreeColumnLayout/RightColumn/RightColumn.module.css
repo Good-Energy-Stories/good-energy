@@ -1,9 +1,11 @@
 .container {
   grid-column: 7/9;
-  align-content: flex-end;
+  align-self: stretch;
   display: flex;
-  align-items: flex-end;
+
   flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 @media only screen and (max-width: 1080px) {
   .container {

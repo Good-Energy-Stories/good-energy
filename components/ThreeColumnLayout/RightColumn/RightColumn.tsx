@@ -2,10 +2,10 @@ import React, { useCallback } from 'react';
 import ThirdPageContent from '../ThirdPageContent';
 import styles from './RightColumn.module.css';
 
-const RightColumn = ({ data }: any) => {
+const RightColumn = ({ data, style }: any) => {
   const renderContent = useCallback((content: any) => {
     return content.map((item, index) => (
-      <ThirdPageContent key={index} content={item} />
+      <ThirdPageContent key={index} style={style} content={item} />
     ));
   }, []);
   if (!data) return null;

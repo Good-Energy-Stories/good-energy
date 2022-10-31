@@ -1,29 +1,56 @@
 import dynamic from 'next/dynamic';
-import PageDivider from '../PageDivider/PageDivider';
-import { PartnerSection } from '../Partners';
-import CalloutSection from '../Offerings/CalloutSection/CalloutSection';
-import TeamSection from '../TeamSection/TeamSection';
-import ContactForm from '../ContactForm/ContactForm';
-import FullWidthQuote from '../FullWidthQuote/FullWidthQuote';
-import FullWidthStatement from '../FullWidthStatement/FullWidthStatement';
-import Accordion from '../Accordion/Accordion';
-import ResourceSection from '../ResourceSection/ResourceSection';
-import IndividualPartnerFeature from '../IndividualPartnerFeature/IndividualPartnerFeature';
-import LandAcknowledgment from '../LandAcknowledgment/LandAcknowledgment';
-import AboutBlock from '../AboutBlock/AboutBlock';
-import PressSection from '../Press/PressSection/PressSection';
-import DownloadsSection from '../DownloadsSection/DownloadsSection';
-import IndividualPressFeature from '../Press/IndividualPressFeature/IndividualPressFeature';
-import ThreeColumnLayout from '../ThreeColumnLayout/ThreeColumnLayout';
-import Logline from '../Logline/Logline';
-import FeaturedVoicesSection from '../FeaturedVoicesSection/FeaturedVoicesSection';
-import LibraryOfExpertsSection from '../LibraryOfExpertsSection/LibraryOfExpertsSection';
-import CharacterProfilesTeaseSection from '../CharacterProfilesTeaseSection/CharacterProfilesTeaseSection';
-import CharacterProfilesSection from '../CharacterProfilesSection/CharacterProfilesSection';
-
+const PartnerSection = dynamic(() => import('../Partners/PartnerSection'));
+const PageDivider = dynamic(() => import('../PageDivider/PageDivider'));
+const CalloutSection = dynamic(
+  () => import('../Offerings/CalloutSection/CalloutSection'),
+);
+const TeamSection = dynamic(() => import('../TeamSection/TeamSection'));
+const ContactForm = dynamic(() => import('../ContactForm/ContactForm'));
+const FullWidthQuote = dynamic(
+  () => import('../FullWidthQuote/FullWidthQuote'),
+);
+const FullWidthStatement = dynamic(
+  () => import('../FullWidthStatement/FullWidthStatement'),
+);
+const Accordion = dynamic(() => import('../Accordion/Accordion'));
+const ResourceSection = dynamic(
+  () => import('../ResourceSection/ResourceSection'),
+);
+const IndividualPartnerFeature = dynamic(
+  () => import('../IndividualPartnerFeature/IndividualPartnerFeature'),
+);
+const LandAcknowledgment = dynamic(
+  () => import('../LandAcknowledgment/LandAcknowledgment'),
+);
+const AboutBlock = dynamic(() => import('../AboutBlock/AboutBlock'));
+const PressSection = dynamic(
+  () => import('../Press/PressSection/PressSection'),
+);
+const DownloadsSection = dynamic(
+  () => import('../DownloadsSection/DownloadsSection'),
+);
+const IndividualPressFeature = dynamic(
+  () => import('../Press/IndividualPressFeature/IndividualPressFeature'),
+);
+const ThreeColumnLayout = dynamic(
+  () => import('../ThreeColumnLayout/ThreeColumnLayout'),
+);
+const Logline = dynamic(() => import('../Logline/Logline'));
+const FeaturedVoicesSection = dynamic(
+  () => import('../FeaturedVoicesSection/FeaturedVoicesSection'),
+);
+const LibraryOfExpertsSection = dynamic(
+  () => import('../LibraryOfExpertsSection/LibraryOfExpertsSection'),
+);
+const CharacterProfilesTeaseSection = dynamic(
+  () =>
+    import('../CharacterProfilesTeaseSection/CharacterProfilesTeaseSection'),
+);
+const CharacterProfilesSection = dynamic(
+  () => import('../CharacterProfilesSection/CharacterProfilesSection'),
+);
 const Callout = dynamic(() => import('../Offerings/Callout/Callout'));
 const EmailCapture = dynamic(() => import('../EmailCapture/EmailCapture'));
-
 const TwoColumnLayout = dynamic(
   () => import('../TwoColumnLayout/TwoColumnLayout'),
 );
@@ -31,7 +58,8 @@ const FullWidthImage = dynamic(
   () => import('../FullWidthImage/FullWidthImage'),
 );
 const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
-const PageContent = ({ content, index }: any) => {
+
+const PageContent = ({ content }: any) => {
   const type = content._type;
 
   switch (type) {

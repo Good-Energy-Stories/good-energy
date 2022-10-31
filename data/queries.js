@@ -8,6 +8,7 @@ lede,
 byline,
 tags[],
 slug,
+"relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0],
 heroImage{
   ${imageMeta}
 },
@@ -231,7 +232,6 @@ author[]-> {
   ${authorReferences}
 },
 tags[],
-section,
 "slug": slug.current,
 "footnotes": body[].body[].markDefs[] {
   _type == 'footnote' => {
@@ -564,6 +564,7 @@ export const landingPageQuery = `
 
 export const playbookSectionFragment = `
 _id,
+
 _type == 'article' => {
   _type,
   title,
@@ -583,50 +584,43 @@ _type == 'characterProfilesPage' => {
   _type,
   title,
   "slug": {"current": "characters"},
+},
+`;
+
+export const playbookStructure = `
+_type == 'reference' => @->{
+  ${playbookSectionFragment}
+  _type == 'playbookSection' => {
+    _type,
+    title,
+    contents[] {
+      _type == 'reference' => @->{
+        ${playbookSectionFragment}
+        _type == 'playbookSection' => {
+          _type,
+          title,
+          contents[] {
+            _type == 'reference' => @->{
+              ${playbookSectionFragment}
+            }
+          }
+        }
+      }
+    }
+  }
 }
 `;
 
 export const playbookStructureQuery = `*[_type == "playbookStructure"] { 
   navigation[] {
     _type == 'reference' => @->{
-      ${playbookSectionFragment}
-    },
-    _type != 'reference' => {
       _type == 'playbookSection' => {
         _key,
         _type,
         title,
         contents[] {
-        _type == 'reference' => @->{
-          ${playbookSectionFragment}
-        },
-        _type != 'reference' => {
-          _type == 'playbookSection' => {
-            _key,
-            _type,
-            title,
-            contents[] {
-              _type == 'reference' => @->{
-                  ${playbookSectionFragment}
-              },
-              _type != 'reference' => {
-                _type != 'reference' => {
-                  _type == 'playbookSection' => {
-                  _key,
-                  _type,
-                  title,
-                  contents[] {
-                    _type == 'reference' => @-> {
-                      ${playbookSectionFragment}
-                    },
-                  }
-                }
-                }
-              }
-            }
-          }
+            ${playbookStructure}
         }
-      }
     }
   }
 }
