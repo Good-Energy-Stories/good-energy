@@ -12,6 +12,7 @@ logo{
 export const partnerSection = `
 title,
 size,
+rowWidth,
 showLinkToPartnersPage,
 backgroundColor,
 partners[]->{

@@ -51,6 +51,7 @@
   }
   .container {
     margin: 0 var(--spacing-small);
+    margin-bottom: var(--spacing-large);
     gap: 0;
   }
   .image {

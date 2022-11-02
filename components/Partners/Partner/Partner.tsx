@@ -3,6 +3,7 @@ import { imageUrlFor } from '../../../utils/imageUrlFor';
 import * as ga from '../../../lib/ga';
 
 import styles from './Partner.module.css';
+import { ROW_WIDTH } from '../PartnerSection';
 
 const Logo = ({ logo, link }: any) => {
   if (!logo) return null;
@@ -31,12 +32,18 @@ const Logo = ({ logo, link }: any) => {
   );
 };
 
-const Partner = ({ data }: { data: any }) => {
+const Partner = ({
+  data,
+  width = ROW_WIDTH.FOUR,
+}: {
+  data: any;
+  width?: ROW_WIDTH;
+}) => {
   const { logo, size, link } = data;
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} data-width={width}>
         <Logo logo={logo} link={link} size={size} />
       </div>
     </>

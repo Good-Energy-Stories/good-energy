@@ -29,6 +29,22 @@ export default {
       },
     },
     {
+      name: 'rowWidth',
+      title: 'Row Width',
+      type: 'string',
+      description:
+        'This determines how many partner logos should be in each row.',
+      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => parent?.size !== 'full',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Three', value: 'three' },
+          { title: 'Four', value: 'four' },
+        ],
+      },
+    },
+    {
       title: 'Background Color',
       name: 'backgroundColor',
       type: 'string',

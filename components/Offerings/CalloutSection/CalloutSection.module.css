@@ -4,18 +4,21 @@
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
   padding: 0 var(--spacing-large);
-  margin-bottom: var(--spacing-large);
 }
 
 .container[data-theme='dark'] {
   padding: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
   background: var(--black);
   color: var(--white);
 }
 
+.marginBottom {
+  margin-bottom: var(--spacing-large);
+}
+
 .callout {
   margin: 0;
+  padding: var(--spacing-medium) 0;
 }
 .title {
   grid-column: 1/9;

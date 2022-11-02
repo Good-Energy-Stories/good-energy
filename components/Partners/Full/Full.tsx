@@ -3,15 +3,19 @@ import CTAButton from '../../Buttons/CTAButton/CTAButton';
 import styles from './Full.module.css';
 import classnames from 'classnames';
 import Partner from '../Partner/Partner';
+import { ROW_WIDTH } from '../PartnerSection';
 const cx = classnames.bind(styles);
 
 const Full = ({ data, truncate = false, className }: any) => {
-  const { title, partners, backgroundColor, showLinkToPartnersPage } = data;
+  const { title, partners, backgroundColor, showLinkToPartnersPage, rowWidth } =
+    data;
   const shouldTruncate = partners.length > 6 && truncate;
   const partnersFormatted = shouldTruncate ? partners.slice(0, 6) : partners;
 
   const renderPartners = useCallback((content) => {
-    return content.map((item, index) => <Partner key={index} data={item} />);
+    return content.map((item, index) => (
+      <Partner key={index} width={rowWidth} data={item} />
+    ));
   }, []);
   return (
     <>

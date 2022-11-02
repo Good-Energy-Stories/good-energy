@@ -4,11 +4,18 @@
   align-items: center;
   position: relative;
   height: 240px;
-  flex: 0 0 calc(25% - var(--spacing-small));
   width: 100%;
+}
+.container[data-width='three'] {
+  flex: 0 0 calc(33% - var(--spacing-small));
+}
+.container[data-width='four'] {
+  flex: 0 0 calc(25% - var(--spacing-small));
+}
+.container a {
   transition: 0.3s ease;
 }
-.container:hover {
+.container:hover a {
   opacity: 0.6;
 }
 .image {
@@ -17,7 +24,10 @@
   max-width: 100%;
 }
 @media only screen and (max-width: 768px) {
-  .container {
+  .container[data-width='three'] {
+    flex: 0 0 calc(100% - var(--spacing-small));
+  }
+  .container[data-width='four'] {
     flex: 0 0 calc(100% - var(--spacing-small));
   }
 }
