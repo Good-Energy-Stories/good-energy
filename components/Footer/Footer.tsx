@@ -1,34 +1,23 @@
 import css from 'styled-jsx/css';
 import Nav from './Nav';
-import Right from './Right';
+import styles from './Footer.module.css';
+import Socials from './Socials';
+import ContactForm from './ContactForm/ContactForm';
+import Copyright from './Copyright';
 
-const { className, styles } = css.resolve`
-  div {
-    display: inline-block;
-
-    width: 100%;
-    background-color: var(--black);
-    color: var(--white);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    padding: 1.25rem 2.5rem;
-    border-top: 1px solid var(--text);
-  }
-  @media only screen and (max-width: 768px) {
-    div {
-      padding: 1.25rem 1.25rem;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-  }
-`;
-
-const Footer = ({ navigation }: any) => {
+const Footer = ({ navigation, socials }: any) => {
   return (
-    <div className={className}>
+    <footer className={styles.container}>
       <Nav data={navigation} />
-      <Right includeContactForm />
-      {styles}
-    </div>
+      <div className={styles.right}>
+        <h4 className="title">Stay in Touch</h4>
+        <ContactForm />
+      </div>
+      <div className={styles.bottom}>
+        <Socials socials={socials} />
+        <Copyright />
+      </div>
+    </footer>
   );
 };
 

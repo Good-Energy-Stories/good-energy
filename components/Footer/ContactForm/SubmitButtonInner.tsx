@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import css from 'styled-jsx/css';
-import { FRAMER_TRANSITION_EASEOUT } from '../../lib/framer/framer-animations';
+import { FRAMER_TRANSITION_EASEOUT } from '../../../lib/framer/framer-animations';
+import { SUBMIT_BUTTON_HEIGHT } from './SubmitButton';
 
-const SUBMIT_BUTTON_HEIGHT = 36;
 const { className, styles } = css.resolve`
   div {
-    height: ${SUBMIT_BUTTON_HEIGHT}px;
+    height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,10 +19,10 @@ const { className, styles } = css.resolve`
 
 const variants = {
   submitted: {
-    y: -SUBMIT_BUTTON_HEIGHT / 2,
+    y: -40,
   },
   unsubmitted: {
-    y: SUBMIT_BUTTON_HEIGHT / 2,
+    y: 40,
   },
 };
 
@@ -58,7 +58,6 @@ const SubmitButtonInner = ({ formSubmitted }) => {
           border: 0;
           display: inline-block;
           width: 150px;
-
           text-transform: uppercase;
           float: right;
         }

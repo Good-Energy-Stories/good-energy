@@ -1,23 +1,21 @@
 // @ts-nocheck
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import '../styles/globals.css';
 import '../styles/fonts.css';
-import { useStore } from '../stores/store';
 import * as ga from '../lib/ga';
 import { isBrowser } from '../utils/isBrowser';
-import { useRouter } from 'next/router';
 import { signature } from '../utils/signature';
 import { DefaultSeo } from 'next-seo';
 import { defaultSEO } from '../seo';
 import { getClient } from '../lib/sanity/sanity.server';
 import { queries } from '../data';
 import Menu from '../components/Menu/Menu';
-import { Footer } from '../components/Footer';
 import { NextPage } from 'next';
 import { RootStoreProvider } from '../providers/RootStoreProvider';
 import { useRouterEvents } from '../utils/useRouterEvents';
 import { useThemeManager } from '../utils/useThemeManager';
+import Footer from '../components/Footer/Footer';
 
 // Console Credits
 if (isBrowser) {
@@ -48,12 +46,7 @@ const App = ({
       <DefaultSeo {...defaultSEO} />
       <Menu navigation={pageData?.navigation} />
       <Component {...pageProps} />
-      <Footer navigation={pageData?.navigation} />
-      {/* <style jsx global>{`
-        body {
-          overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
-        }
-      `}</style> */}
+      <Footer navigation={pageData?.navigation} socials={pageData?.socials} />
     </>
   );
 };
