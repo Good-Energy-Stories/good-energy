@@ -1,0 +1,10 @@
+.container {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.image {
+  max-width: 100%;
+  position: relative;
+  top: 0.25em;
+}

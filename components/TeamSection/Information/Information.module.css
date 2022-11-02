@@ -5,6 +5,9 @@
 .inner {
   display: grid;
   grid-template-columns: var(--grid-col-8);
+  column-gap: var(--spacing-large);
+  padding: var(--spacing-large) 0;
+  border-bottom: 1px solid var(--blueThree);
 }
 .showBorder {
   border-top: 3px solid var(--black);
@@ -14,14 +17,9 @@
   margin-bottom: var(--spacing-large);
 }
 .description {
-  grid-column: 3/9;
-  margin-bottom: var(--spacing-large);
+  grid-column: 4/8;
 }
-.divider {
-  grid-column: 1/9;
-  border-top: 3px solid var(--black);
-  margin-top: var(--spacing-xlarge);
-}
+
 .image {
   grid-column: 1/9;
   max-width: 100%;

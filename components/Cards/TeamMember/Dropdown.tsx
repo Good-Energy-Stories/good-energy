@@ -30,7 +30,7 @@ const variants = {
 const Dropdown = ({ expanded, children }) => {
   return (
     <motion.div
-      className={cx(styles.dropdown, 'button-text-large')}
+      className={cx('body', styles.dropdown)}
       variants={variants}
       initial={'inactive'}
       style={{ pointerEvents: expanded ? 'all' : 'none' }}

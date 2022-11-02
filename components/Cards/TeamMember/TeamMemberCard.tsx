@@ -11,7 +11,7 @@ import {
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 import DropdownButton from '../../Buttons/DropdownButton/DropdownButton';
-import Portrait, { PortraitSizes } from './TeamMemberCardComponents/Portrait';
+import Portrait, { PortraitSizes } from './Portrait/Portrait';
 
 const cx = classnames.bind(styles);
 const variants = {
@@ -50,38 +50,32 @@ const TeamMemberCard = ({
       transition={FRAMER_TRANSITION_EASEOUT}
       className={styles.container}
     >
-      <div className={styles.inner}>
-        <div className={styles.layout}>
-          <div className={styles.left}>
-            {portraitImage && (
-              <div>
-                <Portrait
-                  image={portraitImage}
-                  size={PortraitSizes.medium}
-                  backgroundColor={getColor(index)}
-                />
-              </div>
-            )}
-          </div>
-          <div className={styles.right}>
-            {name && <h2>{name}</h2>}
-            {pronouns && (
-              <div className={cx(styles.pronouns, 'label-medium')}>
-                {pronouns}
-              </div>
-            )}
-            {title && <h4 className={styles.title}>{title}</h4>}
-            <DropdownButton
-              expanded={expanded}
-              onClick={toggleExpanded}
-              hiddenLabel={'Show Bio'}
-              expandedLabel={'Hide Bio'}
-            />
-            <Dropdown expanded={expanded}>
-              <PortableText value={bio} />
-            </Dropdown>
-          </div>
-        </div>
+      <div className={styles.left}>
+        {portraitImage && (
+          <Portrait
+            image={portraitImage}
+            size={PortraitSizes.medium}
+            backgroundColor={getColor(index)}
+            className={styles.image}
+          />
+        )}
+      </div>
+      <div className={styles.right}>
+        {name && <h2>{name}</h2>}
+        {pronouns && (
+          <div className={cx(styles.pronouns, 'label-medium')}>{pronouns}</div>
+        )}
+        {title && <h4 className={styles.title}>{title}</h4>}
+        <DropdownButton
+          className={styles.dropdownButton}
+          expanded={expanded}
+          onClick={toggleExpanded}
+          hiddenLabel={'Show Bio'}
+          expandedLabel={'Hide Bio'}
+        />
+        <Dropdown expanded={expanded}>
+          <PortableText value={bio} />
+        </Dropdown>
       </div>
     </motion.article>
   );
