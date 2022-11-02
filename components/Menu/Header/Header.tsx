@@ -8,6 +8,7 @@ import NavLogo from './NavLogo';
 import SearchBar from './SearchBar';
 import { useIsSmall } from '../../../utils/useMediaQuery';
 import { useUIStore } from '../../../providers/RootStoreProvider';
+import useHeaderTheme from '../../../utils/useHeaderTheme';
 
 const Header = observer(({ children }: any) => {
   const { playbookNavOverlayOpen, navOverlayOpen } = useUIStore();
@@ -26,6 +27,7 @@ const Header = observer(({ children }: any) => {
       animate={{ paddingLeft: isSmall ? 0 : paddingLeft }}
       className={styles.container}
       transition={FRAMER_TRANSITION_FASTEASE}
+      data-theme={useHeaderTheme()}
     >
       <div className={styles.inner}>
         <MenuButton />

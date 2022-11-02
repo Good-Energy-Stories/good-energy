@@ -17,12 +17,22 @@
 .input::placeholder {
   color: var(--inputText);
 }
+.input[data-theme='LANDING'] {
+  background: var(--blueSix);
+  color: var(--white);
+  border-color: var(--white);
+}
+.input[data-theme='LANDING']::placeholder {
+  color: var(--white);
+}
 .icon {
   fill: var(--inputText);
 }
+.icon[data-theme='LANDING'] {
+  fill: var(--white);
+}
 .iconContainer {
   position: absolute;
-
   top: 0;
   bottom: 0;
   left: 0;

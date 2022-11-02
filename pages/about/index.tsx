@@ -1,10 +1,9 @@
 import { sanity } from '../../lib/sanity';
 import { Meta } from '../../components';
-import Header from '../../components/About/Header/Header';
-import { Footer } from '../../components/Footer';
 import { imageUrlFor } from '../../utils/imageUrlFor';
 import NextUp from '../../components/NextUp/NextUp';
 import Layout from '../../components/Layout/Layout';
+import Header from '../../components/Page/Header/Header';
 
 const About = ({ pageData }) => {
   const { headline, description, seo } = pageData;
@@ -18,10 +17,9 @@ const About = ({ pageData }) => {
       />
 
       <Layout key="About">
-        <Header title={headline} description={description} fittedText />
+        <Header title={headline} description={description} />
         <NextUp label={'Consulting'} href={'/about/consulting'} />
       </Layout>
-      <Footer />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { PortableTextSerializer } from '../..';
 import { PortableText } from '@portabletext/react';
 import { imageUrlFor } from '../../../utils/imageUrlFor';

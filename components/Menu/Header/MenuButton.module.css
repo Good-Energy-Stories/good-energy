@@ -13,6 +13,11 @@
   height: calc(var(--header-height) / 2);
   transition: 0.3s ease;
 }
+.button[data-theme='LANDING'] {
+  background: var(--blueSix);
+  color: var(--white);
+  border-color: var(--white);
+}
 .button:hover {
   background: var(--greyBlue);
   color: var(--black);
@@ -24,6 +29,10 @@
 }
 .icon {
   fill: var(--inputText);
+  transition: 0.3s ease;
+}
+.icon[data-theme='LANDING'] {
+  fill: var(--white);
 }
 .labelText {
   position: relative;
