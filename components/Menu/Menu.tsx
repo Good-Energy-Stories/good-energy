@@ -50,7 +50,6 @@ const mobileVariants = {
 };
 
 const Menu = observer(({ navigation }: any) => {
-  console.log('Menu render', navigation);
   const { playbookNavOverlayOpen, navOverlayOpen } = useUIStore();
   const isSmall = useIsSmall();
   return (

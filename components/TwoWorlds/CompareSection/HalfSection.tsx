@@ -12,7 +12,7 @@ import styles from './HalfSection.module.css';
 const variants = {
   active: ({ direction, width }) => ({
     opacity: 1,
-    transform: `matrix(1,0.00,0.00,1,${(direction * -1 * width) / 4},0)`,
+    transform: `matrix(1,0.00,0.00,1,1,0)`,
     filter: 'blur(0px)',
   }),
   inactive: ({ direction }) => ({
@@ -51,20 +51,21 @@ const HalfSection = ({
   const isSmall = useIsSmall();
   return (
     <motion.div
+      data-mode={mode}
       custom={{ direction, width }}
       transition={FRAMER_TRANSITION_EASEOUT}
       animate={active ? 'active' : 'inactive'}
       variants={isSmall ? mobileVariants : variants}
       className={styles.container}
     >
-      <h3 data-mode={mode} className={styles.title}>
+      <h3 className={styles.title}>
         {mode === MODE.COLLAPSE ? 'Collapse' : 'Rise'}
       </h3>
-      <h1>{year}</h1>
+      <h1 className={styles.year}>{year}</h1>
       <div>
         {data.map(({ title, body }) => (
           <div key={title} className={styles.inner}>
-            {title && <h3>{title}</h3>}
+            {title && <h3 className={styles.sectionTitle}>{title}</h3>}
             <PortableText value={body} components={PortableTextSerializer} />
           </div>
         ))}

@@ -7,8 +7,7 @@ import Photo from '../../../Photo/Photo';
 const cx = classnames.bind(styles);
 
 const ArticleSmall = ({ data, className }: any) => {
-  const { title, lede, tags, slug, heroImage, section } = data;
-  console.log(data);
+  const { title, slug, heroImage, section } = data;
   return (
     <article className={cx(styles.container, className)}>
       <Link href={`/playbook/${slug.current}`} passHref>

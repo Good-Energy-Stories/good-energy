@@ -39,8 +39,6 @@
   --grid-col-6: repeat(6, minmax(0, 1fr));
   --grid-col-8: repeat(8, minmax(0, 1fr));
   --grid-col-mobile: repeat(1, minmax(0, 1fr));
-
-  transition: 333ms all linear;
 }
 
 body {
@@ -91,8 +89,6 @@ body {
   margin: 0;
   border-width: var(--page-border-width);
   border-style: solid;
-  transition-delay: 2s;
-  transition: border-color, background-color, background-color 1s ease-in-out;
 
   color: var(--text);
   background-color: var(--background);

@@ -6,10 +6,10 @@ import {
   useTwoWorldsStore,
   useTwoWorldsSwitcherStore,
 } from '../../../providers/RootStoreProvider';
-import styles from './Controls.module.css';
+import styles from './MobileControls.module.css';
 import Button from './Button';
 
-const Controls = observer(() => {
+const MobileControls = observer(() => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [500, 800], [0, 1]);
   const y = useTransform(scrollY, [500, 800], [30, 0]);
@@ -47,4 +47,4 @@ const Controls = observer(() => {
   );
 });
 
-export default Controls;
+export default MobileControls;

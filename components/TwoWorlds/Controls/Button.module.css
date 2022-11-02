@@ -14,10 +14,6 @@
   color: var(--black);
 }
 .container[disabled] {
+  opacity: 0;
   pointer-events: none;
-}
-@media only screen and (max-width: 768px) {
-  .container {
-    width: 100%;
-  }
 }

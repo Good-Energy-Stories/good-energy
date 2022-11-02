@@ -1,6 +1,6 @@
 import Header from './Header/Header';
 import PageContent from './PageContent';
-import Controls from './Controls/Controls';
+import MobileControls from './Controls/MobileControls';
 
 const TwoWorldsPage = ({ data }: { data: any }) => {
   return (
@@ -9,7 +9,7 @@ const TwoWorldsPage = ({ data }: { data: any }) => {
       {data?.content?.map((c, i) => {
         return <PageContent key={i} content={c} />;
       })}
-      <Controls />
+      <MobileControls />
     </>
   );
 };
