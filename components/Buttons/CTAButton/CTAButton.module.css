@@ -1,10 +1,13 @@
 .container {
+  --border-width: 5px;
   position: relative;
   display: inline-block;
-  border: 5px solid var(--blueFour);
+  border: var(--border-width) solid var(--blueFour);
   padding: var(--spacing-small) var(--spacing-small);
   margin: var(--spacing-medium) 0;
   color: var(--black);
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 .container:last-of-type {
   margin-top: auto;
@@ -13,7 +16,6 @@
   position: relative;
   z-index: 10;
   margin: 0;
-
   display: flex;
 }
 .container[data-theme='black'] {
@@ -22,7 +24,7 @@
 body[data-theme='DARK'] .container {
   background: var(--black);
   color: var(--white);
-  border: 4px solid var(--white);
+  border: var(--border-width) solid var(--white);
 }
 body[data-theme='DARK'] .container::before {
   background: var(--pink);
@@ -30,28 +32,35 @@ body[data-theme='DARK'] .container::before {
 .fill {
   background: var(--blueFour);
 }
-.fill:hover {
-  border-color: transparent;
-}
+
 .outline:hover {
   border-color: var(--black);
 }
 .outline:hover[data-theme='black'] {
   border-color: var(--white);
+  color: var(--black);
 }
 .icon {
   position: relative;
   top: 0.1em;
   left: 0.3em;
 }
-
+.container[data-type='fill']::before {
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+}
+.container[data-type='outline']::before {
+  top: 0;
+  left: 0;
+  width: calc(100%);
+  height: calc(100%);
+}
 .container::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  pointer-events: none;
   opacity: 0;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);

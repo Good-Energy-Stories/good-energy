@@ -46,7 +46,7 @@ const CTAButton = ({ data, className }: any) => {
   );
   return (
     <button
-      type={type}
+      data-type={type}
       data-theme={backgroundColor}
       className={cx(
         styles.container,
