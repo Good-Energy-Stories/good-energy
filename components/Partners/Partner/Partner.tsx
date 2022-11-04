@@ -43,7 +43,7 @@ const Partner = ({
   console.log('width', width);
   return (
     <>
-      <div className={styles.container} data-width={width}>
+      <div className={styles.container} data-width={width ?? ROW_WIDTH.FOUR}>
         <Logo logo={logo} link={link} size={size} />
       </div>
     </>
