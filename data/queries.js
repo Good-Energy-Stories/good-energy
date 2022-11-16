@@ -564,7 +564,6 @@ export const landingPageQuery = `
 
 export const playbookSectionFragment = `
 _id,
-
 _type == 'article' => {
   _type,
   title,
@@ -621,9 +620,14 @@ export const playbookStructureQuery = `*[_type == "playbookStructure"] {
         contents[] {
             ${playbookStructure}
         }
+      },
+      _type == 'article' => {
+        _type,
+        title,
+        slug
+      }
     }
   }
-}
 }[0].navigation`;
 
 export const navigationQuery = `*[_type == "navigation"] {

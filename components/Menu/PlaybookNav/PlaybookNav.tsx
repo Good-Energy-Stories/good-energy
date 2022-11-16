@@ -6,7 +6,6 @@ import ShowAllButton from './ShowAllButton';
 import classnames from 'classnames';
 import CloseButton from './CloseButton';
 import NavItem from './NavItem';
-const cx = classnames.bind(styles);
 
 const PlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
   const [showAll, setShowAll] = useState(false);
