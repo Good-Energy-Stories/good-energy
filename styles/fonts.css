@@ -78,18 +78,6 @@
   text-transform: uppercase;
 }
 
-h1,
-.h1 {
-  font-family: var(--flexa);
-  font-size: 96px;
-  line-height: 85px;
-  letter-spacing: -0.02em;
-  font-stretch: 42%;
-  font-variation-settings: 'wght' 750, 'wdth' 42;
-  text-transform: capitalize;
-  margin: var(--spacing-small) 0;
-  font-weight: unset;
-}
 .quote-xl {
   font-family: var(--flexa);
   font-size: 72px;
@@ -189,6 +177,18 @@ h1,
   color: var(--blueThree);
   font-weight: unset;
 }
+h1,
+.h1 {
+  font-family: var(--flexa);
+  font-size: 96px;
+  line-height: 85px;
+  font-stretch: 42%;
+  font-variation-settings: 'wght' 750, 'wdth' 45;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  margin: var(--spacing-small) 0;
+  font-weight: unset;
+}
 .h1-xl {
   font-family: var(--flexa);
   font-size: 144px;
@@ -215,10 +215,10 @@ h2,
   font-family: var(--flexa);
   font-size: 48px;
   line-height: 47px;
-  letter-spacing: -0.01em;
   font-weight: 800;
   font-stretch: 47%;
-  font-variation-settings: 'wght' 800, 'wdth' 47;
+  font-variation-settings: 'wght' 700, 'wdth' 50;
+  letter-spacing: 0;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
   font-weight: unset;
@@ -232,7 +232,7 @@ h3 span {
   line-height: 34px;
   font-weight: 720;
   font-stretch: 32%;
-  font-variation-settings: 'wght' 720, 'wdth' 32;
+  font-variation-settings: 'wght' 700, 'wdth' 45;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
   font-weight: unset;
@@ -262,7 +262,7 @@ h4,
   line-height: 25px;
   font-weight: 800;
   font-stretch: 42%;
-  font-variation-settings: 'wght' 800, 'wdth' 42;
+  font-variation-settings: 'wght' 700, 'wdth' 45;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
   font-weight: unset;
@@ -480,18 +480,21 @@ h4 {
   padding: 0em;
 }
 
+.intro-block-quote:before,
+.intro-block-quote:first-letter {
+  font-variation-settings: 'wght' 800, 'wdth' 20;
+}
+
 .intro-block-quote {
   font-family: var(--flexa);
   font-size: 24px;
   line-height: 31px;
   font-stretch: 95%;
-  font-variation-settings: 'wght' 470, 'wdth' 95;
 }
 
 .intro-block-quote::first-letter {
   font-family: var(--flexa);
   font-size: 93px;
-  font-variation-settings: 'wght' 800, 'wdth' 0;
   float: left;
   line-height: 1;
   margin: 0em 0.15em 0em 0;
