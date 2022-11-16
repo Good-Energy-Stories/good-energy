@@ -4,6 +4,8 @@
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
+  padding-bottom: var(--spacing-medium);
+  border-bottom: 1px solid var(--blueThree);
 }
 .textContainer {
   grid-column: 1/5;
