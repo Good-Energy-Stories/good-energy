@@ -18,3 +18,18 @@
   height: 100%;
   width: 100%;
 }
+.overlay {
+  position: fixed;
+  top: var(--page-border-width);
+  left: var(--page-border-width);
+  right: var(--page-border-width);
+  bottom: var(--page-border-width);
+  z-index: 100;
+
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.active {
+  pointer-events: auto;
+  background: var(--blackTransparent);
+}

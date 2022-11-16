@@ -8,7 +8,8 @@ import Header from './Header/Header';
 import { useIsSmall } from '../../utils/useMediaQuery';
 import SecondaryPlaybookNav from './SecondaryPlaybookNav/SecondaryPlaybookNav';
 import { useUIStore } from '../../providers/RootStoreProvider';
-
+import classnames from 'classnames';
+const cx = classnames.bind(styles);
 const MotionPlaybookNav = motion(PlaybookNav);
 
 const desktopVariants = {
@@ -78,6 +79,7 @@ const Menu = observer(({ navigation }: any) => {
           />
         </motion.div>
       </div>
+      <div className={cx(styles.overlay, navOverlayOpen && styles.active)} />
     </>
   );
 });
