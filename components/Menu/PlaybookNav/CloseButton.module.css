@@ -4,8 +4,8 @@
 @media (max-width: 768px) {
   .button {
     display: inline-block;
-    color: var(--white);
-    border: 1px solid var(--blueThree);
+    color: var(--blueFour);
+    border: 1px solid var(--blueFour);
     margin-bottom: var(--spacing-medium);
     padding: var(--spacing-small) var(--spacing-medium);
   }

@@ -1,15 +1,13 @@
 import styles from './CloseButton.module.css';
 import classnames from 'classnames';
 import { useStore } from '../../../stores/store';
+import { useUIStore } from '../../../providers/RootStoreProvider';
 const cx = classnames.bind(styles);
 
 const CloseButton = () => {
-  const store = useStore();
-  const {
-    uiStore: { closeNavOverlay },
-  } = store;
+  const { toggleNavOverlay } = useUIStore();
   const handleClick = () => {
-    closeNavOverlay();
+    toggleNavOverlay();
   };
   return (
     <>
@@ -17,7 +15,7 @@ const CloseButton = () => {
         className={cx('label-small', styles.button)}
         onClick={handleClick}
       >
-        {'← Back'}
+        {'← Close Menu'}
       </button>
     </>
   );

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--blueThree);
+  border: 1px solid var(--blueFour);
 
   margin: 0;
   padding: var(--spacing-xxsmall) var(--spacing-small);

@@ -4,9 +4,9 @@
 @media (max-width: 768px) {
   .button {
     display: inline-block;
-    color: var(--white);
-    border: 1px solid var(--blueThree);
-    margin-bottom: var(--spacing-medium);
+    pointer-events: auto;
+    border: 1px solid var(--blueFour);
+    color: var(--blueFour);
     padding: var(--spacing-small) var(--spacing-medium);
   }
 }

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--blueThree);
+  border-bottom: 1px solid var(--blueFour);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -30,5 +30,5 @@
 .icon {
   height: 24px;
   width: 24px;
-  border: 1px solid var(--blueThree);
+  border: 1px solid var(--blueFour);
 }

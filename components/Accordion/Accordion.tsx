@@ -56,18 +56,20 @@ const Accordion = ({ data }: any) => {
         <div className={styles.title}>
           <PortableText value={title} components={PortableTextSerializer} />
         </div>
-        <div className={styles.lineContainerOne}>
-          <div className={styles.lineSection}></div>
-        </div>
-        <div className={styles.lineContainerTwo}>
-          <div className={styles.lineSection}>
-            <DropdownButton
-              hiddenLabel="Show Details"
-              expandedLabel="Hide Details"
-              className={styles.button}
-              expanded={expanded}
-              onClick={toggleExpanded}
-            />
+        <div className={styles.lineContainer}>
+          <div className={styles.lineContainerOne}>
+            <div className={styles.lineSection}></div>
+          </div>
+          <div className={styles.lineContainerTwo}>
+            <div className={styles.lineSection}>
+              <DropdownButton
+                hiddenLabel="Show Details"
+                expandedLabel="Hide Details"
+                className={styles.button}
+                expanded={expanded}
+                onClick={toggleExpanded}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 .button {
-  border: 1px solid var(--blueThree);
+  border: 1px solid var(--blueFour);
 
-  color: var(--blueThree);
+  color: var(--blueFour);
   padding: var(--spacing-xsmall) var(--spacing-small);
   display: flex;
   gap: var(--spacing-xsmall);
@@ -19,7 +19,7 @@
   fill: var(--black);
 }
 .icon {
-  fill: var(--blueThree);
+  fill: var(--blueFour);
   position: relative;
   top: -0.05em;
   transition: 0.3s ease;
