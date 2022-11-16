@@ -63,6 +63,7 @@
   text-align: left;
   color: var(--blueFour);
   text-transform: uppercase;
+  font-weight: unset;
 }
 
 .tag {
@@ -87,6 +88,7 @@ h1,
   font-variation-settings: 'wght' 750, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+  font-weight: unset;
 }
 .quote-xl {
   font-family: var(--flexa);
@@ -185,6 +187,7 @@ h1,
   font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69;
   color: var(--blueThree);
+  font-weight: unset;
 }
 .h1-xl {
   font-family: var(--flexa);
@@ -194,6 +197,7 @@ h1,
   font-variation-settings: 'wght' 898, 'wdth' 42;
   line-height: 127px;
   letter-spacing: -0.01em;
+  font-weight: unset;
 
   text-transform: uppercase;
 }
@@ -217,6 +221,7 @@ h2,
   font-variation-settings: 'wght' 800, 'wdth' 47;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+  font-weight: unset;
 }
 
 h3,
@@ -230,6 +235,7 @@ h3 span {
   font-variation-settings: 'wght' 720, 'wdth' 32;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+  font-weight: unset;
 }
 .h3-subheading {
   font-family: var(--flexa);
@@ -247,6 +253,7 @@ h3 span {
   font-stretch: 69%;
   font-variation-settings: 'wght' 429, 'wdth' 69, 'ital' 100;
   color: var(--blueThree);
+  font-weight: unset;
 }
 h4,
 .h4 {
@@ -258,6 +265,7 @@ h4,
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
+  font-weight: unset;
 }
 .h4-subheading {
   font-family: var(--flexa);
@@ -307,6 +315,7 @@ h4 {
   font-stretch: 42%;
   font-variation-settings: 'wght' 800, 'wdth' 42;
   text-transform: capitalize;
+  font-weight: unset;
 }
 
 .h4-quote {
