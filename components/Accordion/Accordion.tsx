@@ -8,6 +8,7 @@ import { useState } from 'react';
 import {
   FRAMER_TRANSITION_EASEOUT,
   FRAMER_TRANSITION_FASTEASE,
+  FRAMER_TRANSITION_SPRING,
 } from '../../lib/framer/framer-animations';
 import TwoColumnLayout from '../TwoColumnLayout/TwoColumnLayout';
 
@@ -19,11 +20,10 @@ const variants = {
     opacity: 0,
     transition: {
       opacity: {
-        ...FRAMER_TRANSITION_FASTEASE,
+        ...FRAMER_TRANSITION_SPRING,
       },
       height: {
-        ...FRAMER_TRANSITION_FASTEASE,
-        delay: FRAMER_TRANSITION_FASTEASE.duration,
+        ...FRAMER_TRANSITION_SPRING,
       },
     },
   },
@@ -32,11 +32,11 @@ const variants = {
     opacity: 1,
     transition: {
       opacity: {
-        ...FRAMER_TRANSITION_FASTEASE,
-        delay: FRAMER_TRANSITION_FASTEASE.duration,
+        ...FRAMER_TRANSITION_SPRING,
+        delay: 0.2,
       },
       height: {
-        ...FRAMER_TRANSITION_FASTEASE,
+        ...FRAMER_TRANSITION_SPRING,
       },
     },
   },
