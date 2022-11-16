@@ -13,7 +13,7 @@ const NavLink = ({ data, parentExpanded }) => {
           className={styles.link}
           aria-expanded={parentExpanded ? 'true' : 'false'}
         >
-          {title}
+          <span>{title}</span>
         </a>
       </Link>
     </li>

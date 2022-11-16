@@ -10,6 +10,8 @@
 
   padding: var(--spacing-small) 0;
   display: inline-block;
+
+  text-transform: uppercase;
 }
 .icon {
   height: 24px;

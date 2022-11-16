@@ -47,7 +47,9 @@ const NavSection = ({ data, showAll }) => {
           className={styles.titleContainer}
           onClick={toggleExpanded}
         >
-          <h4 className={styles.title}>{title}</h4>
+          <h4 className={styles.title}>
+            <span>{title}</span>
+          </h4>
           <motion.svg
             style={{ pointerEvents: showAll ? 'auto' : 'none' }}
             animate={{ opacity: showAll ? 0 : 1 }}

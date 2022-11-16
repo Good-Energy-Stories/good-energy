@@ -25,7 +25,7 @@ const Nav = forwardRef<HTMLElement, any>(({ data }, ref) => {
                   fill="#2FBDF4"
                 />
               </svg>
-              Home
+              <span>Home</span>
             </a>
           </Link>
         </h3>

@@ -22,8 +22,7 @@ const NavLink = ({ data }) => {
               fill="#2FBDF4"
             />
           </svg>
-
-          {title}
+          <span>{title}</span>
         </a>
       </Link>
     </li>

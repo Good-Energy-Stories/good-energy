@@ -8,6 +8,14 @@
   padding: var(--spacing-small) 0;
   height: 100%;
 }
-.link:hover {
-  text-decoration: underline;
+.link span {
+  transition: all 0.3s ease-in-out;
+  background: no-repeat 0 100%;
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 0% 2px;
+}
+.link:hover span {
+  color: var(--greyBlue);
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 100% 2px;
 }

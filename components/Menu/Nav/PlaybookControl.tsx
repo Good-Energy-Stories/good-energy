@@ -23,7 +23,9 @@ const PlaybookControl = () => {
           />
         </svg>
         <Link href="/playbook" passHref>
-          <a className={styles.link}>Playbook</a>
+          <a className={styles.link}>
+            <span>Playbook</span>
+          </a>
         </Link>
       </label>
       <NavButton />

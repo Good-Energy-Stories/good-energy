@@ -13,9 +13,19 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-.titleContainer:hover .title {
-  opacity: 0.6;
+
+.titleContainer span {
+  transition: all 0.3s ease-in-out;
+  background: no-repeat 0 100%;
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 0% 2px;
 }
+.titleContainer:hover span {
+  color: var(--greyBlue);
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 100% 2px;
+}
+
 .titleContainer[data-disabled='true'] {
   cursor: default;
 }
