@@ -3,10 +3,19 @@
 }
 @media (max-width: 768px) {
   .button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    line-height: 0.4;
     pointer-events: auto;
     border: 1px solid var(--blueFour);
     color: var(--blueFour);
     padding: var(--spacing-small) var(--spacing-medium);
+  }
+  .icon {
+    fill: var(--blueFour);
+  }
+  .label {
+    padding-top: 3px;
   }
 }
