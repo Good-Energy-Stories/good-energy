@@ -1,7 +1,7 @@
 .container {
   margin: 0;
 
-  border-bottom: 1px solid var(--blueThree);
+  border-bottom: 1px solid var(--blueFour);
 }
 .link {
   padding: var(--spacing-small) 0;

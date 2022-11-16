@@ -2,7 +2,7 @@
   border: 1px solid var(--blueFour);
 
   color: var(--blueFour);
-  padding: var(--spacing-small) var(--spacing-medium);
+  padding: var(--spacing-xsmall) var(--spacing-small);
   display: flex;
   gap: var(--spacing-small);
 

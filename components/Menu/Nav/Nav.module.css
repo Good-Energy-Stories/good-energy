@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
 }
 .inner {
   margin: 0;
@@ -28,7 +28,6 @@
   text-transform: uppercase;
 }
 .link {
-  padding: var(--spacing-small) 0;
   height: 100%;
   display: flex;
   align-items: center;

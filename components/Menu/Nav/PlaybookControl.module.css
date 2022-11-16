@@ -8,3 +8,7 @@
 .link:hover {
   text-decoration: underline;
 }
+.container {
+  padding-bottom: var(--spacing-small);
+  border-bottom: 1px solid var(--blueFour);
+}
