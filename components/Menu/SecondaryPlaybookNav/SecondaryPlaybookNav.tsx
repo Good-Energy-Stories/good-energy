@@ -7,7 +7,6 @@ import styles from './SecondaryPlaybookNav.module.css';
 const SecondaryPlaybookNav = forwardRef<HTMLElement, any>(({ data }, ref) => {
   const active = useSecondaryPlaybookNav();
   const [submenuExpanded, setSubmenuExpanded] = useState(false);
-
   if (!active) return null;
   return (
     <>

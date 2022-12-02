@@ -2,7 +2,7 @@ import NavSection from './NavSection';
 import NavLink from './NavLink';
 import NavItems from './NavItems';
 
-const NavItem = ({ data, depth, submenuExpanded, setSubmenuExpanded }: any) => {
+const NavItem = ({ data, depth, setSubmenuExpanded }: any) => {
   const { _type } = data;
 
   switch (_type) {
@@ -27,11 +27,9 @@ const NavItem = ({ data, depth, submenuExpanded, setSubmenuExpanded }: any) => {
       }
 
     case 'article':
-      switch (data.title) {
-        case 'Credits':
-          return null;
+      if (depth === 0) {
+        return <NavSection data={data} depth={depth} />;
       }
-
     case 'twoWorldsArticle':
     case 'whyClimateArticle':
     case 'characterProfilesPage':

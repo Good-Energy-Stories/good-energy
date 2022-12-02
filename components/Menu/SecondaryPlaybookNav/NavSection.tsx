@@ -5,10 +5,12 @@ import { useState } from 'react';
 import classnames from 'classnames';
 import useWindowDimensions from '../../../utils/useWindowDimenions';
 import useDimensions from '../../../utils/useDimenions';
+import NavSectionHeader from './NavSectionHeader';
+import Link from 'next/link';
 
 const cx = classnames.bind(styles);
 
-const NavSection = ({ data, depth, setSubmenuExpanded }) => {
+const NavDropdown = ({ data, depth, setSubmenuExpanded }) => {
   const { title, contents } = data;
   const windowDimensions = useWindowDimensions();
   const [ref, { x, width }] = useDimensions();
@@ -34,17 +36,12 @@ const NavSection = ({ data, depth, setSubmenuExpanded }) => {
           }
         }}
       >
-        <div
+        <NavSectionHeader
           aria-haspopup="true"
-          className={cx(
-            'sub-nav-link-md',
-            styles.title,
-            isNested ? styles.nested : styles.topLevel,
-          )}
           data-expanded={expanded}
-        >
-          <span>{title}</span>
-        </div>
+          className={cx(isNested ? styles.nested : styles.topLevel)}
+          title={title}
+        />
 
         {(isNested || expanded) && (
           <ul
@@ -73,6 +70,29 @@ const NavSection = ({ data, depth, setSubmenuExpanded }) => {
       </li>
     </>
   );
+};
+
+const TopLevelLink = ({ data }: any) => {
+  const { title, slug } = data;
+  return (
+    <Link href={`/playbook/${slug.current}`} passHref>
+      <a className={styles.topLevelLink}>
+        <li className={styles.container}>
+          <NavSectionHeader className={cx(styles.topLevel)} title={title} />
+        </li>
+      </a>
+    </Link>
+  );
+};
+
+const NavSection = ({ data, ...props }: any) => {
+  const { _type } = data;
+  switch (_type) {
+    case 'playbookSection':
+      return <NavDropdown data={data} {...props} />;
+    case 'article':
+      return <TopLevelLink data={data} {...props} />;
+  }
 };
 
 export default NavSection;

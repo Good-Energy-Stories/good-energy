@@ -1,0 +1,8 @@
+.title {
+  pointer-events: auto;
+
+  white-space: nowrap;
+  margin: 0;
+
+  text-decoration: underline;
+}

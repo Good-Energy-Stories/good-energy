@@ -17,14 +17,6 @@
   list-style: none;
   pointer-events: auto;
 }
-.title {
-  pointer-events: auto;
-  display: inline-block;
-  white-space: nowrap;
-  margin: 0;
-
-  text-decoration: underline;
-}
 
 .topLevel {
   border: 1px solid transparent;
@@ -37,6 +29,12 @@
   text-align: center;
   position: relative;
   z-index: 10000;
+}
+.topLevelLink {
+  transition: 0.3s ease;
+}
+.topLevelLink:hover {
+  opacity: 0.6;
 }
 
 .nested {

@@ -49,6 +49,7 @@ const App = observer(
       <>
         <DefaultSeo {...defaultSEO} />
         <Menu navigation={pageData?.navigation} />
+
         <Component {...pageProps} />
         <Footer navigation={pageData?.navigation} socials={pageData?.socials} />
         <style jsx global>{`
