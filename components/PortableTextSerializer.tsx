@@ -1,12 +1,9 @@
 import { PortableTextReactComponents } from '@portabletext/react';
-import FootnoteNumber from './FootnoteNumber';
-import Link from 'next/link';
-
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { FRAMER_TRANSITION_FASTEASE } from '../lib/framer/framer-animations';
 import List from './PortableTextComponents/List/List';
 import Bullet from './PortableTextComponents/ListItem/Bullet';
+import InternalLink from './PortableTextComponents/InternalLink/InternalLink';
+import Link from './PortableTextComponents/Link/Link';
+import Footnote from './PortableTextComponents/Footnote/Footnote';
 
 const PortableTextSerializer: Partial<PortableTextReactComponents> = {
   block: {
@@ -30,37 +27,9 @@ const PortableTextSerializer: Partial<PortableTextReactComponents> = {
     strong: ({ children }) => {
       return <span className="body-bold">{children}</span>;
     },
-    internalLink: ({ value, children }) => {
-      const { slug = {} } = value;
-      const href = `/${slug.current}`;
-      return (
-        <Link href={`/playbook/${href}`}>
-          <a className="body-link">{children}</a>
-        </Link>
-      );
-    },
-    link: ({ value, children }) => {
-      const target = (value?.url || value?.href || '').startsWith('http')
-        ? '_blank'
-        : undefined;
-      return (
-        <a
-          className="body-link"
-          href={value?.url || value?.href}
-          target={target}
-          rel={target === '_blank' && 'noindex nofollow'}
-        >
-          {children}
-        </a>
-      );
-    },
-
-    footnote: ({ value, children }) => (
-      <span className="body-footnote">
-        {children}
-        <FootnoteNumber number={value?.number} />
-      </span>
-    ),
+    internalLink: InternalLink,
+    link: Link,
+    footnote: Footnote,
   },
 };
 

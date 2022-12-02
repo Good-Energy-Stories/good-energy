@@ -15,4 +15,3 @@ export { default as PlaybookNavOverlay } from './PlaybookNavOverlay';
 export { default as Dropdown } from './Dropdown';
 
 export { default as ExitPreviewButton } from './ExitPreviewButton';
-export { default as FootnoteNumber } from './FootnoteNumber';

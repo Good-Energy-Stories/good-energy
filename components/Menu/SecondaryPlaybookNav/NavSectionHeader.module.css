@@ -5,4 +5,29 @@
   margin: 0;
 
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.topLevel {
+  border: 1px solid transparent;
+  border-bottom: 0;
+  padding: 0 var(--spacing-small);
+  height: var(--secondary-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 10000;
+}
+.topLevel[data-expanded='true'] {
+  opacity: 1;
+  background: var(--playbookNavDropdown);
+  border: 1px solid var(--text);
+  border-bottom: 0;
+}
+.nested {
+  margin-top: var(--spacing-small);
+  text-decoration: none;
+  pointer-events: none;
 }

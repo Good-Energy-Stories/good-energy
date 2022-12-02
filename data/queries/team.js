@@ -1,4 +1,5 @@
 import { imageMeta } from './imageMeta';
+import { pt } from './pt';
 
 export const teamMember = `
 name,
@@ -13,7 +14,9 @@ portraitImage {
 
 export const teamSection = `
 title,
-description,
+description[] {
+    ${pt}
+},
 image,
 teamMembers[]->{
     ${teamMember}

@@ -39,7 +39,7 @@ const NavDropdown = ({ data, depth, setSubmenuExpanded }) => {
         <NavSectionHeader
           aria-haspopup="true"
           data-expanded={expanded}
-          className={cx(isNested ? styles.nested : styles.topLevel)}
+          isNested={isNested}
           title={title}
         />
 
@@ -78,7 +78,7 @@ const TopLevelLink = ({ data }: any) => {
     <Link href={`/playbook/${slug.current}`} passHref>
       <a className={styles.topLevelLink}>
         <li className={styles.container}>
-          <NavSectionHeader className={cx(styles.topLevel)} title={title} />
+          <NavSectionHeader title={title} />
         </li>
       </a>
     </Link>
