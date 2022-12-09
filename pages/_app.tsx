@@ -18,11 +18,14 @@ import { useThemeManager } from '../utils/useThemeManager';
 import Footer from '../components/Footer/Footer';
 import { observer } from 'mobx-react-lite';
 import { withPasswordProtect } from '@/lib/withPasswordProtect';
+import { useRouter } from 'next/router';
 
 // Console Credits
 if (isBrowser) {
   signature;
 }
+const PASSWORD_PROTECTED_ROUTES = ['/end-of-year-report'];
+const HIDE_LAYOUT_ROUTES = ['/end-of-year-report'];
 
 const App = observer(
   ({
@@ -34,6 +37,7 @@ const App = observer(
     pageProps: any;
     pageData: any;
   }) => {
+    const { route } = useRouter();
     const logPageView = useCallback((url) => {
       ga.pageview(url);
     }, []);
@@ -49,10 +53,16 @@ const App = observer(
     return (
       <>
         <DefaultSeo {...defaultSEO} />
-        <Menu navigation={pageData?.navigation} />
-
+        {!HIDE_LAYOUT_ROUTES.includes(route) && (
+          <Menu navigation={pageData?.navigation} />
+        )}
         <Component {...pageProps} />
-        <Footer navigation={pageData?.navigation} socials={pageData?.socials} />
+        {!HIDE_LAYOUT_ROUTES.includes(route) && (
+          <Footer
+            navigation={pageData?.navigation}
+            socials={pageData?.socials}
+          />
+        )}
         <style jsx global>{`
           body {
             overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
@@ -70,8 +80,6 @@ function AppWithProviders(props) {
     </RootStoreProvider>
   );
 }
-
-const PASSWORD_PROTECTED_ROUTES = ['/end-of-year-report'];
 
 const PasswordProtectedApp = process.env.PASSWORD_PROTECT
   ? withPasswordProtect(AppWithProviders, {
