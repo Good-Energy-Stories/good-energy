@@ -38,8 +38,7 @@ module.exports = {
     // removeConsole: true,
   },
   env: {
-    // Add any logic you want here, returning `true` to enable password protect.
-    PASSWORD_PROTECT: process.env.ENVIRONMENT === 'staging',
+    PASSWORD_PROTECT: true,
     SANITY_PROJECT_ID: 'jkhcjumj',
     SANITY_API_TOKEN: process.env.SANITY_API_TOKEN,
     SANITY_PROJECT_DATASET: 'production',
