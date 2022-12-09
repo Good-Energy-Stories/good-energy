@@ -945,6 +945,7 @@ export const endOfYearReportPageQuery = `
   seo {
     ${pageSeo}
   },
+  title,
   report {asset->{url}},
 }[0]
 `;

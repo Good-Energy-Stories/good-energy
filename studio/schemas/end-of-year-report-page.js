@@ -12,6 +12,11 @@ export default {
       type: 'pageSeo',
     },
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
       name: 'report',
       title: 'Report',
       type: 'file',
