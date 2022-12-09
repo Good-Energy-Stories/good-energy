@@ -5,15 +5,16 @@ import { imageUrlFor } from '@/utils/imageUrlFor';
 import PDFViewer from '@/components/PDFViewer';
 
 const EndOfYearReportPage = ({ data }: { data: any }) => {
-  const { title, lede, heroImage, report } = data;
-
+  const { seo, report } = data;
   return (
     <>
       <Meta
-        title={title}
-        image={heroImage ? imageUrlFor(heroImage).width(500).url() : null}
+        title={seo?.title}
+        image={
+          seo?.heroImage ? imageUrlFor(seo.heroImage).width(500).url() : null
+        }
         slug={'end-of-year-report'}
-        description={lede}
+        description={seo?.description}
       />
       <PDFViewer style={{ marginBottom: '-4px' }} url={report.asset.url} />
     </>
