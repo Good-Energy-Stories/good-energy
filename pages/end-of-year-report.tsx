@@ -3,9 +3,12 @@ import Meta from '@/components/Meta';
 import { getClient } from '@/lib/sanity/sanity.server';
 import { imageUrlFor } from '@/utils/imageUrlFor';
 import PDFViewer from '@/components/PDFViewer';
+import { LoginComponent } from '@/components/LoginComponent';
+import { useState } from 'react';
 
 const EndOfYearReportPage = ({ data }: { data: any }) => {
   const { seo, title, report } = data;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log(seo);
   return (
     <>
@@ -15,11 +18,16 @@ const EndOfYearReportPage = ({ data }: { data: any }) => {
         slug={'end-of-year-report'}
         description={seo?.description}
       />
-      <PDFViewer
-        title={title}
-        style={{ marginBottom: '-4px' }}
-        url={report.asset.url}
-      />
+      {!isLoggedIn && (
+        <LoginComponent onSuccessfulLogin={() => setIsLoggedIn(true)} />
+      )}
+      {isLoggedIn && (
+        <PDFViewer
+          title={title}
+          style={{ marginBottom: '-4px' }}
+          url={report.asset.url}
+        />
+      )}
     </>
   );
 };

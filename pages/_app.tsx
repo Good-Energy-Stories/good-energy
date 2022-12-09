@@ -81,18 +81,10 @@ function AppWithProviders(props) {
   );
 }
 
-const PasswordProtectedApp = false
-  ? withPasswordProtect(AppWithProviders, {
-      bypassProtection: ({ route }) => {
-        return !PASSWORD_PROTECTED_ROUTES.includes(route);
-      },
-    })
-  : AppWithProviders;
-
-PasswordProtectedApp.getInitialProps = async () => {
+AppWithProviders.getInitialProps = async () => {
   const navigation = await getClient().fetch(queries.navigationQuery);
   const socials = await getClient().fetch(queries.socialsQuery);
   return { pageData: { navigation, socials } };
 };
 
-export default PasswordProtectedApp;
+export default AppWithProviders;

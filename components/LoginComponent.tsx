@@ -3,18 +3,12 @@ import styles from './LoginComponent.module.css';
 
 export interface LoginComponentProps {
   apiUrl?: string;
-  backUrl?: string;
-  /* @default #01EDBC */
-  buttonBackgroundColor?: string;
-  /* @default #111 */
-  buttonColor?: string;
-  logo?: string;
+  onSuccessfulLogin?: () => void;
 }
 
 export const LoginComponent = ({
   apiUrl,
-  backUrl,
-  logo,
+  onSuccessfulLogin,
 }: LoginComponentProps) => {
   const [isBusy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -47,7 +41,7 @@ export const LoginComponent = ({
       const { message } = await res.json();
 
       if (res.status === 200) {
-        window.location.reload();
+        onSuccessfulLogin();
       } else {
         setError(message);
         setBusy(false);
@@ -59,16 +53,6 @@ export const LoginComponent = ({
 
     return false;
   };
-
-  const image = !!logo && (
-    <img
-      width="130"
-      height="auto"
-      src={logo}
-      alt="Logo"
-      style={{ marginBottom: '40px' }}
-    />
-  );
 
   return (
     <div className={styles.container}>
@@ -130,7 +114,6 @@ export const LoginComponent = ({
           }}
         />
 
-        {!!image && <>{backUrl ? <a href={backUrl}>{image}</a> : image}</>}
         <div id="password-form" className={styles.form__container}>
           <form data-testid="form" onSubmit={onSubmit}>
             <label htmlFor="password">Password</label>
