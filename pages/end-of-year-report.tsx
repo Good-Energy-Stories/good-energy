@@ -6,13 +6,12 @@ import PDFViewer from '@/components/PDFViewer';
 
 const EndOfYearReportPage = ({ data }: { data: any }) => {
   const { seo, report } = data;
+  console.log(seo);
   return (
     <>
       <Meta
         title={seo?.title}
-        image={
-          seo?.heroImage ? imageUrlFor(seo.heroImage).width(500).url() : null
-        }
+        image={seo?.image ? imageUrlFor(seo.image).width(500).url() : null}
         slug={'end-of-year-report'}
         description={seo?.description}
       />
