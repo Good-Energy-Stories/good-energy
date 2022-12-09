@@ -81,7 +81,7 @@ function AppWithProviders(props) {
   );
 }
 
-const PasswordProtectedApp = process.env.PASSWORD_PROTECT
+const PasswordProtectedApp = false
   ? withPasswordProtect(AppWithProviders, {
       bypassProtection: ({ route }) => {
         return !PASSWORD_PROTECTED_ROUTES.includes(route);
