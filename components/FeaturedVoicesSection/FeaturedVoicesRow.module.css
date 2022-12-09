@@ -21,6 +21,7 @@
     padding-bottom: var(--spacing-medium);
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border: 0;
     gap: var(--spacing-medium);
   }

@@ -17,7 +17,7 @@ const FeaturedVoice = ({ data, active, onClick }) => {
         </div>
       )}
       <div className={cx('label-small', styles.label)}>Featured Voice</div>
-      <h3>{name}</h3>
+      <h3 className={styles.name}>{name}</h3>
       <div className={cx('tease-lede-small', styles.title)}>{credentials}</div>
       <DropdownButton
         className={styles.button}
