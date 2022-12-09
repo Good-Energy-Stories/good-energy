@@ -16,9 +16,11 @@ const PDFViewer = ({
     <iframe
       className={cx(styles.viewer, className)}
       style={style}
-      src={url}
       title={title}
+      src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${url}#toolbar=0&scrollbar=0`}
       frameBorder="0"
+      height="100%"
+      width="100%"
     ></iframe>
   );
 };
