@@ -1,0 +1,100 @@
+.container {
+  background-color: var(--blueFive);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.container__inner {
+  background-color: var(--white);
+  max-width: 100%;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  padding: 32px 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: 0px 15px 40px rgba(26, 30, 43, 0.13);
+  border-radius: 8px;
+  width: 420px;
+  max-width: 100%;
+  margin-bottom: 48px;
+}
+.form__container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form__container label {
+  color: var(--black);
+
+  margin-bottom: 8px;
+}
+.form__container input[type='password'] {
+  background: var(--blueFive);
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 18px;
+  color: var(--black);
+  border: none;
+  height: 48px;
+}
+.form__container input[type='password']::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.button {
+  --border-width: 5px;
+  position: relative;
+  display: inline-block;
+  border: var(--border-width) solid var(--blueFour);
+  padding: var(--spacing-small) var(--spacing-small);
+  margin: var(--spacing-medium) 0;
+  color: var(--black);
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  cursor: pointer;
+}
+.button::before {
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+}
+.button::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transform: scale3d(0.7, 1, 1);
+  background: var(--pink);
+  z-index: 0;
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.button:hover::before {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.button span {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

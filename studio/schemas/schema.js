@@ -2,130 +2,158 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import blockContent from './blockContent';
 
+import aboutBlock from './about-block';
+import aboutPage from './about-page';
+import accordion from './accordion';
 import article from './article';
 import articleBlockQuote from './article-block-quote';
 import articleIntroductionSection from './article-introduction-section';
+import articleList from './article-list';
 import articleQuote from './article-quote';
 import articleSection from './article-section';
+import articleSpotIllustration from './article-spot-illustration';
 import articleStoryPossibility from './article-story-possibility';
+import attributionIndividual from './attribution-individual';
 import author from './author';
+import callout from './callout';
+import calloutSection from './callout-section';
 import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
+import characterProfilesSection from './character-profiles-section';
+import characterProfilesTeaseSection from './character-profiles-tease-section';
+import climateLensBlock from './climate-lens-block';
+import consultingContactPage from './consulting-contact-page';
+import contactForm from './contact-form';
 import contactPage from './contact-page';
+import ctaButton from './cta-button';
+import ctaLink from './cta-link';
+import dataVisualization from './data-visualization';
+import downloadsSection from './downloads-section';
 import emailCapture from './email-capture';
+import endOfYearReportPage from './end-of-year-report-page';
 import expertProfile from './expert-profile';
 import featuredVoice from './featured-voice';
-import featuredVoicesPage from './featured-voices-page';
 import featuredVoiceQuote from './featured-voice-quote';
+import featuredVoicesPage from './featured-voices-page';
+import featuredVoicesSection from './featured-voices-section';
+import fullWidthImage from './full-width-image';
+import fullWidthStatement from './full-width-statement';
+import halfPageContent from './half-page-content';
+import imageCarousel from './image-carousel';
 import individualPartnerFeature from './individual-partner-feature';
+import individualPressFeature from './individual-press-feature';
+import landAcknowledgment from './land-acknowledgment';
 import landingPage from './landing-page';
 import libraryOfExpertsPage from './library-of-experts-page';
+import libraryOfExpertsSection from './library-of-experts-section';
+import logline from './logline';
+import navigation from './navigation';
+import offeringsPage from './offerings-page';
+import outlet from './outlet';
+import page from './page';
+import pageContent from './page-content';
+import pageDivider from './page-divider';
+import pageSeo from './page-seo';
 import partner from './partner';
 import partnerPage from './partners-page';
 import partnerSection from './partner-section';
 import playbookHome from './playbook-home';
-import playbookSection from './playbook-section';
-import playbookSubsection from './playbook-subsection';
-import playbookStructure from './playbook-structure';
+import playbookPage from './playbook-page';
 import playbookQuote from './playbook-quote';
+import playbookSection from './playbook-section';
+import playbookStructure from './playbook-structure';
+import playbookSubsection from './playbook-subsection';
 import playbookThreeColumn from './playbook-three-column';
 import playlist from './playlist';
 import playlistsPage from './playlists-page';
+import press from './press';
+import pressPage from './press-page';
+import pressSection from './press-section';
 import quote from './quote';
 import quoteCollection from './quote-collection';
 import resource from './resource';
 import resourceSection from './resource-section';
-import socials from './socials';
 import seo from './seo';
+import socials from './socials';
+import source from './source';
+import spotIllustration from './spot-illustration';
+import standardPagePortableText from './standard-page-portable-text';
+import statement from './statement';
 import team from './team-member';
 import teamPage from './team-page';
+import teamSection from './team-section';
+import testimonial from './testimonial';
+import thirdPageContent from './third-page-content';
+import threeColumnLayout from './three-column-layout';
+import twoColumnLayout from './two-column-layout';
 import twoWorldsArticle from './two-worlds-article';
 import twoWorldsCompareSection from './two-worlds-compare-section';
 import twoWorldsSection from './two-worlds-section';
 import whyClimateArticle from './why-climate-article';
 import whyClimateTextBlock from './why-climate-text-block';
-import aboutPage from './about-page';
-import pageSeo from './page-seo';
-import standardPagePortableText from './standard-page-portable-text';
-import pressPage from './press-page';
-import press from './press';
-import outlet from './outlet';
-import callout from './callout';
-import climateLensBlock from './climate-lens-block';
-import testimonial from './testimonial';
-import calloutSection from './callout-section';
 import workshopsPage from './workshops-page';
-import spotIllustration from './spot-illustration';
-import ctaButton from './cta-button';
-import twoColumnLayout from './two-column-layout';
-import ctaLink from './cta-link';
 import writtenContent from './written-content';
-import attributionIndividual from './attribution-individual';
-import offeringsPage from './offerings-page';
-import source from './source';
-import consultingContactPage from './consulting-contact-page';
-import page from './page';
-import statement from './statement';
-import halfPageContent from './half-page-content';
-import teamSection from './team-section';
-import fullWidthImage from './full-width-image';
-import pageDivider from './page-divider';
-import imageCarousel from './image-carousel';
-import contactForm from './contact-form';
-import fullWidthStatement from './full-width-statement';
-import accordion from './accordion';
-import dataVisualization from './data-visualization';
-import landAcknowledgment from './land-acknowledgment';
-import pageContent from './page-content';
-import aboutBlock from './about-block';
-import pressSection from './press-section';
-import downloadsSection from './downloads-section';
-import individualPressFeature from './individual-press-feature';
-import logline from './logline';
-import thirdPageContent from './third-page-content';
-import threeColumnLayout from './three-column-layout';
-import articleList from './article-list';
-import featuredVoicesSection from './featured-voices-section';
-import libraryOfExpertsSection from './library-of-experts-section';
-import navigation from './navigation';
-import characterProfilesTeaseSection from './character-profiles-tease-section';
-import playbookPage from './playbook-page';
-import characterProfilesSection from './character-profiles-section';
-import articleSpotIllustration from './article-spot-illustration';
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
+    aboutBlock,
     aboutPage,
+    accordion,
     article,
     articleBlockQuote,
     articleIntroductionSection,
+    articleList,
     articleQuote,
     articleSection,
+    articleSpotIllustration,
     articleStoryPossibility,
+    attributionIndividual,
     author,
     blockContent,
     callout,
     calloutSection,
     characterProfile,
     characterProfilesPage,
+    characterProfilesSection,
+    characterProfilesTeaseSection,
     climateLensBlock,
     consultingContactPage,
+    contactForm,
     contactPage,
+    ctaButton,
+    ctaLink,
+    dataVisualization,
+    downloadsSection,
     emailCapture,
+    endOfYearReportPage,
     expertProfile,
     featuredVoice,
     featuredVoiceQuote,
     featuredVoicesPage,
+    featuredVoicesSection,
+    fullWidthImage,
+    fullWidthStatement,
+    halfPageContent,
+    imageCarousel,
     individualPartnerFeature,
+    individualPressFeature,
+    landAcknowledgment,
     landingPage,
     libraryOfExpertsPage,
+    libraryOfExpertsSection,
+    logline,
+    navigation,
+    offeringsPage,
     outlet,
+    page,
+    pageDivider,
     pageSeo,
     partner,
     partnerPage,
     partnerSection,
     playbookHome,
+    playbookPage,
     playbookQuote,
     playbookSection,
     playbookStructure,
@@ -135,56 +163,30 @@ export default createSchema({
     playlistsPage,
     press,
     pressPage,
+    pressSection,
     quote,
     quoteCollection,
     resource,
     resourceSection,
     seo,
     socials,
+    source,
+    spotIllustration,
     standardPagePortableText,
-    testimonial,
-    attributionIndividual,
+    statement,
     team,
     teamPage,
+    teamSection,
+    testimonial,
+    thirdPageContent,
+    threeColumnLayout,
+    twoColumnLayout,
     twoWorldsArticle,
     twoWorldsCompareSection,
     twoWorldsSection,
     whyClimateArticle,
     whyClimateTextBlock,
     workshopsPage,
-    spotIllustration,
-    ctaButton,
-    twoColumnLayout,
-    ctaLink,
     writtenContent,
-    offeringsPage,
-    source,
-    page,
-    statement,
-    halfPageContent,
-    teamSection,
-    fullWidthImage,
-    pageDivider,
-    imageCarousel,
-    contactForm,
-    fullWidthStatement,
-    accordion,
-    dataVisualization,
-    landAcknowledgment,
-    aboutBlock,
-    pressSection,
-    downloadsSection,
-    individualPressFeature,
-    logline,
-    thirdPageContent,
-    threeColumnLayout,
-    articleList,
-    featuredVoicesSection,
-    libraryOfExpertsSection,
-    navigation,
-    characterProfilesTeaseSection,
-    playbookPage,
-    characterProfilesSection,
-    articleSpotIllustration,
   ]),
 });

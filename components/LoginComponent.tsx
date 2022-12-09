@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './LoginComponent.module.css';
 
 export interface LoginComponentProps {
   apiUrl?: string;
@@ -13,8 +14,6 @@ export interface LoginComponentProps {
 export const LoginComponent = ({
   apiUrl,
   backUrl,
-  buttonBackgroundColor,
-  buttonColor,
   logo,
 }: LoginComponentProps) => {
   const [isBusy, setBusy] = useState(false);
@@ -72,31 +71,8 @@ export const LoginComponent = ({
   );
 
   return (
-    <div
-      style={{
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '100vw',
-        minHeight: '100vh',
-        width: '100%',
-        overflowX: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '100%',
-          display: 'flex',
-          flex: 1,
-          width: '100%',
-          padding: '32px 16px',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+    <div className={styles.container}>
+      <div className={styles.container__inner}>
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -106,16 +82,6 @@ export const LoginComponent = ({
             }
             * {
               box-sizing: border-box;
-            }
-            .link {
-              font-family: 'Pressura', sans-serif;
-              font-style: normal;
-              text-decoration: none;
-              color: #666;
-              transition: color 0.2s ease-out;
-            }
-            .link:hover, .link:focus {
-              color: #111;
             }
             #password-form * {
               font-family: Pressura, sans-serif;
@@ -165,40 +131,9 @@ export const LoginComponent = ({
         />
 
         {!!image && <>{backUrl ? <a href={backUrl}>{image}</a> : image}</>}
-        <div
-          id="password-form"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start',
-            boxShadow: '0px 15px 40px rgba(26, 30, 43, 0.13)',
-            borderRadius: '8px',
-            width: '420px',
-            maxWidth: '100%',
-            marginBottom: '48px',
-          }}
-        >
-          <h3 style={{ margin: '0 0 24px', color: '#111' }}>Login</h3>
-          <form
-            data-testid="form"
-            onSubmit={onSubmit}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-            }}
-          >
-            <label
-              htmlFor="password"
-              style={{
-                color: '#525252',
-                fontSize: '18px',
-                marginBottom: '8px',
-              }}
-            >
-              Password
-            </label>
+        <div id="password-form" className={styles.form__container}>
+          <form data-testid="form" onSubmit={onSubmit}>
+            <label htmlFor="password">Password</label>
             <input
               className={error ? 'invalid' : ''}
               name="password"
@@ -206,15 +141,6 @@ export const LoginComponent = ({
               id="password"
               placeholder="Enter password..."
               required
-              style={{
-                background: '#F5F5F5',
-                borderRadius: '4px',
-                padding: '0 16px',
-                fontSize: '18px',
-                color: '#525252',
-                border: 'none',
-                height: '48px',
-              }}
             />
             {!!error && (
               <div className="error" data-testid="error">
@@ -222,31 +148,11 @@ export const LoginComponent = ({
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={isBusy}
-              style={{
-                appearance: 'none',
-                background: buttonBackgroundColor || '#01EDBC',
-                borderRadius: '52px',
-                border: 'none',
-                padding: '12px 32px',
-                fontSize: '20px',
-                color: buttonColor || '#111',
-                marginTop: '32px',
-                cursor: 'pointer',
-                textAlign: 'center',
-              }}
-            >
-              {isBusy ? 'Logging in...' : 'Login'}
+            <button type="submit" disabled={isBusy} className={styles.button}>
+              <span> {isBusy ? 'Logging in...' : 'Login'}</span>
             </button>
           </form>
         </div>
-        {!!backUrl && (
-          <a href={backUrl} className="link">
-            ← Back to main website
-          </a>
-        )}
       </div>
     </div>
   );

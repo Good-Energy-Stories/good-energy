@@ -28,6 +28,7 @@ const loginHandler =
       }
 
       const { password: providedPassword } = req.body;
+      console.log('PASSWORD', password, providedPassword);
 
       if (compare(providedPassword, password)) {
         setCookie(

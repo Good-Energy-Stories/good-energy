@@ -6,6 +6,7 @@ import {
   BsFillQuestionCircleFill,
   BsNewspaper,
   BsHammer,
+  BsMegaphone,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
@@ -42,6 +43,15 @@ export const pagesMenu = S.listItem()
           .title('About Pages')
           .child(S.documentTypeList('aboutPage').title('About Pages'))
           .icon(BsFillQuestionCircleFill),
+        S.listItem()
+          .title('End of Year Report Page')
+          .child(
+            S.document()
+              .title('End of Year Report Page')
+              .schemaType('endOfYearReportPage')
+              .documentId('endOfYearReportPage'),
+          )
+          .icon(BsMegaphone),
       ]),
   )
   .icon(BsGlobe);

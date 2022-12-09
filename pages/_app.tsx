@@ -17,6 +17,7 @@ import { useRouterEvents } from '../utils/useRouterEvents';
 import { useThemeManager } from '../utils/useThemeManager';
 import Footer from '../components/Footer/Footer';
 import { observer } from 'mobx-react-lite';
+import { withPasswordProtect } from '@/lib/withPasswordProtect';
 
 // Console Credits
 if (isBrowser) {
@@ -62,7 +63,7 @@ const App = observer(
   },
 );
 
-export default function AppWithProviders(props) {
+function AppWithProviders(props) {
   return (
     <RootStoreProvider hydrationData={props.pageProps.hydrationData}>
       <App {...props} />
@@ -70,8 +71,20 @@ export default function AppWithProviders(props) {
   );
 }
 
-AppWithProviders.getInitialProps = async () => {
+const PASSWORD_PROTECTED_ROUTES = ['/end-of-year-report'];
+
+const PasswordProtectedApp = process.env.PASSWORD_PROTECT
+  ? withPasswordProtect(AppWithProviders, {
+      bypassProtection: ({ route }) => {
+        return !PASSWORD_PROTECTED_ROUTES.includes(route);
+      },
+    })
+  : AppWithProviders;
+
+PasswordProtectedApp.getInitialProps = async () => {
   const navigation = await getClient().fetch(queries.navigationQuery);
   const socials = await getClient().fetch(queries.socialsQuery);
   return { pageData: { navigation, socials } };
 };
+
+export default PasswordProtectedApp;

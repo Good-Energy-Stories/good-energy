@@ -939,3 +939,12 @@ export const libraryOfExpertsPageQuery = `
   description,
 }[0]
 `;
+
+export const endOfYearReportPageQuery = `
+*[_type == "endOfYearReportPage" ] {
+  seo {
+    ${pageSeo}
+  },
+  report {asset->{url}},
+}[0]
+`;

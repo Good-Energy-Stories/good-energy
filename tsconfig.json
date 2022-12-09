@@ -16,7 +16,14 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
     "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/utils/*": ["utils/*"],
+      "@/data/*": ["data/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

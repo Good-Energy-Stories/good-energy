@@ -44,6 +44,7 @@
 body {
   --background: var(--blueFive);
   --text: var(--black);
+  --borderColor: var(--pink);
 }
 
 body[data-theme='LIGHT'] {
@@ -92,6 +93,7 @@ body {
 
   color: var(--text);
   background-color: var(--background);
+
   border-color: var(--borderColor);
 }
 button {
