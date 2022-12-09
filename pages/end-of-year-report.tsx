@@ -23,16 +23,23 @@ const EndOfYearReportPage = ({ data }: { data: any }) => {
   );
 };
 
-export const getStaticProps = async ({ preview = false }) => {
-  const data = await getClient(preview).fetch(queries.endOfYearReportPageQuery);
+export async function getServerSideProps() {
+  const data = await getClient(false).fetch(queries.endOfYearReportPageQuery);
 
-  if (!data || !data?.report?.asset?.url) return { notFound: true };
+  if (data?.report?.asset?.url) {
+    return {
+      redirect: {
+        destination: data?.report?.asset?.url,
+        permanent: false,
+      },
+    };
+  }
+
+  if (!data) return { notFound: true };
 
   return {
-    props: {
-      data,
-    },
+    props: { data },
   };
-};
+}
 
 export default EndOfYearReportPage;

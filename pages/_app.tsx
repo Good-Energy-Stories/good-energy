@@ -73,8 +73,6 @@ function AppWithProviders(props) {
 
 const PASSWORD_PROTECTED_ROUTES = ['/end-of-year-report'];
 
-console.log(process.env.PASSWORD_PROTECT);
-
 const PasswordProtectedApp = process.env.PASSWORD_PROTECT
   ? withPasswordProtect(AppWithProviders, {
       bypassProtection: ({ route }) => {
