@@ -75,7 +75,7 @@ const App = observer(
 
 function AppWithProviders(props) {
   return (
-    <RootStoreProvider hydrationData={props.pageProps.hydrationData}>
+    <RootStoreProvider hydrationData={props.pageProps?.hydrationData}>
       <App {...props} />
     </RootStoreProvider>
   );

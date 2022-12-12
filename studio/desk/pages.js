@@ -7,6 +7,7 @@ import {
   BsNewspaper,
   BsHammer,
   BsMegaphone,
+  BsFillExclamationOctagonFill,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
@@ -52,6 +53,15 @@ export const pagesMenu = S.listItem()
               .documentId('endOfYearReportPage'),
           )
           .icon(BsMegaphone),
+        S.listItem()
+          .title('Error Page')
+          .child(
+            S.document()
+              .title('Error Page')
+              .schemaType('errorPage')
+              .documentId('errorPage'),
+          )
+          .icon(BsFillExclamationOctagonFill),
       ]),
   )
   .icon(BsGlobe);

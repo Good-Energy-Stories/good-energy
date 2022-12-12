@@ -79,6 +79,7 @@ const filteredDocuments = [
   'twoWorldsArticle',
   'whyClimateArticle',
   'workshopsPage',
+  'errorPage',
 ];
 
 export default () =>

@@ -93,6 +93,7 @@ import whyClimateArticle from './why-climate-article';
 import whyClimateTextBlock from './why-climate-text-block';
 import workshopsPage from './workshops-page';
 import writtenContent from './written-content';
+import errorPage from './error-page';
 
 export default createSchema({
   name: 'default',
@@ -188,5 +189,6 @@ export default createSchema({
     whyClimateTextBlock,
     workshopsPage,
     writtenContent,
+    errorPage,
   ]),
 });
