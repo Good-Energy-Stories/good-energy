@@ -1,4 +1,28 @@
-/** @type {import('next').NextConfig} */
+const sanityClient = require('@sanity/client');
+const client = sanityClient({
+  dataset: process.env.SANITY_PROJECT_DATASET,
+  projectId: process.env.SANITY_PROJECT_ID,
+  useCdn: process.env.NODE_ENV === 'production',
+  apiVersion: '2021-03-25',
+});
+
+// get redirects from Sanity for Vercel
+async function fetchSanityRedirects() {
+  const data = await client.fetch(
+    `*[_type == "redirect"]{ from, to, isPermanent }`,
+  );
+
+  const redirects = data.map((redirect) => {
+    return {
+      source: `/${redirect.from}`,
+      destination: `/${redirect.to}`,
+      permanent: redirect.isPermanent,
+    };
+  });
+
+  return redirects;
+}
+
 module.exports = {
   webpack(config) {
     config.module.rules.push({
@@ -12,7 +36,9 @@ module.exports = {
     domains: ['cdn.sanity.io'],
   },
   async redirects() {
+    const sanityRedirects = await fetchSanityRedirects();
     return [
+      ...sanityRedirects,
       {
         source: '/about',
         destination: '/',
@@ -27,6 +53,19 @@ module.exports = {
         source: '/research',
         destination: '/offerings/research',
         permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "connect-src 'self';",
+          },
+        ],
       },
     ];
   },

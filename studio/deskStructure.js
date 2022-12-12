@@ -80,6 +80,7 @@ const filteredDocuments = [
   'whyClimateArticle',
   'workshopsPage',
   'errorPage',
+  'redirect',
 ];
 
 export default () =>

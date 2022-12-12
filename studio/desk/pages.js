@@ -8,6 +8,7 @@ import {
   BsHammer,
   BsMegaphone,
   BsFillExclamationOctagonFill,
+  BsShuffle,
 } from 'react-icons/bs';
 import { FaHome, FaPeopleCarry, FaSuitcase } from 'react-icons/fa';
 import { MdRecordVoiceOver, MdOutlinePlaylistAdd } from 'react-icons/md';
@@ -62,6 +63,11 @@ export const pagesMenu = S.listItem()
               .documentId('errorPage'),
           )
           .icon(BsFillExclamationOctagonFill),
+        S.divider(),
+        S.listItem()
+          .title('Redirects')
+          .child(S.documentTypeList('redirect').title('Redirects'))
+          .icon(BsShuffle),
       ]),
   )
   .icon(BsGlobe);

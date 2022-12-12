@@ -94,6 +94,7 @@ import whyClimateTextBlock from './why-climate-text-block';
 import workshopsPage from './workshops-page';
 import writtenContent from './written-content';
 import errorPage from './error-page';
+import redirect from './redirect';
 
 export default createSchema({
   name: 'default',
@@ -190,5 +191,6 @@ export default createSchema({
     workshopsPage,
     writtenContent,
     errorPage,
+    redirect,
   ]),
 });
