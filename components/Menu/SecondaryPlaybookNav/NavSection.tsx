@@ -18,7 +18,6 @@ const NavDropdown = ({ data, depth, setSubmenuExpanded }) => {
   const extendedPastWindow = Math.abs(windowDimensions.width - x + width) < 500;
   const [expanded, setExpanded] = useState(false);
   const isNested = depth > 0;
-
   return (
     <>
       <li
@@ -61,9 +60,9 @@ const NavDropdown = ({ data, depth, setSubmenuExpanded }) => {
                 depth > 0 ? styles.submenuContainer : styles.menuContainer,
               )}
             >
-              {contents?.map((item, index) => (
-                <NavItem key={index} data={item} depth={depth + 1} />
-              ))}
+              {contents?.map((item, index) => {
+                return <NavItem key={index} data={item} depth={depth + 1} />;
+              })}
             </motion.div>
           </ul>
         )}

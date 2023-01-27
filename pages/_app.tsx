@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import '../styles/globals.css';
 import '../styles/fonts.css';
 import * as ga from '../lib/ga';
@@ -38,6 +38,8 @@ const App = observer(
     pageData: any;
   }) => {
     const { route } = useRouter();
+    // set header height
+    const [headerHeight, setHeaderHeight] = useState(null);
     const logPageView = useCallback((url) => {
       ga.pageview(url);
     }, []);
@@ -54,7 +56,10 @@ const App = observer(
       <>
         <DefaultSeo {...defaultSEO} />
         {!HIDE_LAYOUT_ROUTES.includes(route) && (
-          <Menu navigation={pageData?.navigation} />
+          <Menu
+            navigation={pageData?.navigation}
+            onSetup={({ height }) => setHeaderHeight(height)}
+          />
         )}
         <Component {...pageProps} />
         {!HIDE_LAYOUT_ROUTES.includes(route) && (
@@ -65,6 +70,7 @@ const App = observer(
         )}
         <style jsx global>{`
           body {
+            --headerHeight: ${headerHeight}px;
             overflow: ${navOverlayOpen ? 'hidden' : 'auto'};
           }
         `}</style>

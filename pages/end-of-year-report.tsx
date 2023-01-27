@@ -9,7 +9,6 @@ import { useState } from 'react';
 const EndOfYearReportPage = ({ data }: { data: any }) => {
   const { seo, title, report } = data;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(seo);
   return (
     <>
       <Meta

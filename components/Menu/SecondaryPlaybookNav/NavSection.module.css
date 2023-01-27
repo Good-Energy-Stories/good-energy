@@ -31,8 +31,12 @@
   padding: var(--spacing-small) var(--spacing-medium);
   padding-top: 0;
   position: absolute;
-
   top: calc((var(--secondary-header-height)) - 1px);
+  overflow: scroll;
+  max-height: calc(
+    100vh - var(--page-border-width) -
+      (var(--header-height) + var(--secondary-header-height)) - 5rem
+  );
 }
 .submenuContainer {
   display: flex;

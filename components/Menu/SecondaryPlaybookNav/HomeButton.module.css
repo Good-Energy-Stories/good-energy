@@ -4,6 +4,8 @@
   padding: 3px 6px;
   line-height: 1;
   padding-top: 4px;
+  margin-left: var(--spacing-medium);
+  margin-right: var(--spacing-small);
   white-space: nowrap;
   position: relative;
   cursor: pointer;

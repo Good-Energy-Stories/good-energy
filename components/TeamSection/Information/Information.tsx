@@ -6,7 +6,6 @@ import { imageUrlFor } from '../../../utils/imageUrlFor';
 import classnames from 'classnames';
 const cx = classnames.bind(styles);
 const Information = ({ title, description, image }) => {
-  console.log(description);
   return (
     <div className={styles.container}>
       <div className={cx(styles.inner, !image && styles.showBorder)}>
