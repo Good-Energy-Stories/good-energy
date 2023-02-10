@@ -18,7 +18,6 @@ const SearchPage = () => {
 
   const search = useCallback(
     async (query) => {
-      console.log('searching...', query);
       setLoading(true);
       ga.event({
         action: 'search',
@@ -37,8 +36,6 @@ const SearchPage = () => {
         ...searchResults.expertProfiles,
         ...searchResults.featuredVoices,
       ];
-
-      console.log(results);
 
       setSearchResults(results);
       setLoading(false);
