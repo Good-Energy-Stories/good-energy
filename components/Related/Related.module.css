@@ -1,13 +1,14 @@
 .container {
   grid-column: 1/-1;
   padding: 0 var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
 }
 .inner {
   border-top: 1px solid var(--blueThree);
   padding: var(--spacing-medium) 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: var(--spacing-small);
+  gap: var(--spacing-medium);
 }
 .label {
   color: var(--blueThree);

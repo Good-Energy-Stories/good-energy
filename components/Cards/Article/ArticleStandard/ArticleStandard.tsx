@@ -12,7 +12,7 @@ const ArticleStandard = ({ data, className }: any) => {
 
   return (
     <article className={cx(styles.container, className)}>
-      <Link href={`/playbook/${slug.current}`} passHref>
+      <Link href={`/playbook/${slug}`} passHref>
         <a>
           {heroImage && <Photo className={styles.image} photo={heroImage} />}
           {!heroImage && <div className={styles.line} />}

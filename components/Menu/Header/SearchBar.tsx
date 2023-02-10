@@ -16,6 +16,11 @@ const SearchBar = () => {
       });
     }
   };
+
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   const theme = useHeaderTheme();
   if (router.asPath.includes('/playbook/search')) return null;
   return (
@@ -35,7 +40,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search"
-        onChange={(event) => setSearchQuery(event.target.value)}
+        onChange={handleChange}
         onKeyDown={handleKeyDown}
         className={cx('label-medium', styles.input)}
         data-theme={theme}

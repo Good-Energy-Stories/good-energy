@@ -14,7 +14,7 @@ const Related = ({ content }: any) => {
           <Card
             key={item._id}
             content={item}
-            articleCardStyle={ArticleCardStyle.standard}
+            articleCardStyle={ArticleCardStyle.small}
             characterProfileCardStyle={CharacterProfileCardStyle.readMore}
           />
         ))}

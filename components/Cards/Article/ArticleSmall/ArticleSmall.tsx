@@ -7,10 +7,10 @@ import Photo from '../../../Photo/Photo';
 const cx = classnames.bind(styles);
 
 const ArticleSmall = ({ data, className }: any) => {
-  const { title, slug, heroImage, section } = data;
+  const { title, lede, slug, heroImage, section } = data;
   return (
     <article className={cx(styles.container, className)}>
-      <Link href={`/playbook/${slug.current}`} passHref>
+      <Link href={`/playbook/${slug}`} passHref>
         <a>
           {heroImage && <Photo className={styles.image} photo={heroImage} />}
           {!heroImage && <div className={styles.line} />}
@@ -22,6 +22,9 @@ const ArticleSmall = ({ data, className }: any) => {
           <h4 className={styles.title}>
             <span>{title}</span>
           </h4>
+          {lede && (
+            <div className={cx('tease-lede-small', styles.lede)}>{lede}</div>
+          )}
         </a>
       </Link>
     </article>

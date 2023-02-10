@@ -5,7 +5,7 @@ title,
 lede,
 byline,
 tags[],
-slug,
+"slug": slug.current,
 heroImage{
   ${imageMeta}
 },
@@ -127,17 +127,17 @@ _type == 'reference' => @->{
     heroImage{
       ${imageMeta}
     },
-    "slug": {"current":"characters"},
+    "slug": "characters",
   },
   _type == 'twoWorldsArticle' => {
     _type,
     ${articlePreview},
-    "slug": {"current":"two-worlds"},
+    "slug": "two-worlds",
   },
   _type == 'whyClimateArticle' => {
     _type,
     ${articlePreview},
-    "slug": {"current":"why-climate-stories"},
+    "slug": "why-climate-stories",
   },
   _type == 'characterProfile' => {
     _type,

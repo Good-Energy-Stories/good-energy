@@ -6,16 +6,11 @@ import { CharacterProfileCardStyle } from '../Cards/CharacterProfile/CharacterPr
 import { ExpertProfileCardStyle } from '../Cards/ExpertProfile/ExpertProfileCard';
 import styles from './SearchResults.module.css';
 
-const SearchResults = observer(() => {
-  const store = useStore();
-  const {
-    dataStore: { playbookSearchResults, filteredSearchResults },
-  } = store;
-
+const SearchResults = ({ data }: any) => {
   return (
     <>
       <div className={styles.container}>
-        {filteredSearchResults.map((c, i) => (
+        {data.map((c, i) => (
           <Card
             key={i}
             index={i}
@@ -28,6 +23,6 @@ const SearchResults = observer(() => {
       </div>
     </>
   );
-});
+};
 
 export default SearchResults;

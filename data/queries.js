@@ -7,7 +7,7 @@ title,
 lede,
 byline,
 tags[],
-slug,
+"slug": slug.current,
 "relatedSubsection": *[_type=='playbookSection' && references(^._id) ]  { title }[0],
 heroImage{
   ${imageMeta}
@@ -258,12 +258,12 @@ nextUp->{
   _type == 'twoWorldsArticle' => {
     _type,
     ${articlePreview},
-    "slug": {"current": "two-worlds"},
+    "slug": "two-worlds",
   },
   _type == 'whyClimateArticle' => {
     _type,
     ${articlePreview},
-    "slug":{"current":"why-climate-stories"},
+    "slug":"why-climate-stories",
   },
   _type == 'article' => {
     _type,
@@ -276,7 +276,7 @@ nextUp->{
     heroImage{
       ${imageMeta}
     },
-    "slug": {"current":"characters"},
+    "slug": "characters",
   },
  
  
@@ -772,6 +772,13 @@ export const searchFeaturedVoicesQuery = `*[_type == "featuredVoice" && quotes[]
     quote,
     attribution
   }
+}`;
+
+export const searchQuery = `{
+"articles": ${searchArticlesQuery},
+"characterProfiles": ${searchCharacterProfilesQuery},
+"expertProfiles": ${searchExpertProfilesQuery},
+"featuredVoices": ${searchFeaturedVoicesQuery},
 }`;
 
 export const articlePathsQuery = `*[_type == "article"] { slug }`;
