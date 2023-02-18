@@ -12,14 +12,15 @@ import styles from './SecondaryPlaybookNav.module.css';
   The function takes an array of sections and returns an array of sections.
   It will recursively call itself to get all the sections.
 */
-function getSections(arr) {
+function getSections(arr, depth = 0) {
   let sections = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]._type === 'playbookSection') {
       if (arr[i].contents) {
-        let subs = getSections(arr[i].contents);
-        if (subs.length > 0) {
+        let subs = getSections(arr[i].contents, depth + 1);
+        if (subs.length > 0 && depth < 1) {
           sections = sections.concat(subs);
+          sections.push(arr[i]);
         } else {
           sections.push(arr[i]);
         }
