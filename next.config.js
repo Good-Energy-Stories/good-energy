@@ -9,14 +9,15 @@ const client = sanityClient({
 // get redirects from Sanity for Vercel
 async function fetchSanityRedirects() {
   const data = await client.fetch(
-    `*[_type == "redirect"]{ from, to, isPermanent }`,
+    `*[_type == "redirect"]{ from, to, isPermanent, isExternal }`,
   );
 
   const redirects = data.map((redirect) => {
     return {
       source: `/${redirect.from}`,
-      destination: `/${redirect.to}`,
+      destination: redirect.isExternal ? redirect.to : `/${redirect.to}`,
       permanent: redirect.isPermanent,
+      basePath: false,
     };
   });
 

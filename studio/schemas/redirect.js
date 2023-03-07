@@ -29,6 +29,12 @@ export default {
       ),
     },
     {
+      title: 'Is this an external url?',
+      name: 'isExternal',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       title: 'Is this a permanent redirect (301)?',
       name: 'isPermanent',
       type: 'boolean',
