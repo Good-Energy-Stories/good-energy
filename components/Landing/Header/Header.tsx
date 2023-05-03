@@ -37,17 +37,6 @@ const Header = ({
               type: 'fill',
             }}
           />
-          <CTAButton
-            className={styles.button}
-            data={{
-              label: 'Donate',
-              link:
-                donateLink ??
-                'https://creativevisions.networkforgood.com/projects/54417-creative-visions-fiscal-sponsorship-good-energy',
-              labelSize: ButtonLabelSize.Small,
-              backgroundColor: 'black',
-            }}
-          />
         </div>
       </div>
     </div>
