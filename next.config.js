@@ -70,12 +70,8 @@ module.exports = {
       },
     ];
   },
-  experimental: {
-    removeConsole: {
-      exclude: ['error'],
-    },
-    // Uncomment this to suppress all logs.
-    // removeConsole: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   env: {
     PASSWORD_PROTECT: true,
