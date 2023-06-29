@@ -49,6 +49,7 @@ const CTAButton = ({ data, className }: any) => {
       {icon}
     </span>
   );
+
   return (
     <button
       data-type={type}
@@ -62,7 +63,10 @@ const CTAButton = ({ data, className }: any) => {
       onClick={onClick && onClick}
     >
       {link ? (
-        <a href={link} target={newTab ? '__blank' : null}>
+        <a
+          href={link}
+          {...(newTab && { target: '__blank', rel: 'noopener noreferrer' })}
+        >
           {LabelComponent}
         </a>
       ) : (
