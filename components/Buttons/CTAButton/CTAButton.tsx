@@ -37,6 +37,7 @@ const CTAButton = ({ data, className }: any) => {
     link,
     backgroundColor,
     onClick,
+    newTab,
     icon,
   } = data;
 
@@ -60,7 +61,13 @@ const CTAButton = ({ data, className }: any) => {
       )}
       onClick={onClick && onClick}
     >
-      {link ? <a href={link}>{LabelComponent}</a> : LabelComponent}
+      {link ? (
+        <a href={link} target={newTab ? '__blank' : null}>
+          {LabelComponent}
+        </a>
+      ) : (
+        LabelComponent
+      )}
     </button>
   );
 };
