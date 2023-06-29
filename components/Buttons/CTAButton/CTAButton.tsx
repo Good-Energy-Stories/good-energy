@@ -1,3 +1,7 @@
+/**
+ * Call to action button, used throughout the site.
+ * Has two different themes (`backgroundColor`s): 'DARK' and 'black'.
+ */
 import { motion } from 'framer-motion';
 import styles from './CTAButton.module.css';
 import classnames from 'classnames';
