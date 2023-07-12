@@ -41,9 +41,7 @@ const Header = ({
             className={styles.button}
             data={{
               label: 'Make A Donation',
-              link:
-                donateLink ??
-                'https://creativevisions.networkforgood.com/projects/54417-creative-visions-fiscal-sponsorship-good-energy',
+              link: donateLink ?? 'https://goodenergystories.kindful.com/',
               labelSize: ButtonLabelSize.Small,
               newTab: true,
               backgroundColor: 'black',
