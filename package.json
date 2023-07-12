@@ -1,5 +1,6 @@
 {
-  "name": "lukevolkert",
+  "name": "good-energy",
+  "author": "joey@thirdslant.com",
   "private": true,
   "scripts": {
     "dev": "next dev",

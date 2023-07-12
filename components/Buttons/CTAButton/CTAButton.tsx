@@ -1,3 +1,7 @@
+/**
+ * Call to action button, used throughout the site.
+ * Has two different themes (`backgroundColor`s): 'DARK' and 'black'.
+ */
 import { motion } from 'framer-motion';
 import styles from './CTAButton.module.css';
 import classnames from 'classnames';
@@ -33,6 +37,7 @@ const CTAButton = ({ data, className }: any) => {
     link,
     backgroundColor,
     onClick,
+    newTab,
     icon,
   } = data;
 
@@ -44,6 +49,7 @@ const CTAButton = ({ data, className }: any) => {
       {icon}
     </span>
   );
+
   return (
     <button
       data-type={type}
@@ -56,7 +62,16 @@ const CTAButton = ({ data, className }: any) => {
       )}
       onClick={onClick && onClick}
     >
-      {link ? <a href={link}>{LabelComponent}</a> : LabelComponent}
+      {link ? (
+        <a
+          href={link}
+          {...(newTab && { target: '__blank', rel: 'noopener noreferrer' })}
+        >
+          {LabelComponent}
+        </a>
+      ) : (
+        LabelComponent
+      )}
     </button>
   );
 };

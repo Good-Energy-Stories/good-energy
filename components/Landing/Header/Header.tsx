@@ -37,6 +37,16 @@ const Header = ({
               type: 'fill',
             }}
           />
+          <CTAButton
+            className={styles.button}
+            data={{
+              label: 'Make A Donation',
+              link: donateLink ?? 'https://goodenergystories.kindful.com/',
+              labelSize: ButtonLabelSize.Small,
+              newTab: true,
+              backgroundColor: 'black',
+            }}
+          />
         </div>
       </div>
     </div>
