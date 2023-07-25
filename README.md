@@ -44,8 +44,6 @@ To create a new content section on the website, there are three steps:
 
 Content is never stored locally. Data is always stored in Sanity's hosted Content Lake. This means you can make changes to local data schemas without changing any other existing content.
 
-To change a local data schema, find the `.js` file under `/studio/schemas`. Updating the schema file will trigger a reload of the local studio (which you've started by running `sanity start`).
-
 ### Testing
 
 To build your Studio for production locally, run the following command in the Studio project folder:
