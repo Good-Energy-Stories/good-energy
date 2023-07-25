@@ -7,6 +7,7 @@ import { pressFragment, pressSection } from './press';
 import { characterProfilePreview } from './characterProfiles';
 import { expertProfilePreview } from './expertProfiles';
 import { featuredVoice } from './featuredVoices';
+import { ourOfferings } from './ourOfferings';
 import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
 export const calloutFragment = `
@@ -167,6 +168,10 @@ export const pageContentFragment = `
     _type == 'quote' => {
       _type,
       ...
+    },
+    _type == 'ourOfferings' => {
+      _type,
+      ${ourOfferings}
     },
     _type == 'landAcknowledgment' => {
       _type,

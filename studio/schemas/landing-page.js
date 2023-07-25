@@ -6,7 +6,6 @@ export default {
   title: 'Landing Page',
   type: 'document',
   icon,
-
   fields: [
     {
       name: 'seo',
@@ -25,7 +24,6 @@ export default {
       title: 'Subtitle',
       type: 'string',
     },
-
     {
       name: 'donateLink',
       title: 'Donate Link',

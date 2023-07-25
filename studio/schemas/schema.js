@@ -48,10 +48,11 @@ import libraryOfExpertsPage from './library-of-experts-page';
 import libraryOfExpertsSection from './library-of-experts-section';
 import logline from './logline';
 import navigation from './navigation';
+import ourOfferings from './our-offerings';
+import offering from './offering';
 import offeringsPage from './offerings-page';
 import outlet from './outlet';
 import page from './page';
-import pageContent from './page-content';
 import pageDivider from './page-divider';
 import pageSeo from './page-seo';
 import partner from './partner';
@@ -146,7 +147,9 @@ export default createSchema({
     libraryOfExpertsSection,
     logline,
     navigation,
+    offering,
     offeringsPage,
+    ourOfferings,
     outlet,
     page,
     pageDivider,
