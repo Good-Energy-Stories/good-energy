@@ -59,6 +59,8 @@ const FullWidthImage = dynamic(
 );
 const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
 
+const OurOfferings = dynamic(() => import('../OurOfferings/OurOfferings'));
+
 const PageContent = ({ content }: any) => {
   const type = content._type;
 
@@ -71,8 +73,6 @@ const PageContent = ({ content }: any) => {
       return <Testimonial data={content} />;
     case 'twoColumnLayout':
       return <TwoColumnLayout data={content} />;
-    case 'fullWidthImage':
-      return <FullWidthImage data={content} />;
     case 'pageDivider':
       return <PageDivider data={content} />;
     case 'partnerSection':
@@ -99,6 +99,8 @@ const PageContent = ({ content }: any) => {
       return <AboutBlock data={content} />;
     case 'pressSection':
       return <PressSection data={content} />;
+    case 'ourOfferings':
+      return <OurOfferings data={content} />;
     case 'downloadsSection':
       return <DownloadsSection data={content} />;
     case 'individualPressFeature':

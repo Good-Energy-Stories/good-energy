@@ -318,6 +318,14 @@ h4 {
   font-weight: unset;
 }
 
+.h4-updated {
+  font-family: var(--flexa);
+  font-size: 35.5px;
+  line-height: 36px;
+  font-stretch: 100%;
+  font-weight: 800;
+}
+
 .h4-quote {
 }
 .h4-quote::before {
