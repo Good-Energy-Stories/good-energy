@@ -58,8 +58,12 @@ const FullWidthImage = dynamic(
   () => import('../FullWidthImage/FullWidthImage'),
 );
 const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
-
-const OurOfferings = dynamic(() => import('../OurOfferings/OurOfferings'));
+const OurOfferings = dynamic(
+  () => import('../LandingPage/OurOfferings/OurOfferings'),
+);
+const OurClients = dynamic(
+  () => import('../LandingPage/OurClients/OurClients'),
+);
 
 const PageContent = ({ content }: any) => {
   const type = content._type;
@@ -99,6 +103,8 @@ const PageContent = ({ content }: any) => {
       return <AboutBlock data={content} />;
     case 'pressSection':
       return <PressSection data={content} />;
+    case 'ourClients':
+      return <OurClients data={content} />;
     case 'ourOfferings':
       return <OurOfferings data={content} />;
     case 'downloadsSection':

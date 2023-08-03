@@ -8,6 +8,7 @@ import { characterProfilePreview } from './characterProfiles';
 import { expertProfilePreview } from './expertProfiles';
 import { featuredVoice } from './featuredVoices';
 import { ourOfferings } from './ourOfferings';
+import { ourClients } from './clients';
 import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
 export const calloutFragment = `
@@ -172,6 +173,10 @@ export const pageContentFragment = `
     _type == 'ourOfferings' => {
       _type,
       ${ourOfferings}
+    },
+    _type == 'ourClients' => {
+      _type,
+      ${ourClients}
     },
     _type == 'landAcknowledgment' => {
       _type,

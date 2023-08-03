@@ -15,6 +15,7 @@ export default [
   { type: 'individualPartnerFeature' },
   { type: 'resourceSection' },
   { type: 'aboutBlock' },
+  { type: 'ourClients' },
   { type: 'ourOfferings' },
   { type: 'partnerSection' },
   { type: 'downloadsSection' },

@@ -48,6 +48,8 @@ import libraryOfExpertsPage from './library-of-experts-page';
 import libraryOfExpertsSection from './library-of-experts-section';
 import logline from './logline';
 import navigation from './navigation';
+import client from './client';
+import ourClients from './our-clients';
 import ourOfferings from './our-offerings';
 import offering from './offering';
 import offeringsPage from './offerings-page';
@@ -120,6 +122,7 @@ export default createSchema({
     characterProfilesPage,
     characterProfilesSection,
     characterProfilesTeaseSection,
+    client,
     climateLensBlock,
     consultingContactPage,
     contactForm,
@@ -149,6 +152,7 @@ export default createSchema({
     navigation,
     offering,
     offeringsPage,
+    ourClients,
     ourOfferings,
     outlet,
     page,

@@ -1,5 +1,5 @@
-import Header from '../Page/Header/Header';
-import Page from '../Page/Page';
+import Header from '../../Page/Header/Header';
+import Page from '../../Page/Page';
 import styles from './OurOfferings.module.css';
 import Offering from './Offering';
 
