@@ -1,10 +1,11 @@
 import classnames from 'classnames';
 import styles from './OurClients.module.css';
 import Photo from '../../Photo/Photo';
+import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 const cx = classnames.bind(styles);
 
 const OfferingsPage = ({ data }) => {
-  const { title, description, clients } = data;
+  const { title, description, clients, CTAText, CTALink } = data;
   return (
     <div data-theme={'white'} className={styles.container}>
       <h4 className={styles.title + ' h4-updated'}>{title}</h4>
@@ -21,6 +22,9 @@ const OfferingsPage = ({ data }) => {
             />
           );
         })}
+      </div>
+      <div className={styles.buttonContainer}>
+        <SeeMoreButton className={'header'} label={CTAText} link={CTALink} />
       </div>
     </div>
   );

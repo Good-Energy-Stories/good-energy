@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: inline-block;
   grid-column: 1/-1;
   width: 100%;
@@ -58,6 +59,12 @@
 
   .paragraphContainer {
     grid-column: span 8;
+  }
+
+  .buttonContainer {
+    grid-column: span 8;
+    display: flex;
+    justify-content: center;
   }
 
   .hiddenMobile {

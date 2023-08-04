@@ -11,6 +11,8 @@ logo{
 export const ourClients = `
 title,
 description,
+CTAText,
+CTALink,
 clients[]->{
   ${client}
 },
