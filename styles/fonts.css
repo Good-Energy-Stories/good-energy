@@ -318,6 +318,14 @@ h4 {
   font-weight: unset;
 }
 
+.h3-updated {
+  font-family: var(--flexa);
+  font-size: 47.4px;
+  line-height: 48px;
+  font-stretch: 100%;
+  font-weight: 800;
+}
+
 .h4-updated {
   font-family: var(--flexa);
   font-size: 35.5px;

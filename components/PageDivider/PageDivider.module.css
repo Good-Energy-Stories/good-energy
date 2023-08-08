@@ -9,7 +9,7 @@
   padding-top: var(--spacing-large);
 }
 .inner {
-  border-bottom: 1px solid var(--blueThree);
+  border-bottom: 4px solid var(--blueFour);
 }
 .extraLarge {
   border-bottom: 4px solid var(--blueFour);
