@@ -411,6 +411,15 @@ h4 {
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
+.label-large-updated {
+  font-family: var(--flexa-mono);
+  color: var(--blueSix);
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  text-transform: uppercase;
+}
 .small-bio {
   font-family: var(--flexa);
   font-size: 16px;
