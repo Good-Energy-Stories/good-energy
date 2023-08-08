@@ -1,6 +1,7 @@
 import Header from '../../Page/Header/Header';
 import Page from '../../Page/Page';
 import styles from './OurOfferings.module.css';
+import Heading from '../../Heading/Heading';
 import Offering from './Offering';
 
 const OfferingsPage = ({ data }) => {
@@ -10,7 +11,7 @@ const OfferingsPage = ({ data }) => {
   };
   return (
     <div data-theme={'black'} className={styles.container}>
-      <h4 className={styles.title + ' h4-updated'}>{title}</h4>
+      <Heading title={title} />
       {renderOfferings(offerings)}
     </div>
   );

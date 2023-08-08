@@ -1,0 +1,5 @@
+.title {
+  grid-column: 1/9;
+  padding-bottom: 4px;
+  border-bottom: 4px solid var(--blueFour);
+}
