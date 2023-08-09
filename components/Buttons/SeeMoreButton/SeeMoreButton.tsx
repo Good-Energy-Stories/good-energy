@@ -10,7 +10,7 @@ const SubmitButton = ({
   ...props
 }: any) => {
   return (
-    <button className={cx(styles.container, styles[className])} {...props}>
+    <button className={cx(styles.container)} {...props}>
       <a
         href={link}
         {...(newTab && { target: '__blank', rel: 'noopener noreferrer' })}

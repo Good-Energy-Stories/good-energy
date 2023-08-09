@@ -1,5 +1,4 @@
 .container {
-  position: relative;
   display: inline-block;
   grid-column: 1/-1;
   width: 100%;
@@ -47,13 +46,6 @@
   padding: 0;
 }
 
-.buttonContainer button {
-  position: absolute;
-  top: 0;
-  margin-top: var(--spacing-xxsmall);
-  right: var(--spacing-large);
-}
-
 @media only screen and (max-width: 768px) {
   .container {
     padding: 0 var(--spacing-small);
@@ -66,19 +58,6 @@
 
   .paragraphContainer {
     grid-column: span 8;
-  }
-
-  .buttonContainer {
-    grid-column: span 8;
-    display: flex;
-    justify-content: center;
-  }
-
-  .buttonContainer button {
-    position: relative;
-    align-items: center;
-    margin-top: var(--spacing-medium);
-    right: 0;
   }
 
   .hiddenMobile {

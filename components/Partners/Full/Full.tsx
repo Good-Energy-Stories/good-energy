@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import CTAButton from '../../Buttons/CTAButton/CTAButton';
 import styles from './Full.module.css';
 import classnames from 'classnames';
 import Partner from '../Partner/Partner';
-import { ROW_WIDTH } from '../PartnerSection';
+import Heading from '../../Heading/Heading';
+import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 const cx = classnames.bind(styles);
 
 const Full = ({ data, truncate = false, className }: any) => {
@@ -13,9 +13,16 @@ const Full = ({ data, truncate = false, className }: any) => {
   const partnersFormatted = shouldTruncate ? partners.slice(0, 6) : partners;
 
   const renderPartners = useCallback((content) => {
-    return content.map((item, index) => (
-      <Partner key={index} width={rowWidth} data={item} />
-    ));
+    return content.map((item, index) => {
+      return (
+        <Partner
+          className={index > 0 && styles.hiddenMobile}
+          key={index}
+          width={rowWidth}
+          data={item}
+        />
+      );
+    });
   }, []);
   return (
     <>
@@ -23,22 +30,10 @@ const Full = ({ data, truncate = false, className }: any) => {
         data-theme={backgroundColor}
         className={cx(styles.container, className)}
       >
-        {title && (
-          <div className={cx('label-medium', styles.title)}>{title}</div>
-        )}
+        {title && <Heading title={title} />}
         <div className={styles.inner}>{renderPartners(partnersFormatted)}</div>
-
         {showLinkToPartnersPage && (
-          <div className={styles.buttonRow}>
-            <CTAButton
-              data={{
-                link: '/about/partners',
-                label: 'See Our Full List of partners',
-                backgroundColor,
-              }}
-              className={styles.button}
-            />
-          </div>
+          <SeeMoreButton label={'See All Partners'} link={'/about/partners'} />
         )}
       </div>
     </>

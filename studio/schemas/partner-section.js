@@ -41,6 +41,7 @@ export default {
         list: [
           { title: 'Three', value: 'three' },
           { title: 'Four', value: 'four' },
+          { title: 'Five', value: 'five' },
         ],
       },
     },

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import * as ga from '../../../lib/ga';
+import classNames from 'classnames';
 
 import styles from './Partner.module.css';
 import { ROW_WIDTH } from '../PartnerSection';
+const cx = classNames.bind(styles);
 
 const Logo = ({ logo, link }: any) => {
   if (!logo) return null;

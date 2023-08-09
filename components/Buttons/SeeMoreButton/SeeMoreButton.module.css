@@ -15,19 +15,3 @@
   padding: var(--spacing-xsmall) var(--spacing-small);
   display: block;
 }
-
-.header {
-  position: relative;
-
-  /* display: flex;
-  justify-content: center; */
-}
-
-@media only screen and (min-width: 768px) {
-  .header {
-    position: absolute;
-    top: 0;
-    margin-top: var(--spacing-xxsmall);
-    right: var(--spacing-large);
-  }
-}
