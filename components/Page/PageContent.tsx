@@ -64,6 +64,9 @@ const OurOfferings = dynamic(
 const OurClients = dynamic(
   () => import('../LandingPage/OurClients/OurClients'),
 );
+const NewsletterCTA = dynamic(
+  () => import('../LandingPage/NewsletterCTA/NewsletterCTA'),
+);
 
 const PageContent = ({ content }: any) => {
   const type = content._type;
@@ -123,6 +126,8 @@ const PageContent = ({ content }: any) => {
       return <CharacterProfilesTeaseSection data={content} />;
     case 'characterProfilesSection':
       return <CharacterProfilesSection data={content} />;
+    case 'newsletterCTA':
+      return <NewsletterCTA data={content} />;
     default:
       return null;
   }

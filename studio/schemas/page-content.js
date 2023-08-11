@@ -18,6 +18,7 @@ export default [
   { type: 'ourClients' },
   { type: 'ourOfferings' },
   { type: 'partnerSection' },
+  { type: 'newsletterCTA' },
   { type: 'downloadsSection' },
   { type: 'individualPressFeature' },
   { type: 'logline' },

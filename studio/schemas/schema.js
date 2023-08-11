@@ -21,6 +21,7 @@ import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
 import characterProfilesSection from './character-profiles-section';
 import characterProfilesTeaseSection from './character-profiles-tease-section';
+import client from './client';
 import climateLensBlock from './climate-lens-block';
 import consultingContactPage from './consulting-contact-page';
 import contactForm from './contact-form';
@@ -48,7 +49,7 @@ import libraryOfExpertsPage from './library-of-experts-page';
 import libraryOfExpertsSection from './library-of-experts-section';
 import logline from './logline';
 import navigation from './navigation';
-import client from './client';
+import newsletterCTA from './newsletter-cta';
 import ourClients from './our-clients';
 import ourOfferings from './our-offerings';
 import offering from './offering';
@@ -150,6 +151,7 @@ export default createSchema({
     libraryOfExpertsSection,
     logline,
     navigation,
+    newsletterCTA,
     offering,
     offeringsPage,
     ourClients,

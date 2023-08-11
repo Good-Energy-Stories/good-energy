@@ -12,19 +12,19 @@ import { ourClients } from './clients';
 import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
 export const calloutFragment = `
-title, 
+title,
 information
 `;
 
 export const climateLensBlockFragment = `
-title, 
+title,
 information,
 showLinkToBookAConsultation
 `;
 
 export const halfColumnPageContentFragment = `
 _type == 'reference' => @->{
-   
+
   },
   _type != 'reference' => {
     _type == 'spotIllustration' => {
@@ -93,7 +93,7 @@ export const threeColumnLayoutFragment = `
     rightColumn[]{
       ${thirdColumnPageContentFragment}
     }
-  
+
 `;
 
 export const pageContentFragment = `
@@ -108,7 +108,7 @@ export const pageContentFragment = `
     },
     _type == 'testimonial' => {
         _type,
-       
+
         ...
     },
     _type == 'calloutSection' => {
@@ -178,6 +178,10 @@ export const pageContentFragment = `
       _type,
       ${ourClients}
     },
+    _type == 'newsletterCTA' => {
+      _type,
+      ...
+    },
     _type == 'landAcknowledgment' => {
       _type,
       ...
@@ -205,7 +209,7 @@ export const pageContentFragment = `
     _type == 'characterProfilesTeaseSection' => {
       _type,
       tag,
-      title, 
+      title,
       description,
       "content": characterProfiles[] {
         _type == 'reference' => @->{
@@ -287,7 +291,7 @@ export const playbookHomePageQuery = `
   ${pageFragment}
 }[0]
 `;
-export const characterProfilesPageQuery = `*[_type == "characterProfilesPage"] { 
+export const characterProfilesPageQuery = `*[_type == "characterProfilesPage"] {
   ${pageFragment}
 }[0]`;
 
