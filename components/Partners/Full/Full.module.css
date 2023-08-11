@@ -38,18 +38,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
-    margin: 0;
-    padding: 0 var(--spacing-small);
-    display: flex;
-    flex-direction: column;
-  }
-  .title {
-    margin: 0;
+  .buttonContainer {
+    text-align: center;
   }
 
   .hiddenMobile {
-    display: none;
+    display: none !important;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0 var(--spacing-small);
   }
 
   .container button {
@@ -57,5 +56,9 @@
     align-items: center;
     margin-top: 0;
     right: 0;
+  }
+
+  .title {
+    margin: 0;
   }
 }

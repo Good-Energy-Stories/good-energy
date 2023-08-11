@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import * as ga from '../../../lib/ga';
 import classNames from 'classnames';
@@ -37,14 +36,19 @@ const Logo = ({ logo, link }: any) => {
 const Partner = ({
   data,
   width = ROW_WIDTH.FOUR,
+  className,
 }: {
   data: any;
   width?: ROW_WIDTH;
+  className: string;
 }) => {
   const { logo, size, link } = data;
   return (
     <>
-      <div className={styles.container} data-width={width ?? ROW_WIDTH.FOUR}>
+      <div
+        className={cx(styles.container, className)}
+        data-width={width ?? ROW_WIDTH.FOUR}
+      >
         <Logo logo={logo} link={link} size={size} />
       </div>
     </>

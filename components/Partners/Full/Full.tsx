@@ -16,8 +16,8 @@ const Full = ({ data, truncate = false, className }: any) => {
     return content.map((item, index) => {
       return (
         <Partner
-          className={index > 0 && styles.hiddenMobile}
           key={index}
+          className={index > 0 && styles.hiddenMobile}
           width={rowWidth}
           data={item}
         />
@@ -33,7 +33,12 @@ const Full = ({ data, truncate = false, className }: any) => {
         {title && <Heading title={title} />}
         <div className={styles.inner}>{renderPartners(partnersFormatted)}</div>
         {showLinkToPartnersPage && (
-          <SeeMoreButton label={'See All Partners'} link={'/about/partners'} />
+          <div className={styles.buttonContainer}>
+            <SeeMoreButton
+              label={'See All Partners'}
+              link={'/about/partners'}
+            />
+          </div>
         )}
       </div>
     </>
