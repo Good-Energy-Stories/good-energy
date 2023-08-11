@@ -1,15 +1,30 @@
-import classNames from 'classnames';
 import styles from './NewsletterCTA.module.css';
-const cx = classNames.bind(styles);
+import CTAButton, { ButtonLabelSize } from '../../Buttons/CTAButton/CTAButton';
 
 const NewsletterCTA = ({ data }: { data: any }) => {
-  // const { logo, size, link } = data;
+  const { heading, CTAText, CTALink } = data;
+
   return (
-    <>
-      <div className={cx(styles.container)}>
-        {JSON.stringify(data, null, 2)}
+    <div className={styles.container}>
+      <div className={styles.inner}>
+        {heading && <h2 className="h2-updated">{heading}</h2>}
       </div>
-    </>
+      <div>
+        <CTAButton
+          data={{
+            type: 'fill',
+            labelSize: ButtonLabelSize.Small,
+            label: CTAText,
+            link: CTALink,
+          }}
+        />
+      </div>
+      <img
+        className={styles.image}
+        src="/email-capture-bg.png"
+        alt="Plants and a dragonfly"
+      />
+    </div>
   );
 };
 

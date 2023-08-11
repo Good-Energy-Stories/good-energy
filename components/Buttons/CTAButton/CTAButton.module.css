@@ -7,6 +7,7 @@
   margin: var(--spacing-medium) 0;
   color: var(--black);
   transition: 0.3s;
+  z-index: 11; /* so this appears above the Label below */
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 .container:last-of-type {
