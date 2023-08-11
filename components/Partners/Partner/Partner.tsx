@@ -40,7 +40,7 @@ const Partner = ({
 }: {
   data: any;
   width?: ROW_WIDTH;
-  className: string;
+  className?: string;
 }) => {
   const { logo, size, link } = data;
   return (
