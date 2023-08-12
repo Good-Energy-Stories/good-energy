@@ -38,9 +38,12 @@ sanity start
 
 To create a new content section on the website, there are three steps:
 
-1. Define the document and schema. These files are defined in `.js` and live under `/studio/schemas/[schema-file-name].js`. Next, add that schema to the main list of schemas at `/studio/schemas/page-content.js` and `studio/schemas/schema.js`. Updates to the schema files will trigger a reload of the local studio (run with `sanity start`).
-1. Define a query to request this document. These queries are made in the GraphQL-like [GROQ language](https://www.sanity.io/docs/how-queries-work), and are defined in `/data/queries/`. Add the query to the main query ingestion point, originating at `data/index.js`.
-1. Render the query in that same shape on the page. Queries can be passed to `sanity.fetch` to request data from the frontend. React components are created under `components/[ComponentType]/[SubComponentType].tsx`. Then, register the component in `components/Page/PageContent.tsx`.
+- **Define the [document](https://www.sanity.io/docs/document-type) and [schema](https://www.sanity.io/docs/schema-types).** These files are defined in `.js` and live under `/studio/schemas/[schema-file-name].js`.
+  - Next, add that schema to the main list of schemas at `/studio/schemas/page-content.js` and `studio/schemas/schema.js`. Updates to the schema files will trigger a reload of the local studio (run with `sanity start`).
+- **Define a [GROQ query](https://www.sanity.io/docs/how-queries-work) to request this document.** These queries are defined in `/data/queries/`.
+  - Add the query to the main query ingestion point, originating at `data/index.js`.
+- **Render the query in that same shape on the page.** Queries are passed to `sanity.fetch` to request data from the frontend. React components are created under `components/[ComponentType]/[SubComponentType].tsx`.
+  - Add your new component to the component renderer at `components/Page/PageContent.tsx`.
 
 Content is never stored locally. Data is always stored in Sanity's hosted Content Lake. This means you can make changes to local data schemas without changing any other existing content.
 
@@ -54,7 +57,7 @@ npm run build
 
 ### Deployment and infrastructure
 
-Environment variables are managed through Vercel. Contact a workspace admin to be added to the Vercel project.
+Environment variables are managed through Vercel. Contact a Good Energy workspace admin to be added to the Vercel project.
 
 ### FAQs
 
