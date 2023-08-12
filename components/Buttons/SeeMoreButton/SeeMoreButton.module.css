@@ -5,6 +5,7 @@
   border: 2px solid var(--blueThree);
   padding: 0;
   margin: var(--spacing-medium) auto;
+  cursor: pointer;
 }
 
 .label {

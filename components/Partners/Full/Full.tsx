@@ -32,6 +32,7 @@ const Full = ({ data, truncate = false, className }: any) => {
       >
         {title && <Heading title={title} />}
         <div className={styles.inner}>{renderPartners(partnersFormatted)}</div>
+
         {showLinkToPartnersPage && (
           <div className={styles.buttonContainer}>
             <SeeMoreButton
