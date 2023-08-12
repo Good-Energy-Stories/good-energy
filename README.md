@@ -38,8 +38,8 @@ sanity start
 
 To create a new content section on the website, there are three steps:
 
-- **Define the [document](https://www.sanity.io/docs/document-type) and [schema](https://www.sanity.io/docs/schema-types).** These files are defined in `.js` and live under `/studio/schemas/[schema-file-name].js`.
-  - Next, add that schema to the main list of schemas at `/studio/schemas/page-content.js` and `studio/schemas/schema.js`. Updates to the schema files will trigger a reload of the local studio (run with `sanity start`).
+- **Define the [document](https://www.sanity.io/docs/document-type) and [schema](https://www.sanity.io/docs/schema-types).** These files are defined in `.js` and live under `/studio/schemas/[schema-file-name].js`.Updates to the schema files will trigger a reload of the local studio (run with `sanity start`).
+  - Next, add that schema to the main list of schemas at `/studio/schemas/page-content.js` and `studio/schemas/schema.js`.
 - **Define a [GROQ query](https://www.sanity.io/docs/how-queries-work) to request this document.** These queries are defined in `/data/queries/`.
   - Add the query to the main query ingestion point, originating at `data/index.js`.
 - **Render the query in that same shape on the page.** Queries are passed to `sanity.fetch` to request data from the frontend. React components are created under `components/[ComponentType]/[SubComponentType].tsx`.
