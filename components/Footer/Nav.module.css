@@ -1,11 +1,28 @@
 .container {
   grid-column: 1/5;
-  display: flex;
+  display: grid;
   gap: var(--spacing-large);
   margin-bottom: var(--spacing-large);
 }
+
+.firstCol {
+  grid-column: 1/2;
+}
+
+.secondCol {
+  grid-column: 3/4;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
-    grid-column: 1/-1;
+    gap: var(--spacing-medium);
+  }
+
+  .firstCol {
+    grid-column: 1/2;
+  }
+
+  .secondCol {
+    grid-column: 3/4;
   }
 }

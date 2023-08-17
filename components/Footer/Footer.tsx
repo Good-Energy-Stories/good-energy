@@ -10,7 +10,10 @@ const Footer = ({ navigation, socials }: any) => {
     <footer className={styles.container}>
       <Nav data={navigation} />
       <div className={styles.right}>
-        <h4 className="title">Stay in Touch</h4>
+        <h3 className="title">Newsletter Sign Up</h3>
+        <p className="body">
+          Be the first to know when we release new resources and offerings.
+        </p>
         <ContactForm />
       </div>
       <div className={styles.bottom}>
