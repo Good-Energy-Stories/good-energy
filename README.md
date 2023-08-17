@@ -2,7 +2,7 @@
 
 ### Installation
 
-To run the project locally:
+Install the project dependencies:
 
 ```
 npm i
@@ -14,13 +14,13 @@ You may need to run `npm i --force`, due to upgrade to `npm@7` where `npm instal
 
 Add the `.env.local` file to the root directory of this repo. Please contact an admin for the environment variables.
 
-Then run
+To run the site locally, run:
 
 ```
 npm run dev
 ```
 
-To run sanity locally go into the `studio/` folder. From the project root, run `cd studio` in a terminal.
+To locally run the CMS, Sanity, go into the `studio/` folder. From the project root, run `cd studio` in a terminal.
 
 Then, run:
 
