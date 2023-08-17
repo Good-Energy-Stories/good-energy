@@ -26,6 +26,18 @@ export default {
       },
     },
     {
+      title: 'Button Type',
+      name: 'type',
+      type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Fill', value: 'fill' },
+          { title: 'Outline', value: 'outline' },
+        ],
+      },
+    },
+    {
       name: 'link',
       title: 'Link',
       type: 'string',

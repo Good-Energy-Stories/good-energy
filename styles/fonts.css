@@ -149,6 +149,10 @@
   font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
   position: relative;
 }
+.quote-sm .updated {
+  font-size: 26.7px;
+  line-height: 26px;
+}
 .quote-sm::before {
   content: '“';
   position: absolute;
