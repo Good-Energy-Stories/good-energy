@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: var(--grid-col-8);
   padding: 0 var(--spacing-large);
+  margin-top: var(--spacing-large);
   margin-bottom: var(--spacing-large);
 }
 
@@ -55,7 +56,9 @@
 
 @media only screen and (max-width: 768px) {
   .container {
-    padding: 0 var(--spacing-small);
+    padding: 0 var(--spacing-medium);
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
     gap: 0;
   }
 
