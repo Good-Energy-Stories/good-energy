@@ -416,6 +416,15 @@ h4 {
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
+.label-medium-updated {
+  color: var(--blueThree);
+  font-family: var(--flexa-mono);
+  font-size: 20px;
+  line-height: auto;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  text-transform: uppercase;
+}
 .label-large {
   font-family: var(--flexa-mono);
   font-size: 24px;
@@ -761,6 +770,12 @@ h4 {
     font-variation-settings: 'wght' 645, 'wdth' 55;
     position: relative;
   }
+
+  .quote-md {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
   .h1-xl {
     font-size: 62px;
     line-height: 53px;

@@ -1,5 +1,5 @@
-import { BsFillGridFill as icon } from 'react-icons/bs';
-import toPlainText from '../utils/toPlainText';
+import { BsGrid3X2GapFill as icon } from 'react-icons/bs';
+
 export default {
   name: 'pressHero',
   title: 'Press Hero',
@@ -7,28 +7,25 @@ export default {
   icon,
   fields: [
     {
-      name: 'headlinePressLogo',
-      title: 'Headline Press Logo',
-      description: 'ex. New York Times logo',
-      type: 'image',
+      title: 'Main Article',
+      name: 'mainArticle',
+      description: 'Main press article to feature',
+      type: 'reference',
+      to: [{ type: 'press' }],
     },
     {
-      name: 'headline',
-      title: 'Headline',
-      description: 'ex. "Hollywood\'s Climate Advisor"',
-      type: 'string',
-    },
-    {
-      name: 'headlinePressLinkTitle',
-      title: 'Headline Press Link Title',
-      description: 'ex. Read Article',
-      type: 'string',
-    },
-    {
-      name: 'headlinePressLinkUrl',
-      title: 'Headline Press Link URL',
-      description: 'URL to press link',
-      type: 'url',
+      title: 'Content',
+      name: 'content',
+      description:
+        'This is where you select the order of the press links as they should show up on the page.',
+      type: 'array',
+      validation: (Rule) => Rule.required().max(4),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'press' }],
+        },
+      ],
     },
   ],
 };

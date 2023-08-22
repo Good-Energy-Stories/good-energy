@@ -71,6 +71,7 @@ import playbookThreeColumn from './playbook-three-column';
 import playlist from './playlist';
 import playlistsPage from './playlists-page';
 import press from './press';
+import pressHero from './press-hero';
 import pressPage from './press-page';
 import pressSection from './press-section';
 import quote from './quote';
@@ -173,6 +174,7 @@ export default createSchema({
     playlist,
     playlistsPage,
     press,
+    pressHero,
     pressPage,
     pressSection,
     quote,

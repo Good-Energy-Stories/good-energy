@@ -26,6 +26,7 @@ const AboutBlock = dynamic(() => import('../AboutBlock/AboutBlock'));
 const PressSection = dynamic(
   () => import('../Press/PressSection/PressSection'),
 );
+const PressHero = dynamic(() => import('../Press/PressHero/PressHero'));
 const DownloadsSection = dynamic(
   () => import('../DownloadsSection/DownloadsSection'),
 );
@@ -106,6 +107,8 @@ const PageContent = ({ content }: any) => {
       return <AboutBlock data={content} />;
     case 'pressSection':
       return <PressSection data={content} />;
+    case 'pressHero':
+      return <PressHero data={content} />;
     case 'ourClients':
       return <OurClients data={content} />;
     case 'ourOfferings':

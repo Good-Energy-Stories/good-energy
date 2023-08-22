@@ -26,6 +26,7 @@ export default [
   { type: 'libraryOfExpertsSection' },
   { type: 'characterProfilesTeaseSection' },
   { type: 'characterProfilesSection' },
+  { type: 'pressHero' },
   {
     type: 'reference',
     to: [

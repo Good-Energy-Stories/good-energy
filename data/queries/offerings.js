@@ -3,7 +3,7 @@ import { pageSeo } from './pageSeo';
 import { partner, partnerSection } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
-import { pressFragment, pressSection } from './press';
+import { pressHero, pressFragment, pressSection } from './press';
 import { characterProfilePreview } from './characterProfiles';
 import { expertProfilePreview } from './expertProfiles';
 import { featuredVoice } from './featuredVoices';
@@ -177,6 +177,10 @@ export const pageContentFragment = `
     _type == 'ourClients' => {
       _type,
       ${ourClients}
+    },
+    _type == 'pressHero' => {
+      _type,
+      ${pressHero}
     },
     _type == 'newsletterCTA' => {
       _type,
