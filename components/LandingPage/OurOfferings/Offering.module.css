@@ -7,7 +7,12 @@
 }
 
 .name {
+  margin-top: var(--spacing-medium);
   color: var(--blueFour);
+}
+
+.description {
+  margin-top: var(--spacing-medium);
 }
 
 .textContainer {
@@ -17,21 +22,18 @@
 }
 
 .imageContainer figure {
-  max-width: inherit;
-  max-height: inherit;
-  height: 164px;
+  height: 180px;
   width: inherit;
   object-fit: cover;
 }
 
 button.cta {
-  margin-top: 24px;
+  margin-top: var(--spacing-medium);
 }
 
 @media only screen and (max-width: 768px) {
   .container {
     grid-column: span 8;
     gap: 0;
-    padding: 0 var(--spacing-small);
   }
 }
