@@ -48,6 +48,7 @@ import landingPage from './landing-page';
 import libraryOfExpertsPage from './library-of-experts-page';
 import libraryOfExpertsSection from './library-of-experts-section';
 import logline from './logline';
+import meetOurExperts from './meet-our-experts';
 import navigation from './navigation';
 import newsletterCTA from './newsletter-cta';
 import ourClients from './our-clients';
@@ -151,6 +152,7 @@ export default createSchema({
     libraryOfExpertsPage,
     libraryOfExpertsSection,
     logline,
+    meetOurExperts,
     navigation,
     newsletterCTA,
     offering,

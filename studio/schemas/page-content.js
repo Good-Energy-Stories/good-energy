@@ -5,6 +5,7 @@ export default [
   { type: 'twoColumnLayout' },
   { type: 'threeColumnLayout' },
   { type: 'quote' },
+  { type: 'meetOurExperts' },
   { type: 'callout' },
   { type: 'fullWidthImage' },
   { type: 'fullWidthStatement' },

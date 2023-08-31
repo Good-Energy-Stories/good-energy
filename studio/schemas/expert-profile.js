@@ -27,7 +27,16 @@ export default {
       description:
         'Turn this on if this expert should have their own spotlight page with more information.',
       type: 'boolean',
+      initialValue: false,
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'isFeaturedOnHomepage',
+      title: 'Is this expert featured on the homepage?',
+      description:
+        'Turn this on if this expert should be featured on homepage.',
+      type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'name',
@@ -51,7 +60,6 @@ export default {
         'The organization this individual is associated with, if any',
       hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
-
     {
       title: 'Slug',
       name: 'slug',
