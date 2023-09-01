@@ -3,14 +3,23 @@ import styles from './MeetOurExperts.module.css';
 import { PortableText } from '@portabletext/react';
 import { motion } from 'framer-motion';
 import { PortableTextSerializer } from '../';
-import ExpertProfileCard from '../Cards/ExpertProfile/ExpertProfileCard';
+import ExpertProfileCard, {
+  ExpertProfileCardStyle,
+} from '../Cards/ExpertProfile/ExpertProfileCard';
 import CTAButton, { ButtonLabelSize } from '../Buttons/CTAButton/CTAButton';
 
 const MeetOurExperts = ({ data }: any) => {
   const { title, description, CTAText, CTALink, expertProfiles } = data;
   const renderExperts = (content) => {
     return content.map((expert, index) => {
-      return <ExpertProfileCard data={expert} key={index} />;
+      return (
+        <ExpertProfileCard
+          style={ExpertProfileCardStyle.small}
+          data={expert}
+          key={index}
+          index={index}
+        />
+      );
     });
   };
   return (
@@ -29,15 +38,9 @@ const MeetOurExperts = ({ data }: any) => {
         />
       </div>
       <div className={styles.column}>
-        <motion.div
-          layoutScroll
-          style={{
-            overflow: 'scroll',
-            height: '300px',
-          }}
-        >
+        <div className={styles.expertCardContainer}>
           {renderExperts(expertProfiles)}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

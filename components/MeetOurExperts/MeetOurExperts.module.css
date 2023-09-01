@@ -27,6 +27,12 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.expertCardContainer {
+  height: 300px;
+  overflow-y: auto;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     padding: var(--spacing-medium) var(--spacing-small);
