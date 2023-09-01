@@ -35,10 +35,15 @@ export default {
       description: 'Link for CTA button on clients page',
     },
     {
-      name: 'Experts',
-      title: 'experts',
-      type: 'reference',
-      to: [{ type: 'expertProfile' }],
+      name: 'expertProfiles',
+      title: 'Expert Profiles',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'expertProfile' }],
+        },
+      ],
     },
   ],
 };

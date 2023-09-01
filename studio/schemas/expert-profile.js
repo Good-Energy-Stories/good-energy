@@ -31,14 +31,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'isFeaturedOnHomepage',
-      title: 'Is this expert featured on the homepage?',
-      description:
-        'Turn this on if this expert should be featured on homepage.',
-      type: 'boolean',
-      initialValue: false,
-    },
-    {
       name: 'name',
       title: 'Name',
       type: 'string',

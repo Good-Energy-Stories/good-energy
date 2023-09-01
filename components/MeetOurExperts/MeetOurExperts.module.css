@@ -1,12 +1,18 @@
 .container {
   grid-column: 1/-1;
   padding: var(--spacing-large);
-  background-color: var(--blueFive);
+  color: var(--white);
+  background: var(--black);
 
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
 }
+
+.column {
+  grid-column: span 4;
+}
+
 .logo {
   grid-column: 1/5;
   margin: 0;
