@@ -3,10 +3,12 @@ import styles from './MeetOurExperts.module.css';
 import { PortableText } from '@portabletext/react';
 import { motion } from 'framer-motion';
 import { PortableTextSerializer } from '../';
+import classnames from 'classnames';
 import ExpertProfileCard, {
   ExpertProfileCardStyle,
 } from '../Cards/ExpertProfile/ExpertProfileCard';
 import CTAButton, { ButtonLabelSize } from '../Buttons/CTAButton/CTAButton';
+const cx = classnames.bind(styles);
 
 const MeetOurExperts = ({ data }: any) => {
   const { title, description, CTAText, CTALink, expertProfiles } = data;
@@ -38,7 +40,13 @@ const MeetOurExperts = ({ data }: any) => {
         />
       </div>
       <div className={styles.column}>
-        <div className={styles.expertCardContainer}>
+        <div
+          className={cx(
+            styles.expertCardContainer,
+            styles.primary,
+            styles.scrollElement,
+          )}
+        >
           {renderExperts(expertProfiles)}
         </div>
       </div>

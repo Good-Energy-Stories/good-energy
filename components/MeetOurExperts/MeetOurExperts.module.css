@@ -10,7 +10,9 @@
 }
 
 .column {
+  position: relative;
   grid-column: span 4;
+  overflow: hidden;
 }
 
 .logo {
@@ -29,8 +31,33 @@
 }
 
 .expertCardContainer {
-  height: 300px;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.primary {
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -1000px, 0);
+  }
+}
+
+.scrollElement {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.expertCardContainer::-webkit-scrollbar {
+  overflow-y: hidden;
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {
