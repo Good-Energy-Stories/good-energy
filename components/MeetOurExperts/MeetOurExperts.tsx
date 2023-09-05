@@ -39,7 +39,7 @@ const MeetOurExperts = ({ data }: any) => {
           }}
         />
       </div>
-      <div className={styles.column}>
+      <div className={cx(styles.column, styles.gradientFade)}>
         <div
           className={cx(
             styles.expertCardContainer,
