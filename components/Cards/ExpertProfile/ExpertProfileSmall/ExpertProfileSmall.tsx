@@ -11,9 +11,6 @@ const ExpertProfileSmall = ({ data, index, allowHover, className }: any) => {
   const { name, Information, smallPortraitImage, pronouns, organization } =
     data;
 
-  console.log('profile data');
-  console.log(data);
-
   const getColor = (index) => {
     const colors = ['var(--yellow)', 'var(--pink)', 'var(--blueFour)'];
     return colors[index % colors.length];
