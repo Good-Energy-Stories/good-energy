@@ -59,6 +59,7 @@ const Header = ({
           }}
         >
           <iframe
+            title="Good Energy Video"
             src="https://player.vimeo.com/video/802831875?h=9f70d673ed&title=0&byline=0&portrait=0"
             style={{
               position: 'absolute',
@@ -72,7 +73,7 @@ const Header = ({
             allowFullScreen
           ></iframe>
         </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
+        <script src="https://player.vimeo.com/api/player.js" async></script>
       </div>
     </div>
   );
