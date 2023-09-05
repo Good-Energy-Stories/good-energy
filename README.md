@@ -27,7 +27,7 @@ To install the [Sanity CLI](https://www.sanity.io/docs/cli), run:
 npm install --g sanity@latest
 ```
 
-Then, run:
+Run `npm install` again in this directory, then run:
 
 ```
 sanity install
