@@ -10,8 +10,8 @@
   z-index: 11; /* so this appears above the Label below */
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-.container:nth-of-type(n + 2) {
-  margin-left: var(--spacing-small);
+.container:nth-of-type(n + 1) {
+  margin-right: var(--spacing-small);
 }
 .label {
   position: relative;
