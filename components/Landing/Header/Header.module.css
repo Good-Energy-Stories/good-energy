@@ -65,9 +65,15 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    padding: var(--spacing-xxxsmall);
+  }
+  .textContainer {
+    text-align: center;
   }
   .title {
     max-width: 100%;
+    font-size: 48px;
+    line-height: 48px;
   }
   .buttonContainer {
     flex-direction: column;
