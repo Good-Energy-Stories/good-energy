@@ -21,10 +21,13 @@
   padding: 0;
 }
 
+.imageContainer {
+  width: 100%;
+}
+
 .imageContainer figure {
-  height: 180px;
-  width: inherit;
-  object-fit: cover;
+  width: 100%;
+  padding-bottom: 60%;
 }
 
 button.cta {
