@@ -28,6 +28,7 @@ const ExpertProfileCard = ({
   style,
   className,
   imageClassName,
+  forceDesktop,
 }: any) => {
   switch (style) {
     case ExpertProfileCardStyle.library:
@@ -46,7 +47,12 @@ const ExpertProfileCard = ({
       return <ExpertProfileSearch data={data} className={className} />;
     case ExpertProfileCardStyle.small:
       return (
-        <ExpertProfileSmall data={data} className={className} index={index} />
+        <ExpertProfileSmall
+          data={data}
+          className={className}
+          index={index}
+          forceDesktop={forceDesktop}
+        />
       );
     default:
       return <ExpertProfileStandard data={data} className={className} />;

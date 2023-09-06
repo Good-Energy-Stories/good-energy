@@ -7,7 +7,13 @@ import classnames from 'classnames';
 import Link from 'next/link';
 const cx = classnames.bind(styles);
 
-const ExpertProfileSmall = ({ data, index, allowHover, className }: any) => {
+const ExpertProfileSmall = ({
+  data,
+  index,
+  allowHover,
+  className,
+  forceDesktop,
+}: any) => {
   const { name, Information, smallPortraitImage, pronouns, organization } =
     data;
 
@@ -18,7 +24,11 @@ const ExpertProfileSmall = ({ data, index, allowHover, className }: any) => {
 
   return (
     <div
-      className={cx(styles.container, className)}
+      className={cx(
+        styles.container,
+        className,
+        forceDesktop && styles.forceDesktop,
+      )}
       data-include-hover-animation={allowHover}
     >
       <div className={styles.imageContainer}>

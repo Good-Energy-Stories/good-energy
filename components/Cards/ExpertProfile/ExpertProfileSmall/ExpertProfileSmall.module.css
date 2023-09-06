@@ -69,3 +69,33 @@
     margin: var(--spacing-medium) 0;
   }
 }
+
+/* Shameful hack */
+.forceDesktop {
+  @media only screen and (max-width: 768px) {
+    .container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: var(--grid-col-8);
+      gap: var(--spacing-large);
+
+      padding: var(--spacing-medium) 0;
+
+      border-top: 4px solid var(--black);
+    }
+    .imageContainer {
+      grid-column: 1/3;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .textContainer {
+      grid-row-start: 1;
+      grid-column: 3/-1;
+      margin: 0;
+    }
+    .bio {
+      text-align: left;
+      margin: var(--spacing-medium) 0;
+    }
+  }
+}

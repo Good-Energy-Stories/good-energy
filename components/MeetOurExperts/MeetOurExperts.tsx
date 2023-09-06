@@ -20,6 +20,7 @@ const MeetOurExperts = ({ data }: any) => {
           data={expert}
           key={index}
           index={index}
+          forceDesktop={true}
         />
       );
     });
