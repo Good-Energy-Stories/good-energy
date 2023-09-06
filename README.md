@@ -61,6 +61,17 @@ Environment variables are managed through Vercel. Contact a Good Energy workspac
 
 ### FAQs
 
+#### What is the tech stack?
+
+- CMS: Sanity.io
+- Website: Next.js, React
+- Webhost, CIs, and deploy: Vercel
+  - Deploys are managed through Github CI
+  - Feature branches are deployed to staging
+  - Staging links can be accessed through Vercel and should follow this naming convention:
+    - https://good-energy-git-[your-branch-name]-good-energy-stories.vercel.app/
+  - Once feature branches are merged into `main`, that automatically triggers a production deploy to goodenergystories.com
+
 #### Where is CMS data requested from Sanity, and how does it trickle down to components?
 
 CMS data is requested through [`getStaticProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props), which is a Next.js specific function. Next.js will pre-render any page with an exported `getStaticProps` function and pre-render that page at build-time.
