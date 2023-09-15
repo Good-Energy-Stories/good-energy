@@ -18,9 +18,7 @@ const IndividualPressFeature = ({ data }: any) => {
     <article className={styles.container}>
       <div className={styles.mainArticleContainer}>
         <Photo className={styles.mainArticleLogo} photo={mainArticle.altLogo} />
-        <h3 className={cx(styles.heading, 'h3-updated quote-md')}>
-          {mainArticle.title}
-        </h3>
+        <h3 className={cx(styles.heading, 'quote-md')}>{mainArticle.title}</h3>
         <a
           href={mainArticle.link}
           className={cx(styles.link, 'label-small-updated')}

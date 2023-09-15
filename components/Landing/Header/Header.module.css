@@ -29,6 +29,7 @@
   padding-top: var(--spacing-medium);
   gap: var(--spacing-small);
 }
+
 .image {
   z-index: 0;
   min-height: 100%;
@@ -38,15 +39,14 @@
   left: 50%;
   transform: translate(-50%, 0);
   object-fit: contain;
-
   min-width: 100%;
 }
 
 .title {
   font-family: var(--flexa);
   font-variation-settings: 'wght' 898, 'wdth' 42;
-  font-size: 64px;
-  line-height: 64px;
+  font-size: 5.61rem;
+  line-height: 5rem;
   text-transform: uppercase;
   max-width: 1000px;
   color: var(--white);
@@ -55,6 +55,8 @@
 }
 
 .subtitle {
+  font-size: 3.157rem;
+  line-height: 3rem;
   max-width: 400px;
   text-transform: none;
   color: var(--white);
@@ -67,21 +69,33 @@
     flex-direction: column;
     padding: var(--spacing-xxxsmall);
   }
+
   .textContainer {
     text-align: center;
   }
+
   .title {
     max-width: 100%;
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 2.986rem;
+    line-height: 2.8rem;
   }
+
+  .subtitle {
+    font-size: 1.728rem;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    font-variation-settings: 'wght' 604, 'wdth' 42;
+  }
+
   .buttonContainer {
     flex-direction: column;
     gap: 0;
   }
+
   .button {
     margin: var(--spacing-small) 0;
   }
+
   .videoContainer {
     margin: calc(-1 * var(--spacing-xlarge)) 0 var(--spacing-medium);
   }

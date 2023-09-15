@@ -20,6 +20,8 @@
 
 .title {
   text-transform: uppercase;
+  font-size: 3.157rem;
+  line-height: 3.3rem;
 }
 
 .tease-quote-big {
@@ -233,8 +235,8 @@ h2,
 }
 
 .h2-updated {
-  font-size: 63.15px;
-  line-height: 64px;
+  font-size: 5.61rem;
+  line-height: 5.7rem;
 }
 
 h3,
@@ -341,8 +343,8 @@ h4 {
 
 .h4-updated {
   font-family: var(--flexa);
-  font-size: 35.5px;
-  line-height: 36px;
+  font-size: 2.369rem;
+  line-height: 2.4rem;
   font-stretch: 100%;
   font-weight: 800;
 }
@@ -449,10 +451,11 @@ h4 {
   font-stretch: 95%;
   font-variation-settings: 'wght' 321, 'wdth' 95;
 }
+
 .body {
   font-family: var(--flexa);
-  font-size: 20px;
-  line-height: 27px;
+  font-size: 1.333rem;
+  line-height: 1.6rem;
   font-variation-settings: 'wght' 321, 'wdth' 95;
   margin: var(--spacing-small) 0;
 }
@@ -749,8 +752,8 @@ h4 {
 
 @media only screen and (max-width: 768px) {
   .body {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
   }
   .quote-xl {
     font-family: var(--flexa);
@@ -763,8 +766,8 @@ h4 {
   }
   .quote-lg {
     font-family: var(--flexa);
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 1.728rem;
+    line-height: 1.9rem;
     letter-spacing: -0.01em;
     font-stretch: 55%;
     font-variation-settings: 'wght' 645, 'wdth' 55;
@@ -813,6 +816,10 @@ h4 {
     line-height: 32px;
     letter-spacing: -0.05em;
     font-variation-settings: 'wght' 600, 'wdth' 32;
+  }
+  .h4-updated {
+    font-size: 2.074rem;
+    line-height: 2.1rem;
   }
   .nav-link-xl {
     font-family: var(--flexa);

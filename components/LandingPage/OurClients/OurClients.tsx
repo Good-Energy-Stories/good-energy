@@ -11,7 +11,7 @@ const OfferingsPage = ({ data }) => {
     <div data-theme={'white'} className={styles.container}>
       <Heading title={title} />
       <div className={styles.paragraphContainer}>
-        <p className="body-small">{description}</p>
+        <p className="body">{description}</p>
       </div>
       <div className={styles.clientContainer}>
         {clients?.map((item, index) => {

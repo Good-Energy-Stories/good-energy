@@ -21,9 +21,15 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .inner {
+    max-width: none;
+  }
+
   .image {
     max-height: 100%;
     max-width: none;
+    bottom: -10%;
+    right: -40%;
   }
 
   .container {

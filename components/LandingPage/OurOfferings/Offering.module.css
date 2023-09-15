@@ -10,6 +10,10 @@
 .name {
   margin-top: var(--spacing-medium);
   color: var(--blueFour);
+  font-size: 1.333rem;
+  line-height: 1.5rem;
+  font-variation-settings: 'wght' 200;
+  margin-bottom: var(--spacing-small);
 }
 
 .description {
@@ -39,5 +43,12 @@ button.cta {
   .container {
     grid-column: span 8;
     gap: 0;
+  }
+
+  .name {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-variation-settings: 'wght' 300;
+    margin-bottom: var(--spacing-small);
   }
 }

@@ -27,4 +27,10 @@
   .container {
     padding: var(--spacing-medium);
   }
+
+  .title {
+    font-size: 1.728rem;
+    line-height: 1.8rem;
+    font-variation-settings: 'wght' 650, 'wdth' 42;
+  }
 }
