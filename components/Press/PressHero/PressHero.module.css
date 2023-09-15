@@ -16,8 +16,9 @@
 }
 
 .mainArticleLogo {
-  max-height: 30px;
-  width: 100%;
+  max-height: 32px;
+  max-width: 240px;
+  object-fit: contain;
 }
 
 .heading {
@@ -44,14 +45,14 @@
 
 .logoContainer {
   grid-column: span 8;
-  display: flex;
-  justify-content: space-between;
   margin-top: var(--spacing-large);
+  display: grid;
+  grid-template-columns: var(--grid-col);
 }
 
 .asSeenInLogo {
   object-fit: contain;
-  width: 160px;
+  max-height: 64px;
 }
 
 .seeMoreButtonContainer {
