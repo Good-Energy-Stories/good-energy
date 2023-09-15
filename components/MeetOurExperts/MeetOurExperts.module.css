@@ -13,6 +13,10 @@
   position: relative;
   grid-column: span 4;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  align-items: flex-start;
 }
 
 .logo {
