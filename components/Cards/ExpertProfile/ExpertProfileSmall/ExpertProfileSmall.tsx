@@ -14,8 +14,14 @@ const ExpertProfileSmall = ({
   className,
   forceDesktop,
 }: any) => {
-  const { name, Information, smallPortraitImage, pronouns, organization } =
-    data;
+  const {
+    name,
+    Information,
+    smallPortraitImage,
+    pronouns,
+    title,
+    organization,
+  } = data;
 
   const getColor = (index) => {
     const colors = ['var(--yellow)', 'var(--pink)', 'var(--blueFour)'];
@@ -45,6 +51,8 @@ const ExpertProfileSmall = ({
       <div className={styles.textContainer}>
         <h4 className={styles.name}>{name}</h4>
         <span className={cx(styles.pronouns, 'label-small')}>{pronouns}</span>
+        <span className={styles.title}>{title}</span>
+        <span className={styles.organization}>{organization}</span>
       </div>
     </div>
   );
