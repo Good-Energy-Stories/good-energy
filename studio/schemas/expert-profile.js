@@ -45,6 +45,13 @@ export default {
       hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description: "This person's title",
+      hidden: ({ parent }) => parent?.expertType !== 'individual',
+    },
+    {
       name: 'organization',
       title: 'Organization',
       type: 'string',
