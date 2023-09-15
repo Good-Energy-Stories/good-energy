@@ -84,7 +84,12 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0, -1000px, 0);
+    /* Each expert is
+      (74.57px + 20px padding-top + 20px padding bottom + 3.75 border)
+      * 12 experts
+      = 1419.84px
+    */
+    transform: translate3d(0, -1419.84px, 0);
   }
 }
 

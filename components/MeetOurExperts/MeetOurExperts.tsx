@@ -12,6 +12,14 @@ const cx = classnames.bind(styles);
 
 const MeetOurExperts = ({ data }: any) => {
   const { title, description, CTAText, CTALink, expertProfiles } = data;
+
+  // RENDER TWO EXTRA EXPERTS TO SMOOTH INFINITE SCROLL EFFECT
+  const profilesCopy = JSON.parse(JSON.stringify(expertProfiles));
+  const renderedExperts = expertProfiles.concat([
+    profilesCopy[0],
+    profilesCopy[1],
+  ]);
+
   const renderExperts = (content) => {
     return content.map((expert, index) => {
       return (
@@ -48,7 +56,7 @@ const MeetOurExperts = ({ data }: any) => {
             styles.scrollElement,
           )}
         >
-          {renderExperts(expertProfiles)}
+          {renderExperts(renderedExperts)}
         </div>
       </div>
     </div>
