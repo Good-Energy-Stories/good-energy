@@ -1,3 +1,7 @@
+/**
+ * Client logo parade for homepage.
+ */
+
 import classnames from 'classnames';
 import styles from './OurClients.module.css';
 import Photo from '../../Photo/Photo';
@@ -5,7 +9,7 @@ import Heading from '../../Heading/Heading';
 import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 const cx = classnames.bind(styles);
 
-const OfferingsPage = ({ data }) => {
+const OurClients = ({ data }) => {
   const { title, description, clients, CTAText, CTALink } = data;
   return (
     <div data-theme={'white'} className={styles.container}>
@@ -31,4 +35,4 @@ const OfferingsPage = ({ data }) => {
   );
 };
 
-export default OfferingsPage;
+export default OurClients;

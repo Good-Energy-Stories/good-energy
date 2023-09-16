@@ -1,3 +1,7 @@
+/**
+ * Collapsing nav for sidebar and footer.
+ */
+
 import styles from './Nav.module.css';
 import NavList from './NavList';
 

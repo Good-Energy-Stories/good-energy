@@ -1,13 +1,12 @@
 /**
  * Funding Partners section for the homepage.
- * Different layout than the other Funding Partners sections.
+ * Different layout than the other Partners logo sections on Partners page.
  */
 
 import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 import Heading from '../../Heading/Heading';
 import styles from './FundingPartners.module.css';
 import classnames from 'classnames';
-import { imageUrlFor } from '../../../utils/imageUrlFor';
 import * as ga from '../../../lib/ga';
 
 const cx = classnames.bind(styles);

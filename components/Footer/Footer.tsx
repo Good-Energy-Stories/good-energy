@@ -1,4 +1,7 @@
-import css from 'styled-jsx/css';
+/**
+ * Homepage footer.
+ */
+
 import Nav from './Nav';
 import styles from './Footer.module.css';
 import Socials from './Socials';

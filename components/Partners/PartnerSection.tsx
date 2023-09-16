@@ -1,3 +1,8 @@
+/**
+ * Partner section for Partners page. Can render half columns or full columns,
+ * depending on CMS option.
+ */
+
 import dynamic from 'next/dynamic';
 const Full = dynamic(() => import('./Full/Full'));
 const Half = dynamic(() => import('./Half/Half'));

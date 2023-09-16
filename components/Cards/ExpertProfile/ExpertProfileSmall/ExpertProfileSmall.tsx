@@ -1,10 +1,10 @@
-import { PronounsAndOrganization, Links } from '../ExpertProfileCardComponents';
-import { Tags } from '../../';
-import { toPlainText } from '@portabletext/react';
+/**
+ * Small expert profile card for homepage carousel.
+ */
+
 import styles from './ExpertProfileSmall.module.css';
 import Photo from '../../../Photo/Photo';
 import classnames from 'classnames';
-import Link from 'next/link';
 const cx = classnames.bind(styles);
 
 const ExpertProfileSmall = ({
@@ -14,14 +14,7 @@ const ExpertProfileSmall = ({
   className,
   forceDesktop,
 }: any) => {
-  const {
-    name,
-    Information,
-    smallPortraitImage,
-    pronouns,
-    title,
-    organization,
-  } = data;
+  const { name, smallPortraitImage, pronouns, title, organization } = data;
 
   const getColor = (index) => {
     const colors = ['var(--yellow)', 'var(--pink)', 'var(--blueFour)'];

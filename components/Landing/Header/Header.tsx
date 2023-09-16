@@ -1,3 +1,7 @@
+/**
+ * Website header.
+ */
+
 import { imageUrlFor } from '../../../utils/imageUrlFor';
 import styles from './Header.module.css';
 import classnames from 'classnames';

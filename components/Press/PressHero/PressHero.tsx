@@ -1,12 +1,12 @@
+/**
+ * Press hero section for homepage.
+ */
+
 import styles from './PressHero.module.css';
 import classnames from 'classnames';
 import * as ga from '../../../lib/ga';
-import PressCard, { PressCardType } from '../Cards/PressCard';
-import { PortableText } from '@portabletext/react';
-import PortableTextSerializer from '../../PortableTextSerializer';
 import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 import Photo from '@/components/Photo/Photo';
-import Link from 'next/link';
 const cx = classnames.bind(styles);
 
 const IndividualPressFeature = ({ data }: any) => {

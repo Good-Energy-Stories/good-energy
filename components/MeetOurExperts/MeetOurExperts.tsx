@@ -1,7 +1,11 @@
+/**
+ * Meet Our Experts container section for homepage.
+ * Includes expert card infinite scroll effect.
+ */
+
 import Heading from '../Heading/Heading';
 import styles from './MeetOurExperts.module.css';
 import { PortableText } from '@portabletext/react';
-import { motion } from 'framer-motion';
 import { PortableTextSerializer } from '../';
 import classnames from 'classnames';
 import ExpertProfileCard, {

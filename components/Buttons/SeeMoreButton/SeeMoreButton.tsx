@@ -1,3 +1,8 @@
+/**
+ * Thin blue outline button with some "See More..." prompt.
+ * Caller often positions this button outside of the flow of the document.
+ */
+
 import styles from './SeeMoreButton.module.css';
 import classnames from 'classnames';
 const cx = classnames.bind(styles);

@@ -1,3 +1,7 @@
+/**
+ * Land acknowledgment for website pages.
+ */
+
 import { PortableText } from '@portabletext/react';
 import PortableTextSerializer from '../PortableTextSerializer';
 import classNames from 'classnames';
