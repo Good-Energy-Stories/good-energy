@@ -44,10 +44,8 @@ const Header = ({
           <CTAButton
             className={styles.button}
             data={{
-              label: 'Support Us',
-              link:
-                donateLink ??
-                'https://creativevisions.networkforgood.com/projects/54417-creative-visions-fiscal-sponsorship-good-energy',
+              label: 'Make A Donation',
+              link: donateLink ?? 'https://goodenergystories.kindful.com/',
               labelSize: ButtonLabelSize.Small,
               newTab: true,
               backgroundColor: 'black',

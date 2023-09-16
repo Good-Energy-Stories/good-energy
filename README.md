@@ -22,7 +22,12 @@ npm run dev
 
 To locally run the CMS, Sanity, go into the `studio/` folder. From the project root, run `cd studio` in a terminal.
 
-Then, run:
+To install the [Sanity CLI](https://www.sanity.io/docs/cli), run:
+```
+npm install --g sanity@latest
+```
+
+Run `npm install` again in this directory, then run:
 
 ```
 sanity install
