@@ -14,6 +14,18 @@ export default {
       to: [{ type: 'press' }],
     },
     {
+      name: 'CTAText',
+      title: 'CTA Text',
+      type: 'string',
+      description: 'Text for CTA button, ex. "See More Press"',
+    },
+    {
+      name: 'CTALink',
+      title: 'CTA Link',
+      type: 'string',
+      description: 'Link for CTA button (slug)',
+    },
+    {
       title: 'Content',
       name: 'content',
       description:

@@ -34,8 +34,8 @@ export default {
     {
       name: 'CTALink',
       title: 'CTA Link',
-      type: 'url',
-      description: 'Link for CTA button on clients page',
+      type: 'string',
+      description: 'Link for CTA button on clients page (slug)',
     },
     {
       title: 'Clients',

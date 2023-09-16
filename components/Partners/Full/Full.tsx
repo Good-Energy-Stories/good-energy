@@ -7,8 +7,14 @@ import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 const cx = classnames.bind(styles);
 
 const Full = ({ data, truncate = false, className }: any) => {
-  const { title, partners, backgroundColor, showLinkToPartnersPage, rowWidth } =
-    data;
+  const {
+    title,
+    partners,
+    backgroundColor,
+    showLinkToPartnersPage,
+    CTALink,
+    rowWidth,
+  } = data;
   const shouldTruncate = partners.length > 6 && truncate;
   const partnersFormatted = shouldTruncate ? partners.slice(0, 6) : partners;
 
@@ -35,10 +41,7 @@ const Full = ({ data, truncate = false, className }: any) => {
 
         {showLinkToPartnersPage && (
           <div className={styles.buttonContainer}>
-            <SeeMoreButton
-              label={'See All Partners'}
-              link={'/about/partners'}
-            />
+            <SeeMoreButton label={'See All Partners'} link={CTALink} />
           </div>
         )}
       </div>

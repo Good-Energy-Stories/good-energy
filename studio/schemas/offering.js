@@ -63,8 +63,8 @@ export default {
     {
       name: 'CTALink',
       title: 'CTA Button Link',
-      type: 'url',
-      description: 'Where the button should link to.',
+      type: 'string',
+      description: 'Where the button should link to (slug)',
       validation: (Rule) => Rule.required(),
     },
   ],

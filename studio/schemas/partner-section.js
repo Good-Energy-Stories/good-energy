@@ -67,6 +67,12 @@ export default {
         'If this is toggled on, a CTA button that links to the partners page will be appended to the bottom of the section',
     },
     {
+      name: 'CTALink',
+      title: 'CTA Link',
+      type: 'string',
+      description: 'Link for CTA button on partners section (slug)',
+    },
+    {
       title: 'Partners',
       name: 'partners',
       description: 'You can add any number of partners to a section.',

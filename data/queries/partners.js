@@ -14,6 +14,7 @@ title,
 size,
 rowWidth,
 showLinkToPartnersPage,
+CTALink,
 backgroundColor,
 partners[]->{
     ${partner}

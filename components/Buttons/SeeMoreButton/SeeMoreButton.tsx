@@ -2,7 +2,7 @@ import styles from './SeeMoreButton.module.css';
 import classnames from 'classnames';
 const cx = classnames.bind(styles);
 
-const SubmitButton = ({
+const SeeMoreButton = ({
   label = 'See More',
   link,
   newTab = true,
@@ -21,4 +21,4 @@ const SubmitButton = ({
   );
 };
 
-export default SubmitButton;
+export default SeeMoreButton;

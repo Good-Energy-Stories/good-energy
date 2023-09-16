@@ -28,6 +28,8 @@ export const pressHero = `
 mainArticle->{
   ${pressFragment}
 },
+CTAText,
+CTALink,
 content[]->{
   ${pressFragment}
 }

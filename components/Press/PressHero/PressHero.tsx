@@ -10,9 +10,7 @@ import Link from 'next/link';
 const cx = classnames.bind(styles);
 
 const IndividualPressFeature = ({ data }: any) => {
-  const { mainArticle, content } = data;
-  console.log('data');
-  console.log(data);
+  const { mainArticle, CTAText, CTALink, content } = data;
 
   return (
     <article className={styles.container}>
@@ -43,12 +41,7 @@ const IndividualPressFeature = ({ data }: any) => {
         </div>
       </div>
       <div className={styles.seeMoreButtonContainer}>
-        <SeeMoreButton
-          data={{
-            label: 'See More Press',
-            link: '/about/press',
-          }}
-        />
+        <SeeMoreButton label={CTAText} link={CTALink} />
       </div>
     </article>
   );
