@@ -47,6 +47,8 @@ To create a new content section on the website, there are three steps:
 
 Content is never stored locally. Data is always stored in Sanity's hosted Content Lake. This means you can make changes to local data schemas without changing any other existing content.
 
+**** WARNING: **** This also means that components may be in use on the site that aren't referenced outside the renderer. Be careful when changing components, because those components may be in use elsewhere on the site. Check the CMS and schema to confirm.
+
 ### Testing
 
 To build your Studio for production locally, run the following command in the Studio project folder:
