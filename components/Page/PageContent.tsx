@@ -71,6 +71,9 @@ const NewsletterCTA = dynamic(
 const MeetOurExperts = dynamic(
   () => import('../MeetOurExperts/MeetOurExperts'),
 );
+const FundingPartners = dynamic(
+  () => import('../Partners/FundingPartners/FundingPartners'),
+);
 
 const PageContent = ({ content }: any) => {
   const type = content._type;
@@ -136,6 +139,8 @@ const PageContent = ({ content }: any) => {
       return <NewsletterCTA data={content} />;
     case 'meetOurExperts':
       return <MeetOurExperts data={content} />;
+    case 'fundingPartners':
+      return <FundingPartners data={content} />;
     default:
       return null;
   }

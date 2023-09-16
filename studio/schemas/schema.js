@@ -39,6 +39,7 @@ import featuredVoicesPage from './featured-voices-page';
 import featuredVoicesSection from './featured-voices-section';
 import fullWidthImage from './full-width-image';
 import fullWidthStatement from './full-width-statement';
+import fundingPartners from './funding-partners';
 import halfPageContent from './half-page-content';
 import imageCarousel from './image-carousel';
 import individualPartnerFeature from './individual-partner-feature';
@@ -143,6 +144,7 @@ export default createSchema({
     featuredVoicesSection,
     fullWidthImage,
     fullWidthStatement,
+    fundingPartners,
     halfPageContent,
     imageCarousel,
     individualPartnerFeature,

@@ -26,3 +26,12 @@ partners[]->{
     ${partner}
 },
 `;
+
+export const fundingPartners = `
+title,
+CTAText,
+CTALink,
+partners[]->{
+    ${partner}
+},
+`;

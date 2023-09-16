@@ -1,6 +1,6 @@
 import { imageMeta } from './imageMeta';
 import { pageSeo } from './pageSeo';
-import { partner, partnerSection } from './partners';
+import { partner, partnerSection, fundingPartners } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
 import { pressHero, pressFragment, pressSection } from './press';
@@ -186,6 +186,10 @@ export const pageContentFragment = `
     _type == 'pressHero' => {
       _type,
       ${pressHero}
+    },
+    _type == 'fundingPartners' => {
+      _type,
+      ${fundingPartners}
     },
     _type == 'newsletterCTA' => {
       _type,
