@@ -12,6 +12,8 @@ const Full = ({ data, truncate = false, className }: any) => {
     partners,
     backgroundColor,
     showLinkToPartnersPage,
+    useAltLogos,
+    CTAText,
     CTALink,
     rowWidth,
   } = data;
@@ -26,6 +28,7 @@ const Full = ({ data, truncate = false, className }: any) => {
           className={index > 0 && styles.hiddenMobile}
           width={rowWidth}
           data={item}
+          useAltLogos
         />
       );
     });
@@ -41,7 +44,7 @@ const Full = ({ data, truncate = false, className }: any) => {
 
         {showLinkToPartnersPage && (
           <div className={styles.buttonContainer}>
-            <SeeMoreButton label={'See All Partners'} link={CTALink} />
+            <SeeMoreButton label={CTAText} link={CTALink} />
           </div>
         )}
       </div>

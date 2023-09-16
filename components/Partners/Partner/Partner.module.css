@@ -1,6 +1,8 @@
 .container {
-  display: flex;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 240px;
   flex: 0 0 calc(25% - var(--spacing-small));
 }
 
@@ -10,9 +12,13 @@
 .container[data-width='four'] {
   flex: 0 0 calc(25% - var(--spacing-small));
 }
+
+/* Partners section on homepage */
 .container[data-width='five'] {
   flex: 0 0 calc(20% - var(--spacing-small));
+  height: 120px;
 }
+
 .container a {
   transition: 0.3s ease;
 }

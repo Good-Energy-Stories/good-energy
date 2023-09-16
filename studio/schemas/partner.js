@@ -56,5 +56,12 @@ export default {
         },
       ],
     },
+    {
+      title: 'Alt Logo (For Press Hero section only)',
+      description:
+        'For example, a different color treatment with transparent background',
+      name: 'altLogo',
+      type: 'image',
+    },
   ],
 };

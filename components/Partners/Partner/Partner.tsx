@@ -37,12 +37,14 @@ const Partner = ({
   data,
   width = ROW_WIDTH.FOUR,
   className,
+  useAltLogos,
 }: {
   data: any;
   width?: ROW_WIDTH;
   className?: string;
+  useAltLogos?: boolean;
 }) => {
-  const { logo, size, link } = data;
+  const { logo, altLogo, size, link } = data;
   return (
     <>
       <div
@@ -54,5 +56,13 @@ const Partner = ({
     </>
   );
 };
+
+// REPLACE ONCE WE HAVE CORRECT ALT LOGO ASSETS
+//
+// {useAltLogos ?
+//   <Logo logo={altLogo} link={link} size={size} />
+//   :
+//   <Logo logo={logo} link={link} size={size} />
+// }
 
 export default Partner;

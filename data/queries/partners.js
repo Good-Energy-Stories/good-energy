@@ -5,8 +5,12 @@ title,
 size,
 link,
 logo{
+    caption,
     ${imageMeta}
 },
+altLogo{
+    ${imageMeta}
+}
 `;
 
 export const partnerSection = `
@@ -14,6 +18,8 @@ title,
 size,
 rowWidth,
 showLinkToPartnersPage,
+useAltLogos,
+CTAText,
 CTALink,
 backgroundColor,
 partners[]->{
