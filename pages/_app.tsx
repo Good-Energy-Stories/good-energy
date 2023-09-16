@@ -21,9 +21,9 @@ import { withPasswordProtect } from '@/lib/withPasswordProtect';
 import { useRouter } from 'next/router';
 
 // Console Credits
-if (isBrowser) {
-  signature;
-}
+// if (isBrowser) {
+//   signature;
+// }
 const PASSWORD_PROTECTED_ROUTES = ['/end-of-year-report'];
 const HIDE_LAYOUT_ROUTES = ['/end-of-year-report'];
 
