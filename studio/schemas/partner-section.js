@@ -41,7 +41,6 @@ export default {
         list: [
           { title: 'Three', value: 'three' },
           { title: 'Four', value: 'four' },
-          { title: 'Five', value: 'five' },
         ],
       },
     },
@@ -65,25 +64,6 @@ export default {
       type: 'boolean',
       description:
         'If this is toggled on, a CTA button that links to the partners page will be appended to the bottom of the section',
-    },
-    {
-      name: 'useAltLogos',
-      title: 'Use Alt Partner Logos',
-      type: 'boolean',
-      description:
-        'If this is toggled on, use the blue knockouts of the Partner logos.',
-    },
-    {
-      name: 'CTAText',
-      title: 'CTA Text',
-      type: 'string',
-      description: 'Text for CTA button on partners section',
-    },
-    {
-      name: 'CTALink',
-      title: 'CTA Link',
-      type: 'string',
-      description: 'Link for CTA button on partners section (slug)',
     },
     {
       title: 'Partners',

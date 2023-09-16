@@ -1,24 +1,18 @@
 .container {
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   height: 240px;
+  width: 100%;
   flex: 0 0 calc(25% - var(--spacing-small));
 }
-
 .container[data-width='three'] {
   flex: 0 0 calc(33% - var(--spacing-small));
 }
 .container[data-width='four'] {
   flex: 0 0 calc(25% - var(--spacing-small));
 }
-
-/* Partners section on homepage */
-.container[data-width='five'] {
-  flex: 0 0 calc(20% - var(--spacing-small));
-  height: 120px;
-}
-
 .container a {
   transition: 0.3s ease;
 }
@@ -30,22 +24,14 @@
   min-width: 100%;
   max-width: 100%;
 }
-
 @media only screen and (max-width: 768px) {
-  .image {
-    max-height: 160px;
-  }
   .container {
     flex: 0 0 calc(100% - var(--spacing-small));
-    justify-content: center;
   }
   .container[data-width='three'] {
     flex: 0 0 calc(100% - var(--spacing-small));
   }
   .container[data-width='four'] {
-    flex: 0 0 calc(100% - var(--spacing-small));
-  }
-  .container[data-width='five'] {
     flex: 0 0 calc(100% - var(--spacing-small));
   }
 }

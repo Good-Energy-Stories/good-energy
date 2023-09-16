@@ -1,7 +1,5 @@
 .container {
   grid-column: 1/-1;
-  position: relative;
-  padding: var(--spacing-large);
 }
 .container[data-theme='black'] {
   padding: var(--spacing-large);
@@ -11,7 +9,7 @@
 .inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .title {
   border-bottom: 1px solid var(--blueThree);
@@ -25,37 +23,11 @@
   justify-content: center;
   margin: var(--spacing-large) 0;
 }
-
-.buttonContainer button {
-  position: absolute;
-  top: 0;
-  margin-top: var(--spacing-large);
-  right: var(--spacing-large);
-}
-
 @media only screen and (max-width: 768px) {
-  .hiddenMobile {
-    display: none !important;
-  }
-
   .container {
     margin: 0;
     padding: 0 var(--spacing-small);
   }
-
-  .buttonContainer {
-    grid-column: span 8;
-    display: flex;
-    justify-content: center;
-  }
-
-  .buttonContainer button {
-    position: relative;
-    align-items: center;
-    margin-top: 0;
-    right: 0;
-  }
-
   .title {
     margin: 0;
   }

@@ -5,7 +5,6 @@ const Half = dynamic(() => import('./Half/Half'));
 export enum ROW_WIDTH {
   THREE = 'three',
   FOUR = 'four',
-  FIVE = 'five',
 }
 
 export const PartnerSection = ({ data, className }: any) => {
