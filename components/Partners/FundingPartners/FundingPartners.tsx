@@ -40,9 +40,6 @@ const renderPartners = (partners) => {
 
 export const fundingPartners = ({ data, className }: any) => {
   const { title, CTAText, CTALink, partners } = data;
-  console.log('partners');
-  console.log(partners);
-  // console.log(partners.forEach(partner => console.log(partner.logo.asset.url)))
   return (
     <div className={styles.container}>
       <Heading title={title} />
