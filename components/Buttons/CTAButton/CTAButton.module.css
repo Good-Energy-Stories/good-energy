@@ -7,17 +7,23 @@
   margin: var(--spacing-medium) 0;
   color: var(--black);
   transition: 0.3s;
+  z-index: 11; /* so this appears above the Label below */
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-.container:last-of-type {
-  margin-top: auto;
+
+.container:nth-of-type(n + 1) {
+  margin-right: var(--spacing-small);
 }
+
 .label {
+  font-size: 1.333rem;
+  line-height: 1.5rem;
   position: relative;
   z-index: 10;
   margin: 0;
   display: flex;
 }
+
 .container[data-theme='black'] {
   color: var(--white);
 }
@@ -78,5 +84,10 @@ body[data-theme='DARK'] .container::before {
 @media only screen and (max-width: 768px) {
   .container {
     white-space: wrap;
+  }
+
+  .label {
+    font-size: 1.44rem;
+    line-height: 1.5rem;
   }
 }

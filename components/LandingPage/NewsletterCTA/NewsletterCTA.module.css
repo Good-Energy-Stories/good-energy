@@ -1,0 +1,39 @@
+.container {
+  grid-column: 1/-1;
+  position: relative;
+  padding: var(--spacing-large) var(--spacing-large);
+  background: var(--white);
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  max-width: 100%;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 69%;
+  margin-bottom: var(--spacing-large);
+}
+
+@media only screen and (max-width: 768px) {
+  .inner {
+    max-width: none;
+  }
+
+  .image {
+    max-height: 100%;
+    max-width: none;
+    bottom: -10%;
+    right: -40%;
+  }
+
+  .container {
+    overflow: hidden;
+    padding: 0 var(--spacing-small);
+  }
+}

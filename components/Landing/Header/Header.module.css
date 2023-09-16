@@ -1,29 +1,35 @@
 .container {
+  display: grid;
   grid-column: 1/-1;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+  column-gap: var(--spacing-large);
   background-color: var(--blueFive);
   position: relative;
   overflow: hidden;
+  padding: var(--spacing-medium);
 }
+
 .textContainer {
+  grid-column: 1/5;
   position: relative;
   z-index: 1;
-  text-align: center;
+  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-large);
+}
 
-  padding: var(--spacing-xlarge) var(--spacing-medium);
-
-  width: 100%;
+.videoContainer {
+  grid-column: 5/-1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: var(--spacing-medium);
 }
+
 .buttonContainer {
   padding-top: var(--spacing-medium);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: var(--spacing-small);
 }
+
 .image {
   z-index: 0;
   min-height: 100%;
@@ -33,33 +39,64 @@
   left: 50%;
   transform: translate(-50%, 0);
   object-fit: contain;
-
   min-width: 100%;
 }
 
 .title {
+  font-family: var(--flexa);
+  font-variation-settings: 'wght' 898, 'wdth' 42;
+  font-size: 5.61rem;
+  line-height: 5rem;
+  text-transform: uppercase;
   max-width: 1000px;
   color: var(--white);
   margin-top: 0;
   margin-bottom: var(--spacing-small);
 }
+
 .subtitle {
+  font-size: 3.157rem;
+  line-height: 3rem;
   max-width: 400px;
   text-transform: none;
   color: var(--white);
 }
+
 @media only screen and (max-width: 768px) {
   .container {
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xxxsmall);
   }
+
+  .textContainer {
+    text-align: center;
+  }
+
   .title {
     max-width: 100%;
+    font-size: 2.986rem;
+    line-height: 2.8rem;
   }
+
+  .subtitle {
+    font-size: 1.728rem;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    font-variation-settings: 'wght' 604, 'wdth' 42;
+  }
+
   .buttonContainer {
     flex-direction: column;
     gap: 0;
   }
+
   .button {
     margin: var(--spacing-small) 0;
+  }
+
+  .videoContainer {
+    margin: calc(-1 * var(--spacing-xlarge)) 0 var(--spacing-medium);
   }
 }

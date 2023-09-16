@@ -18,6 +18,12 @@
     url('/fonts/Flexa/FlexaMonoVAR.ttf') format('truetype');
 }
 
+.title {
+  text-transform: uppercase;
+  font-size: 3.157rem;
+  line-height: 3.3rem;
+}
+
 .tease-quote-big {
   font-size: 64px;
   line-height: 62px;
@@ -145,6 +151,10 @@
   font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 100;
   position: relative;
 }
+.quote-sm .updated {
+  font-size: 26.7px;
+  line-height: 26px;
+}
 .quote-sm::before {
   content: '“';
   position: absolute;
@@ -222,6 +232,11 @@ h2,
   text-transform: capitalize;
   margin: var(--spacing-small) 0;
   font-weight: unset;
+}
+
+.h2-updated {
+  font-size: 5.61rem;
+  line-height: 5.7rem;
 }
 
 h3,
@@ -318,6 +333,22 @@ h4 {
   font-weight: unset;
 }
 
+.h3-updated {
+  font-family: var(--flexa);
+  font-size: 36px;
+  line-height: 36px;
+  font-stretch: 100%;
+  font-weight: 800;
+}
+
+.h4-updated {
+  font-family: var(--flexa);
+  font-size: 2.369rem;
+  line-height: 2.4rem;
+  font-stretch: 100%;
+  font-weight: 800;
+}
+
 .h4-quote {
 }
 .h4-quote::before {
@@ -371,6 +402,14 @@ h4 {
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
+
+.label-small-updated {
+  font-family: var(--flexa-mono);
+  font-size: 15px;
+  font-weight: 300;
+  font-variation-settings: 'wght' 400;
+  text-transform: uppercase;
+}
 .label-medium {
   font-family: var(--flexa-mono);
   font-size: 18px;
@@ -379,8 +418,26 @@ h4 {
   font-variation-settings: 'wght' 400;
   text-transform: uppercase;
 }
+.label-medium-updated {
+  color: var(--blueThree);
+  font-family: var(--flexa-mono);
+  font-size: 20px;
+  line-height: auto;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  text-transform: uppercase;
+}
 .label-large {
   font-family: var(--flexa-mono);
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  text-transform: uppercase;
+}
+.label-large-updated {
+  font-family: var(--flexa-mono);
+  color: var(--blueSix);
   font-size: 24px;
   line-height: 29px;
   font-weight: 400;
@@ -394,12 +451,19 @@ h4 {
   font-stretch: 95%;
   font-variation-settings: 'wght' 321, 'wdth' 95;
 }
+
 .body {
+  font-family: var(--flexa);
+  font-size: 1.333rem;
+  line-height: 1.6rem;
+  font-variation-settings: 'wght' 321, 'wdth' 95;
+  margin: var(--spacing-small) 0;
+}
+
+.body-small {
   font-family: var(--flexa);
   font-size: 20px;
   line-height: 27px;
-  font-variation-settings: 'wght' 321, 'wdth' 95;
-  margin: var(--spacing-small) 0;
 }
 
 .body-italic {
@@ -687,6 +751,10 @@ h4 {
 }
 
 @media only screen and (max-width: 768px) {
+  .body {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
   .quote-xl {
     font-family: var(--flexa);
     font-size: 48px;
@@ -698,13 +766,19 @@ h4 {
   }
   .quote-lg {
     font-family: var(--flexa);
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 1.728rem;
+    line-height: 1.9rem;
     letter-spacing: -0.01em;
     font-stretch: 55%;
     font-variation-settings: 'wght' 645, 'wdth' 55;
     position: relative;
   }
+
+  .quote-md {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
   .h1-xl {
     font-size: 62px;
     line-height: 53px;
@@ -733,11 +807,19 @@ h4 {
     line-height: 36px;
     letter-spacing: -1px;
   }
+  .h2-updated {
+    font-size: 40px;
+    line-height: 43px;
+  }
   h3 {
     font-size: 30px;
     line-height: 32px;
     letter-spacing: -0.05em;
     font-variation-settings: 'wght' 600, 'wdth' 32;
+  }
+  .h4-updated {
+    font-size: 2.074rem;
+    line-height: 2.1rem;
   }
   .nav-link-xl {
     font-family: var(--flexa);

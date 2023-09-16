@@ -14,7 +14,7 @@ const Label = ({ size, label }) => {
     case PageDividerLabelSize.Small:
       return <span className="label-medium">{label}</span>;
     case PageDividerLabelSize.Medium:
-      return <h4>{label}</h4>;
+      return <h4 className={'h4-updated'}>{label}</h4>;
     case PageDividerLabelSize.Large:
       return <h2>{label}</h2>;
     case PageDividerLabelSize.ExtraLarge:

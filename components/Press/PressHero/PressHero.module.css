@@ -1,0 +1,105 @@
+.container {
+  position: relative;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--grid-col-16);
+  gap: var(--spacing-xxsmall);
+  padding: var(--spacing-large);
+}
+
+.link {
+  color: var(--blueThree);
+}
+
+.mainArticleContainer {
+  grid-column: 1/5;
+}
+
+.mainArticleLogo {
+  max-height: 32px;
+  max-width: 240px;
+  object-fit: contain;
+}
+
+.heading {
+  font-size: 3.157rem;
+  line-height: 3.3rem;
+  font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 0;
+  margin-bottom: var(--spacing-medium);
+}
+
+.asSeenInContainer {
+  position: relative;
+  grid-column: 6/-1;
+}
+
+/* Vertical blue line */
+.asSeenInContainer:before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--spacing-large));
+  bottom: 0;
+  height: 100%;
+  border-left: 1px solid var(--blueFour);
+}
+
+.logoContainer {
+  grid-column: span 8;
+  margin-top: var(--spacing-large);
+  display: grid;
+  grid-template-columns: var(--grid-col);
+}
+
+.asSeenInLogo {
+  object-fit: contain;
+  max-height: 64px;
+}
+
+.seeMoreButtonContainer {
+  position: absolute;
+  right: var(--spacing-large);
+  bottom: var(--spacing-medium);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+    margin: var(--spacing-small);
+    display: block;
+  }
+
+  .mainArticleContainer {
+    padding: 0;
+    padding-bottom: var(--spacing-medium);
+    margin: var(--spacing-small);
+    margin-top: var(--spacing-medium);
+    border-bottom: 1px solid var(--blueFour);
+  }
+
+  .mainArticleLogo {
+    max-height: 30px;
+    width: 60%;
+  }
+
+  .heading {
+    font-size: 2.074rem;
+    line-height: 2.1rem;
+    letter-spacing: 0;
+    font-variation-settings: 'wght' 604, 'wdth' 69, 'ital' 0;
+    margin-bottom: var(--spacing-medium);
+
+    padding: var(--spacing-medium) 0;
+    padding-bottom: 0;
+    border-top: 1px solid var(--blueFour);
+  }
+
+  .asSeenInContainer {
+    display: none;
+  }
+
+  .seeMoreButtonContainer {
+    position: relative;
+    left: var(--spacing-small);
+    bottom: 0;
+  }
+}

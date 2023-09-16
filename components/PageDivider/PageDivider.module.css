@@ -9,7 +9,7 @@
   padding-top: var(--spacing-large);
 }
 .inner {
-  border-bottom: 1px solid var(--blueThree);
+  border-bottom: 4px solid var(--blueFour);
 }
 .extraLarge {
   border-bottom: 4px solid var(--blueFour);
@@ -31,7 +31,7 @@
 
 @media only screen and (max-width: 768px) {
   .container {
-    margin: 0 var(--spacing-small);
+    margin: 0 var(--spacing-medium);
   }
   .container[data-theme='black'] {
     padding: var(--spacing-medium);

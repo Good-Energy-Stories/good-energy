@@ -35,7 +35,7 @@ const InlineQuote = ({ data }: any) => {
   return (
     <div ref={ref} className={cx(styles.container)}>
       <div className={cx(styles.inner)}>
-        <div className={cx('quote-md', styles.quote)}>
+        <div className={cx('quote-sm updated', styles.quote)}>
           <motion.span
             variants={variants}
             initial="hidden"

@@ -21,6 +21,7 @@ import characterProfile from './character-profile';
 import characterProfilesPage from './character-profiles-page';
 import characterProfilesSection from './character-profiles-section';
 import characterProfilesTeaseSection from './character-profiles-tease-section';
+import client from './client';
 import climateLensBlock from './climate-lens-block';
 import consultingContactPage from './consulting-contact-page';
 import contactForm from './contact-form';
@@ -38,6 +39,7 @@ import featuredVoicesPage from './featured-voices-page';
 import featuredVoicesSection from './featured-voices-section';
 import fullWidthImage from './full-width-image';
 import fullWidthStatement from './full-width-statement';
+import fundingPartners from './funding-partners';
 import halfPageContent from './half-page-content';
 import imageCarousel from './image-carousel';
 import individualPartnerFeature from './individual-partner-feature';
@@ -47,11 +49,15 @@ import landingPage from './landing-page';
 import libraryOfExpertsPage from './library-of-experts-page';
 import libraryOfExpertsSection from './library-of-experts-section';
 import logline from './logline';
+import meetOurExperts from './meet-our-experts';
 import navigation from './navigation';
+import newsletterCTA from './newsletter-cta';
+import ourClients from './our-clients';
+import ourOfferings from './our-offerings';
+import offering from './offering';
 import offeringsPage from './offerings-page';
 import outlet from './outlet';
 import page from './page';
-import pageContent from './page-content';
 import pageDivider from './page-divider';
 import pageSeo from './page-seo';
 import partner from './partner';
@@ -67,6 +73,7 @@ import playbookThreeColumn from './playbook-three-column';
 import playlist from './playlist';
 import playlistsPage from './playlists-page';
 import press from './press';
+import pressHero from './press-hero';
 import pressPage from './press-page';
 import pressSection from './press-section';
 import quote from './quote';
@@ -119,6 +126,7 @@ export default createSchema({
     characterProfilesPage,
     characterProfilesSection,
     characterProfilesTeaseSection,
+    client,
     climateLensBlock,
     consultingContactPage,
     contactForm,
@@ -136,6 +144,7 @@ export default createSchema({
     featuredVoicesSection,
     fullWidthImage,
     fullWidthStatement,
+    fundingPartners,
     halfPageContent,
     imageCarousel,
     individualPartnerFeature,
@@ -145,8 +154,13 @@ export default createSchema({
     libraryOfExpertsPage,
     libraryOfExpertsSection,
     logline,
+    meetOurExperts,
     navigation,
+    newsletterCTA,
+    offering,
     offeringsPage,
+    ourClients,
+    ourOfferings,
     outlet,
     page,
     pageDivider,
@@ -164,6 +178,7 @@ export default createSchema({
     playlist,
     playlistsPage,
     press,
+    pressHero,
     pressPage,
     pressSection,
     quote,

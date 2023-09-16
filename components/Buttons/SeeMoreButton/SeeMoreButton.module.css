@@ -1,0 +1,18 @@
+.container {
+  width: max-content;
+  position: relative;
+  display: inline-block;
+  border: 2px solid var(--blueThree);
+  padding: 0;
+  margin: var(--spacing-medium) auto;
+  cursor: pointer;
+}
+
+.label {
+  color: var(--blueSix);
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  display: block;
+}

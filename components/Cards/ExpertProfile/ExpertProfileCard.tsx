@@ -9,6 +9,9 @@ const ExpertProfileSearch = dynamic(
 const ExpertProfileStandard = dynamic(
   () => import('./ExpertProfileStandard/ExpertProfileStandard'),
 );
+const ExpertProfileSmall = dynamic(
+  () => import('./ExpertProfileSmall/ExpertProfileSmall'),
+);
 
 export enum ExpertProfileCardStyle {
   library = 'library',
@@ -25,6 +28,7 @@ const ExpertProfileCard = ({
   style,
   className,
   imageClassName,
+  forceDesktop,
 }: any) => {
   switch (style) {
     case ExpertProfileCardStyle.library:
@@ -41,6 +45,15 @@ const ExpertProfileCard = ({
       );
     case ExpertProfileCardStyle.search:
       return <ExpertProfileSearch data={data} className={className} />;
+    case ExpertProfileCardStyle.small:
+      return (
+        <ExpertProfileSmall
+          data={data}
+          className={className}
+          index={index}
+          forceDesktop={forceDesktop}
+        />
+      );
     default:
       return <ExpertProfileStandard data={data} className={className} />;
   }

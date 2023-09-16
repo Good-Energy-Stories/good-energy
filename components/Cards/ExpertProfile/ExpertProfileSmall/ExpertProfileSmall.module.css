@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding: var(--spacing-medium) 0;
+  border-top: 4px solid var(--black);
+  height: 140px;
+}
+
+.imageContainer {
+  max-width: 30%;
+  width: 100px;
+  height: 100px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  margin-left: var(--spacing-medium);
+  width: calc(70% - var(--spacing-medium));
+}
+
+.nameContainer {
+  margin-bottom: var(--spacing-xxsmall);
+  overflow-x: visible;
+}
+
+.name {
+  display: inline;
+  margin-bottom: var(--spacing-xxsmall);
+  margin-right: var(--spacing-small);
+}
+
+.pronouns {
+  display: inline-block;
+  color: var(--blueFour);
+  font-family: var(--flexa-mono);
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.label {
+  color: var(--blueThree);
+}
+
+.bio span {
+  background: no-repeat 0 100%;
+  background-image: linear-gradient(var(--blueFour), var(--blueFour));
+  background-size: 0% 3px;
+  transition: background-size 0.3s ease-in-out;
+}
+.container[data-include-hover-animation='true']:hover .bio span {
+  background-size: 100% 3px;
+}
+
+.title {
+  display: block;
+  color: var(--white);
+  font-family: var(--flexa);
+  font-size: 0.75rem;
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+.organization {
+  display: block;
+  color: var(--pink);
+  font-family: var(--flexa);
+  font-size: 0.75rem;
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .textContainer {
+    margin-left: var(--spacing-small);
+  }
+
+  .image {
+    height: 90px;
+  }
+
+  .bio {
+    text-align: left;
+    margin: var(--spacing-medium) 0;
+  }
+}
+
+/* Shameful hack */
+.forceDesktop {
+  @media only screen and (max-width: 768px) {
+    .container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: var(--grid-col-8);
+      gap: var(--spacing-large);
+
+      padding: var(--spacing-medium) 0;
+
+      border-top: 4px solid var(--black);
+    }
+    .imageContainer {
+      grid-column: 1/3;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .textContainer {
+      grid-row-start: 1;
+      grid-column: 3/-1;
+      margin: 0;
+    }
+    .bio {
+      text-align: left;
+      margin: var(--spacing-medium) 0;
+    }
+  }
+}

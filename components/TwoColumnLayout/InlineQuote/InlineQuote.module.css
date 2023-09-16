@@ -1,15 +1,22 @@
 .container {
   margin: var(--spacing-medium) 0;
 }
+
 .quote {
+  font-size: 2.369rem;
+  line-height: 2.4rem;
   padding: var(--spacing-medium) 0;
   border-top: 4px solid var(--blueFour);
   border-bottom: 1px solid var(--blueThree);
   margin-bottom: var(--spacing-medium);
 }
+
 .attribution {
   color: var(--blueThree);
+  font-size: 1.777rem;
+  line-height: 1.8rem;
 }
+
 .source {
   text-transform: uppercase;
 }
@@ -18,7 +25,13 @@
   text-decoration: underline;
 }
 @media only screen and (max-width: 768px) {
-  .inner {
-    padding: 0 var(--spacing-medium);
+  .attribution {
+    font-size: 1.728rem;
+    line-height: 1.8rem;
+  }
+
+  .quote {
+    font-size: 2.074rem;
+    line-height: 2.1rem;
   }
 }

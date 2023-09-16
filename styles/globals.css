@@ -35,9 +35,11 @@
   --flexa-mono: FlexaVarMono, Pressura, Helvetica Neue, sans-serif;
   --pressura: Pressura, Helvetica Neue, sans-serif;
 
+  /* FLEXIBLE LENGTH WITHIN A GRID CONTAINER */
   --grid-col: repeat(4, minmax(0, 1fr));
   --grid-col-6: repeat(6, minmax(0, 1fr));
   --grid-col-8: repeat(8, minmax(0, 1fr));
+  --grid-col-16: repeat(16, minmax(0, 1fr));
   --grid-col-mobile: repeat(1, minmax(0, 1fr));
 }
 

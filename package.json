@@ -10,6 +10,9 @@
     "typescript": "npx tsc",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },

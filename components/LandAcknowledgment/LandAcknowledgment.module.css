@@ -9,8 +9,6 @@
 .title {
   margin-bottom: var(--spacing-large);
 }
-.statement {
-}
 .textContainer {
   position: relative;
   grid-column: 1/7;
@@ -29,6 +27,10 @@
 @media only screen and (max-width: 768px) {
   .container {
     padding: var(--spacing-small);
+    margin-top: var(--spacing-medium);
+  }
+  .title {
+    margin-bottom: var(--spacing-medium);
   }
   .image {
     display: none;

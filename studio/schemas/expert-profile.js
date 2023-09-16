@@ -27,6 +27,7 @@ export default {
       description:
         'Turn this on if this expert should have their own spotlight page with more information.',
       type: 'boolean',
+      initialValue: false,
       validation: (Rule) => Rule.required(),
     },
     {
@@ -44,6 +45,13 @@ export default {
       hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
     {
+      name: 'expertTitle',
+      title: 'Title',
+      type: 'string',
+      description: "This person's title",
+      hidden: ({ parent }) => parent?.expertType !== 'individual',
+    },
+    {
       name: 'organization',
       title: 'Organization',
       type: 'string',
@@ -51,7 +59,6 @@ export default {
         'The organization this individual is associated with, if any',
       hidden: ({ parent }) => parent?.expertType !== 'individual',
     },
-
     {
       title: 'Slug',
       name: 'slug',

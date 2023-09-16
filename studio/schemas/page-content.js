@@ -5,6 +5,7 @@ export default [
   { type: 'twoColumnLayout' },
   { type: 'threeColumnLayout' },
   { type: 'quote' },
+  { type: 'meetOurExperts' },
   { type: 'callout' },
   { type: 'fullWidthImage' },
   { type: 'fullWidthStatement' },
@@ -15,7 +16,11 @@ export default [
   { type: 'individualPartnerFeature' },
   { type: 'resourceSection' },
   { type: 'aboutBlock' },
+  { type: 'ourClients' },
+  { type: 'ourOfferings' },
   { type: 'partnerSection' },
+  { type: 'fundingPartners' },
+  { type: 'newsletterCTA' },
   { type: 'downloadsSection' },
   { type: 'individualPressFeature' },
   { type: 'logline' },
@@ -23,6 +28,7 @@ export default [
   { type: 'libraryOfExpertsSection' },
   { type: 'characterProfilesTeaseSection' },
   { type: 'characterProfilesSection' },
+  { type: 'pressHero' },
   {
     type: 'reference',
     to: [

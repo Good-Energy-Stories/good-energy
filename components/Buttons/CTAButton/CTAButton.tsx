@@ -14,7 +14,6 @@ enum ButtonType {
 
 export enum ButtonLabelSize {
   Small = 'small',
-
   Large = 'large',
 }
 

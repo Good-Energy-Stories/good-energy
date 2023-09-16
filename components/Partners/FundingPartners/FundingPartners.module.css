@@ -1,0 +1,92 @@
+.container {
+  grid-column: 1/-1;
+  position: relative;
+  padding: 0 var(--spacing-large);
+  margin: var(--spacing-large) 0;
+}
+
+.partnersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.partner {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  flex: 0 0 calc(20% - var(--spacing-small));
+}
+
+/* See More Button */
+.container button {
+  position: absolute;
+  top: 0;
+  margin-top: var(--spacing-xxsmall);
+  right: var(--spacing-large);
+}
+
+.partner img {
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  border-bottom: 1px solid var(--blueThree);
+  margin: 0 var(--spacing-large);
+  padding-bottom: var(--spacing-small);
+  color: var(--blueThree);
+}
+
+.buttonRow {
+  grid-column: span 4;
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-large) 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .hiddenMobile {
+    display: none !important;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0 var(--spacing-small);
+  }
+
+  .container button {
+    position: relative;
+  }
+
+  .partner {
+    flex: 0 0 calc(100% - var(--spacing-small));
+  }
+
+  .partnersContainer {
+    justify-content: center;
+  }
+
+  .buttonContainer {
+    grid-column: span 8;
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttonContainer button {
+    position: relative;
+    align-items: center;
+    margin-top: var(--spacing-medium);
+    right: 0;
+  }
+
+  .title {
+    margin: 0;
+  }
+}

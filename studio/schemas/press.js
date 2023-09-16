@@ -21,6 +21,13 @@ export default {
       name: 'outlet',
       type: 'outlet',
     },
+    {
+      title: 'Alt Logo (For Press Hero section only)',
+      description:
+        'For example, a different color treatment with transparent background',
+      name: 'altLogo',
+      type: 'image',
+    },
   ],
   preview: {
     select: {

@@ -1,3 +1,8 @@
+/**
+ * Main component renderer.
+ * Reads CMS content data and renders appropriate React component.
+ */
+
 import dynamic from 'next/dynamic';
 const PartnerSection = dynamic(() => import('../Partners/PartnerSection'));
 const PageDivider = dynamic(() => import('../PageDivider/PageDivider'));
@@ -26,6 +31,7 @@ const AboutBlock = dynamic(() => import('../AboutBlock/AboutBlock'));
 const PressSection = dynamic(
   () => import('../Press/PressSection/PressSection'),
 );
+const PressHero = dynamic(() => import('../Press/PressHero/PressHero'));
 const DownloadsSection = dynamic(
   () => import('../DownloadsSection/DownloadsSection'),
 );
@@ -58,6 +64,21 @@ const FullWidthImage = dynamic(
   () => import('../FullWidthImage/FullWidthImage'),
 );
 const Testimonial = dynamic(() => import('../Testimonial/Testimonial'));
+const OurOfferings = dynamic(
+  () => import('../LandingPage/OurOfferings/OurOfferings'),
+);
+const OurClients = dynamic(
+  () => import('../LandingPage/OurClients/OurClients'),
+);
+const NewsletterCTA = dynamic(
+  () => import('../LandingPage/NewsletterCTA/NewsletterCTA'),
+);
+const MeetOurExperts = dynamic(
+  () => import('../MeetOurExperts/MeetOurExperts'),
+);
+const FundingPartners = dynamic(
+  () => import('../Partners/FundingPartners/FundingPartners'),
+);
 
 const PageContent = ({ content }: any) => {
   const type = content._type;
@@ -71,8 +92,6 @@ const PageContent = ({ content }: any) => {
       return <Testimonial data={content} />;
     case 'twoColumnLayout':
       return <TwoColumnLayout data={content} />;
-    case 'fullWidthImage':
-      return <FullWidthImage data={content} />;
     case 'pageDivider':
       return <PageDivider data={content} />;
     case 'partnerSection':
@@ -99,6 +118,12 @@ const PageContent = ({ content }: any) => {
       return <AboutBlock data={content} />;
     case 'pressSection':
       return <PressSection data={content} />;
+    case 'pressHero':
+      return <PressHero data={content} />;
+    case 'ourClients':
+      return <OurClients data={content} />;
+    case 'ourOfferings':
+      return <OurOfferings data={content} />;
     case 'downloadsSection':
       return <DownloadsSection data={content} />;
     case 'individualPressFeature':
@@ -115,6 +140,12 @@ const PageContent = ({ content }: any) => {
       return <CharacterProfilesTeaseSection data={content} />;
     case 'characterProfilesSection':
       return <CharacterProfilesSection data={content} />;
+    case 'newsletterCTA':
+      return <NewsletterCTA data={content} />;
+    case 'meetOurExperts':
+      return <MeetOurExperts data={content} />;
+    case 'fundingPartners':
+      return <FundingPartners data={content} />;
     default:
       return null;
   }

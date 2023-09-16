@@ -1,28 +1,31 @@
 import { imageMeta } from './imageMeta';
 import { pageSeo } from './pageSeo';
-import { partner, partnerSection } from './partners';
+import { partner, partnerSection, fundingPartners } from './partners';
 import { teamSection } from './team';
 import { resourceSection } from './resource';
-import { pressFragment, pressSection } from './press';
+import { pressHero, pressFragment, pressSection } from './press';
 import { characterProfilePreview } from './characterProfiles';
 import { expertProfilePreview } from './expertProfiles';
 import { featuredVoice } from './featuredVoices';
+import { ourOfferings } from './ourOfferings';
+import { ourClients } from './clients';
+import { meetOurExperts } from './meetOurExperts';
 import { thirdColumnPageContentFragment, loglineFragment } from './playbook';
 
 export const calloutFragment = `
-title, 
+title,
 information
 `;
 
 export const climateLensBlockFragment = `
-title, 
+title,
 information,
 showLinkToBookAConsultation
 `;
 
 export const halfColumnPageContentFragment = `
 _type == 'reference' => @->{
-   
+
   },
   _type != 'reference' => {
     _type == 'spotIllustration' => {
@@ -91,7 +94,7 @@ export const threeColumnLayoutFragment = `
     rightColumn[]{
       ${thirdColumnPageContentFragment}
     }
-  
+
 `;
 
 export const pageContentFragment = `
@@ -106,7 +109,7 @@ export const pageContentFragment = `
     },
     _type == 'testimonial' => {
         _type,
-       
+
         ...
     },
     _type == 'calloutSection' => {
@@ -168,6 +171,30 @@ export const pageContentFragment = `
       _type,
       ...
     },
+    _type == 'ourOfferings' => {
+      _type,
+      ${ourOfferings}
+    },
+    _type == 'meetOurExperts' => {
+      _type,
+      ${meetOurExperts}
+    },
+    _type == 'ourClients' => {
+      _type,
+      ${ourClients}
+    },
+    _type == 'pressHero' => {
+      _type,
+      ${pressHero}
+    },
+    _type == 'fundingPartners' => {
+      _type,
+      ${fundingPartners}
+    },
+    _type == 'newsletterCTA' => {
+      _type,
+      ...
+    },
     _type == 'landAcknowledgment' => {
       _type,
       ...
@@ -195,7 +222,7 @@ export const pageContentFragment = `
     _type == 'characterProfilesTeaseSection' => {
       _type,
       tag,
-      title, 
+      title,
       description,
       "content": characterProfiles[] {
         _type == 'reference' => @->{
@@ -277,7 +304,7 @@ export const playbookHomePageQuery = `
   ${pageFragment}
 }[0]
 `;
-export const characterProfilesPageQuery = `*[_type == "characterProfilesPage"] { 
+export const characterProfilesPageQuery = `*[_type == "characterProfilesPage"] {
   ${pageFragment}
 }[0]`;
 

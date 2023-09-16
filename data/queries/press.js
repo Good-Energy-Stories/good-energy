@@ -11,6 +11,9 @@ title,
 link,
 outlet {
   ${outletFragment}
+},
+altLogo {
+  ${imageMeta}
 }
 `;
 
@@ -19,4 +22,15 @@ title,
 content[]->{
     ${pressFragment}
 },
+`;
+
+export const pressHero = `
+mainArticle->{
+  ${pressFragment}
+},
+CTAText,
+CTALink,
+content[]->{
+  ${pressFragment}
+}
 `;

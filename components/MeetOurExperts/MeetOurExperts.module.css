@@ -1,0 +1,130 @@
+.container {
+  grid-column: 1/-1;
+  padding: var(--spacing-large);
+  color: var(--white);
+  background: var(--black);
+
+  display: grid;
+  grid-template-columns: var(--grid-col-8);
+  gap: var(--spacing-large);
+}
+
+.column {
+  position: relative;
+  grid-column: span 4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  align-items: flex-start;
+}
+
+.logo {
+  grid-column: 1/5;
+  margin: 0;
+  padding: 0;
+}
+
+.statement {
+  grid-column: 5/9;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.expertCardContainer {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .gradientFade:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      var(--black) 90%
+    );
+    width: 100%;
+    height: 6em;
+  }
+
+  .gradientFade:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      var(--black) 90%
+    );
+    width: 100%;
+    height: 6em;
+  }
+}
+
+.primary {
+  animation: slide 24s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    /* Each expert is
+        (96px + 20px padding-top + 20px padding-bottom + 4px border)
+        * 12 experts
+        = 1680px
+    */
+    transform: translate3d(0, -1680px, 0);
+  }
+}
+
+.scrollElement {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.expertCardContainer::-webkit-scrollbar {
+  overflow-y: hidden;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: var(--spacing-medium) var(--spacing-medium);
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .primary {
+    animation: none;
+  }
+
+  .gradientFade {
+    height: 120px;
+  }
+
+  .logo {
+    grid-column: 1/9;
+  }
+  .statement {
+    grid-column: 1/9;
+  }
+}
