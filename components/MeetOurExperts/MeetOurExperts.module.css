@@ -76,7 +76,7 @@
 }
 
 .primary {
-  animation: slide 20s linear infinite;
+  animation: slide 24s linear infinite;
 }
 
 @keyframes slide {
@@ -85,9 +85,9 @@
   }
   100% {
     /* Each expert is
-      (96px + 20px padding-top + 20px padding-bottom + 4px border)
-      * 12 experts
-      = 1680px
+        (96px + 20px padding-top + 20px padding-bottom + 4px border)
+        * 12 experts
+        = 1680px
     */
     transform: translate3d(0, -1680px, 0);
   }

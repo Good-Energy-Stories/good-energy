@@ -13,11 +13,13 @@ const cx = classnames.bind(styles);
 const MeetOurExperts = ({ data }: any) => {
   const { title, description, CTAText, CTALink, expertProfiles } = data;
 
-  // RENDER TWO EXTRA EXPERTS TO SMOOTH INFINITE SCROLL EFFECT
+  // RENDER FOUR EXTRA EXPERTS TO SMOOTH INFINITE SCROLL EFFECT
   const profilesCopy = JSON.parse(JSON.stringify(expertProfiles));
   const renderedExperts = expertProfiles.concat([
     profilesCopy[0],
     profilesCopy[1],
+    profilesCopy[2],
+    profilesCopy[3],
   ]);
 
   const renderExperts = (content) => {

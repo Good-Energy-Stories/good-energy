@@ -26,6 +26,11 @@
   width: calc(70% - var(--spacing-medium));
 }
 
+.nameContainer {
+  margin-bottom: var(--spacing-xxsmall);
+  overflow-x: visible;
+}
+
 .name {
   display: inline;
   margin-bottom: var(--spacing-xxsmall);
