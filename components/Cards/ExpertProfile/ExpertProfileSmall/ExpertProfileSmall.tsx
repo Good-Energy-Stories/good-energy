@@ -49,8 +49,10 @@ const ExpertProfileSmall = ({
         )}
       </div>
       <div className={styles.textContainer}>
-        <h4 className={styles.name}>{name}</h4>
-        <span className={cx(styles.pronouns, 'label-small')}>{pronouns}</span>
+        <div className={styles.nameContainer}>
+          <h4 className={styles.name}>{name}</h4>
+          <span className={cx(styles.pronouns)}>{pronouns}</span>
+        </div>
         <span className={styles.title}>{title}</span>
         <span className={styles.organization}>{organization}</span>
       </div>
