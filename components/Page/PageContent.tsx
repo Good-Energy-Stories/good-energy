@@ -1,3 +1,8 @@
+/**
+ * Main component renderer.
+ * Reads CMS content data and renders appropriate React component.
+ */
+
 import dynamic from 'next/dynamic';
 const PartnerSection = dynamic(() => import('../Partners/PartnerSection'));
 const PageDivider = dynamic(() => import('../PageDivider/PageDivider'));
