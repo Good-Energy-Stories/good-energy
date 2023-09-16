@@ -1,7 +1,7 @@
 const Copyright = () => {
   return (
     <>
-      <div>©2022 Good Energy</div>
+      <div>©{new Date().getFullYear()} Good Energy</div>
 
       <style jsx>{`
         div {
