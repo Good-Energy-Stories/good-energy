@@ -5,29 +5,28 @@
 Install the project dependencies:
 
 ```
-npm i
+yarn
 ```
 
 This will download the project's dependencies.
-
-You may need to run `npm i --force`, due to upgrade to `npm@7` where `npm install` will fail when it encounters conflicting peerDependencies. This is due to package `nextjs-breadcrumbs`. See [this link](https://stackoverflow.com/a/74418970).
 
 Add the `.env.local` file to the root directory of this repo. Please contact an admin for the environment variables.
 
 To run the site locally, run:
 
 ```
-npm run dev
+yarn dev
 ```
 
 To locally run the CMS, Sanity, go into the `studio/` folder. From the project root, run `cd studio` in a terminal.
 
 To install the [Sanity CLI](https://www.sanity.io/docs/cli), run:
+
 ```
 npm install --g sanity@latest
 ```
 
-Run `npm install` again in this directory, then run:
+Run `yarn` again in this directory, then run:
 
 ```
 sanity install
@@ -52,14 +51,14 @@ To create a new content section on the website, there are three steps:
 
 Content is never stored locally. Data is always stored in Sanity's hosted Content Lake. This means you can make changes to local data schemas without changing any other existing content.
 
-**** WARNING: **** This also means that components may be in use on the site that aren't referenced outside the renderer. Be careful when changing components, because those components may be in use elsewhere on the site. Check the CMS and schema to confirm.
+\***\* WARNING: \*\*** This also means that components may be in use on the site that aren't referenced outside the renderer. Be careful when changing components, because those components may be in use elsewhere on the site. Check the CMS and schema to confirm.
 
 ### Testing
 
 To build your Studio for production locally, run the following command in the Studio project folder:
 
 ```sh
-npm run build
+yarn build
 ```
 
 ### Deployment and infrastructure
