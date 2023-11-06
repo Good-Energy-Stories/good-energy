@@ -12,15 +12,23 @@ export default function resolveProductionUrl(doc) {
     window.location.hostname === 'localhost' ? localUrl : remoteUrl;
 
   var path = '';
+  var pathname = '';
+
   switch (doc._type) {
     case 'article':
       path = `playbook`;
+      pathname = 'articlePreview';
+      break;
+    case 'offeringsPage':
+      path = `offerings`;
+      pathname = 'offeringsPreview';
+      break;
   }
 
   const url = `${baseUrl}/${path}`;
   const previewUrl = new URL(url);
 
-  previewUrl.pathname = `/api/articlePreview`;
+  previewUrl.pathname = `/api/${pathname}`;
 
   var slug = doc?.slug?.current;
 
