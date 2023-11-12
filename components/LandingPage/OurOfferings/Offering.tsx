@@ -16,19 +16,21 @@ const Offering = ({ key, data }) => {
       <div className={styles.imageContainer}>
         <Photo photo={image} />
       </div>
-      <div className={cx('label-medium', styles.name)}>{title}</div>
+      {title && <div className={cx('label-medium', styles.name)}>{title}</div>}
       <h4 className={'h4-updated'}>{displayTitle}</h4>
       <PortableText value={description} components={PortableTextSerializer} />
-      <CTAButton
-        className={styles.cta}
-        data={{
-          label: CTAText,
-          labelSize: ButtonLabelSize.Small,
-          link: CTALink,
-          backgroundColor: 'white',
-          type: 'fill',
-        }}
-      />
+      {CTAText && CTALink && (
+        <CTAButton
+          className={styles.cta}
+          data={{
+            label: CTAText,
+            labelSize: ButtonLabelSize.Small,
+            link: CTALink,
+            backgroundColor: 'white',
+            type: 'fill',
+          }}
+        />
+      )}
     </div>
   );
 };

@@ -17,7 +17,6 @@ export default {
       title: 'Heading Name',
       type: 'string',
       description: "Ex. 'Consulting', 'Workshops', 'Playbook', 'Research'",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'displayTitle',
@@ -58,14 +57,12 @@ export default {
       type: 'string',
       description:
         "What the button should say. ex. 'View Menu of Services', 'Book A Workshop', etc.",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'CTALink',
       title: 'CTA Button Link',
       type: 'string',
       description: 'Where the button should link to (slug)',
-      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
