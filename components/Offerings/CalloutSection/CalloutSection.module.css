@@ -6,10 +6,15 @@
   padding: 0 var(--spacing-large);
 }
 
-.container[data-theme='dark'] {
+.container[data-theme='black'] {
   padding: var(--spacing-large);
   background: var(--black);
   color: var(--white);
+}
+
+.container[data-theme='white'] {
+  padding: var(--spacing-large);
+  background: var(--white);
 }
 
 .marginBottom {
@@ -33,7 +38,11 @@
   .callout {
     margin-bottom: var(--spacing-medium);
   }
-  .container[data-theme='dark'] {
+  .container[data-theme='black'] {
+    padding: var(--spacing-large) var(--spacing-small);
+  }
+
+  .container[data-theme='white'] {
     padding: var(--spacing-large) var(--spacing-small);
   }
 }

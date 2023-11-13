@@ -8,10 +8,17 @@
 .container {
   grid-column: 1/-1;
   margin: 0 var(--spacing-large);
-  border-top: 1px solid var(--blueThree);
   display: grid;
   grid-template-columns: var(--grid-col-8);
   gap: var(--spacing-large);
+}
+
+.containerRule {
+  border-top: 1px solid var(--blueThree);
+}
+
+.clearTopRule:not(:nth-child(1)) {
+  border-top: 1px solid var(--blueThree);
 }
 
 @media only screen and (max-width: 768px) {

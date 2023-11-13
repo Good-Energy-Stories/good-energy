@@ -19,6 +19,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: 'Clear Top Padding',
+      name: 'clearTopPadding',
+      type: 'boolean',
+    },
+    {
       title: 'Label',
       name: 'label',
       type: 'string',

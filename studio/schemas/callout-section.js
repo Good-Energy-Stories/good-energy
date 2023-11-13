@@ -17,6 +17,11 @@ export default {
       description: 'Should this section add margin below. Defaults to true.',
     },
     {
+      name: 'clearTopRule',
+      title: 'Clear Top Rule',
+      type: 'boolean',
+    },
+    {
       title: 'Background Color',
       name: 'backgroundColor',
       type: 'string',

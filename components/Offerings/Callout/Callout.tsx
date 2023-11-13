@@ -17,10 +17,19 @@ const variants = {
 };
 
 const Callout = ({ data, className }: any) => {
-  const { title, information } = data;
+  const { title, information, clearTopRule } = data;
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <div ref={ref} className={cx(styles.container, className)}>
+    <div
+      ref={ref}
+      className={cx(
+        styles.container,
+        !clearTopRule && styles.containerRule,
+        clearTopRule && styles.clearTopRule,
+        className,
+      )}
+    >
       <h3 className={styles.title}>{title}</h3>
       <motion.div
         variants={variants}
