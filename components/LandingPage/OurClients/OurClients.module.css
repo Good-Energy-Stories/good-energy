@@ -37,6 +37,10 @@
   margin-top: var(--spacing-medium);
 }
 
+.conditionalContainerMargin {
+  margin-bottom: var(--spacing-medium);
+}
+
 .photo {
   object-fit: contain;
   width: 180px;

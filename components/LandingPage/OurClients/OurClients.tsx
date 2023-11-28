@@ -28,15 +28,22 @@ const OurClients = ({ data }) => {
     return dataTheme;
   }, [clearBackground]);
 
+  const getClientContainerStyles = () => {
+    const baseStyle = styles.clientContainer;
+    const conditionalStyle =
+      !CTALink && !CTAText ? styles.conditionalContainerMargin : '';
+
+    return cx(baseStyle, conditionalStyle);
+  };
+
   return (
     <div data-theme={getDataTheme()} className={styles.container}>
       <Heading title={title} />
-      {description && (
-        <div className={styles.paragraphContainer}>
-          <p className="body">{description}</p>
-        </div>
-      )}
-      <div className={styles.clientContainer}>
+      <div className={styles.paragraphContainer}>
+        <p className="body">{description}</p>
+      </div>
+
+      <div className={getClientContainerStyles()}>
         {clients?.map((item, index) => {
           return (
             <Photo
