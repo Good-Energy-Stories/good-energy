@@ -31,9 +31,11 @@ const OurClients = ({ data }) => {
   return (
     <div data-theme={getDataTheme()} className={styles.container}>
       <Heading title={title} />
-      <div className={styles.paragraphContainer}>
-        <p className="body">{description}</p>
-      </div>
+      {description && (
+        <div className={styles.paragraphContainer}>
+          <p className="body">{description}</p>
+        </div>
+      )}
       <div className={styles.clientContainer}>
         {clients?.map((item, index) => {
           return (
