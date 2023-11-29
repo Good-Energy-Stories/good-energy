@@ -23,14 +23,16 @@
       "@/lib/*": ["lib/*"],
       "@/utils/*": ["utils/*"],
       "@/data/*": ["data/*"]
-    }
+    },
+    "types": ["jest", "node", "puppeteer"]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
-    "pages/api/logoutts"
+    "pages/api/logoutts",
+    "test/snapshot.test.js"
   ],
   "exclude": ["node_modules"]
 }
