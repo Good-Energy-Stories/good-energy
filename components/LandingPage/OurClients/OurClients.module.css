@@ -18,6 +18,12 @@
   color: var(--white);
 }
 
+.container[data-theme='white'] {
+  padding: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+  background: var(--white);
+}
+
 .paragraphContainer {
   grid-column: span 4;
   margin-top: var(--spacing-medium);
@@ -31,10 +37,21 @@
   margin-top: var(--spacing-medium);
 }
 
+.conditionalContainerMargin {
+  margin-bottom: var(--spacing-medium);
+}
+
 .photo {
   object-fit: contain;
   width: 180px;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo div {
+  width: 100%;
 }
 
 .title {

@@ -1,7 +1,7 @@
 /**
  * Client logo parade for homepage.
  */
-
+import { useCallback } from 'react';
 import classnames from 'classnames';
 import styles from './OurClients.module.css';
 import Photo from '../../Photo/Photo';
@@ -9,15 +9,41 @@ import Heading from '../../Heading/Heading';
 import SeeMoreButton from '../../Buttons/SeeMoreButton/SeeMoreButton';
 const cx = classnames.bind(styles);
 
+enum CalloutSectionTheme {
+  Clear = 'none',
+  White = 'white',
+}
+
 const OurClients = ({ data }) => {
-  const { title, description, clients, CTAText, CTALink } = data;
+  const { title, description, clients, CTAText, CTALink, clearBackground } =
+    data;
+
+  const getDataTheme = useCallback(() => {
+    let dataTheme = CalloutSectionTheme.White;
+
+    if (clearBackground === true) {
+      dataTheme = CalloutSectionTheme.Clear;
+    }
+
+    return dataTheme;
+  }, [clearBackground]);
+
+  const getClientContainerStyles = () => {
+    const baseStyle = styles.clientContainer;
+    const conditionalStyle =
+      !CTALink && !CTAText ? styles.conditionalContainerMargin : '';
+
+    return cx(baseStyle, conditionalStyle);
+  };
+
   return (
-    <div data-theme={'white'} className={styles.container}>
+    <div data-theme={getDataTheme()} className={styles.container}>
       <Heading title={title} />
       <div className={styles.paragraphContainer}>
         <p className="body">{description}</p>
       </div>
-      <div className={styles.clientContainer}>
+
+      <div className={getClientContainerStyles()}>
         {clients?.map((item, index) => {
           return (
             <Photo
@@ -28,9 +54,11 @@ const OurClients = ({ data }) => {
           );
         })}
       </div>
-      <div className={styles.buttonContainer}>
-        <SeeMoreButton label={CTAText} link={CTALink} />
-      </div>
+      {CTAText && CTALink && (
+        <div className={styles.buttonContainer}>
+          <SeeMoreButton label={CTAText} link={CTALink} />
+        </div>
+      )}
     </div>
   );
 };

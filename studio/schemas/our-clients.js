@@ -25,6 +25,11 @@ export default {
       description: 'Supporting text for client logos.',
     },
     {
+      name: 'clearBackground',
+      title: 'Clear Background',
+      type: 'boolean',
+    },
+    {
       name: 'CTAText',
       title: 'CTA Text',
       type: 'string',

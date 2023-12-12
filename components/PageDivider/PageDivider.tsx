@@ -41,7 +41,7 @@ export const PageDivider = ({ data, className, style }: any) => {
           styles.inner,
           data?.labelSize === PageDividerLabelSize.ExtraLarge &&
             styles.extraLarge,
-          data?.label && styles.padding,
+          data.label && styles.padding,
         )}
       >
         {data?.label && <Label size={data.labelSize} label={data.label} />}

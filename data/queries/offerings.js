@@ -49,7 +49,7 @@ _type == 'reference' => @->{
     },
     _type == 'statement' => {
         _type,
-       ...
+      ...
     },
     _type == 'ctaButton' => {
       _type,
